@@ -6,10 +6,19 @@ import math
 OMEGA_PHOTONS = 1.0
 OMEGA_ATOM = 1.0
 HBAR = 1.0
-HILBERT_DIM_PHOTON = 4
+HILBERT_DIM_PHOTON = 20
 G = 10.0
 KAPPA = 3.0
-ENABLE_DECAY = True
+REPUMP = 1.0
+ENABLE_DECAY = False
+ENABLE_REPUMP = False
+
+def create_coherent_state(fock_space_dim, alpha):
+    return np.exp(-np.abs(alpha)**2) *  sum((alpha**n)/np.sqrt(math.factorial(n))*qx.fock(fock_space_dim, n) for n in range(0, fock_space_dim))
+
+def normalize_state(state):
+    state *= 1/np.sqrt((state.dag() * state).tr())
+    return state
 
 def tens_from_fock(f_op):
     return qx.tensor(qx.qeye(2), f_op)
@@ -28,24 +37,38 @@ op_n = op_ad * op_a
 spin_up = qx.spin_state(1/2, 1/2)
 spin_down = qx.spin_state(1/2, -1/2)
 
-op_collapsing = [KAPPA * tens_from_fock(op_a)]
+op_collapsing = []
+if ENABLE_DECAY:
+    op_collapsing.append(KAPPA * tens_from_fock(op_a)) 
+if ENABLE_REPUMP:
+    op_collapsing.append(REPUMP * tens_from_spin(op_s_pos))
 
 op_hamiltonian = HBAR * OMEGA_ATOM / 2.0 * tens_from_spin(op_sz) + HBAR * OMEGA_ATOM * tens_from_fock(op_ad * op_a) + HBAR * G / 2.0 * (qx.tensor(op_s_pos, op_a) + qx.tensor(op_s_neg, op_ad))
 
-psi_init = qx.tensor(spin_up, qx.fock(HILBERT_DIM_PHOTON, 0)) # = |e,0>
+#psi_init = qx.tensor(spin_up, qx.fock(HILBERT_DIM_PHOTON, 0)) # = |e,0>
 
-time_range = np.linspace(0, 1, 100)
+psi_init = qx.tensor(spin_up, qx.coherent(HILBERT_DIM_PHOTON, math.sqrt(10)))
+#psi_init = qx.tensor(spin_down, create_coherent_state(HILBERT_DIM_PHOTON, math.sqrt(10)))
+
+time_range = np.linspace(0, 10, 1000)
 
 if ENABLE_DECAY:
     result = qx.mesolve(op_hamiltonian, psi_init, time_range, op_collapsing, [])
 else:
     result = qx.mesolve(op_hamiltonian, psi_init, time_range, [], [])
 
+
+#print(create_coherent_state(HILBERT_DIM_PHOTON, math.sqrt(10)))
+#print(normalize_state(create_coherent_state(2, 1)))
+
+
 first_mesure = qx.tensor(spin_down, qx.fock(HILBERT_DIM_PHOTON, 1)) # |g,1>
 second_mesure = qx.tensor(spin_up, qx.fock(HILBERT_DIM_PHOTON, 0)) # |e,0>
+#third_mesure = psi_init
 
 res_first = qx.expect(first_mesure * first_mesure.dag(), result.states)
 res_second = qx.expect(second_mesure * second_mesure.dag(), result.states)
+#res_third = qx.expect(third_mesure * third_mesure.dag(), result.states)
 
 op_n_all = tens_from_fock(op_n)
 
