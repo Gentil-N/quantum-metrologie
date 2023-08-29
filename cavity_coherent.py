@@ -63,20 +63,19 @@ else:
 #print(normalize_state(create_coherent_state(2, 1)))
 
 
-first_mesure = qx.tensor(spin_down, sum(qx.fock(HILBERT_DIM_PHOTON, n) for n in range(HILBERT_DIM_PHOTON))) # |g,1>
-second_mesure = sum(qx.tensor(spin_up, qx.fock(HILBERT_DIM_PHOTON, n)) for n in range(HILBERT_DIM_PHOTON)) # |e,0>
+first_mesure = qx.tensor(spin_down, qx.qeye(HILBERT_DIM_PHOTON)) # |g>
+second_mesure = qx.tensor(spin_up, qx.qeye(HILBERT_DIM_PHOTON)) # |e>
 #third_mesure = psi_init
 
 res_first = qx.expect(first_mesure * first_mesure.dag(), result.states)
 res_second = qx.expect(second_mesure * second_mesure.dag(), result.states)
 #res_third = qx.expect(third_mesure * third_mesure.dag(), result.states)
 
-op_n_all = tens_from_fock(op_n)
-
+#op_n_all = tens_from_fock(op_n)
+op_n_all = qx.tensor(spin_up * spin_up.dag(), op_n)
 res_n = qx.expect(op_n_all, result.states)
 
 res_pe_test = []
-
 for t in time_range:
     value = 0.0
     for n in range(HILBERT_DIM_PHOTON):
@@ -85,22 +84,22 @@ for t in time_range:
 
 fig0 = plt.figure(num=0)
 ax0 = fig0.subplots(nrows=1, ncols=1)
-ax0.set_title(label="Simple Cavity (1 atom - 1 photon) start |e, 0>")
-ax0.plot(time_range, res_first, label = "|<g,1|ψ(t)>|²")
-ax0.plot(time_range, res_second, label= "|<e,0|ψ(t)>|²")
+ax0.set_title(label="Cavity start |α=" + str(COHERENT_ALPHA) + ">")
+ax0.plot(time_range, res_first, label = "|<g|ψ(t)>|²")
+ax0.plot(time_range, res_second, label= "|<e|ψ(t)>|²")
 ax0.set(xlabel="time", ylabel="probabilities")
 ax0.legend()
 
 fig1 = plt.figure(num=1)
 ax1 = fig1.subplots(nrows=1, ncols=1)
-ax1.set_title(label="Simple Cavity (1 atom - 1 photon) start |e, 0>")
+ax1.set_title(label="Cavity start |α=" + str(COHERENT_ALPHA) + ">")
 ax1.plot(time_range, res_n, label="|<ψ(t)|N|ψ(t)>|²")
 ax1.set(xlabel="time", ylabel="probabilities")
 ax1.legend()
 
 fig2 = plt.figure(num=2)
 ax2 = fig2.subplots(nrows=1, ncols=1)
-ax2.set_title(label="")
+ax2.set_title(label="Cavity start |α=" + str(COHERENT_ALPHA) + "> exact result")
 ax2.plot(time_range, res_pe_test, label="|<e|ψ(t)>|²")
 ax2.set(xlabel="time", ylabel="probabilities")
 ax2.legend()
