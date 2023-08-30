@@ -8,10 +8,10 @@ OMEGA_ATOM = 1.0
 HBAR = 1.0
 HILBERT_DIM_PHOTON = 40
 G = 10.0
-KAPPA = 3.0
+KAPPA = 0.01 *G
 REPUMP = 1.0
 COHERENT_ALPHA = math.sqrt(20)
-ENABLE_DECAY = False
+ENABLE_DECAY = True
 ENABLE_REPUMP = False
 
 def create_coherent_state(fock_space_dim, alpha):
