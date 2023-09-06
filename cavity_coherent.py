@@ -11,7 +11,7 @@ G = 10.0
 KAPPA = 0.01 *G
 REPUMP = 1.0
 COHERENT_ALPHA = math.sqrt(20)
-ENABLE_DECAY = True
+ENABLE_DECAY = False
 ENABLE_REPUMP = False
 
 def create_coherent_state(fock_space_dim, alpha):
@@ -27,8 +27,8 @@ def tens_from_fock(f_op):
 def tens_from_spin(s_op):
     return qx.tensor(s_op, qx.qeye(HILBERT_DIM_PHOTON))
 
-op_s_pos = qx.sigmax() + 1j * qx.sigmay()
-op_s_neg = qx.sigmax() - 1j * qx.sigmay()
+op_s_pos = 1/2 * (qx.sigmax() + 1j * qx.sigmay())
+op_s_neg = 1/2 * (qx.sigmax() - 1j * qx.sigmay())
 op_sz = qx.sigmaz()
 
 op_a = qx.destroy(HILBERT_DIM_PHOTON)
@@ -44,7 +44,7 @@ if ENABLE_DECAY:
 if ENABLE_REPUMP:
     op_collapsing.append(REPUMP * tens_from_spin(op_s_pos))
 
-op_hamiltonian = HBAR * OMEGA_ATOM / 2.0 * tens_from_spin(op_sz) + HBAR * OMEGA_ATOM * tens_from_fock(op_ad * op_a) + HBAR * G / 2.0 * (qx.tensor(op_s_pos, op_a) + qx.tensor(op_s_neg, op_ad))
+op_hamiltonian = HBAR * OMEGA_ATOM * tens_from_spin(op_sz) + HBAR * OMEGA_ATOM * tens_from_fock(op_ad * op_a) + HBAR * G * (qx.tensor(op_s_pos, op_a) + qx.tensor(op_s_neg, op_ad))
 
 #psi_init = qx.tensor(spin_up, qx.fock(HILBERT_DIM_PHOTON, 0)) # = |e,0>
 
@@ -62,7 +62,7 @@ else:
 #print(create_coherent_state(HILBERT_DIM_PHOTON, COHERENT_ALPHA))
 #print(normalize_state(create_coherent_state(2, 1)))
 
-
+print(result.states[0])
 first_mesure = qx.tensor(spin_down, qx.qeye(HILBERT_DIM_PHOTON)) # |g>
 second_mesure = qx.tensor(spin_up, qx.qeye(HILBERT_DIM_PHOTON)) # |e>
 #third_mesure = psi_init
@@ -85,7 +85,7 @@ for t in time_range:
 fig0 = plt.figure(num=0)
 ax0 = fig0.subplots(nrows=1, ncols=1)
 ax0.set_title(label="Cavity start |α=" + str(COHERENT_ALPHA) + ">")
-ax0.plot(time_range, res_first, label = "|<g|ψ(t)>|²")
+#ax0.plot(G * time_range, res_first, label = "|<g|ψ(t)>|²")
 ax0.plot(time_range, res_second, label= "|<e|ψ(t)>|²")
 ax0.set(xlabel="time", ylabel="probabilities")
 ax0.legend()
