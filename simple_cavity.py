@@ -51,6 +51,9 @@ op_hamiltonian_interaction = HBAR * G * (qx.tensor(op_s_pos, op_a) + qx.tensor(o
 op_hamiltonian =op_hamiltonian_base + op_hamiltonian_interaction
 
 psi_init = qx.tensor(spin_up, qx.fock(HILBERT_DIM_PHOTON, 0)) # = |e,0>
+print(psi_init.type == 'ket')
+psi_init = psi_init * psi_init.dag()
+print(psi_init.type == 'oper')
 
 time_range = np.linspace(0, 5, 1000)
 
