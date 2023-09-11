@@ -71,17 +71,33 @@ class Cavity:
         g2 = []
         i = 0
         for t in self.time_range:
-            if t == 0.0:
-                g2.append(0.0)
-                i += 1
-                continue
             op_u = self.__get_u_op_from_hamiltonian(t)
             op_ad_evol_heis = op_u.dag() * self.__tens_from_fock(self.op_ad) * op_u
             op_a_evol_heis = op_u.dag() * self.__tens_from_fock(self.op_a) * op_u
             norm_factor = (self.result[i] * self.__tens_from_fock(self.op_ad) * self.__tens_from_fock(self.op_a)).tr()**2
+            if norm_factor == 0.0:
+                g2.append(0.0)
+                i += 1
+                continue
             g2.append((self.result[i] * self.__tens_from_fock(self.op_ad) * op_ad_evol_heis * op_a_evol_heis * self.__tens_from_fock(self.op_a)).tr() / norm_factor)
             i += 1
         return g2
+    
+    def compute_g1(self):
+        g1 = []
+        i = 0
+        for t in self.time_range:
+            op_u = self.__get_u_op_from_hamiltonian(t)
+            op_ad_evol_heis = op_u.dag() * self.__tens_from_fock(self.op_ad) * op_u
+            op_a_evol_heis = op_u.dag() * self.__tens_from_fock(self.op_a) * op_u
+            norm_factor = np.sqrt((self.result[i] * op_ad_evol_heis * op_a_evol_heis).tr() * (self.result[i] * self.__tens_from_fock(self.op_ad) * self.__tens_from_fock(self.op_a)).tr())
+            if norm_factor == 0.0:
+                g1.append(0.0)
+                i += 1
+                continue
+            g1.append((self.result[i] * op_ad_evol_heis * self.__tens_from_fock(self.op_a)).tr() / norm_factor)
+            i += 1
+        return g1
 
     def __get_u_op_from_hamiltonian(self, time):
         return (-1j * self.op_hamiltonian * time / HBAR).expm()
