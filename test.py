@@ -3,12 +3,12 @@ import cavity as cty
 from matplotlib import pyplot as plt
 import numpy as np
 
-ATOM_COUNT = 1
+ATOM_COUNT = 2
 PHOTON_CAPACITY = 30
 
 simple_cav = cty.Cavity(1.0, 1.0, ATOM_COUNT, PHOTON_CAPACITY, 10.0, 1.0, 4.0, True, True) # freq 7000, g 73, k 4, r 4
 
-psi_init = qp.tensor(qp.spin_state(ATOM_COUNT/2, -ATOM_COUNT/2), qp.fock(PHOTON_CAPACITY + 1, 0))
+psi_init = qp.tensor(qp.spin_state(ATOM_COUNT/2, ATOM_COUNT/2), qp.fock(PHOTON_CAPACITY + 1, 0))
 #psi_init = qp.tensor(qp.spin_state(ATOM_COUNT/2, -ATOM_COUNT/2), qp.coherent(PHOTON_CAPACITY + 1, 1))
 
 time_range = simple_cav.run_simulation(psi_init, 0, 5, 100)
