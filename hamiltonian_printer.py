@@ -3,8 +3,8 @@ from matplotlib import pyplot as plt
 import numpy as np
 import math
 
-FOCK_DIM = 5
-ATOM_NUMBER = 5
+FOCK_DIM = 2
+ATOM_NUMBER = 1
 REVERSE = False
 
 def spin_dim(atom_number):
@@ -46,6 +46,18 @@ sp_all = tens_from_spin(sp)
 sm_all = tens_from_spin(sm)
 
 hamiltonian = n_all + sz_all + a_all * sp_all + ad_all * sm_all
+
+#hun = qx.Qobj([[1], [1], [1], [1], [1]])
+#op_hun = hun*hun.dag()
+#
+#print(op_hun)
+#
+#op_hun_tot = qx.tensor(op_hun, op_hun)
+#print(op_hun_tot)
+#print(hamiltonian)
+#res = hamiltonian * op_hun_tot - op_hun_tot * hamiltonian
+#
+#h_full = res.full()
 
 h_full = hamiltonian.full()
 

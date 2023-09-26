@@ -7,12 +7,12 @@ HBAR = 1.0
 
 class Cavity:
 
-    def __init__(self, mode_frequency, atomic_transition_frequency, atom_count, photon_capacity, coupling, kappa = 0.0, repump = 0.0, enable_decay = False, enable_repump = False) -> None:
-        self.init(mode_frequency, atomic_transition_frequency, atom_count, photon_capacity, coupling, kappa, repump, enable_decay, enable_repump)
+    def __init__(self, cavity_mode_frequency, atomic_transition_frequency, atom_count, photon_capacity, coupling, kappa = 0.0, repump = 0.0, enable_decay = False, enable_repump = False) -> None:
+        self.init(cavity_mode_frequency, atomic_transition_frequency, atom_count, photon_capacity, coupling, kappa, repump, enable_decay, enable_repump)
 
-    def init(self, mode_frequency, atomic_transition_frequency, atom_count, photon_capacity, coupling, kappa = 0.0, repump = 0.0, enable_decay = False, enable_repump = False):
+    def init(self, cavity_mode_frequency, atomic_transition_frequency, atom_count, photon_capacity, coupling, kappa = 0.0, repump = 0.0, enable_decay = False, enable_repump = False):
 
-        self.mf = mode_frequency
+        self.cf = cavity_mode_frequency
         self.af = atomic_transition_frequency
         self.a_count = atom_count
         self.spin_num = self.a_count / 2.0
@@ -33,13 +33,17 @@ class Cavity:
         self.op_a = qp.destroy(self.fock_dim)
         self.op_n = self.op_ad * self.op_a
 
-        self.op_hamiltonian_base = HBAR * self.__tens_from_fock(self.op_n) + HBAR * self.__tens_from_spin(self.op_jz)
+        #self.op_hamiltonian_base = HBAR * self.mf * self.__tens_from_fock(self.op_n) + HBAR * self.af * self.__tens_from_spin(self.op_jz)
+        #self.op_hamiltonian_intercation = HBAR * self.g / np.sqrt(self.a_count) * (qp.tensor(self.op_jp, self.op_a) + qp.tensor(self.op_jm, self.op_ad))
+        #self.op_hamiltonian = self.op_hamiltonian_base + self.op_hamiltonian_intercation
+
+        self.op_hamiltonian_base = HBAR * (self.cf - self.af) * self.__tens_from_fock(self.op_n)
         self.op_hamiltonian_intercation = HBAR * self.g / np.sqrt(self.a_count) * (qp.tensor(self.op_jp, self.op_a) + qp.tensor(self.op_jm, self.op_ad))
         self.op_hamiltonian = self.op_hamiltonian_base + self.op_hamiltonian_intercation
 
         self.op_collapsing = []
         if self.enable_decay:
-            self.op_collapsing.append(self.kappa * self.__tens_from_fock(self.op_a)) 
+            self.op_collapsing.append(self.kappa * self.__tens_from_fock(self.op_a))
         if self.enable_repump:
             self.op_collapsing.append(self.repump * self.__tens_from_spin(self.op_jp))
 
@@ -47,12 +51,12 @@ class Cavity:
         self.time_range = []
 
     def run_simulation(self, psi_init, time_start, time_stop, time_num):
-        if psi_init == 'ket':
+        if psi_init.type == 'ket':
             psi_init = psi_init * psi_init.dag()
-        elif psi_init == 'bra':
+        elif psi_init.type == 'bra':
             psi_init = psi_init.dag() * psi_init
         self.time_range = np.linspace(time_start, time_stop, time_num)
-        result = qp.mesolve(self.op_hamiltonian, psi_init, self.time_range, self.op_collapsing, [])
+        result = qp.mesolve(self.op_hamiltonian, psi_init, self.time_range, self.op_collapsing, [], options=qp.solver.Options(nsteps=1000), progress_bar=qp.ui.progressbar.TextProgressBar())
         self.result = result.states
         return self.time_range
 
@@ -98,6 +102,9 @@ class Cavity:
             g1.append((self.result[i] * op_ad_evol_heis * self.__tens_from_fock(self.op_a)).tr() / norm_factor)
             i += 1
         return g1
+
+    def get_state(self):
+        return self.result
 
     def __get_u_op_from_hamiltonian(self, time):
         return (-1j * self.op_hamiltonian * time / HBAR).expm()

@@ -1,0 +1,161 @@
+STARTING TEST: 1 atoms & 10 photon capacity
+Running simulation... Done in 0.2403736114501953s
+Computing g1... Done in 0.8433926105499268s
+Computing g2... Done in 0.8668076992034912s
+Total time: 1.9505739212036133s
+
+STARTING TEST: 1 atoms & 20 photon capacity
+Running simulation... Done in 0.6345551013946533s
+Computing g1... Done in 1.7866907119750977s
+Computing g2... Done in 1.858492136001587s
+Total time: 4.279737949371338s
+
+STARTING TEST: 1 atoms & 30 photon capacity
+Running simulation... Done in 1.5443503856658936s
+Computing g1... Done in 2.1984798908233643s
+Computing g2... Done in 2.829813241958618s
+Total time: 6.572643518447876s
+
+STARTING TEST: 2 atoms & 10 photon capacity
+Running simulation... Done in 0.34052443504333496s
+Computing g1... Done in 1.5731573104858398s
+Computing g2... Done in 1.4659185409545898s
+Total time: 3.3796002864837646s
+
+STARTING TEST: 2 atoms & 20 photon capacity
+Running simulation... Done in 1.9091246128082275s
+Computing g1... Done in 2.149909734725952s
+Computing g2... Done in 2.3094305992126465s
+Total time: 6.368464946746826s
+
+STARTING TEST: 2 atoms & 30 photon capacity
+Running simulation... Done in 5.953784465789795s
+Computing g1... Done in 4.0269482135772705s
+Computing g2... Done in 4.0692033767700195s
+Total time: 14.049936056137085s
+
+STARTING TEST: 3 atoms & 10 photon capacity
+Running simulation... Done in 0.6645379066467285s
+Computing g1... Done in 1.6591687202453613s
+Computing g2... Done in 1.731095790863037s
+Total time: 4.054802417755127s
+
+STARTING TEST: 3 atoms & 20 photon capacity
+Running simulation... Done in 3.655679225921631s
+Computing g1... Done in 3.0720949172973633s
+Computing g2... Done in 3.1987521648406982s
+Total time: 9.926526308059692s
+
+STARTING TEST: 3 atoms & 30 photon capacity
+Running simulation... Done in 10.819636821746826s
+Computing g1... Done in 7.464579105377197s
+Computing g2... Done in 7.36875057220459s
+Total time: 25.652966499328613s
+
+STARTING TEST: 4 atoms & 10 photon capacity
+Running simulation... Done in 3.2921931743621826s
+Computing g1... Done in 1.882223129272461s
+Computing g2... Done in 1.8902196884155273s
+Total time: 7.064635992050171s
+
+STARTING TEST: 4 atoms & 20 photon capacity
+Running simulation... Done in 12.264540910720825s
+Computing g1... Done in 5.571468114852905s
+Computing g2... Done in 5.483640670776367s
+Total time: 23.319649696350098s
+
+STARTING TEST: 4 atoms & 30 photon capacity
+Running simulation... Done in 20.042846202850342s
+Computing g1... Done in 13.100252389907837s
+Computing g2... Done in 12.448681831359863s
+Total time: 45.59178042411804s
+
+STARTING TEST: 5 atoms & 10 photon capacity
+Running simulation... Done in 1.948263168334961s
+Computing g1... Done in 2.319072961807251s
+Computing g2... Done in 2.4942073822021484s
+Total time: 6.76154351234436s
+
+STARTING TEST: 5 atoms & 20 photon capacity
+Running simulation... Done in 15.381928205490112s
+Computing g1... Done in 7.653719663619995s
+Computing g2... Done in 7.7090137004852295s
+Total time: 30.744661569595337s
+
+STARTING TEST: 5 atoms & 30 photon capacity
+Running simulation... Done in 40.11274528503418s
+Computing g1... Done in 19.4889395236969s
+Computing g2... Done in 18.902099132537842s
+Total time: 78.50378394126892s
+
+STARTING TEST: 6 atoms & 10 photon capacity
+Running simulation... Done in 2.272374391555786s
+Computing g1... Done in 2.814406394958496s
+Computing g2... Done in 3.0197463035583496s
+Total time: 8.106527090072632s
+
+STARTING TEST: 6 atoms & 20 photon capacity
+Running simulation... Done in 71.9103775024414s
+Computing g1... Done in 11.49713683128357s
+Computing g2... Done in 10.925165176391602s
+Total time: 94.33267951011658s
+
+STARTING TEST: 6 atoms & 30 photon capacity
+Running simulation... Done in 94.99781084060669s
+Computing g1... Done in 25.618650913238525s
+Computing g2... Done in 24.366468906402588s
+Total time: 144.9829306602478s
+
+STARTING TEST: 7 atoms & 10 photon capacity
+Running simulation... Done in 3.5584983825683594s
+Computing g1... Done in 3.3764665126800537s
+Computing g2... Done in 3.3458759784698486s
+Total time: 10.280840873718262s
+
+STARTING TEST: 7 atoms & 20 photon capacity
+Running simulation... Done in 39.14451241493225s
+Computing g1... Done in 14.808299779891968s
+Computing g2... Done in 14.139858961105347s
+Total time: 68.09267115592957s
+
+STARTING TEST: 7 atoms & 30 photon capacity
+Running simulation... Done in 53.77708339691162s
+Computing g1... Done in 33.08546233177185s
+Computing g2... Done in 37.18893599510193s
+Total time: 124.0514817237854s
+
+STARTING TEST: 8 atoms & 10 photon capacity
+Running simulation... Done in 8.697374105453491s
+Computing g1... Done in 7.224765062332153s
+Computing g2... Done in 7.063948392868042s
+Total time: 22.986087560653687s
+
+STARTING TEST: 8 atoms & 20 photon capacity
+Running simulation... Done in 135.9158275127411s
+Computing g1... Done in 28.720269203186035s
+Computing g2... Done in 27.63493037223816s
+Total time: 192.27102708816528s
+
+STARTING TEST: 8 atoms & 30 photon capacity
+Running simulation... Done in 485.8290288448334s
+Computing g1... Done in 60.90305233001709s
+Computing g2... Done in 57.881208419799805s
+Total time: 604.6132895946503s
+
+STARTING TEST: 9 atoms & 10 photon capacity
+Running simulation... Done in 10.751518726348877s
+Computing g1... Done in 8.836158990859985s
+Computing g2... Done in 8.46807336807251s
+Total time: 28.055751085281372s
+
+STARTING TEST: 9 atoms & 20 photon capacity
+Running simulation... Done in 54.53813600540161s
+Computing g1... Done in 33.49425220489502s
+Computing g2... Done in 32.592973947525024s
+Total time: 120.62536215782166s
+
+STARTING TEST: 9 atoms & 30 photon capacity
+Running simulation... Done in 647.4511885643005s
+Computing g1... Done in 78.66757822036743s
+Computing g2... Done in 75.53574538230896s
+Total time: 801.6545121669769s
