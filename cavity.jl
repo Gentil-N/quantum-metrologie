@@ -6,14 +6,14 @@ println("import done")
 
 # Parameters
 hbar = 1.0
-N_photons = 2 #photon cutoff
+N_photons = 30 #photon cutoff
 hilbert_dim = N_photons + 1
-N_atoms = 1 #number of atoms
+N_atoms = 15 #number of atoms
 cf = 1.0
 af = 1.0
-coupling = 1 #820.0
-kappa = 1 #800.0 * 1000
-repump = 1 #7.5 * 1000
+coupling = 820.0
+kappa = 800.0 * 1000
+repump = 7.5 * 1000
 
 
 # Bases
@@ -37,12 +37,12 @@ op_h = op_h_base + op_hint
 
 
 # Initial state
-psi_init = fockstate(b_fock, 1) ⊗ spindown(b_spin)
-#psi_init = coherentstate(b_fock, 1) ⊗ spindown(b_spin)
+#psi_init = fockstate(b_fock, 1) ⊗ spindown(b_spin)
+psi_init = coherentstate(b_fock, 1) ⊗ spindown(b_spin)
 
 # Time interval
-T_end= 5#0.1
-dt= 0.05 #0.0001
+T_end= 0.02#0.1
+dt= 0.00001 #0.0001
 time_range = [0:dt:T_end;]
 
 # Collapse operators and decay rates
