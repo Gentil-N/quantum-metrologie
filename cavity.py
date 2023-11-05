@@ -33,13 +33,13 @@ class Cavity:
         self.op_a = qp.destroy(self.fock_dim)
         self.op_n = self.op_ad * self.op_a
 
-        #self.op_hamiltonian_base = HBAR * self.mf * self.__tens_from_fock(self.op_n) + HBAR * self.af * self.__tens_from_spin(self.op_jz)
-        #self.op_hamiltonian_intercation = HBAR * self.g / np.sqrt(self.a_count) * (qp.tensor(self.op_jp, self.op_a) + qp.tensor(self.op_jm, self.op_ad))
-        #self.op_hamiltonian = self.op_hamiltonian_base + self.op_hamiltonian_intercation
-
-        self.op_hamiltonian_base = HBAR * (self.cf - self.af) * self.__tens_from_fock(self.op_n)
+        self.op_hamiltonian_base = HBAR * self.cf * self.__tens_from_fock(self.op_n) + HBAR * self.af * self.__tens_from_spin(self.op_jz)
         self.op_hamiltonian_intercation = HBAR * self.g / np.sqrt(self.a_count) * (qp.tensor(self.op_jp, self.op_a) + qp.tensor(self.op_jm, self.op_ad))
         self.op_hamiltonian = self.op_hamiltonian_base + self.op_hamiltonian_intercation
+
+        #self.op_hamiltonian_base = HBAR * (self.cf - self.af) * self.__tens_from_fock(self.op_n)
+        #self.op_hamiltonian_intercation = HBAR * self.g / np.sqrt(self.a_count) * (qp.tensor(self.op_jp, self.op_a) + qp.tensor(self.op_jm, self.op_ad))
+        #self.op_hamiltonian = self.op_hamiltonian_base + self.op_hamiltonian_intercation
 
         self.op_collapsing = []
         if self.enable_decay:
@@ -76,8 +76,33 @@ class Cavity:
         i = 0
         op_ad_evol_heis_list = qp.mesolve(-self.op_hamiltonian, self.__tens_from_fock(self.op_ad), self.time_range, self.op_collapsing, [], options=qp.solver.Options(nsteps=1000), progress_bar=qp.ui.progressbar.TextProgressBar()).states
         op_a_evol_heis_list = qp.mesolve(-self.op_hamiltonian, self.__tens_from_fock(self.op_a), self.time_range, self.op_collapsing, [], options=qp.solver.Options(nsteps=1000),progress_bar=qp.ui.progressbar.TextProgressBar()).states
-        op_n_evol_heis_list = qp.mesolve(-self.op_hamiltonian, self.__tens_from_fock(self.op_ad) * self.__tens_from_fock(self.op_a), self.time_range, self.op_collapsing, [], options=qp.solver.Options(nsteps=1000), progress_bar=qp.ui.progressbar.TextProgressBar()).states
+        #op_n_evol_heis_list = qp.mesolve(-self.op_hamiltonian, self.__tens_from_fock(self.op_ad) * self.__tens_from_fock(self.op_a), self.time_range, self.op_collapsing, [], options=qp.solver.Options(nsteps=1000), progress_bar=qp.ui.progressbar.TextProgressBar()).states
         n = qp.mesolve(self.op_hamiltonian, self.result[0], self.time_range, self.op_collapsing, [self.__tens_from_fock(self.op_ad) * self.__tens_from_fock(self.op_a)], options=qp.solver.Options(nsteps=1000), progress_bar=qp.ui.progressbar.TextProgressBar()).expect[0]
+
+        propagator_list = qp.propagator(self.op_hamiltonian, self.time_range, self.op_collapsing)
+
+        #Open Quantum System
+        #op_n_evol_list = []
+        #for prop in propagator_list:
+        #    op_n_evol_list.append(qp.vector_to_operator(prop * qp.operator_to_vector(self.__tens_from_fock(self.op_ad) * self.__tens_from_fock(self.op_a))))
+        #op_ad_evol_list = []
+        #for prop in propagator_list:
+        #    op_ad_evol_list.append(qp.vector_to_operator(prop * qp.operator_to_vector(self.__tens_from_fock(self.op_ad))))
+        #op_a_evol_list = []
+        #for prop in propagator_list:
+        #    op_a_evol_list.append(qp.vector_to_operator(prop * qp.operator_to_vector(self.__tens_from_fock(self.op_a))))
+        
+        #Closed Quantum System
+        op_n_evol_list = []
+        for prop in propagator_list:
+            op_n_evol_list.append(prop.dag() * self.__tens_from_fock(self.op_ad) * self.__tens_from_fock(self.op_a) * prop)
+        op_ad_evol_list = []
+        for prop in propagator_list:
+            op_ad_evol_list.append(prop.dag() * self.__tens_from_fock(self.op_ad) * prop)
+        op_a_evol_list = []
+        for prop in propagator_list:
+            op_a_evol_list.append(prop.dag() * self.__tens_from_fock(self.op_a)  * prop)
+        
         #propagator_list = qp.propagator(self.op_hamiltonian, self.time_range, self.op_collapsing)
         #for j in range(len(n)):
         #    #if not self.__op_is_approx_null(qp.vector_to_operator(propagator_list[j] * qp.operator_to_vector(self.__tens_from_fock(self.op_ad) * self.__tens_from_fock(self.op_a))) - #op_ad_evol_heis_list[j] * op_a_evol_heis_list[j], 0.01):
@@ -91,8 +116,10 @@ class Cavity:
             #op_a_evol_heis = op_u.dag() * self.__tens_from_fock(self.op_a) * op_u
             #op_ad_evol_heis = op_ad_evol_heis_list[i]
             #op_a_evol_heis = op_a_evol_heis_list[i]
-            result = self.result[-1]
-            op_n_evol_heis = op_n_evol_heis_list[i]
+            result = self.result[0]
+            op_n_evol = op_n_evol_list[i]
+            op_ad_evol = op_ad_evol_heis_list[i]
+            op_a_evol = op_a_evol_heis_list[i]
             #norm_factor = (self.result[i] * self.__tens_from_fock(self.op_ad) * self.__tens_from_fock(self.op_a)).tr()**2
             #norm_factor = (result * op_ad_evol_heis * op_a_evol_heis).tr() * (result * self.__tens_from_fock(self.op_ad) * self.__tens_from_fock(self.op_a)).tr()
             norm_factor = n[0] * n[i]
@@ -100,33 +127,53 @@ class Cavity:
                 g2.append(0.0)
                 i += 1
                 continue
-            g2.append((result * self.__tens_from_fock(self.op_ad) * op_n_evol_heis * self.__tens_from_fock(self.op_a)).tr() / 1.0)
+            g2.append((result * self.__tens_from_fock(self.op_ad) * op_ad_evol * op_a_evol * self.__tens_from_fock(self.op_a)).tr() / norm_factor)
             i += 1
         return g2
-    
+
     def compute_g1(self):
         g1 = []
         i = 0
         op_ad_evol_heis_list = qp.mesolve(-self.op_hamiltonian, self.__tens_from_fock(self.op_ad), self.time_range, self.op_collapsing, [], options=qp.solver.Options(nsteps=1000), progress_bar=qp.ui.progressbar.TextProgressBar()).states
-        op_a_evol_heis_list = qp.mesolve(-self.op_hamiltonian, self.__tens_from_fock(self.op_a), self.time_range, self.op_collapsing, [], options=qp.solver.Options(nsteps=1000),progress_bar=qp.ui.progressbar.TextProgressBar()).states
+        #op_a_evol_heis_list = qp.mesolve(-self.op_hamiltonian, self.__tens_from_fock(self.op_a), self.time_range, self.op_collapsing, [], options=qp.solver.Options(nsteps=1000),progress_bar=qp.ui.progressbar.TextProgressBar()).states
         n = qp.mesolve(self.op_hamiltonian, self.result[0], self.time_range, self.op_collapsing, [self.__tens_from_fock(self.op_ad) * self.__tens_from_fock(self.op_a)], options=qp.solver.Options(nsteps=1000), progress_bar=qp.ui.progressbar.TextProgressBar()).expect[0]
+
+        propagator_list = qp.propagator(self.op_hamiltonian, self.time_range, self.op_collapsing)
+
+        #Open Quantum System
+        #op_ad_evol_list = []
+        #for prop in propagator_list:
+        #    op_ad_evol_list.append(qp.vector_to_operator(prop * qp.operator_to_vector(self.__tens_from_fock(self.op_ad))))
+        #op_a_evol_list = []
+        #for prop in propagator_list:
+        #    op_a_evol_list.append(qp.vector_to_operator(prop * qp.operator_to_vector(self.__tens_from_fock(self.op_a))))
+
+        #Closed Quantum System
+        op_ad_evol_list = []
+        for prop in propagator_list:
+            op_ad_evol_list.append(prop.dag() * self.__tens_from_fock(self.op_ad) * prop)
+        op_a_evol_list = []
+        for prop in propagator_list:
+            op_a_evol_list.append(prop.dag() * self.__tens_from_fock(self.op_a)  * prop)
+        
         for t in self.time_range:
-            #op_u = self.__get_u_op_from_hamiltonian(t)
-            #op_ad_evol_heis = op_u.dag() * self.__tens_from_fock(self.op_ad) * op_u
-            #op_a_evol_heis = op_u.dag() * self.__tens_from_fock(self.op_a) * op_u
-            op_ad_evol_heis = op_ad_evol_heis_list[i]
-            op_a_evol_heis = op_a_evol_heis_list[i]
-            result = self.result[0]
-            norm_factor = np.sqrt((result * op_ad_evol_heis * op_a_evol_heis).tr() * (result * self.__tens_from_fock(self.op_ad) * self.__tens_from_fock(self.op_a)).tr())
+            op_u = self.__get_u_op_from_hamiltonian(t)
+            op_ad_evol = op_u.dag() * self.__tens_from_fock(self.op_ad) * op_u
+            op_a_evol = op_u.dag() * self.__tens_from_fock(self.op_a) * op_u
+            #op_ad_evol = op_ad_evol_list[i]
+            #op_a_evol = op_a_evol_list[i]
+            result = self.result[-1]
+            norm_factor = np.sqrt((result * op_ad_evol * op_a_evol).tr() * (result * self.__tens_from_fock(self.op_ad) * self.__tens_from_fock(self.op_a)).tr())
             #norm_factor = np.sqrt((self.result[0] * self.__tens_from_fock(self.op_ad) * self.__tens_from_fock(self.op_a)).tr() * (self.result[i] * self.__tens_from_fock(self.op_ad) * self.__tens_from_fock(self.op_a)).tr())
             #norm_factor = np.sqrt(n[0] * n[i])
+            print(n[i], (result * op_ad_evol * op_a_evol).tr())
             if norm_factor == 0.0:
                 #print(op_ad_evol_heis * op_a_evol_heis)
                 #print(n[i], " ", (self.result[0] * self.__tens_from_fock(self.op_ad) * self.__tens_from_fock(self.op_a)).tr())
                 g1.append(0.0)
                 i += 1
                 continue
-            g1.append((result * op_ad_evol_heis * self.__tens_from_fock(self.op_a)).tr() / norm_factor)
+            g1.append((result * op_ad_evol * self.__tens_from_fock(self.op_a)).tr() / 1.0)
             i += 1
         return g1
 
@@ -145,13 +192,13 @@ class Cavity:
     def compute_g1_perso(self, psi_init, time_range):
         psi_init = self.__convert_psi_init(psi_init)
         result = qp.mesolve(self.op_hamiltonian, psi_init, time_range, self.op_collapsing, [], options=qp.solver.Options(nsteps=1000), progress_bar=qp.ui.progressbar.TextProgressBar())
-        Bp = qp.mesolve(self.op_hamiltonian, self.__tens_from_fock(self.op_a) * result.states[0], time_range, self.op_collapsing, [], options=qp.solver.Options(nsteps=1000), progress_bar=qp.ui.progressbar.TextProgressBar())
+        Bp = qp.mesolve(self.op_hamiltonian, self.__tens_from_fock(self.op_a) * result.states[-1], time_range, self.op_collapsing, [], options=qp.solver.Options(nsteps=1000), progress_bar=qp.ui.progressbar.TextProgressBar())
         n = qp.mesolve(self.op_hamiltonian, psi_init, time_range, self.op_collapsing, [self.__tens_from_fock(self.op_ad) * self.__tens_from_fock(self.op_a)], options=qp.solver.Options(nsteps=1000), progress_bar=qp.ui.progressbar.TextProgressBar()).expect[0]
         ABp = self.__tens_from_fock(self.op_ad) * Bp.states
         g1 = []
         for ABp_unique in ABp:
             g1.append(ABp_unique.tr())
-        g1 /= np.sqrt(n[0] * n)
+        #g1 /= np.sqrt(n[0] * n)
         return g1
 
     def compute_g2_perso(self, psi_init, time_range):
