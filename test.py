@@ -7,8 +7,8 @@ import numpy as np
 ATOM_COUNT = 1
 PHOTON_CAPACITY = 1
 
-simple_cav = cty.Cavity(1.0, 1.0, ATOM_COUNT, PHOTON_CAPACITY, 1.0, 1.0, 1.0, False, False)
-#simple_cav = cty.Cavity(1.0, 1.0, ATOM_COUNT, PHOTON_CAPACITY, 1.0, 1.0, 1.0, True, True) # freq 7000, g 73, k 4, r 4
+#simple_cav = cty.Cavity(1.0, 1.0, ATOM_COUNT, PHOTON_CAPACITY, 1.0, 1.0, 1.0, False, False)
+simple_cav = cty.Cavity(1.0, 1.0, ATOM_COUNT, PHOTON_CAPACITY, 1.0, 1.0, 1.0, True, True) # freq 7000, g 73, k 4, r 4
 #simple_cav = cty.Cavity(434.0 * const.tera, 434.0 * const.tera, ATOM_COUNT, PHOTON_CAPACITY, 820.0, np.sqrt(800.0 * const.kilo), np.sqrt(7.5 * const.kilo), True, True)
 
 psi_init = qp.tensor(qp.spin_state(ATOM_COUNT/2, ATOM_COUNT/2), qp.fock(PHOTON_CAPACITY + 1, 0))
