@@ -119,6 +119,7 @@ def op_same_factors(opa: Operand, opb: Operand):
     return is_same_list(opa.factor_list, opb.factor_list)
 
 G = Factor("G")
+OMEGA = Factor("ω")
 DELTA = Factor("Δ")
 KAPPA = Factor("K")
 GAMMA = Factor("γ")
@@ -130,13 +131,21 @@ OP_Ad = Operand(1.0, [], [], [QOp.Ad])
 OP_N = OP_Ad * OP_A
 OP_SP = Operand(1.0, [], [QOp.SP], [])
 OP_SM = Operand(1.0, [], [QOp.SM], [])
+OP_SZ = Operand(1.0, [], [QOp.SZ], [])
+OP_GSPA = OP_SP * OP_A
+OP_GSMAd = OP_SM * OP_Ad
+CAVITY_H_OP_LIST = [OP_N.add_factor(DELTA), OP_GSPA.add_factor(G), OP_GSMAd.add_factor(G)]
+HOSCILLATOR_H_OP_LIST = [OP_N.add_factor(OMEGA)]
 
-OP_GSPA = Operand(1.0, [G], [QOp.SP], [QOp.A])
-OP_GSMAd = Operand(1.0, [G], [QOp.SM], [QOp.Ad])
-
-def hamiltonian_commutator(op: Operand):
-    op_n_delta_i = OP_N.add_factor(DELTA).mul_c_factor(1.0j)
-    return [op_n_delta_i * op, op * op_n_delta_i.mul_c_factor(-1.0), (OP_GSPA * op).mul_c_factor(1.0j), (OP_GSMAd * op).mul_c_factor(1.0j), (op * OP_GSPA).mul_c_factor(-1.0j), (op * OP_GSMAd).mul_c_factor(-1.0j)]
+# /!\ operators from the hamiltonian must not have hbar in it, as the function divide the whole by hbar!
+def hamiltonian_commutator(hamiltonian_op_list: list, op: Operand):
+    commutator_op_list = []
+    for h_op in hamiltonian_op_list:
+        commutator_op_list.append((h_op * op).mul_c_factor(1.0j))
+        commutator_op_list.append((op * h_op).mul_c_factor(-1.0j))
+    #op_n_delta_i = OP_N.add_factor(DELTA).mul_c_factor(1.0j)
+    #return [op_n_delta_i * op, op * op_n_delta_i.mul_c_factor(-1.0), (OP_GSPA * op).mul_c_factor(1.0j), (OP_GSMAd * op).mul_c_factor(1.0j), (op * OP_GSPA).mul_c_factor(-1.0j), (op * OP_GSMAd).mul_c_factor(-1.0j)]
+    return commutator_op_list
     
 def lindblad_terms(lb_factor: Factor, lb_op: Operand, op: Operand):
     lb_op_dag = lb_op.dag()
@@ -231,8 +240,133 @@ def order_atomic_qop_list(op_list):
         new_op_list = order_atomic_qop(op)
         op_list.extend(new_op_list)
 
-my_op = Operand(1, [], [], [QOp.Ad, QOp.A])
-all_op = hamiltonian_commutator(Operand(1, [], [], [QOp.Ad, QOp.A]))
+#my_op = OP_N.copy()
+#all_op = hamiltonian_commutator(CAVITY_H_OP_LIST, my_op)
+#lb_a_terms = lindblad_terms(KAPPA, OP_A, my_op)
+#lb_sp_terms = lindblad_terms(GAMMA, OP_SP, my_op)
+#lb_sm_terms = lindblad_terms(NU, OP_SM, my_op)
+#all_op.extend(lb_a_terms)
+#all_op.extend(lb_sp_terms)
+#all_op.extend(lb_sm_terms)
+#
+#print_op_list(all_op)
+#
+#add_equivalent(all_op)
+#
+##print_op_list(all_op)
+#
+#remove_null(all_op)
+#
+##print_op_list(all_op)
+#
+#order_cavity_qop_list(all_op)
+#
+##print_op_list(all_op)
+#
+#add_equivalent(all_op)
+#
+##print_op_list(all_op)
+#
+#remove_null(all_op)
+#
+#print_op_list(all_op)
+#
+#test_list = [Operand(2, [], [QOp.SM, QOp.SZ, QOp.SP], []), Operand(-1, [], [QOp.SM, QOp.SP, QOp.SZ], []), Operand(-1, [], [QOp.SZ, QOp.SM, QOp.SP], [])]
+#test_list = [Operand(2, [], [QOp.SM, QOp.SM, QOp.SP], []), Operand(-1, [], [QOp.SM, QOp.SP, QOp.SM], []), Operand(-1, [], [QOp.SM, QOp.SM, QOp.SP], [])]
+#test_list = [Operand(2, [], [QOp.SP, QOp.SZ, QOp.SM], []), Operand(-1, [], [QOp.SP, QOp.SM, QOp.SZ], []), Operand(-1, [], [QOp.SZ, QOp.SP, QOp.SM], [])]
+#
+#print_op_list(test_list)
+#
+#order_atomic_qop_list(test_list)
+#
+##print_op_list(test_list)
+#
+#add_equivalent(test_list)
+#
+##print_op_list(test_list)
+#
+#remove_null(test_list)
+#
+#print_op_list(test_list)
+
+
+
+#my_op = OP_Ad.copy()
+#all_op = hamiltonian_commutator(HOSCILLATOR_H_OP_LIST, my_op)
+#lb_a_terms = lindblad_terms(KAPPA, OP_A, my_op)
+#all_op.extend(lb_a_terms)
+#
+#add_equivalent(all_op)
+#remove_null(all_op)
+#order_cavity_qop_list(all_op)
+#add_equivalent(all_op)
+#remove_null(all_op)
+#print_op_list(all_op)
+
+
+
+#my_op = OP_A
+#all_op = hamiltonian_commutator(CAVITY_H_OP_LIST, my_op)
+#lb_a_terms = lindblad_terms(KAPPA, OP_A, my_op)
+#lb_sp_terms = lindblad_terms(GAMMA, OP_SP, my_op)
+#lb_sm_terms = lindblad_terms(NU, OP_SM, my_op)
+#all_op.extend(lb_a_terms)
+#all_op.extend(lb_sp_terms)
+#all_op.extend(lb_sm_terms)
+#
+#add_equivalent(all_op)
+#remove_null(all_op)
+#order_cavity_qop_list(all_op)
+#add_equivalent(all_op)
+#remove_null(all_op)
+#print_op_list(all_op)
+
+
+
+#my_op = OP_SM
+#all_op = hamiltonian_commutator(CAVITY_H_OP_LIST, my_op)
+#lb_a_terms = lindblad_terms(KAPPA, OP_A, my_op)
+#lb_sp_terms = lindblad_terms(GAMMA, OP_SP, my_op)
+#lb_sm_terms = lindblad_terms(NU, OP_SM, my_op)
+#all_op.extend(lb_a_terms)
+#all_op.extend(lb_sp_terms)
+#all_op.extend(lb_sm_terms)
+#
+#add_equivalent(all_op)
+#remove_null(all_op)
+#order_cavity_qop_list(all_op)
+#add_equivalent(all_op)
+#remove_null(all_op)
+#order_atomic_qop_list(all_op)
+#add_equivalent(all_op)
+#remove_null(all_op)
+#print_op_list(all_op)
+
+
+
+#my_op = OP_SZ
+#all_op = hamiltonian_commutator(CAVITY_H_OP_LIST, my_op)
+#lb_a_terms = lindblad_terms(KAPPA, OP_A, my_op)
+#lb_sp_terms = lindblad_terms(GAMMA, OP_SP, my_op)
+#lb_sm_terms = lindblad_terms(NU, OP_SM, my_op)
+#all_op.extend(lb_a_terms)
+#all_op.extend(lb_sp_terms)
+#all_op.extend(lb_sm_terms)
+#
+#add_equivalent(all_op)
+#remove_null(all_op)
+#order_cavity_qop_list(all_op)
+#add_equivalent(all_op)
+#remove_null(all_op)
+#order_atomic_qop_list(all_op)
+#add_equivalent(all_op)
+#remove_null(all_op)
+#print_op_list(all_op)
+
+
+
+my_op = OP_SM * OP_SP
+all_op = hamiltonian_commutator(CAVITY_H_OP_LIST, my_op)
 lb_a_terms = lindblad_terms(KAPPA, OP_A, my_op)
 lb_sp_terms = lindblad_terms(GAMMA, OP_SP, my_op)
 lb_sm_terms = lindblad_terms(NU, OP_SM, my_op)
@@ -240,40 +374,12 @@ all_op.extend(lb_a_terms)
 all_op.extend(lb_sp_terms)
 all_op.extend(lb_sm_terms)
 
-print_op_list(all_op)
-
 add_equivalent(all_op)
-
-#print_op_list(all_op)
-
 remove_null(all_op)
-
-#print_op_list(all_op)
-
 order_cavity_qop_list(all_op)
-
-#print_op_list(all_op)
-
 add_equivalent(all_op)
-
-#print_op_list(all_op)
-
 remove_null(all_op)
-
+order_atomic_qop_list(all_op)
+add_equivalent(all_op)
+remove_null(all_op)
 print_op_list(all_op)
-
-test_list = [Operand(2, [], [QOp.SM, QOp.SZ, QOp.SP], []), Operand(-1, [], [QOp.SM, QOp.SP, QOp.SZ], []), Operand(-1, [], [QOp.SZ, QOp.SM, QOp.SP], [])]
-
-print_op_list(test_list)
-
-order_atomic_qop_list(test_list)
-
-#print_op_list(test_list)
-
-add_equivalent(test_list)
-
-#print_op_list(test_list)
-
-remove_null(test_list)
-
-print_op_list(test_list)
