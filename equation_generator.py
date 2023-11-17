@@ -1,5 +1,77 @@
+########################################
+#           PARTITION GENERATOR        #
+########################################
+
+
+
+from collections import defaultdict
+
+class Partition:
+
+    def __init__(self, S):
+        self.data = list(S)
+        self.m = len(S)
+        self.table = self.rgf_table()
+
+    def __getitem__(self, i):
+        #generates set partitions by index
+        if i > len(self) - 1:
+             raise IndexError
+        L =  self.unrank_rgf(i)
+        result = self.as_set_partition(L)
+        return result
+    
+    def __len__(self):
+        return self.table[self.m,0]
+
+    def as_set_partition(self, L):
+        # Transform a restricted growth function into a partition
+        n = int(max(L[1:]+[1]))
+        m = self.m
+        data = self.data
+        P = [[] for _ in range(n)]
+        for i in range(m):
+            P[int(L[i+1]-1)].append(data[i])
+        return P
+
+    def rgf_table(self):
+        # Compute the table values 
+        m = self.m
+        D = defaultdict(lambda:1)
+        for i in range(1,m+1):
+            for j in range(0,m-i+1):
+                D[i,j] = j * D[i-1,j] + D[i-1,j+1]
+        return D
+
+    def unrank_rgf(self, r):
+        # Unrank a restricted growth function
+        m = self.m
+        L = [1 for _ in range(m+1)]
+        j = 1
+        D = self.table
+        for i in range(2,m+1):
+            v = D[m-i,j]
+            cr = j*v
+            if cr <= r:
+                L[i] = j + 1
+                r -= cr
+                j += 1
+            else:
+                L[i] = r / v + 1
+                r  %= v
+        return L
+
+
+
+########################################
+#                 CODE                 #
+########################################
+
+
+
 from enum import Enum
 import numpy as np
+import math
 
 class QOp(Enum):
     A = 1
@@ -64,7 +136,7 @@ class Operand:
         res = str(self.c_factor)
         for fc in self.factor_list:
             res += "*" + fc.name
-        res += "("
+        res += " ("
         for qop_a in self.qop_atomic_list:
             res += " " + qop_str(qop_a)
         for qop_c in self.qop_cavity_list:
@@ -74,6 +146,14 @@ class Operand:
     def add_factor(self, factor: Factor):
         cop = self.copy()
         cop.factor_list.append(factor)
+        return cop
+    def empty_factors(self):
+        cop = self.copy()
+        cop.factor_list = []
+        return cop
+    def set_c_factor(self, c_factor):
+        cop = self.copy()
+        cop.c_factor = c_factor
         return cop
     def mul_c_factor(self, c_factor):
         cop = self.copy()
@@ -97,6 +177,9 @@ class Operand:
         for i in range(len(cop.qop_cavity_list)):
             cop.qop_cavity_list[i] = qop_dag(cop.qop_cavity_list[i])
         return cop
+    def get_order(self):
+        return len(self.qop_atomic_list) + len(self.qop_cavity_list)
+
 
 def is_same_list(lista, listb):
     if len(lista) != len(listb):
@@ -115,8 +198,18 @@ def op_same_atomic_qop(opa: Operand, opb: Operand):
 def op_same_qop(opa: Operand, opb: Operand):
     return op_same_cavity_qop(opa, opb) and op_same_atomic_qop(opa, opb)
 
+def op_list_contains_op_same_qop(op_test: Operand, op_list):
+    for op in op_list:
+        if op_same_qop(op_test, op):
+            return True
+    return False
+
 def op_same_factors(opa: Operand, opb: Operand):
     return is_same_list(opa.factor_list, opb.factor_list)
+
+def op_create_cumulant(op: Operand):
+    return
+
 
 G = Factor("G")
 OMEGA = Factor("ω")
@@ -163,11 +256,6 @@ def add_equivalent(op_list):
             j += 1
         i += 1
 
-def print_op_list(op_list):
-    for i in range(len(op_list) - 1):
-        print(op_list[i], " + ", end='')
-    print(op_list[-1])
-
 def remove_null(op_list):
     i = 0
     while i != len(op_list):
@@ -178,7 +266,8 @@ def remove_null(op_list):
 
 def order_cavity_qop(op: Operand):
     new_op_list = []
-    for i in range(len(op.qop_cavity_list) - 1):
+    i = 0
+    while i < len(op.qop_cavity_list) - 1:
         if op.qop_cavity_list[i] == QOp.A and op.qop_cavity_list[i + 1] == QOp.Ad:
             op.qop_cavity_list[i] = QOp.Ad
             op.qop_cavity_list[i + 1] = QOp.A
@@ -187,6 +276,9 @@ def order_cavity_qop(op: Operand):
             del new_op.qop_cavity_list[i]
             new_op_list.append(new_op)
             new_op_list.extend(order_cavity_qop(new_op))
+            i = 0
+        else:
+            i += 1
     return new_op_list
 
 def order_atomic_qop(op: Operand):
@@ -239,6 +331,193 @@ def order_atomic_qop_list(op_list):
     for op in op_list:
         new_op_list = order_atomic_qop(op)
         op_list.extend(new_op_list)
+
+def develop_equation(initial_op: Operand, hamiltonian, lindblad_terms):
+    all_op = hamiltonian_commutator(hamiltonian, initial_op)
+    for lterm in lindblad_terms:
+        all_op.extend(lterm)
+    add_equivalent(all_op)
+    remove_null(all_op)
+    order_cavity_qop_list(all_op)
+    add_equivalent(all_op)
+    remove_null(all_op)
+    order_atomic_qop_list(all_op)
+    add_equivalent(all_op)
+    remove_null(all_op)
+    return all_op
+
+def develop_all_equations(initial_op: Operand, hamiltonian, lindblad_terms, max_order):
+    if initial_op.get_order() > max_order:
+        print(initial_op)
+        raise Exception("Initial operator's order is higher than the maximal order: doesn't make sense!")
+    op_to_develop_list = [initial_op]
+    op_developed_list = []
+    equ_list = []
+    while len(op_to_develop_list) > 0:
+        op_to_dev = op_to_develop_list[0]
+        #print(op_to_dev)
+        op_developed_list.append(op_to_dev)
+        del op_to_develop_list[0]
+        equ_list.append([op_to_dev, develop_equation(op_to_dev, hamiltonian, lindblad_terms)])
+        #print_op_list(equ_list[-1][1])
+        for op in equ_list[-1][1]:
+            if op.get_order() > max_order:
+                continue
+            if not(op_list_contains_op_same_qop(op, op_developed_list)) and not(op_list_contains_op_same_qop(op, op_to_develop_list)):
+                #print("adding: ", op)
+                op_to_develop_list.append(op.empty_factors().set_c_factor(1.0))
+        #print(len(op_to_develop_list))
+        #print("###")
+    return equ_list
+    
+
+
+def print_op_list(op_list):
+    for i in range(len(op_list) - 1):
+        print(op_list[i], " + ", end='')
+    print(op_list[-1])
+
+def print_equ(equ):
+    print(equ[0], " = ", end='')
+    for i in range(len(equ[1]) - 1):
+        print(equ[1][i], " + ", end='')
+    print(equ[1][-1])
+
+
+
+# <...>
+class Cumulant:
+    qop_atomic_list = []
+    qop_cavity_list = []
+    def __init__(self, qop_a_list=[], qop_c_list=[]):
+        self.qop_atomic_list = qop_a_list
+        self.qop_cavity_list = qop_c_list
+    def get_order(self):
+        return len(self.qop_atomic_list) + len(self.qop_cavity_list)
+    def copy(self):
+        return Cumulant(self.qop_atomic_list.copy(), self.qop_cavity_list.copy())
+    def __str__(self):
+        res = str(" <")
+        for qop_a in self.qop_atomic_list:
+                res += " " + qop_str(qop_a)
+        for qop_c in self.qop_cavity_list:
+            res += " " + qop_str(qop_c)
+        res += " >"
+        return res
+
+
+
+# <...> ... <...>
+class OpCumulant:
+    c_factor = 1.0 + 0.0j
+    factor_list = []
+    cumulant_list = []
+    def __init__(self, c_factor=1.0+0.0j, factor_list=[], cumulant_list=[]):
+        self.c_factor = c_factor
+        self.factor_list = factor_list
+        self.cumulant_list = cumulant_list
+    def __str__(self):
+        res = str(self.c_factor)
+        for fc in self.factor_list:
+            res += "*" + fc.name
+        for cumu in self.cumulant_list:
+            res += str(cumu)
+        return res
+    def copy(self):
+        new_cumulant_list = []
+        for cumu in self.cumulant_list:
+            new_cumulant_list.append(cumu.copy())
+        return OpCumulant(self.c_factor, self.factor_list.copy(), new_cumulant_list)
+
+
+
+def cumulant_expansion(opcumu: OpCumulant, order):
+        if len(opcumu.cumulant_list) > 1 or opcumu.cumulant_list[0].get_order() != order:
+            return [opcumu]
+        S = set(range(0, order))
+        P = Partition(S)
+        #for x in P:
+        #    print(x)
+        new_opcumu_list = []
+        for i in range(1, len(P)):
+            new_opcumu = OpCumulant(opcumu.c_factor * math.factorial(len(P[i]) - 1) * (-1)**len(P[i]), opcumu.factor_list.copy(), [])
+            for j in range(len(P[i])):
+                cumu = Cumulant([], [])
+                for k in range(len(P[i][j])):
+                    len_atomic_list = len(opcumu.cumulant_list[0].qop_atomic_list)
+                    #print(P[i][j][k])
+                    if P[i][j][k] >= len_atomic_list:
+                        cumu.qop_cavity_list.append(opcumu.cumulant_list[0].qop_cavity_list[P[i][j][k] - len_atomic_list])
+                    else:
+                        cumu.qop_atomic_list.append(opcumu.cumulant_list[0].qop_atomic_list[P[i][j][k]])
+                new_opcumu.cumulant_list.append(cumu.copy())
+            #print(new_opcumu)
+            new_opcumu_list.append(new_opcumu.copy())
+        return new_opcumu_list
+
+
+
+def op_to_corr(op: Operand):
+    return OpCumulant(op.c_factor, op.factor_list.copy(), [Cumulant(op.qop_atomic_list.copy(), op.qop_cavity_list.copy())])
+
+def transform_to_correlation(equ):
+    corr_equ = [op_to_corr(equ[0])]
+    op_cumu_list = []
+    for op in equ[1]:
+        op_cumu_list.append(op_to_corr(op))
+    corr_equ.append(op_cumu_list)
+    return corr_equ
+
+def transform_equ_set_to_corr(equ_list):
+    corr_list = []
+    for equ in equ_list:
+        corr_list.append(transform_to_correlation(equ))
+    return corr_list
+
+def apply_cumulant_expansion(corr_equ_list, order):
+    for i in range(len(corr_equ_list)):
+        new_corr = []
+        for opcumu in corr_equ_list[i][1]:
+            new_corr.extend(cumulant_expansion(opcumu, order))
+        corr_equ_list[i][1] = new_corr
+
+def cumu_list_contains_cumu(op_list, cumu):
+    for op in op_list:
+        if is_same_list(op.qop_atomic_list, cumu.qop_atomic_list) and is_same_list(op.qop_cavity_list, cumu.qop_cavity_list):
+            return True
+    return False
+
+# Must be applied after the cumulant expansion! Otherwise it will run for a long, long, very long time... (infinite) or your computer will crash before ;p
+def find_complete_op_corr_equ(corr_equ_list):
+    op_list_to_develop = []
+    for equ in corr_equ_list:
+        for opcumu in equ[1]:
+            for cumu in opcumu.cumulant_list:
+                found = False
+                for equ in corr_equ_list:
+                    if is_same_list(equ[0].cumulant_list[0].qop_atomic_list, cumu.qop_atomic_list) and is_same_list(equ[0].cumulant_list[0].qop_cavity_list, cumu.qop_cavity_list):
+                        found = True
+                if not(found) and not(cumu_list_contains_cumu(op_list_to_develop, cumu)):
+                    op_list_to_develop.append(Operand(1.0, [], cumu.qop_atomic_list, cumu.qop_cavity_list))
+    #for op in op_list_to_develop:
+    #    print(str(op))
+    return op_list_to_develop
+
+def cumu_same_qop(cumua: Cumulant, cumub: Cumulant):
+    if is_same_list(cumua.qop_atomic_list, cumub.qop_atomic_list) and is_same_list(cumua.qop_cavity_list, cumub.qop_cavity_list):
+        return True
+    return False
+
+def remove_same_corr_equ(corr_equ_list_a, corr_equ_list_b):
+    final_set_corr_equ = corr_equ_list_b.copy()
+    for i in range(len(corr_equ_list_a)):
+        found = False
+        for j in range(len(corr_equ_list_b)):
+            if cumu_same_qop(corr_equ_list_a[i][0].cumulant_list[0], corr_equ_list_b[j][0].cumulant_list[0]):
+                found = True
+        if not(found):
+            final_set_corr_equ.append(corr_equ_list_a[i])
+    return final_set_corr_equ
 
 #my_op = OP_N.copy()
 #all_op = hamiltonian_commutator(CAVITY_H_OP_LIST, my_op)
@@ -365,21 +644,74 @@ def order_atomic_qop_list(op_list):
 
 
 
-my_op = OP_SM * OP_SP
-all_op = hamiltonian_commutator(CAVITY_H_OP_LIST, my_op)
-lb_a_terms = lindblad_terms(KAPPA, OP_A, my_op)
-lb_sp_terms = lindblad_terms(GAMMA, OP_SP, my_op)
-lb_sm_terms = lindblad_terms(NU, OP_SM, my_op)
-all_op.extend(lb_a_terms)
-all_op.extend(lb_sp_terms)
-all_op.extend(lb_sm_terms)
+#my_op = OP_SZ * OP_SZ
+#all_op = hamiltonian_commutator(CAVITY_H_OP_LIST, my_op)
+#lb_a_terms = lindblad_terms(KAPPA, OP_A, my_op)
+#lb_sp_terms = lindblad_terms(GAMMA, OP_SP, my_op)
+#lb_sm_terms = lindblad_terms(NU, OP_SM, my_op)
+#all_op.extend(lb_a_terms)
+#all_op.extend(lb_sp_terms)
+#all_op.extend(lb_sm_terms)
+#
+#add_equivalent(all_op)
+#remove_null(all_op)
+#order_cavity_qop_list(all_op)
+#add_equivalent(all_op)
+#remove_null(all_op)
+#order_atomic_qop_list(all_op)
+#add_equivalent(all_op)
+#remove_null(all_op)
+#print_op_list(all_op)
 
-add_equivalent(all_op)
-remove_null(all_op)
-order_cavity_qop_list(all_op)
-add_equivalent(all_op)
-remove_null(all_op)
-order_atomic_qop_list(all_op)
-add_equivalent(all_op)
-remove_null(all_op)
-print_op_list(all_op)
+
+
+#opcumu = OpCumulant(1.0, [], [Cumulant([QOp.SZ, QOp.SM, QOp.SP], [])])
+#opcumu_list = cumulant_expansion(opcumu, 3)
+#print_op_list(opcumu_list)
+
+
+def print_equ_list(equ_list):
+    for equ in equ_list:
+        print_equ(equ)
+        print()
+
+def complete_equations_one_pass(corr_equ_list, order):
+    op_comp_list = find_complete_op_corr_equ(corr_equ_list)
+
+    if len(op_comp_list) == 0:
+        print(len(corr_equ_list))
+        print("FINISH !!!")
+        exit()
+
+    corr_equ_list_set = []
+    for op in op_comp_list:
+        equ_list = develop_all_equations(op, CAVITY_H_OP_LIST, [lindblad_terms(KAPPA, OP_A, op), lindblad_terms(GAMMA, OP_SP, op), lindblad_terms(NU, OP_SM, op)], order)
+        new_corr_equ_list = transform_equ_set_to_corr(equ_list)
+        apply_cumulant_expansion(new_corr_equ_list, order + 1)
+        corr_equ_list_set.append(new_corr_equ_list)
+
+    #print_equ_list(corr_equ_list)
+    final_corr_equ_list = remove_same_corr_equ(corr_equ_list, corr_equ_list_set[0])
+    #print_equ_list(final_corr_equ_list)
+    for i in range(len(corr_equ_list_set)):
+        #print("\n######################################\n")
+        #print_equ_list(corr_equ_list_set[i])
+        final_corr_equ_list = remove_same_corr_equ(final_corr_equ_list, corr_equ_list_set[i])
+
+    #print(len(final_corr_equ_list))
+    #print_equ_list(final_corr_equ_list)
+    return final_corr_equ_list
+
+#op = OP_A * OP_A
+#my_op_equ_list = develop_all_equations(op, CAVITY_H_OP_LIST, [lindblad_terms(KAPPA, OP_A, op), lindblad_terms(GAMMA, OP_SP, op), lindblad_terms(NU, OP_SM, op)], 2)
+#print_equ_list(my_op_equ_list)
+
+op = OP_Ad * OP_Ad * OP_A * OP_A
+my_op_equ_list = develop_all_equations(op, CAVITY_H_OP_LIST, [lindblad_terms(KAPPA, OP_A, op), lindblad_terms(GAMMA, OP_SP, op), lindblad_terms(NU, OP_SM, op)], 4)
+comp_corr_equ_list = transform_equ_set_to_corr(my_op_equ_list)
+apply_cumulant_expansion(comp_corr_equ_list, 5)
+for i in range(10):
+    print(i)
+    comp_corr_equ_list = complete_equations_one_pass(comp_corr_equ_list, 4)
+
+print_equ_list(len(comp_corr_equ_list))
