@@ -389,21 +389,31 @@ def print_equ(equ):
 class Cumulant:
     qop_atomic_list = []
     qop_cavity_list = []
+    is_dag = False
     def __init__(self, qop_a_list=[], qop_c_list=[]):
         self.qop_atomic_list = qop_a_list
         self.qop_cavity_list = qop_c_list
+        self.is_dag = False
     def get_order(self):
         return len(self.qop_atomic_list) + len(self.qop_cavity_list)
     def copy(self):
         return Cumulant(self.qop_atomic_list.copy(), self.qop_cavity_list.copy())
     def __str__(self):
         res = str(" <")
-        for qop_a in self.qop_atomic_list:
-                res += " " + qop_str(qop_a)
-        for qop_c in self.qop_cavity_list:
-            res += " " + qop_str(qop_c)
+        a_list = reversed(self.qop_atomic_list) if self.is_dag else self.qop_atomic_list
+        b_list = reversed(self.qop_cavity_list) if self.is_dag else self.qop_cavity_list
+        for qop_a in a_list:
+            res += " " + qop_str(qop_dag(qop_a) if self.is_dag else qop_a)
+        for qop_c in b_list:
+            res += " " + qop_str(qop_dag(qop_c) if self.is_dag else qop_c)
         res += " >"
+        if self.is_dag:
+            res += "†"
         return res
+    def dag_constant(self):
+        cop = self.copy()
+        cop.is_dag = not(cop.is_dag)
+        return cop
 
 
 
@@ -481,13 +491,13 @@ def apply_cumulant_expansion(corr_equ_list, order):
             new_corr.extend(cumulant_expansion(opcumu, order))
         corr_equ_list[i][1] = new_corr
 
-def cumu_list_contains_cumu(op_list, cumu):
+def op_list_contains_cumu(op_list, cumu):
     for op in op_list:
         if is_same_list(op.qop_atomic_list, cumu.qop_atomic_list) and is_same_list(op.qop_cavity_list, cumu.qop_cavity_list):
             return True
     return False
 
-# Must be applied after the cumulant expansion! Otherwise it will run for a long, long, very long time... (infinite) or your computer will crash before ;p
+# Must be applied after the cumulant expansion! Otherwise, the other functions will run for a long, long, very long time... (infinite) or your computer will crash before ;p
 def find_complete_op_corr_equ(corr_equ_list):
     op_list_to_develop = []
     for equ in corr_equ_list:
@@ -497,7 +507,7 @@ def find_complete_op_corr_equ(corr_equ_list):
                 for equ in corr_equ_list:
                     if is_same_list(equ[0].cumulant_list[0].qop_atomic_list, cumu.qop_atomic_list) and is_same_list(equ[0].cumulant_list[0].qop_cavity_list, cumu.qop_cavity_list):
                         found = True
-                if not(found) and not(cumu_list_contains_cumu(op_list_to_develop, cumu)):
+                if not(found) and not(op_list_contains_cumu(op_list_to_develop, cumu)):
                     op_list_to_develop.append(Operand(1.0, [], cumu.qop_atomic_list, cumu.qop_cavity_list))
     #for op in op_list_to_develop:
     #    print(str(op))
@@ -518,6 +528,39 @@ def remove_same_corr_equ(corr_equ_list_a, corr_equ_list_b):
         if not(found):
             final_set_corr_equ.append(corr_equ_list_a[i])
     return final_set_corr_equ
+
+def cumu_dag_qop(cumua: Cumulant, cumub: Cumulant):
+    if len(cumua.qop_atomic_list) != len(cumub.qop_atomic_list) or len(cumua.qop_cavity_list) != len(cumub.qop_cavity_list):
+        return False
+    for i in range(len(cumua.qop_cavity_list)):
+        if cumua.qop_cavity_list[i] != qop_dag(cumub.qop_cavity_list[len(cumua.qop_cavity_list) - i - 1]):
+            return False
+    for i in range(len(cumua.qop_atomic_list)):
+        if cumua.qop_atomic_list[i] != qop_dag(cumub.qop_atomic_list[len(cumua.qop_atomic_list) - i - 1]):
+            return False
+    return True
+
+def remove_dag_corr_equ(corr_equ_list):
+    new_corr_equ_list = []
+    cumu_to_set_dag_list = []
+    i = 0
+    while i < len(corr_equ_list):
+        new_corr_equ_list.append(corr_equ_list[i])
+        for j in range(i + 1, len(corr_equ_list)):
+            if cumu_dag_qop(corr_equ_list[i][0].cumulant_list[0], corr_equ_list[j][0].cumulant_list[0]):
+                cumu_to_set_dag_list.append(corr_equ_list[j][0].cumulant_list[0].copy())
+                del corr_equ_list[j]
+                break
+        i += 1
+    #replace targeted cumu by their dag
+    for corr_equ in new_corr_equ_list:
+        for opcumu in corr_equ[1]:
+            for i in range(len(opcumu.cumulant_list)):
+                for cumu_to_set in cumu_to_set_dag_list:
+                    if cumu_same_qop(opcumu.cumulant_list[i], cumu_to_set):
+                        opcumu.cumulant_list[i] = opcumu.cumulant_list[i].dag_constant()
+                        break
+    return new_corr_equ_list
 
 #my_op = OP_N.copy()
 #all_op = hamiltonian_commutator(CAVITY_H_OP_LIST, my_op)
@@ -679,9 +722,9 @@ def complete_equations_one_pass(corr_equ_list, order):
     op_comp_list = find_complete_op_corr_equ(corr_equ_list)
 
     if len(op_comp_list) == 0:
-        print(len(corr_equ_list))
+        #print(len(corr_equ_list))
         print("FINISH !!!")
-        exit()
+        return []
 
     corr_equ_list_set = []
     for op in op_comp_list:
@@ -702,16 +745,53 @@ def complete_equations_one_pass(corr_equ_list, order):
     #print_equ_list(final_corr_equ_list)
     return final_corr_equ_list
 
-#op = OP_A * OP_A
-#my_op_equ_list = develop_all_equations(op, CAVITY_H_OP_LIST, [lindblad_terms(KAPPA, OP_A, op), lindblad_terms(GAMMA, OP_SP, op), lindblad_terms(NU, OP_SM, op)], 2)
-#print_equ_list(my_op_equ_list)
+#op = OP_Ad * OP_Ad * OP_A * OP_A
+#my_op_equ_list = develop_all_equations(op, CAVITY_H_OP_LIST, [lindblad_terms(KAPPA, OP_A, op), lindblad_terms(GAMMA, OP_SP, op), lindblad_terms(NU, OP_SM, op)], 4)
+#comp_corr_equ_list = transform_equ_set_to_corr(my_op_equ_list)
+#apply_cumulant_expansion(comp_corr_equ_list, 5)
+#for i in range(10):
+#    print(i)
+#    comp_corr_equ_list = complete_equations_one_pass(comp_corr_equ_list, 4)
+#
+#print_equ_list(len(comp_corr_equ_list))
 
-op = OP_Ad * OP_Ad * OP_A * OP_A
-my_op_equ_list = develop_all_equations(op, CAVITY_H_OP_LIST, [lindblad_terms(KAPPA, OP_A, op), lindblad_terms(GAMMA, OP_SP, op), lindblad_terms(NU, OP_SM, op)], 4)
+#op = OP_Ad * OP_A
+#my_op_equ_list = develop_all_equations(op, CAVITY_H_OP_LIST, [lindblad_terms(KAPPA, OP_A, op), lindblad_terms(GAMMA, OP_SP, op), lindblad_terms(NU, OP_SM, op)], 2)
+#print("\n######################################\n")
+#print_equ_list(my_op_equ_list)
+#print("\n######################################\n")
+#comp_corr_equ_list = transform_equ_set_to_corr(my_op_equ_list)
+#print_equ_list(comp_corr_equ_list)
+#print("\n######################################\n")
+#apply_cumulant_expansion(comp_corr_equ_list, 3)
+#print_equ_list(comp_corr_equ_list)
+#print("\n######################################\n")
+#comp_corr_equ_list = complete_equations_one_pass(comp_corr_equ_list, 2)
+#print_equ_list(comp_corr_equ_list)
+#print("\n######################################\n")
+#comp_corr_equ_list = complete_equations_one_pass(comp_corr_equ_list, 2)
+#print_equ_list(comp_corr_equ_list)
+#print(len(comp_corr_equ_list))
+#print("\n######################################\n")
+#comp_corr_equ_list = remove_dag_corr_equ(comp_corr_equ_list)
+#print_equ_list(comp_corr_equ_list)
+#print(len(comp_corr_equ_list))
+#print("\n######################################\n")
+
+op = OP_Ad * OP_A
+#op = OP_Ad * OP_Ad * OP_A * OP_A
+my_op_equ_list = develop_all_equations(op, CAVITY_H_OP_LIST, [lindblad_terms(KAPPA, OP_A, op), lindblad_terms(GAMMA, OP_SP, op), lindblad_terms(NU, OP_SM, op)], 2)
 comp_corr_equ_list = transform_equ_set_to_corr(my_op_equ_list)
-apply_cumulant_expansion(comp_corr_equ_list, 5)
+apply_cumulant_expansion(comp_corr_equ_list, 3)
 for i in range(10):
     print(i)
-    comp_corr_equ_list = complete_equations_one_pass(comp_corr_equ_list, 4)
+    new_list = complete_equations_one_pass(comp_corr_equ_list, 2)
+    if len(new_list) == 0:
+        break
+    else:
+        comp_corr_equ_list = new_list
 
-print_equ_list(len(comp_corr_equ_list))
+print(len(comp_corr_equ_list))
+comp_corr_equ_list = remove_dag_corr_equ(comp_corr_equ_list)
+print_equ_list(comp_corr_equ_list)
+print(len(comp_corr_equ_list))
