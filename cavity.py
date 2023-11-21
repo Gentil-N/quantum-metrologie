@@ -5,12 +5,14 @@ import math
 
 HBAR = 1.0
 
+
+
 class Cavity:
 
-    def __init__(self, cavity_mode_frequency, atomic_transition_frequency, atom_count, photon_capacity, coupling, kappa = 0.0, repump = 0.0, enable_decay = False, enable_repump = False) -> None:
-        self.init(cavity_mode_frequency, atomic_transition_frequency, atom_count, photon_capacity, coupling, kappa, repump, enable_decay, enable_repump)
+    def __init__(self, cavity_mode_frequency, atomic_transition_frequency, atom_count, photon_capacity, coupling, kappa = 0.0, repump = 0.0, free_space_rate = 0.0, enable_decay = False, enable_repump = False, enable_free_space_decay = False) -> None:
+        self.init(cavity_mode_frequency, atomic_transition_frequency, atom_count, photon_capacity, coupling, kappa, repump, free_space_rate, enable_decay, enable_repump, enable_free_space_decay)
 
-    def init(self, cavity_mode_frequency, atomic_transition_frequency, atom_count, photon_capacity, coupling, kappa = 0.0, repump = 0.0, enable_decay = False, enable_repump = False):
+    def init(self, cavity_mode_frequency, atomic_transition_frequency, atom_count, photon_capacity, coupling, kappa = 0.0, repump = 0.0, free_space_rate = 0.0, enable_decay = False, enable_repump = False, enable_free_space_decay = False):
 
         self.cf = cavity_mode_frequency
         self.af = atomic_transition_frequency
@@ -22,8 +24,10 @@ class Cavity:
         self.g = coupling
         self.kappa = kappa
         self.repump = repump
+        self.free_space_rate = free_space_rate
         self.enable_decay = enable_decay
         self.enable_repump = enable_repump
+        self.enable_free_space_decay = enable_free_space_decay
 
         self.op_jz = qp.spin_Jz(self.spin_num)
         self.op_jp = qp.spin_Jp(self.spin_num)
@@ -35,19 +39,21 @@ class Cavity:
 
         # "Standard" hamiltonian
         #self.op_hamiltonian_base = HBAR * self.cf * self.__tens_from_fock(self.op_n) + HBAR * self.af * self.__tens_from_spin(self.op_jz)
-        #self.op_hamiltonian_intercation = HBAR * self.g / np.sqrt(self.a_count) * (qp.tensor(self.op_jp, self.op_a) + qp.tensor(self.op_jm, self.op_ad))
+        #self.op_hamiltonian_intercation = HBAR * self.g / np.sqrt(self.a_count) * (qp.tensor(self.op_jp, self.op_a) + qp.tensor(self.op_jm, self.op_ad)) # sqrt(N) !!! Ok for dicke model. But must be verified before use!
         #self.op_hamiltonian = self.op_hamiltonian_base + self.op_hamiltonian_intercation
 
         # RWA
         self.op_hamiltonian_base = HBAR * (self.cf - self.af) * self.__tens_from_fock(self.op_n)
-        self.op_hamiltonian_intercation = HBAR * self.g / np.sqrt(self.a_count) * (qp.tensor(self.op_jp, self.op_a) + qp.tensor(self.op_jm, self.op_ad))
+        self.op_hamiltonian_intercation = HBAR * self.g / np.sqrt(self.a_count) * (qp.tensor(self.op_jp, self.op_a) + qp.tensor(self.op_jm, self.op_ad)) # sqrt(N) !!! Ok for dicke model. But must be verified before use!
         self.op_hamiltonian = self.op_hamiltonian_base + self.op_hamiltonian_intercation
 
         self.op_collapsing = []
         if self.enable_decay:
-            self.op_collapsing.append(self.kappa * self.__tens_from_fock(self.op_a)) 
+            self.op_collapsing.append(np.sqrt(self.kappa) * self.__tens_from_fock(self.op_a)) 
         if self.enable_repump:
-            self.op_collapsing.append(self.repump * self.__tens_from_spin(self.op_jp))
+            self.op_collapsing.append(np.sqrt(self.repump) * self.__tens_from_spin(self.op_jp))
+        if self.enable_free_space_decay:
+            self.op_collapsing.append(np.sqrt(self.free_space_rate) * self.__tens_from_spin(self.op_jm))
 
         self.result = []
         self.time_range = []
@@ -62,6 +68,9 @@ class Cavity:
         self.result = result.states
         return self.time_range
 
+    def compute_steady_state(self):
+        return qp.steadystate(self.op_hamiltonian, self.op_collapsing)
+
     def get_all_probabilities(self):
         probabilities = []
         m = -self.spin_num
@@ -72,6 +81,9 @@ class Cavity:
                 probabilities.append(prob)
             m += 1
         return probabilities
+
+    def compute_expectation_values(self, intial_index_result):
+        return qp.mesolve(self.op_hamiltonian, self.result[intial_index_result], self.time_range, self.op_collapsing, [self.__tens_from_fock(self.op_ad) * self.__tens_from_fock(self.op_a), self.__tens_from_spin(self.op_jz), self.__tens_from_spin(self.op_jp)], options=qp.solver.Options(nsteps=1000), progress_bar=qp.ui.progressbar.TextProgressBar()).expect
     
     def compute_g2(self):
         g2 = []

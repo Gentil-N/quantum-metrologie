@@ -109,9 +109,9 @@ def qop_str(op: QOp):
         raise Exception("Operator not defined for str operation")
 
 class Factor:
-    name = "NoNameFactor"
-    def __init__(self, name="NoNameFactor"):
+    def __init__(self, name="NoNameFactor", python_name="NoPythonName"):
         self.name = name
+        self.python_name = python_name
 
 class Operand:
     c_factor = 1.0 + 0.0j
@@ -211,13 +211,13 @@ def op_create_cumulant(op: Operand):
     return
 
 
-G = Factor("G")
-OMEGA = Factor("ω")
-DELTA = Factor("Δ")
-KAPPA = Factor("K")
-GAMMA = Factor("γ")
-NU = Factor("ν")
-HBAR = Factor("h")
+G = Factor("G", "G")
+OMEGA = Factor("ω", "omega")
+DELTA = Factor("Δ", "delta")
+KAPPA = Factor("K", "kappa")
+GAMMA = Factor("γ", "gamma")
+NU = Factor("ν", "nu")
+HBAR = Factor("h", "HBAR")
 
 OP_A = Operand(1.0, [], [], [QOp.A])
 OP_Ad = Operand(1.0, [], [], [QOp.Ad])
@@ -240,7 +240,7 @@ def hamiltonian_commutator(hamiltonian_op_list: list, op: Operand):
     #return [op_n_delta_i * op, op * op_n_delta_i.mul_c_factor(-1.0), (OP_GSPA * op).mul_c_factor(1.0j), (OP_GSMAd * op).mul_c_factor(1.0j), (op * OP_GSPA).mul_c_factor(-1.0j), (op * OP_GSMAd).mul_c_factor(-1.0j)]
     return commutator_op_list
     
-def lindblad_terms(lb_factor: Factor, lb_op: Operand, op: Operand):
+def compute_lb_terms(lb_factor: Factor, lb_op: Operand, op: Operand):
     lb_op_dag = lb_op.dag()
     return [(lb_op_dag * op * lb_op).add_factor(lb_factor), (lb_op_dag * lb_op * op).add_factor(lb_factor).mul_c_factor(-0.5), (op * lb_op_dag * lb_op).add_factor(lb_factor).mul_c_factor(-0.5)]
 
@@ -332,10 +332,10 @@ def order_atomic_qop_list(op_list):
         new_op_list = order_atomic_qop(op)
         op_list.extend(new_op_list)
 
-def develop_equation(initial_op: Operand, hamiltonian, lindblad_terms):
+def develop_equation(initial_op: Operand, hamiltonian, lb_factor_tuples):
     all_op = hamiltonian_commutator(hamiltonian, initial_op)
-    for lterm in lindblad_terms:
-        all_op.extend(lterm)
+    for lb_tuple in lb_factor_tuples:
+        all_op.extend(compute_lb_terms(lb_tuple[0], lb_tuple[1], initial_op))
     add_equivalent(all_op)
     remove_null(all_op)
     order_cavity_qop_list(all_op)
@@ -346,7 +346,7 @@ def develop_equation(initial_op: Operand, hamiltonian, lindblad_terms):
     remove_null(all_op)
     return all_op
 
-def develop_all_equations(initial_op: Operand, hamiltonian, lindblad_terms, max_order):
+def develop_all_equations(initial_op: Operand, hamiltonian, lb_factor_tuples, max_order):
     if initial_op.get_order() > max_order:
         print(initial_op)
         raise Exception("Initial operator's order is higher than the maximal order: doesn't make sense!")
@@ -358,7 +358,9 @@ def develop_all_equations(initial_op: Operand, hamiltonian, lindblad_terms, max_
         #print(op_to_dev)
         op_developed_list.append(op_to_dev)
         del op_to_develop_list[0]
-        equ_list.append([op_to_dev, develop_equation(op_to_dev, hamiltonian, lindblad_terms)])
+        #print("current = ", str(op_to_dev))
+        equ_list.append([op_to_dev, develop_equation(op_to_dev, hamiltonian, lb_factor_tuples)])
+        #print_equ(equ_list[-1])
         #print_op_list(equ_list[-1][1])
         for op in equ_list[-1][1]:
             if op.get_order() > max_order:
@@ -564,9 +566,9 @@ def remove_dag_corr_equ(corr_equ_list):
 
 #my_op = OP_N.copy()
 #all_op = hamiltonian_commutator(CAVITY_H_OP_LIST, my_op)
-#lb_a_terms = lindblad_terms(KAPPA, OP_A, my_op)
-#lb_sp_terms = lindblad_terms(GAMMA, OP_SP, my_op)
-#lb_sm_terms = lindblad_terms(NU, OP_SM, my_op)
+#lb_a_terms = compute_lb_terms(KAPPA, OP_A, my_op)
+#lb_sp_terms = compute_lb_terms(GAMMA, OP_SP, my_op)
+#lb_sm_terms = compute_lb_terms(NU, OP_SM, my_op)
 #all_op.extend(lb_a_terms)
 #all_op.extend(lb_sp_terms)
 #all_op.extend(lb_sm_terms)
@@ -615,7 +617,7 @@ def remove_dag_corr_equ(corr_equ_list):
 
 #my_op = OP_Ad.copy()
 #all_op = hamiltonian_commutator(HOSCILLATOR_H_OP_LIST, my_op)
-#lb_a_terms = lindblad_terms(KAPPA, OP_A, my_op)
+#lb_a_terms = compute_lb_terms(KAPPA, OP_A, my_op)
 #all_op.extend(lb_a_terms)
 #
 #add_equivalent(all_op)
@@ -629,9 +631,9 @@ def remove_dag_corr_equ(corr_equ_list):
 
 #my_op = OP_A
 #all_op = hamiltonian_commutator(CAVITY_H_OP_LIST, my_op)
-#lb_a_terms = lindblad_terms(KAPPA, OP_A, my_op)
-#lb_sp_terms = lindblad_terms(GAMMA, OP_SP, my_op)
-#lb_sm_terms = lindblad_terms(NU, OP_SM, my_op)
+#lb_a_terms = compute_lb_terms(KAPPA, OP_A, my_op)
+#lb_sp_terms = compute_lb_terms(GAMMA, OP_SP, my_op)
+#lb_sm_terms = compute_lb_terms(NU, OP_SM, my_op)
 #all_op.extend(lb_a_terms)
 #all_op.extend(lb_sp_terms)
 #all_op.extend(lb_sm_terms)
@@ -647,9 +649,9 @@ def remove_dag_corr_equ(corr_equ_list):
 
 #my_op = OP_SM
 #all_op = hamiltonian_commutator(CAVITY_H_OP_LIST, my_op)
-#lb_a_terms = lindblad_terms(KAPPA, OP_A, my_op)
-#lb_sp_terms = lindblad_terms(GAMMA, OP_SP, my_op)
-#lb_sm_terms = lindblad_terms(NU, OP_SM, my_op)
+#lb_a_terms = compute_lb_terms(KAPPA, OP_A, my_op)
+#lb_sp_terms = compute_lb_terms(GAMMA, OP_SP, my_op)
+#lb_sm_terms = compute_lb_terms(NU, OP_SM, my_op)
 #all_op.extend(lb_a_terms)
 #all_op.extend(lb_sp_terms)
 #all_op.extend(lb_sm_terms)
@@ -668,9 +670,9 @@ def remove_dag_corr_equ(corr_equ_list):
 
 #my_op = OP_SZ
 #all_op = hamiltonian_commutator(CAVITY_H_OP_LIST, my_op)
-#lb_a_terms = lindblad_terms(KAPPA, OP_A, my_op)
-#lb_sp_terms = lindblad_terms(GAMMA, OP_SP, my_op)
-#lb_sm_terms = lindblad_terms(NU, OP_SM, my_op)
+#lb_a_terms = compute_lb_terms(KAPPA, OP_A, my_op)
+#lb_sp_terms = compute_lb_terms(GAMMA, OP_SP, my_op)
+#lb_sm_terms = compute_lb_terms(NU, OP_SM, my_op)
 #all_op.extend(lb_a_terms)
 #all_op.extend(lb_sp_terms)
 #all_op.extend(lb_sm_terms)
@@ -689,9 +691,9 @@ def remove_dag_corr_equ(corr_equ_list):
 
 #my_op = OP_SZ * OP_SZ
 #all_op = hamiltonian_commutator(CAVITY_H_OP_LIST, my_op)
-#lb_a_terms = lindblad_terms(KAPPA, OP_A, my_op)
-#lb_sp_terms = lindblad_terms(GAMMA, OP_SP, my_op)
-#lb_sm_terms = lindblad_terms(NU, OP_SM, my_op)
+#lb_a_terms = compute_lb_terms(KAPPA, OP_A, my_op)
+#lb_sp_terms = compute_lb_terms(GAMMA, OP_SP, my_op)
+#lb_sm_terms = compute_lb_terms(NU, OP_SM, my_op)
 #all_op.extend(lb_a_terms)
 #all_op.extend(lb_sp_terms)
 #all_op.extend(lb_sm_terms)
@@ -720,7 +722,7 @@ def print_equ_list(equ_list):
 
 def complete_equations_one_pass(corr_equ_list, order):
     op_comp_list = find_complete_op_corr_equ(corr_equ_list)
-
+    #print_op_list(op_comp_list)
     if len(op_comp_list) == 0:
         #print(len(corr_equ_list))
         print("FINISH !!!")
@@ -728,10 +730,16 @@ def complete_equations_one_pass(corr_equ_list, order):
 
     corr_equ_list_set = []
     for op in op_comp_list:
-        equ_list = develop_all_equations(op, CAVITY_H_OP_LIST, [lindblad_terms(KAPPA, OP_A, op), lindblad_terms(GAMMA, OP_SP, op), lindblad_terms(NU, OP_SM, op)], order)
+        print("\n\n\ndevelopment: ", str(op))
+        equ_list = develop_all_equations(op, CAVITY_H_OP_LIST, [(KAPPA, OP_A), (GAMMA, OP_SP), (NU, OP_SM)], order)
+        print("equ")
+        print_equ_list(equ_list)
         new_corr_equ_list = transform_equ_set_to_corr(equ_list)
         apply_cumulant_expansion(new_corr_equ_list, order + 1)
+        print("cumu")
+        print_equ_list(new_corr_equ_list)
         corr_equ_list_set.append(new_corr_equ_list)
+        print_equ_list(new_corr_equ_list)
 
     #print_equ_list(corr_equ_list)
     final_corr_equ_list = remove_same_corr_equ(corr_equ_list, corr_equ_list_set[0])
@@ -746,7 +754,7 @@ def complete_equations_one_pass(corr_equ_list, order):
     return final_corr_equ_list
 
 #op = OP_Ad * OP_Ad * OP_A * OP_A
-#my_op_equ_list = develop_all_equations(op, CAVITY_H_OP_LIST, [lindblad_terms(KAPPA, OP_A, op), lindblad_terms(GAMMA, OP_SP, op), lindblad_terms(NU, OP_SM, op)], 4)
+#my_op_equ_list = develop_all_equations(op, CAVITY_H_OP_LIST, [(KAPPA, OP_A), (GAMMA, OP_SP), (NU, OP_SM)], 4)
 #comp_corr_equ_list = transform_equ_set_to_corr(my_op_equ_list)
 #apply_cumulant_expansion(comp_corr_equ_list, 5)
 #for i in range(10):
@@ -756,7 +764,7 @@ def complete_equations_one_pass(corr_equ_list, order):
 #print_equ_list(len(comp_corr_equ_list))
 
 #op = OP_Ad * OP_A
-#my_op_equ_list = develop_all_equations(op, CAVITY_H_OP_LIST, [lindblad_terms(KAPPA, OP_A, op), lindblad_terms(GAMMA, OP_SP, op), lindblad_terms(NU, OP_SM, op)], 2)
+#my_op_equ_list = develop_all_equations(op, CAVITY_H_OP_LIST, [(KAPPA, OP_A), (GAMMA, OP_SP), (NU, OP_SM)], 2)
 #print("\n######################################\n")
 #print_equ_list(my_op_equ_list)
 #print("\n######################################\n")
@@ -777,21 +785,3 @@ def complete_equations_one_pass(corr_equ_list, order):
 #print_equ_list(comp_corr_equ_list)
 #print(len(comp_corr_equ_list))
 #print("\n######################################\n")
-
-op = OP_Ad * OP_A
-#op = OP_Ad * OP_Ad * OP_A * OP_A
-my_op_equ_list = develop_all_equations(op, CAVITY_H_OP_LIST, [lindblad_terms(KAPPA, OP_A, op), lindblad_terms(GAMMA, OP_SP, op), lindblad_terms(NU, OP_SM, op)], 2)
-comp_corr_equ_list = transform_equ_set_to_corr(my_op_equ_list)
-apply_cumulant_expansion(comp_corr_equ_list, 3)
-for i in range(10):
-    print(i)
-    new_list = complete_equations_one_pass(comp_corr_equ_list, 2)
-    if len(new_list) == 0:
-        break
-    else:
-        comp_corr_equ_list = new_list
-
-print(len(comp_corr_equ_list))
-comp_corr_equ_list = remove_dag_corr_equ(comp_corr_equ_list)
-print_equ_list(comp_corr_equ_list)
-print(len(comp_corr_equ_list))
