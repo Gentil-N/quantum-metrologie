@@ -228,27 +228,27 @@ class Cavity:
 
     def compute_g1_perso(self, psi_init, time_range):
         psi_init = self.__convert_psi_init(psi_init)
-        result = qp.mesolve(self.op_hamiltonian, psi_init, time_range, self.op_collapsing, [], options=qp.solver.Options(nsteps=1000), progress_bar=qp.ui.progressbar.TextProgressBar())
-        Bp = qp.mesolve(self.op_hamiltonian, self.__tens_from_fock(self.op_a) * result.states[0], time_range, self.op_collapsing, [], options=qp.solver.Options(nsteps=1000), progress_bar=qp.ui.progressbar.TextProgressBar())
+        #result = qp.mesolve(self.op_hamiltonian, psi_init, time_range, self.op_collapsing, [], options=qp.solver.Options(nsteps=1000), progress_bar=qp.ui.progressbar.TextProgressBar())
+        Bp = qp.mesolve(self.op_hamiltonian, self.__tens_from_fock(self.op_a) * psi_init, time_range, self.op_collapsing, [], options=qp.solver.Options(nsteps=1000), progress_bar=qp.ui.progressbar.TextProgressBar())
         n = qp.mesolve(self.op_hamiltonian, psi_init, time_range, self.op_collapsing, [self.__tens_from_fock(self.op_ad) * self.__tens_from_fock(self.op_a)], options=qp.solver.Options(nsteps=1000), progress_bar=qp.ui.progressbar.TextProgressBar()).expect[0]
         ABp = self.__tens_from_fock(self.op_ad) * Bp.states
         g1 = []
         for ABp_unique in ABp:
             g1.append(ABp_unique.tr())
-        g1 /= np.sqrt(n[0] * n)
+        #g1 /= np.sqrt(n[0] * n)
         return g1
 
     def compute_g2_perso(self, psi_init, time_range):
         psi_init = self.__convert_psi_init(psi_init)
-        result = qp.mesolve(self.op_hamiltonian, psi_init, time_range, self.op_collapsing, [], options=qp.solver.Options(nsteps=1000), progress_bar=qp.ui.progressbar.TextProgressBar())
-        DpA = qp.mesolve(self.op_hamiltonian, self.__tens_from_fock(self.op_a) * result.states[0] * self.__tens_from_fock(self.op_ad), time_range, self.op_collapsing, [], options=qp.solver.Options(nsteps=1000), progress_bar=qp.ui.progressbar.TextProgressBar())
+        #result = qp.mesolve(self.op_hamiltonian, psi_init, time_range, self.op_collapsing, [], options=qp.solver.Options(nsteps=1000), progress_bar=qp.ui.progressbar.TextProgressBar())
+        DpA = qp.mesolve(self.op_hamiltonian, self.__tens_from_fock(self.op_a) * psi_init * self.__tens_from_fock(self.op_ad), time_range, self.op_collapsing, [], options=qp.solver.Options(nsteps=1000), progress_bar=qp.ui.progressbar.TextProgressBar())
         #print(DpA.states)
         n = qp.mesolve(self.op_hamiltonian, psi_init, time_range, self.op_collapsing, [self.__tens_from_fock(self.op_ad) * self.__tens_from_fock(self.op_a)], options=qp.solver.Options(nsteps=1000), progress_bar=qp.ui.progressbar.TextProgressBar()).expect[0]
         BCDpA = self.__tens_from_fock(self.op_ad) * self.__tens_from_fock(self.op_a) * DpA.states
         g2 = []
         for BCDpA_unique in BCDpA:
             g2.append(BCDpA_unique.tr())
-        g2 /= n[0] * n
+        #g2 /= n[0] * n
         return g2
 
     def get_state(self):

@@ -79,6 +79,8 @@ class QOp(Enum):
     SP = 3
     SM = 4
     SZ = 5
+    Ac = 6
+    Adc = 7
 
 def qop_dag(op: QOp):
     if op == QOp.A:
@@ -91,6 +93,10 @@ def qop_dag(op: QOp):
         return QOp.SP
     elif op == QOp.SZ:
         return QOp.SZ
+    elif op == QOp.Ac:
+        return QOp.Adc
+    elif op == QOp.Adc:
+        return QOp.Ac
     else:
         raise Exception("Operator not defined for dagger operation")
 
@@ -105,6 +111,10 @@ def qop_str(op: QOp):
         return "sm"
     elif op == QOp.SZ:
         return "sz"
+    elif op == QOp.Ac:
+        return "ac"
+    elif op == QOp.Adc:
+        return "adc"
     else:
         raise Exception("Operator not defined for str operation")
 
@@ -232,6 +242,8 @@ OP_N = OP_Ad * OP_A
 OP_SP = Operand(1.0, [], [QOp.SP], [])
 OP_SM = Operand(1.0, [], [QOp.SM], [])
 OP_SZ = Operand(1.0, [], [QOp.SZ], [])
+OP_Ac = Operand(1.0, [], [], [QOp.Ac])
+OP_Adc = Operand(1.0, [], [], [QOp.Adc])
 OP_GSPA = OP_SP * OP_A
 OP_GSMAd = OP_SM * OP_Ad
 CAVITY_H_OP_LIST = [OP_N.add_factor(DELTA), OP_GSPA.add_factor(G), OP_GSMAd.add_factor(G)]
@@ -278,6 +290,33 @@ def order_cavity_qop(op: Operand):
         if op.qop_cavity_list[i] == QOp.A and op.qop_cavity_list[i + 1] == QOp.Ad:
             op.qop_cavity_list[i] = QOp.Ad
             op.qop_cavity_list[i + 1] = QOp.A
+            new_op = op.copy()
+            del new_op.qop_cavity_list[i]
+            del new_op.qop_cavity_list[i]
+            new_op_list.append(new_op)
+            new_op_list.extend(order_cavity_qop(new_op))
+            i = 0
+        elif op.qop_cavity_list[i] == QOp.Ac and op.qop_cavity_list[i + 1] == QOp.Ad:
+            op.qop_cavity_list[i] = QOp.Ad
+            op.qop_cavity_list[i + 1] = QOp.Ac
+            new_op = op.copy()
+            del new_op.qop_cavity_list[i]
+            del new_op.qop_cavity_list[i]
+            new_op_list.append(new_op)
+            new_op_list.extend(order_cavity_qop(new_op))
+            i = 0
+        elif op.qop_cavity_list[i] == QOp.A and op.qop_cavity_list[i + 1] == QOp.Adc:
+            op.qop_cavity_list[i] = QOp.Adc
+            op.qop_cavity_list[i + 1] = QOp.A
+            new_op = op.copy()
+            del new_op.qop_cavity_list[i]
+            del new_op.qop_cavity_list[i]
+            new_op_list.append(new_op)
+            new_op_list.extend(order_cavity_qop(new_op))
+            i = 0
+        elif op.qop_cavity_list[i] == QOp.Ac and op.qop_cavity_list[i + 1] == QOp.Adc:
+            op.qop_cavity_list[i] = QOp.Adc
+            op.qop_cavity_list[i + 1] = QOp.Ac
             new_op = op.copy()
             del new_op.qop_cavity_list[i]
             del new_op.qop_cavity_list[i]
@@ -451,28 +490,62 @@ class OpCumulant:
 
 
 def cumulant_expansion(opcumu: OpCumulant, order):
-        if len(opcumu.cumulant_list) > 1 or opcumu.cumulant_list[0].get_order() != order:
-            return [opcumu]
-        S = set(range(0, order))
-        P = Partition(S)
-        #for x in P:
-        #    print(x)
-        new_opcumu_list = []
-        for i in range(1, len(P)):
-            new_opcumu = OpCumulant(opcumu.c_factor * math.factorial(len(P[i]) - 1) * (-1)**len(P[i]), opcumu.factor_list.copy(), [])
-            for j in range(len(P[i])):
-                cumu = Cumulant([], [])
-                for k in range(len(P[i][j])):
-                    len_atomic_list = len(opcumu.cumulant_list[0].qop_atomic_list)
-                    #print(P[i][j][k])
-                    if P[i][j][k] >= len_atomic_list:
-                        cumu.qop_cavity_list.append(opcumu.cumulant_list[0].qop_cavity_list[P[i][j][k] - len_atomic_list])
-                    else:
-                        cumu.qop_atomic_list.append(opcumu.cumulant_list[0].qop_atomic_list[P[i][j][k]])
-                new_opcumu.cumulant_list.append(cumu.copy())
-            #print(new_opcumu)
-            new_opcumu_list.append(new_opcumu.copy())
-        return new_opcumu_list
+    new_opcumu_list = [opcumu.copy()]
+    k = -1
+    while k < len(new_opcumu_list) - 1:
+        k += 1
+        #print(k, " ", len(new_opcumu_list))
+        for l in range(len(new_opcumu_list[k].cumulant_list)):
+            if new_opcumu_list[k].cumulant_list[l].get_order() >= order:
+                S = set(range(0, order))
+                P = Partition(S)
+                new_internal_opcumu_list = []
+                for i in range(1, len(P)):
+                    new_opcumu = OpCumulant(new_opcumu_list[k].c_factor * math.factorial(len(P[i]) - 1) * (-1)**len(P[i]), new_opcumu_list[k].factor_list.copy(), [])
+                    for j in range(len(P[i])):
+                        cumu = Cumulant([], [])
+                        for m in range(len(P[i][j])):
+                            len_atomic_list = len(new_opcumu_list[k].cumulant_list[l].qop_atomic_list)
+                            #print(P[i][j][k])
+                            if P[i][j][m] >= len_atomic_list:
+                                cumu.qop_cavity_list.append(new_opcumu_list[k].cumulant_list[l].qop_cavity_list[P[i][j][m] - len_atomic_list])
+                            else:
+                                cumu.qop_atomic_list.append(new_opcumu_list[k].cumulant_list[l].qop_atomic_list[P[i][j][m]])
+                        new_opcumu.cumulant_list.append(cumu.copy())
+                    #print(new_opcumu)
+                    for n in range(l):
+                        new_opcumu.cumulant_list.append(new_opcumu_list[k].cumulant_list[n].copy())
+                    for n in range(l+1, len(new_opcumu_list[k].cumulant_list)):
+                        new_opcumu.cumulant_list.append(new_opcumu_list[k].cumulant_list[n].copy())
+                    new_internal_opcumu_list.append(new_opcumu.copy())
+                del new_opcumu_list[k]
+                new_opcumu_list.extend(new_internal_opcumu_list)
+                k = -1
+                break
+    return new_opcumu_list
+
+    #if len(opcumu.cumulant_list) > 1 or opcumu.cumulant_list[0].get_order() != order:
+    #    return [opcumu]
+    #S = set(range(0, order))
+    #P = Partition(S)
+    ##for x in P:
+    ##    print(x)
+    #new_opcumu_list = []
+    #for i in range(1, len(P)):
+    #    new_opcumu = OpCumulant(opcumu.c_factor * math.factorial(len(P[i]) - 1) * (-1)**len(P[i]), opcumu.factor_list.copy(), [])
+    #    for j in range(len(P[i])):
+    #        cumu = Cumulant([], [])
+    #        for k in range(len(P[i][j])):
+    #            len_atomic_list = len(opcumu.cumulant_list[0].qop_atomic_list)
+    #            #print(P[i][j][k])
+    #            if P[i][j][k] >= len_atomic_list:
+    #                cumu.qop_cavity_list.append(opcumu.cumulant_list[0].qop_cavity_list[P[i][j][k] - len_atomic_list])
+    #            else:
+    #                cumu.qop_atomic_list.append(opcumu.cumulant_list[0].qop_atomic_list[P[i][j][k]])
+    #        new_opcumu.cumulant_list.append(cumu.copy())
+    #    #print(new_opcumu)
+    #    new_opcumu_list.append(new_opcumu.copy())
+    #return new_opcumu_list
 
 
 
@@ -549,7 +622,7 @@ def cumu_dag_qop(cumua: Cumulant, cumub: Cumulant):
             return False
     return True
 
-def remove_dag_corr_equ(corr_equ_list):
+def remove_dag_corr_equ(corr_equ_list, original_op: Cumulant):
     new_corr_equ_list = []
     cumu_to_set_dag_list = []
     i = 0
@@ -557,7 +630,11 @@ def remove_dag_corr_equ(corr_equ_list):
         new_corr_equ_list.append(corr_equ_list[i])
         for j in range(i + 1, len(corr_equ_list)):
             if cumu_dag_qop(corr_equ_list[i][0].cumulant_list[0], corr_equ_list[j][0].cumulant_list[0]):
-                cumu_to_set_dag_list.append(corr_equ_list[j][0].cumulant_list[0].copy())
+                if cumu_same_qop(corr_equ_list[j][0].cumulant_list[0], original_op):
+                    cumu_to_set_dag_list.append(corr_equ_list[i][0].cumulant_list[0].copy())
+                    new_corr_equ_list[-1] = corr_equ_list[j]
+                else:
+                    cumu_to_set_dag_list.append(corr_equ_list[j][0].cumulant_list[0].copy())
                 del corr_equ_list[j]
                 break
         i += 1
@@ -791,3 +868,7 @@ def complete_equations_one_pass(corr_equ_list, order):
 #print_equ_list(comp_corr_equ_list)
 #print(len(comp_corr_equ_list))
 #print("\n######################################\n")
+
+op = OP_Ad
+my_op_equ_list = develop_all_equations(op, CAVITY_H_OP_LIST, [(KAPPA, OP_A), (GAMMA, OP_SP), (NU, OP_SM)], 2)
+print_equ_list(my_op_equ_list)
