@@ -98,7 +98,7 @@ def qop_str(op: QOp):
     if op == QOp.A:
         return "a"
     elif op == QOp.Ad:
-        return "a'"
+        return "ad"
     elif op == QOp.SP:
         return "sp"
     elif op == QOp.SM:
@@ -142,6 +142,13 @@ class Operand:
         for qop_c in self.qop_cavity_list:
             res += " " + qop_str(qop_c)
         res += " )"
+        return res
+    def get_simple_str(self):
+        res = ""
+        for qop_a in self.qop_atomic_list:
+            res += qop_str(qop_a)
+        for qop_c in self.qop_cavity_list:
+            res += qop_str(qop_c)
         return res
     def add_factor(self, factor: Factor):
         cop = self.copy()
@@ -211,13 +218,13 @@ def op_create_cumulant(op: Operand):
     return
 
 
-G = Factor("G", "G")
+G = Factor("G", "g")
 OMEGA = Factor("ω", "omega")
 DELTA = Factor("Δ", "delta")
 KAPPA = Factor("K", "kappa")
 GAMMA = Factor("γ", "gamma")
 NU = Factor("ν", "nu")
-HBAR = Factor("h", "HBAR")
+HBAR = Factor("h", "hbar")
 
 OP_A = Operand(1.0, [], [], [QOp.A])
 OP_Ad = Operand(1.0, [], [], [QOp.Ad])
@@ -725,21 +732,20 @@ def complete_equations_one_pass(corr_equ_list, order):
     #print_op_list(op_comp_list)
     if len(op_comp_list) == 0:
         #print(len(corr_equ_list))
-        print("FINISH !!!")
         return []
 
     corr_equ_list_set = []
     for op in op_comp_list:
-        print("\n\n\ndevelopment: ", str(op))
+        #print("\n\n\ndevelopment: ", str(op))
         equ_list = develop_all_equations(op, CAVITY_H_OP_LIST, [(KAPPA, OP_A), (GAMMA, OP_SP), (NU, OP_SM)], order)
-        print("equ")
-        print_equ_list(equ_list)
+        #print("equ")
+        #print_equ_list(equ_list)
         new_corr_equ_list = transform_equ_set_to_corr(equ_list)
         apply_cumulant_expansion(new_corr_equ_list, order + 1)
-        print("cumu")
-        print_equ_list(new_corr_equ_list)
+        #print("cumu")
+        #print_equ_list(new_corr_equ_list)
         corr_equ_list_set.append(new_corr_equ_list)
-        print_equ_list(new_corr_equ_list)
+        #print_equ_list(new_corr_equ_list)
 
     #print_equ_list(corr_equ_list)
     final_corr_equ_list = remove_same_corr_equ(corr_equ_list, corr_equ_list_set[0])

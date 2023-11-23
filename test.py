@@ -4,12 +4,12 @@ from matplotlib import pyplot as plt
 import scipy.constants as const
 import numpy as np
 
-ATOM_COUNT = 1
-PHOTON_CAPACITY = 1
+ATOM_COUNT = 2
+PHOTON_CAPACITY = 2
 
 #simple_cav = cty.Cavity(1.0, 1.0, ATOM_COUNT, PHOTON_CAPACITY, 1.0, 1.0, 1.0, 0.0, False, False, False)
-simple_cav = cty.Cavity(1.0, 1.0, ATOM_COUNT, PHOTON_CAPACITY, 1.0, 1.0, 1.0, 1.0, True, True, True) # freq 7000, g 73, k 4, r 4
-#simple_cav = cty.Cavity(1.0, 1.0, ATOM_COUNT, PHOTON_CAPACITY, 10.0, 40.0, 9.0, 1.0, True, True, True) # Superradiance from julia tutorial
+#simple_cav = cty.Cavity(1.0, 1.0, ATOM_COUNT, PHOTON_CAPACITY, 1.0, 1.0, 1.0, 1.0, True, True, True) # freq 7000, g 73, k 4, r 4
+simple_cav = cty.Cavity(1.0, 1.0, ATOM_COUNT, PHOTON_CAPACITY, 10.0, 40.0, 9.0, 1.0, True, True, True) # Superradiance from julia tutorial
 #simple_cav = cty.Cavity(1.0, 1.0, ATOM_COUNT, PHOTON_CAPACITY, 10.0, 40.0, 9.0, 1.0, True, False, True) # Superradirance burst
 #simple_cav = cty.Cavity(1.0, 1.0, ATOM_COUNT, PHOTON_CAPACITY, 1.5, 1.0, 0.25, 4.0, True, True, True)
 #simple_cav = cty.Cavity(434.0 * const.tera, 434.0 * const.tera, ATOM_COUNT, PHOTON_CAPACITY, 820.0, 800.0 * const.kilo, 7.5 * const.kilo, 7.5 * const.kilo, True, True, True)

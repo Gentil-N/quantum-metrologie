@@ -30,13 +30,47 @@ class CumulantDict:
         for pair in self.data:
             res += "[" + str(pair[0]) + ", " + pair[1] + "] "
         return res + "}"
+    
+def get_qop_op_equ(op: QOp):
+    if op == QOp.A:
+        return "op_a"
+    elif op == QOp.Ad:
+        return "op_ad"
+    elif op == QOp.SP:
+        return "op_sp"
+    elif op == QOp.SM:
+        return "op_sm"
+    elif op == QOp.SZ:
+        return "op_sz"
+    else:
+        raise Exception("Operator not defined for op_equ operation")
 
-def convert_corr_equ_list_to_python_function(corr_equ_list):
+def get_op_mul_from_cumu(cumu: Cumulant):
+    res = ""
+    qop_a_list = cumu.qop_atomic_list.copy()
+    qop_c_list = cumu.qop_cavity_list.copy()
+    if cumu.is_dag:
+        qop_a_list.reverse()
+        qop_c_list.reverse()
+    for i in range(len(qop_a_list)):
+        res += get_qop_op_equ(qop_dag(qop_a_list[i])) if cumu.is_dag else get_qop_op_equ(qop_a_list[i])
+        if i != len(qop_a_list) - 1:
+            res += " * "
+    if len(qop_a_list) != 0 and len(qop_c_list) != 0:
+        res += " * "
+    for i in range(len(qop_c_list)):
+        res += get_qop_op_equ(qop_dag(qop_c_list[i])) if cumu.is_dag else get_qop_op_equ(qop_c_list[i])
+        if i != len(qop_c_list) - 1:
+            res += " * "
+    return res
+
+def convert_corr_equ_list_to_python_function(corr_equ_list, order, op: Cumulant):
     c_vector_dict = CumulantDict()
     for i in range(len(corr_equ_list)):
         c_vector_dict.add_key_value(corr_equ_list[i][0].cumulant_list[0], ("x[" + str(i) + "]"))
-    print(c_vector_dict)
-    py_func = "return [ "
+    #print(c_vector_dict)
+
+    py_func = "import numpy as np\nfrom correlation_global import *\n\ndef correlation_system_" + op.get_simple_str() + "_order_" + str(order) + "(t, x):\n\treturn [ "
     for i in range(len(corr_equ_list)):
         for j in range(len(corr_equ_list[i][1])):
             if j != 0:
@@ -51,4 +85,9 @@ def convert_corr_equ_list_to_python_function(corr_equ_list):
             py_func += " ]"
             break
         py_func += ", \n"
-    return py_func
+
+    py_vec_init = "def get_init_vec_" + op.get_simple_str() + "_order_" + str(order) + "(init_state):\n\treturn [\n"
+    for i in range(len(corr_equ_list)):
+        py_vec_init += "(1.0 + 0.0j) * mean_value(init_state, " + get_op_mul_from_cumu(corr_equ_list[i][0].cumulant_list[0]) + "),\n"
+    py_vec_init += "]"
+    return [py_func, py_vec_init]
