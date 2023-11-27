@@ -7,7 +7,7 @@ order = 2
 #op = OP_Ad * OP_Ad * OP_A * OP_A
 print("Equation generation...", end="", flush=True)
 my_op_equ_list = develop_all_equations(op, CAVITY_H_OP_LIST, [(KAPPA, OP_A), (GAMMA, OP_SP), (NU, OP_SM)], order)
-print_equ_list(my_op_equ_list)
+#print_equ_list(my_op_equ_list)
 comp_corr_equ_list = transform_equ_set_to_corr(my_op_equ_list)
 #print_equ_list(comp_corr_equ_list)
 apply_cumulant_expansion(comp_corr_equ_list, order + 1)
@@ -39,4 +39,4 @@ file.write(python_print[0] + "\n\n" + python_print[1])
 file.close()
 print("Done")
 
-print_equ_list(comp_corr_equ_list)
+#print_equ_list(comp_corr_equ_list)

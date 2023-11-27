@@ -296,33 +296,34 @@ def order_cavity_qop(op: Operand):
             new_op_list.append(new_op)
             new_op_list.extend(order_cavity_qop(new_op))
             i = 0
-        elif op.qop_cavity_list[i] == QOp.Ac and op.qop_cavity_list[i + 1] == QOp.Ad:
-            op.qop_cavity_list[i] = QOp.Ad
-            op.qop_cavity_list[i + 1] = QOp.Ac
-            new_op = op.copy()
-            del new_op.qop_cavity_list[i]
-            del new_op.qop_cavity_list[i]
-            new_op_list.append(new_op)
-            new_op_list.extend(order_cavity_qop(new_op))
-            i = 0
-        elif op.qop_cavity_list[i] == QOp.A and op.qop_cavity_list[i + 1] == QOp.Adc:
-            op.qop_cavity_list[i] = QOp.Adc
-            op.qop_cavity_list[i + 1] = QOp.A
-            new_op = op.copy()
-            del new_op.qop_cavity_list[i]
-            del new_op.qop_cavity_list[i]
-            new_op_list.append(new_op)
-            new_op_list.extend(order_cavity_qop(new_op))
-            i = 0
-        elif op.qop_cavity_list[i] == QOp.Ac and op.qop_cavity_list[i + 1] == QOp.Adc:
-            op.qop_cavity_list[i] = QOp.Adc
-            op.qop_cavity_list[i + 1] = QOp.Ac
-            new_op = op.copy()
-            del new_op.qop_cavity_list[i]
-            del new_op.qop_cavity_list[i]
-            new_op_list.append(new_op)
-            new_op_list.extend(order_cavity_qop(new_op))
-            i = 0
+        # Normally we don't need to compare with Ac/Adc (do you have the ref ? Ok one "d" in addition...) because we never derive equations with them 
+        #elif op.qop_cavity_list[i] == QOp.Ac and op.qop_cavity_list[i + 1] == QOp.Ad:
+        #    op.qop_cavity_list[i] = QOp.Ad
+        #    op.qop_cavity_list[i + 1] = QOp.Ac
+        #    new_op = op.copy()
+        #    del new_op.qop_cavity_list[i]
+        #    del new_op.qop_cavity_list[i]
+        #    new_op_list.append(new_op)
+        #    new_op_list.extend(order_cavity_qop(new_op))
+        #    i = 0
+        #elif op.qop_cavity_list[i] == QOp.A and op.qop_cavity_list[i + 1] == QOp.Adc:
+        #    op.qop_cavity_list[i] = QOp.Adc
+        #    op.qop_cavity_list[i + 1] = QOp.A
+        #    new_op = op.copy()
+        #    del new_op.qop_cavity_list[i]
+        #    del new_op.qop_cavity_list[i]
+        #    new_op_list.append(new_op)
+        #    new_op_list.extend(order_cavity_qop(new_op))
+        #    i = 0
+        #elif op.qop_cavity_list[i] == QOp.Ac and op.qop_cavity_list[i + 1] == QOp.Adc:
+        #    op.qop_cavity_list[i] = QOp.Adc
+        #    op.qop_cavity_list[i + 1] = QOp.Ac
+        #    new_op = op.copy()
+        #    del new_op.qop_cavity_list[i]
+        #    del new_op.qop_cavity_list[i]
+        #    new_op_list.append(new_op)
+        #    new_op_list.extend(order_cavity_qop(new_op))
+        #    i = 0
         else:
             i += 1
     return new_op_list
@@ -402,21 +403,61 @@ def develop_all_equations(initial_op: Operand, hamiltonian, lb_factor_tuples, ma
     while len(op_to_develop_list) > 0:
         op_to_dev = op_to_develop_list[0]
         #print(op_to_dev)
-        op_developed_list.append(op_to_dev)
+        op_developed_list.append(op_to_dev.copy())
         del op_to_develop_list[0]
+
+        count = 0
+        right_ac_present = False
+        left_adc_present = False
+        if len(op_to_dev.qop_cavity_list) > 0: # We test if Adc and Ac are present only if we HAVE some cavity operators
+            #print("###", cumu, " ", end='')
+            if op_to_dev.qop_cavity_list[-1] == QOp.Ac:
+                #print("ac ", end='')
+                right_ac_present = True
+                count += 1
+            if op_to_dev.qop_cavity_list[0] == QOp.Adc:
+                #print("adc ", end='')
+                left_adc_present = True
+                count += 1
+            #print(len(cumu.qop_cavity_list) - count)
+            if (len(op_to_dev.qop_cavity_list) - count == 0) and (len(op_to_dev.qop_atomic_list) == 0): # in that case, we don't need to test if we have the equation already developed, as the operator in question is only < ac >, < adc >, or < adc ac >: then we don't add it as an operator that we wan't to develop
+                del op_to_develop_list[0]
+                continue
+        if left_adc_present: # We have a left Adc
+            op_to_dev.qop_cavity_list = op_to_dev.qop_cavity_list[1:] # So we remove it!
+        if right_ac_present: # This time we have a right Ac
+            op_to_dev.qop_cavity_list = op_to_dev.qop_cavity_list[:-1] # We also remove it...
+
         #print("current = ", str(op_to_dev))
         equ_list.append([op_to_dev, develop_equation(op_to_dev, hamiltonian, lb_factor_tuples)])
+
+        #print("####")
         #print_equ(equ_list[-1])
+        if left_adc_present or right_ac_present: # if we had Adc left or Ac right
+            multiply_equ_by_op(equ_list[-1], left_adc_present, right_ac_present) # we put it back!
+        #print_equ(equ_list[-1])
+        
         #print_op_list(equ_list[-1][1])
         for op in equ_list[-1][1]:
             if op.get_order() > max_order:
                 continue
             if not(op_list_contains_op_same_qop(op, op_developed_list)) and not(op_list_contains_op_same_qop(op, op_to_develop_list)):
+                #print_op_list(op_developed_list)
                 #print("adding: ", op)
                 op_to_develop_list.append(op.empty_factors().set_c_factor(1.0))
         #print(len(op_to_develop_list))
         #print("###")
     return equ_list
+
+def multiply_equ_by_op(equ, left_adc: bool, right_ac: bool):
+    if left_adc:
+        equ[0] = OP_Adc * equ[0]
+        for j in range(len(equ[1])):
+            equ[1][j] = OP_Adc * equ[1][j]
+    if right_ac:
+        equ[0] = equ[0] * OP_Ac
+        for j in range(len(equ[1])):
+            equ[1][j] = equ[1][j] * OP_Ac
     
 
 
@@ -497,7 +538,7 @@ def cumulant_expansion(opcumu: OpCumulant, order):
         #print(k, " ", len(new_opcumu_list))
         for l in range(len(new_opcumu_list[k].cumulant_list)):
             if new_opcumu_list[k].cumulant_list[l].get_order() >= order:
-                S = set(range(0, order))
+                S = set(range(0, new_opcumu_list[k].cumulant_list[l].get_order()))
                 P = Partition(S)
                 new_internal_opcumu_list = []
                 for i in range(1, len(P)):
@@ -579,21 +620,58 @@ def op_list_contains_cumu(op_list, cumu):
             return True
     return False
 
-# Must be applied after the cumulant expansion! Otherwise, the other functions will run for a long, long, very long time... (infinite) or your computer will crash before ;p
+def op_list_contains_cumu_special_adc_ac(op_list, cumu):
+    for op in op_list:
+        if is_same_list(op[0].qop_atomic_list, cumu.qop_atomic_list) and is_same_list(op[0].qop_cavity_list, cumu.qop_cavity_list):
+            return True
+    return False
+
+# /!\ Must be applied after the cumulant expansion! Otherwise, the other functions will run for a long, long, very long time... (infinite) or your computer will crash before ;p
+# /!\ ASSUMING THAT WE ONLY HAVE AC ON THE RIGHT OR ADC ON THE LEFT
 def find_complete_op_corr_equ(corr_equ_list):
     op_list_to_develop = []
     for equ in corr_equ_list:
         for opcumu in equ[1]:
             for cumu in opcumu.cumulant_list:
+                count = 0
+                #right_ac_present = False
+                #left_adc_present = False
+                if len(cumu.qop_cavity_list) > 0: # We test if Adc and Ac are present only if we HAVE some cavity operators
+                    #print("###", cumu, " ", end='')
+                    if cumu.qop_cavity_list[-1] == QOp.Ac:
+                        #print("ac ", end='')
+                        #right_ac_present = True
+                        count += 1
+                    if cumu.qop_cavity_list[0] == QOp.Adc:
+                        #print("adc ", end='')
+                        #left_adc_present = True
+                        count += 1
+                    #print(len(cumu.qop_cavity_list) - count)
+                    if (len(cumu.qop_cavity_list) - count == 0) and (len(cumu.qop_atomic_list) == 0): # in that case, we don't need to test if we have the equation already developed, as the operator in question is only < ac >, < adc >, or < adc ac >: then we don't add it as an operator that we wan't to develop
+                        continue
                 found = False
                 for equ in corr_equ_list:
-                    if is_same_list(equ[0].cumulant_list[0].qop_atomic_list, cumu.qop_atomic_list) and is_same_list(equ[0].cumulant_list[0].qop_cavity_list, cumu.qop_cavity_list):
+                    if cumu_same_qop(equ[0].cumulant_list[0], cumu): #is_same_list(equ[0].cumulant_list[0].qop_atomic_list, cumu.qop_atomic_list) and is_same_list(equ[0].cumulant_list[0].qop_cavity_list, cumu.qop_cavity_list):
                         found = True
                 if not(found) and not(op_list_contains_cumu(op_list_to_develop, cumu)):
                     op_list_to_develop.append(Operand(1.0, [], cumu.qop_atomic_list, cumu.qop_cavity_list))
     #for op in op_list_to_develop:
     #    print(str(op))
     return op_list_to_develop
+
+    #op_list_to_develop = []
+    #for equ in corr_equ_list:
+    #    for opcumu in equ[1]:
+    #        for cumu in opcumu.cumulant_list:
+    #            found = False
+    #            for equ in corr_equ_list:
+    #                if is_same_list(equ[0].cumulant_list[0].qop_atomic_list, cumu.qop_atomic_list) and is_same_list(equ[0].cumulant_list[0].qop_cavity_list, cumu.qop_cavity_list):
+    #                    found = True
+    #            if not(found) and not(op_list_contains_cumu(op_list_to_develop, cumu)):
+    #                op_list_to_develop.append(Operand(1.0, [], cumu.qop_atomic_list, cumu.qop_cavity_list))
+    ##for op in op_list_to_develop:
+    ##    print(str(op))
+    #return op_list_to_develop
 
 def cumu_same_qop(cumua: Cumulant, cumub: Cumulant):
     if is_same_list(cumua.qop_atomic_list, cumub.qop_atomic_list) and is_same_list(cumua.qop_cavity_list, cumub.qop_cavity_list):
@@ -808,8 +886,13 @@ def complete_equations_one_pass(corr_equ_list, order):
     op_comp_list = find_complete_op_corr_equ(corr_equ_list)
     #print_op_list(op_comp_list)
     if len(op_comp_list) == 0:
+        print("FINISH !!!")
         #print(len(corr_equ_list))
         return []
+
+    #for op in op_comp_list:
+    #    print("op: ", op)
+    #exit()
 
     corr_equ_list_set = []
     for op in op_comp_list:
@@ -869,6 +952,19 @@ def complete_equations_one_pass(corr_equ_list, order):
 #print(len(comp_corr_equ_list))
 #print("\n######################################\n")
 
-op = OP_Ad
-my_op_equ_list = develop_all_equations(op, CAVITY_H_OP_LIST, [(KAPPA, OP_A), (GAMMA, OP_SP), (NU, OP_SM)], 2)
+op = OP_Ad * OP_Ac
+order = 4
+my_op_equ_list = develop_all_equations(op, CAVITY_H_OP_LIST, [(KAPPA, OP_A), (GAMMA, OP_SP), (NU, OP_SM)], order)
 print_equ_list(my_op_equ_list)
+print("\n######################################\n")
+comp_corr_equ_list = transform_equ_set_to_corr(my_op_equ_list)
+print_equ_list(comp_corr_equ_list)
+print("\n######################################\n")
+apply_cumulant_expansion(comp_corr_equ_list, order + 1)
+print_equ_list(comp_corr_equ_list)
+print("\n######################################\n")
+for i in range(10):
+    comp_corr_equ_list = complete_equations_one_pass(comp_corr_equ_list, order) # not "order + ..." because we process the case of Ac/Adc in the function itself
+    print(len(comp_corr_equ_list))
+    #print_equ_list(comp_corr_equ_list)
+    print("\n######################################\n")
