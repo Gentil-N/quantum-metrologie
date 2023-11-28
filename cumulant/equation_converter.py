@@ -42,6 +42,10 @@ def get_qop_op_equ(op: QOp):
         return "op_sm"
     elif op == QOp.SZ:
         return "op_sz"
+    elif op == QOp.Ac:
+        return "op_ac"
+    elif op == QOp.Adc:
+        return "op_adc"
     else:
         raise Exception("Operator not defined for op_equ operation")
 
@@ -64,13 +68,25 @@ def get_op_mul_from_cumu(cumu: Cumulant):
             res += " * "
     return res
 
-def convert_corr_equ_list_to_python_function(corr_equ_list, order, op: Cumulant):
+def get_cumu_dict(corr_equ_list):
     c_vector_dict = CumulantDict()
     for i in range(len(corr_equ_list)):
         c_vector_dict.add_key_value(corr_equ_list[i][0].cumulant_list[0], ("x[" + str(i) + "]"))
+    return c_vector_dict
+
+def convert_corr_equ_list_to_python_function(corr_equ_list, order, op: Cumulant, sys_name, mean_included: bool):
+    c_vector_dict = get_cumu_dict(corr_equ_list)
+    if mean_included:
+        c_vector_dict.add_key_value(Cumulant([], [QOp.Ac]), "mean_ac")
+        c_vector_dict.add_key_value(Cumulant([], [QOp.Adc]), "mean_adc")
+        c_vector_dict.add_key_value(Cumulant([], [QOp.Adc, QOp.Ac]), "mean_adc_ac")
+        func_param = "(t, x, mean_ac, mean_adc)"
+    else:
+        func_param = "(t, x)"
+
     #print(c_vector_dict)
 
-    py_func = "import numpy as np\nfrom correlation_global import *\n\ndef correlation_system_" + op.get_simple_str() + "_order_" + str(order) + "(t, x):\n\treturn [ "
+    py_func = "import numpy as np\nfrom cavity_global import *\n\ndef " + str(sys_name) + "_system_" + op.get_simple_str() + "_order_" + str(order) + func_param + ":\n\treturn [ "
     for i in range(len(corr_equ_list)):
         for j in range(len(corr_equ_list[i][1])):
             if j != 0:
@@ -86,8 +102,50 @@ def convert_corr_equ_list_to_python_function(corr_equ_list, order, op: Cumulant)
             break
         py_func += ", \n"
 
-    py_vec_init = "def get_init_vec_" + op.get_simple_str() + "_order_" + str(order) + "(init_state):\n\treturn [\n"
+    return py_func
+
+def get_corr_python_vec_init(corr_equ_list, order, op, sys_name):
+    py_vec_init = "def " + str(sys_name) + "_get_init_vec_" + op.get_simple_str() + "_order_" + str(order) + "(init_state):\n\treturn [\n"
     for i in range(len(corr_equ_list)):
         py_vec_init += "(1.0 + 0.0j) * mean_value(init_state, " + get_op_mul_from_cumu(corr_equ_list[i][0].cumulant_list[0]) + "),\n"
     py_vec_init += "]"
-    return [py_func, py_vec_init]
+    return py_vec_init
+
+def is_equivalent_cumu(cumua: Cumulant, cumub: Cumulant): #return [if equivalent, if dag]
+    if cumu_same_qop(cumua, cumub):
+        return [True, False]
+    if cumu_dag_qop(cumua, cumub):
+        return [True, True]
+    for i in range(len(cumua.qop_cavity_list)):
+        if cumua.qop_cavity_list[i] == QOp.Ac:
+            cumua.qop_cavity_list[i] = QOp.A
+        elif cumua.qop_cavity_list[i] == QOp.Adc:
+            cumua.qop_cavity_list[i] = QOp.Ad
+    for i in range(len(cumub.qop_cavity_list)):
+        if cumub.qop_cavity_list[i] == QOp.Ac:
+            cumub.qop_cavity_list[i] = QOp.A
+        elif cumub.qop_cavity_list[i] == QOp.Adc:
+            cumub.qop_cavity_list[i] = QOp.Ad
+    if cumu_same_qop(cumua, cumub):
+        return [True, False]
+    if cumu_dag_qop(cumua, cumub):
+        return [True, True]
+    return [False, False]
+
+def get_corr_python_vec_init_from_other_corr(corr_equ_list, other_corr_list, other_corr_dict: CumulantDict, sys_name, order, op):
+    py_vec_init = "def " + str(sys_name) + "_get_init_vec_" + op.get_simple_str() + "_order_" + str(order) + "(x, t_index):\n\treturn [\n"
+    for i in range(len(corr_equ_list)):
+        found = False
+        for j in range(len(other_corr_list)):
+            res = is_equivalent_cumu(corr_equ_list[i][0].cumulant_list[0], other_corr_list[j][0].cumulant_list[0])
+            if res[0]:
+                found = True
+                if res[1]:
+                    py_vec_init += "np.conj(" + other_corr_dict.get_value(other_corr_list[j][0].cumulant_list[0]) + "[t_index]),\n"
+                else:
+                    py_vec_init += other_corr_dict.get_value(other_corr_list[j][0].cumulant_list[0]) + "[t_index], \n"
+                break
+        if not(found):
+            print(corr_equ_list[i][0].cumulant_list[0])
+            raise Exception("Equivalent corr not found")
+    return py_vec_init + "]"

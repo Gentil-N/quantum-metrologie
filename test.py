@@ -3,28 +3,24 @@ import cavity as cty
 from matplotlib import pyplot as plt
 import scipy.constants as const
 import numpy as np
+from cumulant.cavity_global import *
 
-ATOM_COUNT = 2
-PHOTON_CAPACITY = 2
+simple_cav = cty.Cavity(1.0, 1.0, ATOM_COUNT, PHOTON_CAPACITY, g * np.sqrt(ATOM_COUNT), kappa, gamma, nu, True, True, True)
 
 #simple_cav = cty.Cavity(1.0, 1.0, ATOM_COUNT, PHOTON_CAPACITY, 1.0, 1.0, 1.0, 0.0, False, False, False)
-simple_cav = cty.Cavity(1.0, 1.0, ATOM_COUNT, PHOTON_CAPACITY, 1.0, 1.0, 1.0, 1.0, True, True, True) # freq 7000, g 73, k 4, r 4
+#simple_cav = cty.Cavity(1.0, 1.0, ATOM_COUNT, PHOTON_CAPACITY, 1.0, 1.0, 1.0, 1.0, True, True, True) # freq 7000, g 73, k 4, r 4
 #simple_cav = cty.Cavity(1.0, 1.0, ATOM_COUNT, PHOTON_CAPACITY, 10.0, 40.0, 9.0, 1.0, True, True, True) # Superradiance from julia tutorial
 #simple_cav = cty.Cavity(1.0, 1.0, ATOM_COUNT, PHOTON_CAPACITY, 10.0, 40.0, 9.0, 1.0, True, False, True) # Superradirance burst
 #simple_cav = cty.Cavity(1.0, 1.0, ATOM_COUNT, PHOTON_CAPACITY, 1.5, 1.0, 0.25, 4.0, True, True, True)
 #simple_cav = cty.Cavity(434.0 * const.tera, 434.0 * const.tera, ATOM_COUNT, PHOTON_CAPACITY, 820.0, 800.0 * const.kilo, 7.5 * const.kilo, 7.5 * const.kilo, True, True, True)
 
-psi_init = qp.tensor(qp.spin_state(ATOM_COUNT/2, ATOM_COUNT/2), qp.fock(PHOTON_CAPACITY + 1, 0)) # '+1' because we count the 'zero' ladder
-#psi_init = qp.tensor(qp.spin_state(ATOM_COUNT/2, -ATOM_COUNT/2), qp.fock(PHOTON_CAPACITY + 1, 0)) # Superradiance from julia tutorial
-#psi_init = qp.tensor(qp.spin_state(ATOM_COUNT/2, -ATOM_COUNT/2), qp.coherent(PHOTON_CAPACITY + 1, 1))
-
 #TOTAL_TIME = 100 * 10 * const.milli * const.nano #20 * const.milli
 #NUM_DIV = 200 # = const.giga
 #STEP = TOTAL_TIME / NUM_DIV
 #
-#last_state = psi_init
+#last_state = init_state
 #total_time_range = []
-#total_time_range.extend(simple_cav.run_simulation(psi_init, 0, STEP, 10000))
+#total_time_range.extend(simple_cav.run_simulation(init_state, 0, STEP, 10000))
 #res = simple_cav.get_all_probabilities()
 #probs = []
 #for ind_prob in res:
@@ -38,10 +34,10 @@ psi_init = qp.tensor(qp.spin_state(ATOM_COUNT/2, ATOM_COUNT/2), qp.fock(PHOTON_C
 #    for i in range(len(res)):
 #        probs[i][0].extend(res[i][0].tolist())
 
-#time_range = simple_cav.run_simulation(psi_init, 0, 50, 1000)
-time_range = simple_cav.run_simulation(psi_init, 0, 10, 1000) # Superradiance from julia tutorial
-#time_range = simple_cav.run_simulation(psi_init, 0, 0.0001, 1000)
-#time_range = simple_cav.run_simulation(psi_init, 0, 0.01, 10000000)
+#time_range = simple_cav.run_simulation(init_state, 0, 50, 1000)
+time_range = simple_cav.run_simulation(init_state, 0, 10, 1000) # Superradiance from julia tutorial
+#time_range = simple_cav.run_simulation(init_state, 0, 0.0001, 1000)
+#time_range = simple_cav.run_simulation(init_state, 0, 0.01, 10000000)
 #last_state = simple_cav.get_state()[-1]
 #time_range = simple_cav.run_simulation(last_state, 10 * const.milli * const.nano, 10 * const.milli * const.nano, 10000)
 
@@ -49,20 +45,20 @@ steady_state = simple_cav.compute_steady_state()
 
 ### compute <n> <Sz>
 
-#expect = simple_cav.compute_expectation_values(0)
-#
-#fig1 = plt.figure(num=4)
-#ax1 = fig1.subplots(nrows=1, ncols=1)
-#ax1.set_title(label="Expectation values")
-#ax1.plot(time_range, expect[0], label="<n>")
-#ax1.plot(time_range, expect[1], label="<Sz>")
-#ax1.plot(time_range, expect[2], label="<S+>")
-#ax1.set(xlabel="time", ylabel="")
-#ax1.legend()
-#
-#plt.show()
-#
-#exit()
+expect = simple_cav.compute_expectation_values(0)
+
+fig1 = plt.figure(num=4)
+ax1 = fig1.subplots(nrows=1, ncols=1)
+ax1.set_title(label="Expectation values")
+ax1.plot(time_range, expect[0], label="<n>")
+ax1.plot(time_range, expect[1], label="<Sz>")
+ax1.plot(time_range, expect[2], label="<S+>")
+ax1.set(xlabel="time", ylabel="")
+ax1.legend()
+
+plt.show()
+
+exit()
 
 ### compute <n> [end]
 

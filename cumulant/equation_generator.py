@@ -296,7 +296,7 @@ def order_cavity_qop(op: Operand):
             new_op_list.append(new_op)
             new_op_list.extend(order_cavity_qop(new_op))
             i = 0
-        # Normally we don't need to compare with Ac/Adc (do you have the ref ? Ok one "d" in addition...) because we never derive equations with them 
+        # Normally we don't need to compare with Ac/Adc (do you have the ref ? Ok one "A" in addition...) because we never derive equations with them 
         #elif op.qop_cavity_list[i] == QOp.Ac and op.qop_cavity_list[i + 1] == QOp.Ad:
         #    op.qop_cavity_list[i] = QOp.Ad
         #    op.qop_cavity_list[i + 1] = QOp.Ac
@@ -397,7 +397,7 @@ def develop_all_equations(initial_op: Operand, hamiltonian, lb_factor_tuples, ma
     if initial_op.get_order() > max_order:
         print(initial_op)
         raise Exception("Initial operator's order is higher than the maximal order: doesn't make sense!")
-    op_to_develop_list = [initial_op]
+    op_to_develop_list = [initial_op.copy()]
     op_developed_list = []
     equ_list = []
     while len(op_to_develop_list) > 0:
@@ -886,7 +886,6 @@ def complete_equations_one_pass(corr_equ_list, order):
     op_comp_list = find_complete_op_corr_equ(corr_equ_list)
     #print_op_list(op_comp_list)
     if len(op_comp_list) == 0:
-        print("FINISH !!!")
         #print(len(corr_equ_list))
         return []
 
@@ -952,19 +951,26 @@ def complete_equations_one_pass(corr_equ_list, order):
 #print(len(comp_corr_equ_list))
 #print("\n######################################\n")
 
-op = OP_Ad * OP_Ac
-order = 4
-my_op_equ_list = develop_all_equations(op, CAVITY_H_OP_LIST, [(KAPPA, OP_A), (GAMMA, OP_SP), (NU, OP_SM)], order)
-print_equ_list(my_op_equ_list)
-print("\n######################################\n")
-comp_corr_equ_list = transform_equ_set_to_corr(my_op_equ_list)
-print_equ_list(comp_corr_equ_list)
-print("\n######################################\n")
-apply_cumulant_expansion(comp_corr_equ_list, order + 1)
-print_equ_list(comp_corr_equ_list)
-print("\n######################################\n")
-for i in range(10):
-    comp_corr_equ_list = complete_equations_one_pass(comp_corr_equ_list, order) # not "order + ..." because we process the case of Ac/Adc in the function itself
-    print(len(comp_corr_equ_list))
-    #print_equ_list(comp_corr_equ_list)
-    print("\n######################################\n")
+#op = OP_Ad * OP_Ac
+#order = 2
+#my_op_equ_list = develop_all_equations(op, CAVITY_H_OP_LIST, [(KAPPA, OP_A), (GAMMA, OP_SP), (NU, OP_SM)], order)
+#print_equ_list(my_op_equ_list)
+#print("\n######################################\n")
+#comp_corr_equ_list = transform_equ_set_to_corr(my_op_equ_list)
+#print_equ_list(comp_corr_equ_list)
+#print("\n######################################\n")
+#apply_cumulant_expansion(comp_corr_equ_list, order + 1)
+#print_equ_list(comp_corr_equ_list)
+#print("\n######################################\n")
+#for i in range(10):
+#    new_list = complete_equations_one_pass(comp_corr_equ_list, order) # not "order + ..." because we process the case of Ac/Adc in the function itself
+#    print(len(new_list))
+#    #print_equ_list(new_list)
+#    print("\n######################################\n")
+#    if len(new_list) == 0:
+#        break
+#    else:
+#        comp_corr_equ_list = new_list
+#
+#for equ in comp_corr_equ_list:
+#    print(equ[0])
