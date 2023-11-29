@@ -16,7 +16,7 @@ def corr_system_ad_order_2(t, x):
 (1j)*delta*x[11] + (1j)*g*np.conj(x[7]) + (-0.5)*kappa*x[11], 
 (-1j)*g*hbar*np.conj(x[0])*np.conj(x[11]) + (-1j)*g*hbar*x[4]*np.conj(x[7]) + (-1j)*g*hbar*np.conj(x[7])*x[4] + (2j)*g*hbar*np.conj(x[7])*np.conj(x[7])*np.conj(x[11]) + (1j)*g*hbar*x[5]*x[11] + (1j)*g*hbar*np.conj(x[4])*np.conj(x[7]) + (1j)*g*hbar*x[7]*np.conj(x[1]) + ((-0-2j))*g*hbar*x[7]*np.conj(x[7])*x[11] + (-2j)*g*hbar*x[6]*x[11] + (-2j)*g*hbar*np.conj(x[8])*x[3] + (-2j)*g*hbar*x[3]*np.conj(x[8]) + (4j)*g*hbar*x[3]*x[3]*x[11] + (1.0)*gamma*hbar*x[5]*np.conj(x[7]) + (1.0)*gamma*hbar*x[5]*np.conj(x[7]) + (1.0)*gamma*hbar*x[7]*np.conj(x[0]) + (-2.0)*gamma*hbar*x[7]*np.conj(x[7])*np.conj(x[7]) + (-1.0)*gamma*hbar*x[6]*np.conj(x[7]) + (-1.0)*gamma*hbar*x[12]*x[3] + (-1.0)*gamma*hbar*x[3]*x[12] + (2.0)*gamma*hbar*x[3]*x[3]*np.conj(x[7]) + (-1.0)*nu*hbar*x[5]*np.conj(x[7]) + (-1.0)*nu*hbar*x[5]*np.conj(x[7]) + (-1.0)*nu*hbar*x[7]*np.conj(x[0]) + (2.0)*nu*hbar*x[7]*np.conj(x[7])*np.conj(x[7]) + (-5.0)*nu*hbar*hbar*x[12] + (2.0)*nu*hbar*hbar*hbar*np.conj(x[7]) + (1.0)*nu*hbar*x[6]*np.conj(x[7]) + (1.0)*nu*hbar*x[12]*x[3] + (1.0)*nu*hbar*x[3]*x[12] + (-2.0)*nu*hbar*x[3]*x[3]*np.conj(x[7]) ]
 
-def corr_get_init_vec_adac_order_2(init_state):
+def corr_get_init_vec_ad_order_2(init_state):
 	return [
 (1.0 + 0.0j) * mean_value(init_state, op_sm * op_sm),
 (1.0 + 0.0j) * mean_value(init_state, op_sm * op_a),

@@ -66,7 +66,7 @@ def g1_cumulant_printer(op_init, op, order):
 
     print("File creation...", end="", flush=True)
     python_func = convert_corr_equ_list_to_python_function(comp_init_corr_equ_list, order, op_init, "corr", False)
-    python_vec = get_corr_python_vec_init(comp_init_corr_equ_list, order, op, "corr")
+    python_vec = get_corr_python_vec_init(comp_init_corr_equ_list, order, op_init, "corr")
     file = open("corr_sys_" + op_init.get_simple_str() + "_order_" + str(order) + ".py", 'w')
     file.write(python_func + "\n\n" + python_vec)
     file.close()

@@ -61,60 +61,60 @@ def g1_system_adac_order_3(t, x, mean_ac, mean_adc):
 
 def g1_get_init_vec_adac_order_3(x, t_index):
 	return [
-x[0][t_index], 
-x[1][t_index], 
-x[2][t_index], 
-x[3][t_index], 
-x[2][t_index], 
-x[1][t_index], 
-x[0][t_index], 
-x[4][t_index], 
-x[5][t_index], 
-x[6][t_index], 
-x[7][t_index], 
-x[8][t_index], 
-x[9][t_index], 
-x[10][t_index], 
-x[11][t_index], 
-x[12][t_index], 
-x[13][t_index], 
-x[14][t_index], 
-x[15][t_index], 
-x[16][t_index], 
-x[17][t_index], 
-x[18][t_index], 
-x[19][t_index], 
-x[20][t_index], 
-x[32][t_index], 
-x[33][t_index], 
-x[13][t_index], 
-x[10][t_index], 
-x[11][t_index], 
-x[12][t_index], 
-x[16][t_index], 
-x[27][t_index], 
-x[23][t_index], 
-x[26][t_index], 
-x[28][t_index], 
-x[22][t_index], 
-x[24][t_index], 
-x[25][t_index], 
-x[21][t_index], 
-x[29][t_index], 
-x[30][t_index], 
-x[31][t_index], 
-np.conj(x[14][t_index]),
-np.conj(x[11][t_index]),
-np.conj(x[9][t_index]),
-x[6][t_index], 
-x[8][t_index], 
-x[5][t_index], 
-x[9][t_index], 
-x[34][t_index], 
-x[35][t_index], 
-x[20][t_index], 
-x[34][t_index], 
-x[23][t_index], 
-x[28][t_index], 
-x[22][t_index], 
+x[0][t_index],# aaa
+x[1][t_index],# smaa
+x[2][t_index],# smsma
+x[3][t_index],# smsmsm
+x[2][t_index],# smsmac
+x[1][t_index],# smaac
+x[0][t_index],# aaac
+x[4][t_index],# szsmsm
+x[5][t_index],# szsma
+x[6][t_index],# sma
+x[7][t_index],# smsm
+x[8][t_index],# szaa
+x[9][t_index],# adaa
+x[10][t_index],# spaa
+x[11][t_index],# smada
+x[12][t_index],# smspa
+x[13][t_index],# sza
+x[14][t_index],# smsmad
+x[15][t_index],# smsmsp
+x[16][t_index],# szsza
+x[17][t_index],# szsm
+x[18][t_index],# sm
+x[19][t_index],# szszsm
+x[20][t_index],# aa
+x[32][t_index],# szsp
+x[33][t_index],# szszsp
+x[13][t_index],# szac
+x[10][t_index],# spaac
+x[11][t_index],# smadac
+x[12][t_index],# smspac
+x[16][t_index],# szszac
+x[27][t_index],# sz
+x[23][t_index],# spa
+x[26][t_index],# smsp
+x[28][t_index],# szada
+x[22][t_index],# szspa
+x[24][t_index],# szsmad
+x[25][t_index],# szsmsp
+x[21][t_index],# szsz
+x[29][t_index],# szszsz
+x[30][t_index],# szspad
+x[31][t_index],# szspsp
+np.conj(x[14][t_index]),# spspac
+np.conj(x[11][t_index]),# spadac
+np.conj(x[9][t_index]),# adadac
+x[6][t_index],# smac
+x[8][t_index],# szaac
+x[5][t_index],# szsmac
+x[9][t_index],# adaac
+x[34][t_index],# ada
+x[35][t_index],# ad
+x[20][t_index],# aac
+x[34][t_index],# adac
+x[23][t_index],# spac
+x[28][t_index],# szadac
+x[22][t_index],# szspac
 ]

@@ -89,7 +89,7 @@ def corr_system_ad_order_4(t, x):
 (1j)*g*x[32] + (-1j)*g*np.conj(x[32]) + (-1.0)*kappa*x[84], 
 (1j)*delta*x[85] + (1j)*g*np.conj(x[62]) + (-0.5)*kappa*x[85] ]
 
-def corr_get_init_vec_adac_order_4(init_state):
+def corr_get_init_vec_ad_order_4(init_state):
 	return [
 (1.0 + 0.0j) * mean_value(init_state, op_a * op_a * op_a * op_a),
 (1.0 + 0.0j) * mean_value(init_state, op_sm * op_a * op_a * op_a),

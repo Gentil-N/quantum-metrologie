@@ -593,6 +593,9 @@ def cumulant_expansion(opcumu: OpCumulant, order):
 def op_to_corr(op: Operand):
     return OpCumulant(op.c_factor, op.factor_list.copy(), [Cumulant(op.qop_atomic_list.copy(), op.qop_cavity_list.copy())])
 
+def cumu_to_op(cumu: Cumulant):
+    return Operand(1.0, [], cumu.qop_atomic_list, cumu.qop_cavity_list)
+
 def transform_to_correlation(equ):
     corr_equ = [op_to_corr(equ[0])]
     op_cumu_list = []

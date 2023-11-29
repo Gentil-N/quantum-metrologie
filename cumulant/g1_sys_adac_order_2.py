@@ -23,22 +23,22 @@ def g1_system_adac_order_2(t, x, mean_ac, mean_adc):
 
 def g1_get_init_vec_adac_order_2(x, t_index):
 	return [
-x[2][t_index], 
-x[1][t_index], 
-x[0][t_index], 
-x[1][t_index], 
-x[2][t_index], 
-x[9][t_index], 
-x[8][t_index], 
-x[7][t_index], 
-x[10][t_index], 
-x[4][t_index], 
-x[5][t_index], 
-x[3][t_index], 
-x[6][t_index], 
-np.conj(x[11][t_index]),
-x[12][t_index], 
-x[8][t_index], 
-x[10][t_index], 
-x[4][t_index], 
+x[2][t_index],# aa
+x[1][t_index],# sma
+x[0][t_index],# smsm
+x[1][t_index],# smac
+x[2][t_index],# aac
+x[9][t_index],# szsm
+x[8][t_index],# sza
+x[7][t_index],# sm
+x[10][t_index],# ada
+x[4][t_index],# spa
+x[5][t_index],# smsp
+x[3][t_index],# sz
+x[6][t_index],# szsz
+np.conj(x[11][t_index]),# a
+x[12][t_index],# szsp
+x[8][t_index],# szac
+x[10][t_index],# adac
+x[4][t_index],# spac
 ]

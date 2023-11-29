@@ -112,23 +112,25 @@ def get_corr_python_vec_init(corr_equ_list, order, op, sys_name):
     return py_vec_init
 
 def is_equivalent_cumu(cumua: Cumulant, cumub: Cumulant): #return [if equivalent, if dag]
-    if cumu_same_qop(cumua, cumub):
+    cumua_c = cumua.copy()
+    cumub_c = cumub.copy()
+    if cumu_same_qop(cumua_c, cumub_c):
         return [True, False]
-    if cumu_dag_qop(cumua, cumub):
+    if cumu_dag_qop(cumua_c, cumub_c):
         return [True, True]
-    for i in range(len(cumua.qop_cavity_list)):
-        if cumua.qop_cavity_list[i] == QOp.Ac:
-            cumua.qop_cavity_list[i] = QOp.A
-        elif cumua.qop_cavity_list[i] == QOp.Adc:
-            cumua.qop_cavity_list[i] = QOp.Ad
-    for i in range(len(cumub.qop_cavity_list)):
-        if cumub.qop_cavity_list[i] == QOp.Ac:
-            cumub.qop_cavity_list[i] = QOp.A
-        elif cumub.qop_cavity_list[i] == QOp.Adc:
-            cumub.qop_cavity_list[i] = QOp.Ad
-    if cumu_same_qop(cumua, cumub):
+    for i in range(len(cumua_c.qop_cavity_list)):
+        if cumua_c.qop_cavity_list[i] == QOp.Ac:
+            cumua_c.qop_cavity_list[i] = QOp.A
+        elif cumua_c.qop_cavity_list[i] == QOp.Adc:
+            cumua_c.qop_cavity_list[i] = QOp.Ad
+    for i in range(len(cumub_c.qop_cavity_list)):
+        if cumub_c.qop_cavity_list[i] == QOp.Ac:
+            cumub_c.qop_cavity_list[i] = QOp.A
+        elif cumub_c.qop_cavity_list[i] == QOp.Adc:
+            cumub_c.qop_cavity_list[i] = QOp.Ad
+    if cumu_same_qop(cumua_c, cumub_c):
         return [True, False]
-    if cumu_dag_qop(cumua, cumub):
+    if cumu_dag_qop(cumua_c, cumub_c):
         return [True, True]
     return [False, False]
 
@@ -141,9 +143,10 @@ def get_corr_python_vec_init_from_other_corr(corr_equ_list, other_corr_list, oth
             if res[0]:
                 found = True
                 if res[1]:
-                    py_vec_init += "np.conj(" + other_corr_dict.get_value(other_corr_list[j][0].cumulant_list[0]) + "[t_index]),\n"
+                    py_vec_init += "np.conj(" + other_corr_dict.get_value(other_corr_list[j][0].cumulant_list[0]) + "[t_index]),"
                 else:
-                    py_vec_init += other_corr_dict.get_value(other_corr_list[j][0].cumulant_list[0]) + "[t_index], \n"
+                    py_vec_init += other_corr_dict.get_value(other_corr_list[j][0].cumulant_list[0]) + "[t_index],"
+                py_vec_init += "# " + cumu_to_op(corr_equ_list[i][0].cumulant_list[0]).get_simple_str() + "\n"
                 break
         if not(found):
             print(corr_equ_list[i][0].cumulant_list[0])

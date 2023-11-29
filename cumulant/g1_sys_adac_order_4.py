@@ -146,145 +146,145 @@ def g1_system_adac_order_4(t, x, mean_ac, mean_adc):
 
 def g1_get_init_vec_adac_order_4(x, t_index):
 	return [
-np.conj(x[0][t_index]),
-np.conj(x[1][t_index]),
-np.conj(x[2][t_index]),
-np.conj(x[3][t_index]),
-np.conj(x[4][t_index]),
-x[0][t_index], 
-x[1][t_index], 
-x[2][t_index], 
-x[3][t_index], 
-x[27][t_index], 
-x[18][t_index], 
-x[21][t_index], 
-x[24][t_index], 
-x[22][t_index], 
-x[23][t_index], 
-x[25][t_index], 
-x[26][t_index], 
-x[15][t_index], 
-x[17][t_index], 
-x[20][t_index], 
-x[16][t_index], 
-x[19][t_index], 
-x[14][t_index], 
-x[13][t_index], 
-x[7][t_index], 
-x[10][t_index], 
-x[6][t_index], 
-x[5][t_index], 
-x[8][t_index], 
-x[9][t_index], 
-x[11][t_index], 
-x[12][t_index], 
-x[28][t_index], 
-x[10][t_index], 
-x[8][t_index], 
-x[9][t_index], 
-x[6][t_index], 
-x[11][t_index], 
-x[53][t_index], 
-x[52][t_index], 
-x[54][t_index], 
-np.conj(x[12][t_index]),
-np.conj(x[14][t_index]),
-np.conj(x[17][t_index]),
-np.conj(x[22][t_index]),
-x[12][t_index], 
-x[13][t_index], 
-x[14][t_index], 
-x[15][t_index], 
-x[16][t_index], 
-x[17][t_index], 
-x[18][t_index], 
-x[19][t_index], 
-x[20][t_index], 
-x[21][t_index], 
-x[24][t_index], 
-x[28][t_index], 
-x[50][t_index], 
-x[48][t_index], 
-x[49][t_index], 
-x[51][t_index], 
-x[73][t_index], 
-x[47][t_index], 
-x[40][t_index], 
-x[41][t_index], 
-x[44][t_index], 
-x[42][t_index], 
-x[31][t_index], 
-x[32][t_index], 
-x[43][t_index], 
-x[34][t_index], 
-x[45][t_index], 
-x[30][t_index], 
-x[36][t_index], 
-x[37][t_index], 
-x[39][t_index], 
-x[38][t_index], 
-x[33][t_index], 
-x[35][t_index], 
-x[29][t_index], 
-x[46][t_index], 
-np.conj(x[74][t_index]),
-x[67][t_index], 
-x[65][t_index], 
-x[56][t_index], 
-x[72][t_index], 
-x[63][t_index], 
-x[57][t_index], 
-x[59][t_index], 
-x[64][t_index], 
-x[60][t_index], 
-x[66][t_index], 
-x[58][t_index], 
-x[55][t_index], 
-x[62][t_index], 
-x[68][t_index], 
-x[69][t_index], 
-x[61][t_index], 
-x[70][t_index], 
-x[71][t_index], 
-np.conj(x[83][t_index]),
-x[81][t_index], 
-x[77][t_index], 
-x[79][t_index], 
-x[80][t_index], 
-x[82][t_index], 
-x[78][t_index], 
-x[75][t_index], 
-x[76][t_index], 
-x[58][t_index], 
-x[63][t_index], 
-x[67][t_index], 
-x[64][t_index], 
-x[65][t_index], 
-x[66][t_index], 
-x[56][t_index], 
-x[57][t_index], 
-x[72][t_index], 
-x[70][t_index], 
-np.conj(x[59][t_index]),
-x[75][t_index], 
-np.conj(x[65][t_index]),
-x[77][t_index], 
-np.conj(x[72][t_index]),
-x[73][t_index], 
-x[47][t_index], 
-np.conj(x[47][t_index]),
-x[40][t_index], 
-x[41][t_index], 
-x[44][t_index], 
-x[42][t_index], 
-x[31][t_index], 
-x[32][t_index], 
-x[43][t_index], 
-x[30][t_index], 
-x[74][t_index], 
-np.conj(x[74][t_index]),
-x[84][t_index], 
-x[85][t_index], 
-np.conj(x[83][t_index]),
-x[84][t_index], 
+np.conj(x[0][t_index]),# adadadad
+np.conj(x[1][t_index]),# spadadad
+np.conj(x[2][t_index]),# spspadad
+np.conj(x[3][t_index]),# spspspad
+np.conj(x[4][t_index]),# spspspsp
+x[0][t_index],# aaaac
+x[1][t_index],# smaaac
+x[2][t_index],# smsmaac
+x[3][t_index],# smsmsmac
+x[27][t_index],# szszsmsm
+x[18][t_index],# smsmspa
+x[21][t_index],# sma
+x[24][t_index],# szszsma
+x[22][t_index],# smsmsmad
+x[23][t_index],# smsmsmsp
+x[25][t_index],# szsmsm
+x[26][t_index],# smsm
+x[15][t_index],# smspaa
+x[17][t_index],# smsmada
+x[20][t_index],# szsma
+x[16][t_index],# szaa
+x[19][t_index],# szszaa
+x[14][t_index],# smadaa
+x[13][t_index],# spaaa
+x[7][t_index],# smsmsm
+x[10][t_index],# szsmsma
+x[6][t_index],# smsma
+x[5][t_index],# szsmsmsm
+x[8][t_index],# szsmaa
+x[9][t_index],# smaa
+x[11][t_index],# szaaa
+x[12][t_index],# adaaa
+x[28][t_index],# aaa
+x[10][t_index],# szsmsmac
+x[8][t_index],# szsmaac
+x[9][t_index],# smaac
+x[6][t_index],# smsmac
+x[11][t_index],# szaaac
+x[53][t_index],# szspspsp
+x[52][t_index],# szspspad
+x[54][t_index],# szspadad
+np.conj(x[12][t_index]),# adadadac
+np.conj(x[14][t_index]),# spadadac
+np.conj(x[17][t_index]),# spspadac
+np.conj(x[22][t_index]),# spspspac
+x[12][t_index],# adaaac
+x[13][t_index],# spaaac
+x[14][t_index],# smadaac
+x[15][t_index],# smspaac
+x[16][t_index],# szaac
+x[17][t_index],# smsmadac
+x[18][t_index],# smsmspac
+x[19][t_index],# szszaac
+x[20][t_index],# szsmac
+x[21][t_index],# smac
+x[24][t_index],# szszsmac
+x[28][t_index],# aaac
+x[50][t_index],# szspad
+x[48][t_index],# szspsp
+x[49][t_index],# szszspad
+x[51][t_index],# szszspsp
+x[73][t_index],# adadaa
+x[47][t_index],# spadaa
+x[40][t_index],# spspaa
+x[41][t_index],# smspada
+x[44][t_index],# szada
+x[42][t_index],# smspspa
+x[31][t_index],# szspa
+x[32][t_index],# spa
+x[43][t_index],# szszada
+x[34][t_index],# szsmad
+x[45][t_index],# smsmspsp
+x[30][t_index],# szszspa
+x[36][t_index],# szsmsp
+x[37][t_index],# smsp
+x[39][t_index],# szsz
+x[38][t_index],# sz
+x[33][t_index],# szszsmad
+x[35][t_index],# szszsmsp
+x[29][t_index],# szszsz
+x[46][t_index],# szszszsz
+np.conj(x[74][t_index]),# adaa
+x[67][t_index],# spaa
+x[65][t_index],# smada
+x[56][t_index],# smspa
+x[72][t_index],# szadaa
+x[63][t_index],# szspaa
+x[57][t_index],# sza
+x[59][t_index],# smsmad
+x[64][t_index],# szsmada
+x[60][t_index],# smsmsp
+x[66][t_index],# szsmspa
+x[58][t_index],# szsza
+x[55][t_index],# szsm
+x[62][t_index],# sm
+x[68][t_index],# szsmsmad
+x[69][t_index],# szsmsmsp
+x[61][t_index],# szszsm
+x[70][t_index],# szszsza
+x[71][t_index],# szszszsm
+np.conj(x[83][t_index]),# aa
+x[81][t_index],# szszsp
+x[77][t_index],# szspspa
+x[79][t_index],# szsmspad
+x[80][t_index],# szsmspsp
+x[82][t_index],# szszszsp
+x[78][t_index],# szsp
+x[75][t_index],# szspada
+x[76][t_index],# szsmadad
+x[58][t_index],# szszac
+x[63][t_index],# szspaac
+x[67][t_index],# spaac
+x[64][t_index],# szsmadac
+x[65][t_index],# smadac
+x[66][t_index],# szsmspac
+x[56][t_index],# smspac
+x[57][t_index],# szac
+x[72][t_index],# szadaac
+x[70][t_index],# szszszac
+np.conj(x[59][t_index]),# spspac
+x[75][t_index],# szspadac
+np.conj(x[65][t_index]),# spadac
+x[77][t_index],# szspspac
+np.conj(x[72][t_index]),# szadadac
+x[73][t_index],# adadaac
+x[47][t_index],# spadaac
+np.conj(x[47][t_index]),# smadadac
+x[40][t_index],# spspaac
+x[41][t_index],# smspadac
+x[44][t_index],# szadac
+x[42][t_index],# smspspac
+x[31][t_index],# szspac
+x[32][t_index],# spac
+x[43][t_index],# szszadac
+x[30][t_index],# szszspac
+x[74][t_index],# adadac
+np.conj(x[74][t_index]),# adaac
+x[84][t_index],# ada
+x[85][t_index],# ad
+np.conj(x[83][t_index]),# aac
+x[84][t_index],# adac
 ]
