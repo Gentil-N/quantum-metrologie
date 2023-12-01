@@ -11,9 +11,9 @@ hbar = 1
 delta = 0.0
 true_g = 10.0
 g = true_g / np.sqrt(ATOM_COUNT)
-kappa = 10.0 #40.0
-gamma = 1.0 #9.0
-nu = 2.0 #1.0
+kappa = 40.0
+gamma = 9.0
+nu = 1.0
 
 op_sz = qp.tensor(qp.spin_Jz(SPIN_NUM), qp.qeye(FOCK_DIM))
 op_sp = qp.tensor(qp.spin_Jp(SPIN_NUM), qp.qeye(FOCK_DIM))

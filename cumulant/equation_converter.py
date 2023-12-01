@@ -80,7 +80,7 @@ def convert_corr_equ_list_to_python_function(corr_equ_list, order, op: Cumulant,
         c_vector_dict.add_key_value(Cumulant([], [QOp.Ac]), "mean_ac")
         c_vector_dict.add_key_value(Cumulant([], [QOp.Adc]), "mean_adc")
         c_vector_dict.add_key_value(Cumulant([], [QOp.Adc, QOp.Ac]), "mean_adc_ac")
-        func_param = "(t, x, mean_ac, mean_adc)"
+        func_param = "(t, x, mean_ac, mean_adc, mean_adc_ac)"
     else:
         func_param = "(t, x)"
 

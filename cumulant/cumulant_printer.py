@@ -82,4 +82,4 @@ def gn_cumulant_printer(op_init, op, order, g_name):
 #gn_cumulant_printer(OP_Ad, OP_Ad * OP_Ac, 2, "g1")
 #gn_cumulant_printer(OP_Ad, OP_Ad * OP_Ac, 3, "g1")
 #gn_cumulant_printer(OP_Ad, OP_Ad * OP_Ac, 4, "g1")
-gn_cumulant_printer(OP_Ad * OP_A, OP_Adc * OP_Ad * OP_A * OP_Ac, 4, "g2")
+gn_cumulant_printer(OP_Ad * OP_A, OP_Adc * OP_Ad * OP_A * OP_Ac, 5, "g2")

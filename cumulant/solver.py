@@ -7,6 +7,7 @@ from cavity_global import *
 from corr_sys_ada_order_2 import *
 from corr_sys_ada_order_3 import *
 from corr_sys_ada_order_4 import *
+from corr_sys_ada_order_5 import *
 from corr_sys_ad_order_2 import *
 from corr_sys_ad_order_3 import *
 from corr_sys_ad_order_4 import *
@@ -14,6 +15,7 @@ from g1_sys_adac_order_2 import *
 from g1_sys_adac_order_3 import *
 from g1_sys_adac_order_4 import *
 from g2_sys_adcadaac_order_4 import *
+from g2_sys_adcadaac_order_5 import *
 
 #op_sz = qp.tensor(qp.spin_Jz(SPIN_NUM), qp.qeye(FOCK_DIM))
 #op_sp = qp.tensor(qp.spin_Jp(SPIN_NUM), qp.qeye(FOCK_DIM))
@@ -54,8 +56,8 @@ from g2_sys_adcadaac_order_4 import *
 #ax.plot(solution_order_2.t, np.real(solution_order_2.y[11]), label="<Sz> 2nd", color="green")
 #ax.plot(solution_order_3.t, np.real(solution_order_3.y[26]), label="<n> 3rd", color="orange", linestyle="--")
 #ax.plot(solution_order_3.t, np.real(solution_order_3.y[31]), label="<Sz> 3rd", color="orange")
-#ax.plot(solution_order_4.t, np.real(solution_order_4.y[85]), label="<n> 4rd", color="red", linestyle="--")
-#ax.plot(solution_order_4.t, np.real(solution_order_4.y[77]), label="<Sz> 4rd", color="red")
+#ax.plot(solution_order_4.t, np.real(solution_order_4.y[85]), label="<n> 4th", color="red", linestyle="--")
+#ax.plot(solution_order_4.t, np.real(solution_order_4.y[77]), label="<Sz> 4th", color="red")
 
 #ax.legend()
 #ax.set_xlabel('time')
@@ -110,8 +112,8 @@ from g2_sys_adcadaac_order_4 import *
 #fig, ax = pyplot.subplots(1, 1)
 #fig.set_size_inches(18.5, 10.5)
 #ax.plot(g1_solution_order_2.t, np.real(g1_solution_order_2.y[0]), label="<ad(t)ac> 2nd steady-state", color="green", linestyle="--")
-#ax.plot(g1_solution_order_3.t, np.real(g1_solution_order_3.y[0]), label="<ad(t)ac> 3nd steady-state", color="orange", linestyle="--")
-#ax.plot(g1_solution_order_4.t, np.real(g1_solution_order_4.y[0]), label="<ad(t)ac> 4nd steady-state", color="red", linestyle="--")
+#ax.plot(g1_solution_order_3.t, np.real(g1_solution_order_3.y[0]), label="<ad(t)ac> 3rd steady-state", color="orange", linestyle="--")
+#ax.plot(g1_solution_order_4.t, np.real(g1_solution_order_4.y[0]), label="<ad(t)ac> 4th steady-state", color="red", linestyle="--")
 #
 #ax.legend()
 #ax.set_xlabel('time')
@@ -125,27 +127,39 @@ from g2_sys_adcadaac_order_4 import *
 
 
 
-x_init_ada_order_4 = corr_get_init_vec_ada_order_4(init_state)
+#x_init_ada_order_4 = corr_get_init_vec_ada_order_4(init_state)
+x_init_ada_order_5 = corr_get_init_vec_ada_order_5(init_state)
 
 print("Solver started...", end='', flush=True)
-solution_order_4 = solve_ivp(corr_system_ada_order_4, [0.0, 10.0], x_init_ada_order_4, first_step=0.1, max_step=0.1)
+#solution_order_4 = solve_ivp(corr_system_ada_order_4, [0.0, 10.0], x_init_ada_order_4)
+solution_order_5 = solve_ivp(corr_system_ada_order_5, [0.0, 10.0], x_init_ada_order_5)
 print("Done")
 
-mean_ac_order_4 = solution_order_4.y[38][-1]
-mean_adc_order_4 = np.conj(solution_order_4.y[0][-1])
+#mean_adc_ac_order_4 = solution_order_4.y[0][-1]
+#mean_ac_order_4 = solution_order_4.y[38][-1]
+#mean_adc_order_4 = np.conj(solution_order_4.y[38][-1])
+mean_adc_ac_order_5 = solution_order_5.y[0][-1]
+mean_ac_order_5 = solution_order_5.y[71][-1]
+mean_adc_order_5 = np.conj(solution_order_5.y[71][-1])
 
-def g2_sys_order_4(t, x):
-    return g2_system_adcadaac_order_4(t, x, mean_ac_order_4, mean_adc_order_4)
+#def g2_sys_order_4(t, x):
+#    return g2_system_adcadaac_order_4(t, x, mean_ac_order_4, mean_adc_order_4, mean_adc_ac_order_4)
 
-x_init_g2_order_4 = g2_get_init_vec_adcadaac_order_4(solution_order_4.y, -1)
+def g2_sys_order_5(t, x):
+    return g2_system_adcadaac_order_5(t, x, mean_ac_order_5, mean_adc_order_5, mean_adc_ac_order_5)
+
+#x_init_g2_order_4 = g2_get_init_vec_adcadaac_order_4(solution_order_4.y, -1)
+x_init_g2_order_5 = g2_get_init_vec_adcadaac_order_5(solution_order_5.y, -1)
 
 print("Solver started...", end='', flush=True)
-g2_solution_order_4 = solve_ivp(g2_sys_order_4, [0.0, 10.0], x_init_g2_order_4, first_step=0.1, max_step=0.1)
+#g2_solution_order_4 = solve_ivp(g2_sys_order_4, [0.0, 10.0], x_init_g2_order_4)
+g2_solution_order_5 = solve_ivp(g2_sys_order_5, [0.0, 10.0], x_init_g2_order_5)
 print("Done")
 
 fig, ax = pyplot.subplots(1, 1)
 fig.set_size_inches(18.5, 10.5)
-ax.plot(g2_solution_order_4.t, np.real(g2_solution_order_4.y[0]), label="<ad(t)ac> 4nd steady-state", color="red", linestyle="--")
+#ax.plot(g2_solution_order_4.t, np.real(g2_solution_order_4.y[0]), label="<adcad(t)a(t)ac> 4th steady-state", color="green", linestyle="--")
+ax.plot(g2_solution_order_5.t, np.real(g2_solution_order_5.y[0]), label="<adcad(t)a(t)ac> 5th steady-state", color="orange", linestyle="--")
 
 ax.legend()
 ax.set_xlabel('time')
