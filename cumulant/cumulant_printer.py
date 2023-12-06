@@ -35,9 +35,7 @@ def get_equ_sys(op, order):
 
 
 def corr_cumulant_printer(op, order):
-
     comp_corr_equ_list = get_equ_sys(op, order)
-
     print("File creation...", end="", flush=True)
     python_func = convert_corr_equ_list_to_python_function(comp_corr_equ_list, order, op, "corr", False)
     python_vec = get_corr_python_vec_init(comp_corr_equ_list, order, op, "corr")
@@ -47,12 +45,29 @@ def corr_cumulant_printer(op, order):
     print("Done")
     #print_equ_list(comp_corr_equ_list)
 
+def rust_corr_cumulant_printer(op, order):
+    comp_corr_equ_list = get_equ_sys(op, order)
+    print("Rust file creation...", end="", flush=True)
+    rust_func = convert_corr_equ_list_to_rust_function(comp_corr_equ_list, order, op, "corr", False)
+    file = open("corr_sys_" + op.get_simple_str() + "_order_" + str(order) + ".rs", 'w')
+    file.write(rust_func)
+    file.close()
+    print("Done")
+    return comp_corr_equ_list
+
+def rust_corr_vec_init_cumulant_printer(corr_equ_list, op, order):
+    print("Rust file creation...", end="", flush=True)
+    rust_vec = get_corr_rust_vec_init(corr_equ_list, order, op, "corr")
+    file = open(rust_vec[1] + ".rs", 'w')
+    file.write(rust_vec[0])
+    file.close()
+    print("Done")
 
 
 def gn_cumulant_printer(op_init, op, order, g_name):
     print("Computing op_init equation system:")
     comp_init_corr_equ_list = get_equ_sys(op_init, order)
-    init_dict = get_cumu_dict(comp_init_corr_equ_list)
+    init_dict = get_cumu_dict(comp_init_corr_equ_list, False)
     print("Computing op equation system:")
     comp_corr_equ_list = get_equ_sys(op, order)
 
@@ -75,11 +90,15 @@ def gn_cumulant_printer(op_init, op, order, g_name):
 
 
 
-### PRINT
-#corr_cumulant_printer(OP_Ad * OP_A, 2)
+### PRINT PYTHON
+corr_cumulant_printer(OP_Ad * OP_A, 2)
 #corr_cumulant_printer(OP_Ad * OP_A, 3)
 #corr_cumulant_printer(OP_Ad * OP_A, 4)
 #gn_cumulant_printer(OP_Ad, OP_Ad * OP_Ac, 2, "g1")
 #gn_cumulant_printer(OP_Ad, OP_Ad * OP_Ac, 3, "g1")
 #gn_cumulant_printer(OP_Ad, OP_Ad * OP_Ac, 4, "g1")
-gn_cumulant_printer(OP_Ad * OP_A, OP_Adc * OP_Ad * OP_A * OP_Ac, 5, "g2")
+#gn_cumulant_printer(OP_Ad * OP_A, OP_Adc * OP_Ad * OP_A * OP_Ac, 5, "g2")
+
+### PRINT RUST
+#comp_corr_equ_list = rust_corr_cumulant_printer(OP_Ad * OP_A, 2)
+#rust_corr_vec_init_cumulant_printer(comp_corr_equ_list, OP_Ad * OP_A, 2)
