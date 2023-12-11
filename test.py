@@ -45,20 +45,20 @@ steady_state = simple_cav.compute_steady_state()
 
 ### compute <n> <Sz>
 
-#expect = simple_cav.compute_expectation_values(0)
-#
-#fig1 = plt.figure(num=4)
-#ax1 = fig1.subplots(nrows=1, ncols=1)
-#ax1.set_title(label="Expectation values")
-#ax1.plot(time_range, expect[0], label="<n>")
-#ax1.plot(time_range, expect[1], label="<Sz>")
+expect = simple_cav.compute_expectation_values(0)
+
+fig1 = plt.figure(num=4)
+ax1 = fig1.subplots(nrows=1, ncols=1)
+ax1.set_title(label="Expectation values")
+ax1.plot(time_range, expect[0], label="<n>")
+ax1.plot(time_range, expect[1], label="<Sz>")
 #ax1.plot(time_range, expect[2], label="<S+>")
-#ax1.set(xlabel="time", ylabel="")
-#ax1.legend()
-#
-#plt.show()
-#
-#exit()
+ax1.set(xlabel="time", ylabel="")
+ax1.legend()
+
+plt.show()
+
+exit()
 
 ### compute <n> [end]
 

@@ -32,9 +32,10 @@ from g2_sys_adcadaac_order_5 import *
 
 
 
-x_init_ada_order_2 = [0.0+0.0j, 0.0+0.0j, 0.0+0.0j, 1.0+0.0j, 1.0+0.0j, 0.0+0.0j, 0.0+0.0j, 0.0+0.0j, 0.0+0.0j, 0.0+0.0j, 0.0+0.0j, 0.0+0.0j, 0.0+0.0j]
+x_init_ada_order_2 = corr_get_init_vec_ada_order_2(init_state)
 #x_init_ada_order_3 = corr_get_init_vec_ada_order_3(init_state)
 #x_init_ada_order_4 = corr_get_init_vec_ada_order_4(init_state)
+x_init_ada_order_5 = corr_get_init_vec_ada_order_5(init_state)
 
 #print(x_init_order_3)
 #exit()
@@ -43,6 +44,7 @@ print("Solver started...", end='', flush=True)
 solution_order_2 = solve_ivp(corr_system_ada_order_2, [0.0, 10.0], x_init_ada_order_2, first_step=0.1, max_step=0.1)
 #solution_order_3 = solve_ivp(corr_system_ada_order_3, [0.0, 10.0], x_init_ada_order_3, first_step=0.1, max_step=0.1)
 #solution_order_4 = solve_ivp(corr_system_ada_order_4, [0.0, 10.0], x_init_ada_order_4, first_step=0.1, max_step=0.1)
+solution_order_5 = solve_ivp(corr_system_ada_order_5, [0.0, 10.0], x_init_ada_order_5, first_step=0.1, max_step=0.1)
 print("Done")
 
 # /!\ /!\ /!\ If corr_sys file are regenrated, think to update the code to grab n and Sz: indices not updated for the last version of file generation!!!
@@ -53,8 +55,10 @@ ax.plot(solution_order_2.t, np.real(solution_order_2.y[0]), label="<n> 2nd", col
 ax.plot(solution_order_2.t, np.real(solution_order_2.y[3]), label="<Sz> 2nd", color="green")
 #ax.plot(solution_order_3.t, np.real(solution_order_3.y[26]), label="<n> 3rd", color="orange", linestyle="--")
 #ax.plot(solution_order_3.t, np.real(solution_order_3.y[31]), label="<Sz> 3rd", color="orange")
-#ax.plot(solution_order_4.t, np.real(solution_order_4.y[85]), label="<n> 4th", color="red", linestyle="--")
-#ax.plot(solution_order_4.t, np.real(solution_order_4.y[77]), label="<Sz> 4th", color="red")
+#ax.plot(solution_order_4.t, np.real(solution_order_4.y[0]), label="<n> 4th", color="red", linestyle="--")
+#ax.plot(solution_order_4.t, np.real(solution_order_4.y[5]), label="<Sz> 4th", color="red")
+ax.plot(solution_order_5.t, np.real(solution_order_5.y[0]), label="<n> 5th", color="red", linestyle="--")
+ax.plot(solution_order_5.t, np.real(solution_order_5.y[5]), label="<Sz> 5th", color="red")
 
 ax.legend()
 ax.set_xlabel('time')
