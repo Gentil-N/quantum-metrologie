@@ -1,19 +1,20 @@
 import numpy as np
 import qutip as qp
+import scipy.constants as const
 
-ATOM_COUNT = 2
-PHOTON_CAPACITY = 5
+ATOM_COUNT = 1000
+PHOTON_CAPACITY = 2000
 SPIN_NUM = ATOM_COUNT / 2.0
 SPIN_DIM = ATOM_COUNT + 1 # 2 * N / 2 + 1
 FOCK_DIM = PHOTON_CAPACITY + 1
 
-hbar = 1
+hbar = 1.05457182e-34
 delta = 0.0
-true_g = 10.0
-g = true_g / np.sqrt(ATOM_COUNT)
-kappa = 1.0#40.0
-gamma = 1.0#9.0
-nu = 1.0
+true_g = 0.0#10.0
+g = 5040.27#true_g / np.sqrt(ATOM_COUNT)
+kappa = 780*const.kilo#40.0
+gamma = 0.0#9.0
+nu = 7.5*const.kilo
 
 op_sz = qp.tensor(qp.spin_Jz(SPIN_NUM), qp.qeye(FOCK_DIM))
 op_sp = qp.tensor(qp.spin_Jp(SPIN_NUM), qp.qeye(FOCK_DIM))
