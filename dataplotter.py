@@ -50,7 +50,6 @@ varlist_fst = []
 varlist_sec = []
 varlist_thd = []
 for i in range(0, len(var_list), 3):
-    print(i + 2)
     varlist_fst.append(var_list[i])
     varlist_sec.append(var_list[i + 1])
     varlist_thd.append(var_list[i + 2])
