@@ -25,4 +25,4 @@ ax.grid()
 ax.set_xlabel('relative position diode/beam (mm)')
 ax.set_ylabel('average volt output signal (V)')
 
-plt.show() 
+plt.show()
