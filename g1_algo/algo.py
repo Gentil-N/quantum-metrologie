@@ -12,6 +12,29 @@ def import_signal(filename: str):
     file.close()
     return y
 
+def import_g1_norm_darray(filename: str, row_size):
+    print("Start importing g1_norm_array...")
+    file = open(filename)
+    y = []
+    count = 0
+    total_processed = 0
+    temp = []
+    while True:
+        line = file.readline()
+        if not line:
+            break
+        temp.append(float(line))
+        count += 1
+        if count == row_size:
+            y.append(temp)
+            temp = []
+            count = 0
+            print("Imported: ", total_processed)
+            total_processed += 1
+    file.close()
+    print("Import done")
+    return y
+
 def export_signal(filename: str, signal):
     file = open(filename, "w")
     for sample in signal:
@@ -35,13 +58,16 @@ def _compute_single_numerator_part_one(f, g, t1, t2):
 def _compute_single_numerator_part_two(f, g, t1, t2):
     return g[t1] * f[t2] - f[t1] * g[t2]
 
-def _compute_single_denominator_single_part(f, g, t):
-    return f[t]**2 + g[t]**2
-
 def compute_g1_norm(f_list, g_list):
     sample_count = len(f_list[0])
     len_f_list = len(f_list)
     assert(len_f_list == len(g_list))
+    denominator_list = []
+    for t in range(sample_count):
+        denominator = 0.0
+        for i in range(len_f_list):
+            denominator += (f_list[i][t]**2 + g_list[i][t]**2)
+        denominator_list.append(denominator / len_f_list)
     g1_map = []
     for t1 in range(sample_count):
         g1_submap = []
@@ -55,13 +81,9 @@ def compute_g1_norm(f_list, g_list):
                 current_g = g_list[i]
                 numerator_part_one += _compute_single_numerator_part_one(current_f, current_g, t1, t2)
                 numerator_part_two += _compute_single_numerator_part_two(current_f, current_g, t1, t2)
-                denominator_t1 += _compute_single_denominator_single_part(current_f, current_g, t1)
-                denominator_t2 += _compute_single_denominator_single_part(current_f, current_g, t2)
             numerator_part_one /= len_f_list
             numerator_part_two /= len_f_list
-            denominator_t1 /= len_f_list
-            denominator_t2 /= len_f_list
-            denominator = np.sqrt(denominator_t1 * denominator_t2)
+            denominator = np.sqrt(denominator_list[t1] * denominator_list[t2])
             g1_t1_t2 = np.sqrt(numerator_part_one**2 + numerator_part_two**2) / denominator
             g1_submap.append(g1_t1_t2)
         print("t1 = ", t1, " over ", sample_count-1 ," done!")
