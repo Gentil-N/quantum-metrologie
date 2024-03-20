@@ -12,6 +12,15 @@ def import_signal(filename: str):
     file.close()
     return y
 
+def import_signal_csv_oscilloscope(filename: str):
+    file = open(filename)
+    lines = file.readlines()
+    y = []
+    for line in lines[1:]:
+        y.append(float(line.split(",")[1]))
+    file.close()
+    return y
+
 def import_g1_norm_darray(filename: str, row_size):
     print("Start importing g1_norm_array...")
     file = open(filename)

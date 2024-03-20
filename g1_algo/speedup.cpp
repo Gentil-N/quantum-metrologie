@@ -52,7 +52,10 @@ void write_file_darray(const char *filename, std::vector<std::vector<float>> &ar
     outfile.close();
 }
 
-std::vector<float> read_file(const char *filename)
+/**
+ * Set cutoff to zero in order to remove the cutoff behavior
+ */
+std::vector<float> read_file(const char *filename, size_t cutoff)
 {
     std::cout << "Start reading file...";
     std::string line;
@@ -60,9 +63,13 @@ std::vector<float> read_file(const char *filename)
     std::vector<float> array;
     if (file.is_open())
     {
+        size_t i = 0;
         while (getline(file, line))
         {
+            if (i >= cutoff && cutoff != 0)
+                break;
             array.push_back(std::stof(line));
+            ++i;
         }
         file.close();
     }
@@ -83,8 +90,7 @@ void _compute_g1_norm_t1_block(const std::vector<std::vector<float>> &f_list, co
     size_t num_signal = f_list.size();
     for (size_t t1 = t1_start; t1 < t1_end; ++t1)
     {
-        std::vector<float> temporary_g1_t1; // to be placed before!
-        temporary_g1_t1.resize(sample_count);
+        g1_norm_block[t1 - t1_start].resize(sample_count);
         for (size_t t2 = 0; t2 < sample_count; ++t2)
         {
             float numerator_part_one = 0.0;
@@ -94,9 +100,8 @@ void _compute_g1_norm_t1_block(const std::vector<std::vector<float>> &f_list, co
                 numerator_part_one += (f_list[i][t1] * f_list[i][t2] + g_list[i][t1] * g_list[i][t2]) / num_signal;
                 numerator_part_two += (g_list[i][t1] * f_list[i][t2] - f_list[i][t1] * g_list[i][t2]) / num_signal;
             }
-            temporary_g1_t1[t2] = sqrtf((numerator_part_one * numerator_part_one + numerator_part_two * numerator_part_two) / (h[t1] * h[t2]));
+            g1_norm_block[t1 - t1_start][t2] = sqrtf((numerator_part_one * numerator_part_one + numerator_part_two * numerator_part_two) / (h[t1] * h[t2]));
         }
-        g1_norm_block[t1 - t1_start] = temporary_g1_t1;
         ++count;
     }
 }
@@ -160,7 +165,7 @@ std::vector<std::vector<float>> compute_g1_norm(const std::vector<std::vector<fl
         for (size_t i = 0; i < thread_count_list.size(); ++i)
         {
             size_t max_sample = t1_boundaries_list[i].second - t1_boundaries_list[i].first;
-            std::cout << "t(" << i << "): " << (size_t)(100.0 * (float)thread_count_list[i] / (float)(max_sample)) << "% - ";
+            std::cout << "t(" << i << "): " << (float)((size_t)(10000.0 * (float)thread_count_list[i] / (float)(max_sample))) / 100.0 << "% - ";
             if (thread_count_list[i] >= max_sample -  1)
             {
                 ++terminated;
@@ -288,15 +293,16 @@ int main()
     write_file(filename.c_str(), array);
     std::vector<float> new_array = read_file(filename.c_str());*/
 
-    const size_t NUM_FG_SIGNAL = 40;
+    const size_t START_SIGNAL = 1, STOP_SIGNAL = 10;
+    const size_t CUTOFF = 10000;
     std::vector<std::vector<float>> f_list, g_list;
-    for (size_t i = 0; i < NUM_FG_SIGNAL; ++i)
+    for (size_t i = START_SIGNAL; i < STOP_SIGNAL + 1; ++i)
     {
-        f_list.push_back(read_file((std::string("./f") + std::to_string(i)).c_str()));
+        f_list.push_back(read_file((std::string("./f") + std::to_string(i)).c_str(), CUTOFF));
     }
-    for (size_t i = 0; i < NUM_FG_SIGNAL; ++i)
+    for (size_t i = START_SIGNAL; i < STOP_SIGNAL + 1; ++i)
     {
-        g_list.push_back(read_file((std::string("./g") + std::to_string(i)).c_str()));
+        g_list.push_back(read_file((std::string("./g") + std::to_string(i)).c_str(), CUTOFF));
     }
     std::vector<std::vector<float>> g1_norm = compute_g1_norm(f_list, g_list);
     std::cout << "Downscaling..." << std::endl;
