@@ -55,6 +55,14 @@ def get_hilbert_pair(signal, start_time, stop_time):
     freq_list = fftfreq(sample_count, (stop_time - start_time) / sample_count)
     return np.imag(ifft(np.sign(freq_list) * fft(signal)))
 
+def bandpass_filter(signal, start_time, stop_time, low_freq_limit, high_freq_limit):
+    sample_count = len(signal)
+    freq_list = fftfreq(sample_count, (stop_time - start_time) / sample_count)
+    fsignal = fft(signal)
+    indices = np.where(((freq_list <= low_freq_limit) & (freq_list >= -low_freq_limit)) | (freq_list >= high_freq_limit) | (freq_list <= -high_freq_limit))
+    fsignal[indices] = 0
+    return np.real(ifft(fsignal))
+
 def create_hilbert_pair_for_list(f_list, start_time, stop_time):
     g_list = []
     for f in f_list:
@@ -125,7 +133,7 @@ def get_unif_distributed_rand(mean):
 
 def generate_chaotic_light_list(start_time, stop_time, sample_count, sample_spacing, coherence_time, freq, distribution_func, signal_count):
     f_list = []
-    x = np.linspace(start_time, stop_time, sample_count, endpoint=False)
+    #x = np.linspace(start_time, stop_time, sample_count, endpoint=False)
     mean_check = 0.0
     num_loop = 0
     for i in range(signal_count):
@@ -146,6 +154,17 @@ def generate_chaotic_light_list(start_time, stop_time, sample_count, sample_spac
             current_signal.extend(y)
         f_list.append(current_signal)
     print("mean check = ", mean_check / num_loop)
+    return f_list
+
+def generate_coherent_light_heterodyne(start_time, stop_time, sample_count, delta_omega, delta_phi, abs_alpha, abs_beta, signal_count):
+    f_list = []
+    x = np.linspace(start_time, stop_time, sample_count, endpoint=False)
+    for i in range(signal_count):
+        current_delta_phi = delta_phi
+        if signal_count > 1:
+            current_delta_phi = random.random() * 2.0 * np.pi
+        y = 2.0 * np.real(abs_alpha * abs_beta * np.exp(1j*(delta_omega * x + current_delta_phi)))
+        f_list.append(y)
     return f_list
 
 def jorg_stationary_test(f_list, start_time, stop_time):
