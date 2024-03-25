@@ -5,13 +5,13 @@ from matplotlib.cm import ScalarMappable
 from matplotlib.colors import *
 
 START_TIME = 0E-04
-STOP_TIME = 3.2E-05
-SAMPLE_COUNT = 10000
+STOP_TIME = 3.2E-05 * 5
+SAMPLE_COUNT = 50000
 SAMPLE_SPACING = (STOP_TIME - START_TIME) / SAMPLE_COUNT
 FREQ = 43
 COHERENCE_TIME = 0
 SIGNAL_COUNT = 10
-DOWNSCALE_FACTOR = 10
+DOWNSCALE_FACTOR = 50
 TRUE_SAMPLE_COUNT = int(SAMPLE_COUNT / DOWNSCALE_FACTOR)
 
 
@@ -28,5 +28,5 @@ ax0.set_ylabel('time t2')
 fig0.colorbar(cs)
 title = "[SPEED_UP with D_FACTOR] Start stop times = " + str(START_TIME) + " to " + str(STOP_TIME) + " with " + str(DOWNSCALE_FACTOR) + " - Sample count = " + str(SAMPLE_COUNT) + " - Coh time = " + str(COHERENCE_TIME) + " - Frequency = " + str(round(FREQ, 2)) + " - Signal count = " + str(SIGNAL_COUNT) + " - BPF 2MHz"
 ax0.set_title(title)
-plt.savefig("./" + title + ".png")
+plt.savefig("./" + title + ".png") ####### THINK TO ENABLE IT WHEN NECESSARY!!!
 plt.show()

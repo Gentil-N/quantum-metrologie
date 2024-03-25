@@ -13,6 +13,9 @@
 #include <thread>
 #include <utility>
 
+template<typename T>
+using arr2 = std::vector<std::vector<T>>;
+
 void write_file(const char *filename, std::vector<float> &array)
 {
     std::cout << "Start writing file...";
@@ -30,7 +33,7 @@ void write_file(const char *filename, std::vector<float> &array)
     std::cout << "done" << std::endl;
 }
 
-void write_file_darray(const char *filename, std::vector<std::vector<float>> &array)
+void write_file_darray(const char *filename, arr2<float> &array)
 {
     std::ofstream outfile(filename, std::ofstream::binary);
 
@@ -84,7 +87,7 @@ std::vector<float> read_file(const char *filename, size_t cutoff)
 /**
  * t1_end is not reached !
 */
-void _compute_g1_norm_t1_block(const std::vector<std::vector<float>> &f_list, const std::vector<std::vector<float>> &g_list, const std::vector<float> &h, size_t t1_start, size_t t1_end, std::vector<std::vector<float>> &g1_norm_block, size_t &count)
+void _compute_g1_norm_t1_block(const arr2<float> &f_list, const arr2<float> &g_list, const std::vector<float> &h, size_t t1_start, size_t t1_end, arr2<float> &g1_norm_block, size_t &count)
 {
     size_t sample_count = f_list[0].size();
     size_t num_signal = f_list.size();
@@ -106,7 +109,7 @@ void _compute_g1_norm_t1_block(const std::vector<std::vector<float>> &f_list, co
     }
 }
 
-std::vector<std::vector<float>> compute_g1_norm(const std::vector<std::vector<float>> &f_list, const std::vector<std::vector<float>> &g_list)
+arr2<float> compute_g1_norm(const arr2<float> &f_list, const arr2<float> &g_list)
 {
     std::cout << "Start computing g1 norm... preparing data" << std::endl;
     size_t sample_count = f_list[0].size();
@@ -146,7 +149,7 @@ std::vector<std::vector<float>> compute_g1_norm(const std::vector<std::vector<fl
         }
     }
 
-    std::vector<std::vector<std::vector<float>>> g1_norm_block_list;
+    std::vector<arr2<float>> g1_norm_block_list;
     g1_norm_block_list.resize(num_block);
     std::vector<size_t> thread_count_list;
     thread_count_list.resize(num_block);
@@ -180,7 +183,7 @@ std::vector<std::vector<float>> compute_g1_norm(const std::vector<std::vector<fl
         threads[i].join();
     }
     std::cout << "Replacing data..." << std::endl;
-    std::vector<std::vector<float>> g1_norm;
+    arr2<float> g1_norm;
     g1_norm.reserve(sample_count);
     for (size_t i = 0; i < g1_norm_block_list.size(); ++i)
     {
@@ -214,11 +217,11 @@ float gaussian(float x, float sigma)
     return 1.0 / (std::sqrt(2.0 * M_PI) * sigma) * std::exp(-x*x / (2.0 * sigma*sigma));
 }
 
-std::vector<std::vector<float>> generate_gauss_kernel(size_t mx, size_t my)
+arr2<float> generate_gauss_kernel(size_t mx, size_t my)
 {
     float sigma_x = 2.0 * (float)mx / 6.0;
     float sigma_y = 2.0 * (float)my / 6.0;
-    std::vector<std::vector<float>> kernel;
+    arr2<float> kernel;
     kernel.resize(mx * 2);
     float total = 0.0;
     for (size_t i = 0; i < kernel.size(); ++i)
@@ -243,15 +246,15 @@ std::vector<std::vector<float>> generate_gauss_kernel(size_t mx, size_t my)
     return kernel;
 }
 
-std::vector<std::vector<float>> downscale(const std::vector<std::vector<float>> &g1_norm, size_t div_width, size_t div_height)
+arr2<float> downscale(const arr2<float> &g1_norm, size_t div_width, size_t div_height)
 {
     assert(g1_norm.size() % div_width == 0 && g1_norm[0].size() % div_height == 0);
     float mx = (float)div_width;
     float my = (float)div_height;
-    std::vector<std::vector<float>> kernel = generate_gauss_kernel(mx, my);
+    arr2<float> kernel = generate_gauss_kernel(mx, my);
     float width = (float)g1_norm.size() / (float)div_width;
     float height = (float)g1_norm[0].size() / (float)div_height;
-    std::vector<std::vector<float>> downscaled;
+    arr2<float> downscaled;
     downscaled.resize(width);
     for (size_t i = 0; i < width ; ++i)
     {
@@ -278,6 +281,130 @@ std::vector<std::vector<float>> downscale(const std::vector<std::vector<float>> 
     return downscaled;
 }
 
+float apply_kernel_on_chunk(arr2<float> &chunk, const arr2<float> &kernel, size_t internal_kernel_index_i, size_t internal_kernel_index_j)
+{
+    float res = 0.0;
+    for (size_t i = 0; i < chunk.size(); ++i)
+    {
+        for (size_t j = 0; j < chunk[i].size(); ++j)
+        {
+            res += chunk[i][j] * kernel[internal_kernel_index_i + i][internal_kernel_index_j + j];
+        }
+    }
+    return res;
+}
+
+void fill_chunk(arr2<float> &chunk, const arr2<float> &f_list, const arr2<float> &g_list, const std::vector<float> &h, size_t mxy_half, size_t chunk_index_i, size_t chunk_index_j)
+{
+    size_t num_signal = f_list.size();
+    size_t t1_start = chunk_index_i * mxy_half;
+    size_t t1_end = (chunk_index_i + 1) * mxy_half;
+    size_t t2_start = chunk_index_j * mxy_half;
+    size_t t2_end = (chunk_index_j + 1) * mxy_half;
+    chunk.resize(mxy_half);
+    for (size_t t1 = t1_start; t1 < t1_end; ++t1)
+    {
+        chunk[t1 - t1_start].resize(mxy_half);
+        for (size_t t2 = t2_start; t2 < t2_end; ++t2)
+        {
+            float numerator_part_one = 0.0;
+            float numerator_part_two = 0.0;
+            for (size_t i = 0; i < num_signal; ++i)
+            {
+                numerator_part_one += (f_list[i][t1] * f_list[i][t2] + g_list[i][t1] * g_list[i][t2]) / num_signal;
+                numerator_part_two += (g_list[i][t1] * f_list[i][t2] - f_list[i][t1] * g_list[i][t2]) / num_signal;
+            }
+            chunk[t1 - t1_start][t2 - t2_start] = sqrtf((numerator_part_one * numerator_part_one + numerator_part_two * numerator_part_two) / (h[t1] * h[t2]));
+        }
+    }
+}
+
+float downscale_from_chunk_map(arr2<arr2<float>> &chunk_map, const arr2<float> &kernel, const arr2<float> &f_list, const arr2<float> &g_list, const std::vector<float> &h, size_t mxy_half, size_t downsample_index_i, size_t downsample_index_j)
+{
+    float res = 0.0;
+    for (size_t i = 0; i < 4; ++i)
+    {
+        for (size_t j = 0; j < 4; ++j)
+        {
+            size_t chunk_index_i = downsample_index_i * 2 + i - 1;
+            size_t chunk_index_j = downsample_index_j * 2 + j - 1;
+            if (chunk_index_i < 0 || chunk_index_j < 0 || chunk_index_i >= chunk_map.size() || chunk_index_j >= chunk_map[i].size())
+                continue;
+            //std::cout << "\tProcessing chunk (" << i << "/" << chunk_index_i << ", " << j << "/" << chunk_index_j << ")" << std::endl;
+            if (chunk_map[chunk_index_i][chunk_index_j].size() == 0)
+            {
+                //std::cout << "\tfilling chunk..." << std::endl;
+                fill_chunk(chunk_map[chunk_index_i][chunk_index_j], f_list, g_list, h, mxy_half, chunk_index_i, chunk_index_j);
+            }
+            //std::cout << "\tapplying kernel..." << std::endl;
+            res += apply_kernel_on_chunk(chunk_map[chunk_index_i][chunk_index_j], kernel, i * kernel.size() / 4, j * kernel[i].size() / 4);
+            if (i < 2 && j < 2) // this chunk can be released!
+            {
+                //std::cout << "\treleasing..." << std::endl;
+                arr2<float>().swap(chunk_map[chunk_index_i][chunk_index_j]);
+            }
+        }
+    }
+    return res;
+}
+
+arr2<float> compute_g1_norm_downscaled(const arr2<float> &f_list, const arr2<float> &g_list, size_t div)
+{
+    std::cout << "Start computing g1 norm downscaled... preparing data" << std::endl;
+    size_t sample_count = f_list[0].size();
+    size_t num_signal = f_list.size();
+    assert(num_signal == g_list.size());
+    assert(div % 2 == 0);
+    std::cout << div << " " << f_list.size() << " " << f_list[0].size() << std::endl;
+    assert(f_list[0].size() % div == 0 && g_list[0].size() % div == 0);
+    float mxy = (float)div;
+    float mxy_half = (float)div / 2.0;
+    arr2<float> kernel = generate_gauss_kernel(mxy, mxy);
+    arr2<float> g1_norm;
+    size_t downsample_count = f_list[0].size() / div;
+    g1_norm.resize(downsample_count);
+    size_t chunk_count = downsample_count * 2.0; // or f_list.size() / mxy_half
+    std::cout << sample_count << " " << downsample_count << " " << chunk_count << std::endl;
+    arr2<arr2<float>> chunk_map;
+    {
+        chunk_map.resize(chunk_count);
+        for (size_t i = 0; i < chunk_map.size(); ++i)
+        {
+            chunk_map[i] = std::vector<arr2<float>>();
+            chunk_map[i].resize(chunk_count);
+            for (size_t j = 0; j < chunk_map.size(); ++j)
+            {
+                chunk_map[i][j] = arr2<float>();
+            }
+        }
+    }
+
+    std::cout << "Computing h" << std::endl;
+    std::vector<float> h;
+    h.resize(sample_count);
+    for (size_t t = 0; t < sample_count; ++t)
+    {
+        float denominator = 0.0;
+        for (size_t i = 0; i < num_signal; ++i)
+        {
+            denominator += (f_list[i][t] * f_list[i][t] + g_list[i][t] * g_list[i][t]) / num_signal;
+        }
+        h[t] = denominator;
+    }
+
+    std::cout << "Entering main loop..." << std::endl;
+    for(size_t i = 0; i < downsample_count; ++i)
+    {
+        g1_norm[i].resize(downsample_count);
+        for(size_t j = 0; j < downsample_count; ++j)
+        {
+            std::cout << "Processing downsample (" << i << ", " << j << ")" << std::endl;
+            g1_norm[i][j] = downscale_from_chunk_map(chunk_map, kernel, f_list, g_list, h, mxy_half, i, j);
+        }
+    }
+    return g1_norm;
+}
+
 int main()
 {
     /*__m256 a = _mm256_set_ps(0.0f, 1.0f, 2.0f, 3.0f, 4.0f, 5.0f, 6.0f, 7.0f);
@@ -294,8 +421,8 @@ int main()
     std::vector<float> new_array = read_file(filename.c_str());*/
 
     const size_t START_SIGNAL = 1, STOP_SIGNAL = 10;
-    const size_t CUTOFF = 10000;
-    std::vector<std::vector<float>> f_list, g_list;
+    const size_t CUTOFF = 50000;
+    arr2<float> f_list, g_list;
     for (size_t i = START_SIGNAL; i < STOP_SIGNAL + 1; ++i)
     {
         f_list.push_back(read_file((std::string("./f") + std::to_string(i)).c_str(), CUTOFF));
@@ -304,9 +431,10 @@ int main()
     {
         g_list.push_back(read_file((std::string("./g") + std::to_string(i)).c_str(), CUTOFF));
     }
-    std::vector<std::vector<float>> g1_norm = compute_g1_norm(f_list, g_list);
-    std::cout << "Downscaling..." << std::endl;
-    std::vector<std::vector<float>> g1_norm_downscaled = downscale(g1_norm, 10, 10);
+    //arr2<float> g1_norm = compute_g1_norm(f_list, g_list);
+    //std::cout << "Downscaling..." << std::endl;
+    //arr2<float> g1_norm_downscaled = downscale(g1_norm, 10, 10);
+    arr2<float> g1_norm_downscaled = compute_g1_norm_downscaled(f_list, g_list, 50);
     std::string output_filename("./g1_norm_speedup");
     write_file_darray(output_filename.c_str(), g1_norm_downscaled);
     return 0;
