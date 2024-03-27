@@ -421,7 +421,7 @@ int main()
     std::vector<float> new_array = read_file(filename.c_str());*/
 
     const size_t START_SIGNAL = 1, STOP_SIGNAL = 10;
-    const size_t CUTOFF = 50000;
+    const size_t CUTOFF = 100000;
     arr2<float> f_list, g_list;
     for (size_t i = START_SIGNAL; i < STOP_SIGNAL + 1; ++i)
     {
@@ -434,7 +434,7 @@ int main()
     //arr2<float> g1_norm = compute_g1_norm(f_list, g_list);
     //std::cout << "Downscaling..." << std::endl;
     //arr2<float> g1_norm_downscaled = downscale(g1_norm, 10, 10);
-    arr2<float> g1_norm_downscaled = compute_g1_norm_downscaled(f_list, g_list, 50);
+    arr2<float> g1_norm_downscaled = compute_g1_norm_downscaled(f_list, g_list, 100);
     std::string output_filename("./g1_norm_speedup");
     write_file_darray(output_filename.c_str(), g1_norm_downscaled);
     return 0;

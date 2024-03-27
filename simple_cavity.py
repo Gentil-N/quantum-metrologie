@@ -42,7 +42,7 @@ spin_down = qx.spin_state(1/2, -1/2)
 
 op_collapsing = []
 if ENABLE_DECAY:
-    op_collapsing.append(KAPPA * tens_from_fock(op_a)) 
+    op_collapsing.append(KAPPA * tens_from_fock(op_a))
 if ENABLE_REPUMP:
     op_collapsing.append(REPUMP * tens_from_spin(op_s_pos))
 
