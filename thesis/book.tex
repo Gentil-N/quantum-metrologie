@@ -26,22 +26,22 @@ My very nice abstract
 \paragraph{}
 We firstly introduce one of the most common object of quantum optic, namely, the \textit{optical cavity}. It is mainly constitued of two mirrors mounted perpendicularly to the optical axis at a certain distance from each other. The idea behind this simple setup is to select a discret range of wavelengths defined by the space between the mirrors. 
 
-Indeed, one can modelize the cavity as an one-dimensional box, then apply the wave equation $ \square \vv{E} = 0$ where $\square$ is the d'Alembertian operator and $\vv{E}$ the electric field's amplitude, together with the Maxwell equation $\nabla \cdot \vv{E} = \partial _x E = 0$. As the wave must vanish at the boundaries of the box (meaning that the energy cannot propagate outside of the box's region) one would find that the solutions are linear combinations of sinuzoidale functions, each of them having a spatial frequency multiple of $\frac{\pi}{L}$ where $L$ denotes the length of the box/cavity. Thanks to the relation $\omega = ck$ we see that the angular frequency is also quantized.\footnote{R.Loudon derives rigorous equations in sections 1.1 and 1.2 of \textit{Quantum Theory of Light}.} It is important to note that the argument is valid for higher dimensions.
+Indeed, one can modelize the cavity as an one-dimensional box, then apply the wave equation $ \square \vv{E} = 0$ where $\square$ is the d'Alembertian operator and $\vv{E}$ the electric field's amplitude, together with the Maxwell equation $\nabla \cdot \vv{E} = \partial _x E = 0$. As the wave must vanish at the boundaries of the box (meaning that the energy cannot propagate outside of the box's region) one would find that the solutions are linear combinations of sinuzoidale functions, each of them having a spatial frequency multiple of $\frac{\pi}{L}$ where $L$ denotes the length of the box/cavity. We shall consider that our model lies into a vacuum chamber, leading to the refractive index $n=1$ for the void and the well known constant $ c$ for the speed of light. Then, thanks to the relation $\omega = ck$ we see that the angular frequency is also quantized.\footnote{R.Loudon derives rigorous equations in sections 1.1 and 1.2 of \textit{Quantum Theory of Light}.} It is important to note that the argument is valid for other refractive index and higher dimensions (i.e in 2D, 3D, ...).
 
-With a more pragmatic point of view, one can think of this wavelength selection as an interferometer. In fact, let's imagine for a while that we emplace a cavity in front of the sun, fast enough to capture a beam of sunlight. Then we stop the clock before further propagation. Mathematically, the waves which are differents from the selective frequency vansih instantaneously, because of the presence of the cavity. However, physically, the full spectrum of the sun still resides between the two mirrors. Then if we run the clock again, the light is reflected from the back mirror. As we captured a continous stream, the $\pi$-dephased reflected light encouters the incoming light: interference happens and after a couple of round-trips, only the waves generating an in-phase match at each round-trip (i.e with a frequency $\frac{n\pi}{L}, n\in \llbracket 0, +\infty \llbracket $) remains by constructive interference, creating standing waves of the same frequency. On the other hand, all the other frequencies produce at reflection, in average on some round-trips, a \textit{random-like} phase difference: the sum shall give a null coefficient in term of amplitude for those given frequencies. Although this is a simple explanation, two things are important to note:
+With a more pragmatic point of view, one can think of this wavelength selection as an interferometer. In fact, let's imagine for a while that we emplace a cavity in front of the sun, fast enough to capture a beam of sunlight. Then we stop the clock before further propagation. Mathematically, the waves which are differents from the selective frequency vansih instantaneously, because of the presence of the cavity. However, physically, the full spectrum of the sun still resides between the two mirrors. Then if we run the clock again, the light is reflected from the back mirror. As we captured a continous stream, the $\pi$-dephased reflected light encouters the incoming light: interference happens and after a couple of round-trips, only the waves generating an in-phase match at each round-trip (i.e with a space-frequency or wave-number $\frac{n\pi}{L}, n\in \llbracket 0, +\infty \llbracket $) remains by constructive interference, creating standing waves of the same frequency. On the other hand, all the other frequencies produce at reflection, in average on some round-trips, a \textit{random-like} phase difference: the sum shall give a null coefficient in term of amplitude for those given frequencies. Although this is a simple explanation, two things are important to note:
 \begin{itemize}
-  \item For the constructive interference case, we say that we need to be in-phase after one round-trip, meaning that after two reflections, which happens after hitting both back and front mirrors of the cavity, the wave must replicate the same amplitude at any position. However, the electric field is not static but moves in space. Then, it becomes more evident that twice the length of the cavity must be a multiple of the frequency in order to give the exact same phase, even with a space-motion.
+  \item For the constructive interference case, we say that we need to be in-phase after one round-trip, meaning that after two reflections, which happens after hitting both back and front mirrors of the cavity, the wave must replicate the same amplitude at any position. However, the electric field is not static but moves in space. Then, it becomes more evident that twice the length of the cavity must be a multiple of the frequency in order to give the exact same phase, even with a space-motion of the wave.
   \item  For all the other frequencies, the phase difference is not random but actually well behaved. Nevertheless, After a couple of round-trip, the set of generated phase difference is unformly distributed among $ \left[ -\pi, \pi \right] $ reproducing a sort of randomness.
 \end{itemize}
 
 Thereby, that is why the device created by C.Fabry and A.Pérot in 1899 is called an \textit{interferometer} as, in their case, the light hit the mirrors with an angle, creating the famous pattern of fringes. Equivalently, this category of instrument is often named \textit{resonator} as the amplitude of the electric field is enhanced in the case of resonance with the cavity or decreases in other cases: by conception, it can be modelized as a classical harmonic oscillator or with the quantum equivalent. \footnote{As we will see later, each resonant frequency owns a linewidth as a classical oscillator, in contrary to the quantum equivalent where the energy ladders (i.e the frequencies, in virtue of the relation $ \hbar \omega$) are well defined.}
 
-In real experiments, the device is static and one prefers to let the light enter partially, to feed the cavity, and exit partially to collect the selected waves. In that way, we use \textit{partially reflective} mirrors parametrized by a reflection coefficient $R$ and a transmission coefficient $T$ obeying the relation $R + T = 1$, meaning that all the absorbed energy must be re-emitted by the mirror, which is of course not fully true as some amount of the energy is transformed into heat. However, current manufacturers creates mirros with less than $0.01\%$ of loss and the above formula is sufficient for most of the applications.
+In real experiments, the device is static and one prefers to let the light enter partially, to feed the cavity, and exit partially to collect the selected waves. In that way, we use \textit{partially reflective} mirrors parametrized by an electric field reflection coefficient $r$ and an electric field transmission coefficient $t$ obeying the relation $r^2 + t^2 = 1$ (the squared terms are the respective coefficient for the intensityof the field), meaning that all the absorbed energy must be re-emitted by the mirror, which is of course not fully true as some amount of the energy is transformed into heat. However, current manufacturers creates mirros with less than $0.01\%$ of loss and the above formula is sufficient for most of the applications.
 
 The most commonly used approach to express the cavity response is the Airy distribution which represents the intensity ratio between the internal electric field and the \textit{launching} electric field (i.e the amount of \textit{feeding}-field succeding to transmit through the first mirror and penetrate the cavity), in function of the phase accumulated by round-trip:
 \begin{equation}
 \label{eqairy}
-Airy\ distribution : A(\phi) \stackrel{\text{def}}{=} \frac{I_{circ}}{I_{launch}}
+\textrm{Airy distribution} : A(\phi) \stackrel{\text{def}}{=} \frac{I_{circ}}{I_{launch}}
 \end{equation} In other words, it just makes the link between the enhancment factor of the cavity field and the constructive-destructive interference phase pattern. In order to derive it, we shall use the circulating field approach \footnote{A. E. Siegman, section 11.3, \textit{Lasers}}, represented in Fig (add figure!) and constitued of:
 \begin{itemize}
 	\item A launching electric: $ E_{launch} $
@@ -62,37 +62,83 @@ Rewriting the equation for the circular field gives:
 \begin{equation}
 2\Re\{\overline{E}_{circ}\} = 2\Re\{\overline{E}_{launch}\} + 2\Re\{\overline{E}_{RT}\}
 \end{equation}
-which, by linearity, is equivalent to:
+which, by linearity and analyticity of the signal, is equivalent to:
 \begin{equation}
 \label{eqecirc}
 \overline{E}_{circ} = \overline{E}_{launch} + \overline{E}_{RT}
 \end{equation}
 
-Now, one can express the round-trip field from the circular one, dephased by a certain angular amount. Indeed, one knows that each mirror add a phase of $\pi$ to the original field and the amplitude is modulated by the reflection factor $R$. As a field of frequency $\omega$ is shifted to $l \times \omega$ after a propagation over a distance $l$, then, after a complete round-trip, one obtains a total angular shift of $2L\omega + 2\pi \stackrel{\text{def}}{=} 2\phi$ for the "RT" field. Thereby:
+Now, one can express the round-trip field from the circular one, dephased by a certain angular amount. Indeed, one knows that each mirror add a phase of $\pi$ to the original field and the amplitude is modulated by the reflection factor $R$. As a field of space-frequency $k$ and propagating over a distance $l$ is shifted by:
+\begin{equation}
+\omega \times \textrm{"propagation time"} = \omega \times \frac{l}{c}
+\end{equation} 
+Then, after a complete round-trip, one obtains for the "RT" field a total angular shift of:
+\begin{equation}
+\frac{2L}{c}\omega + 2\pi \stackrel{\text{def}}{=} 2\phi
+\end{equation} 
+Thereby:
 \begin{equation}
 \label{eqrt}
-\overline{E}_{RT} = R_1 R_2 e^{-i2\phi} \overline{E}_{circ}
+\overline{E}_{RT} = r_1 r_2 e^{-i2\phi} \overline{E}_{circ}
 \end{equation}
-where $R_{1,2}$ are the reflection coefficients of front and back mirror respectively. One can highlight that for a caracteristic frequency of the cavity $\frac{n\pi}{L}$, we have:
+where $r_{1,2}$ are the reflection coefficients of front and back mirror respectively. In other words, instead of propagating the field from its original value $ \overline{E}_{circ}$ through time or space to get a phase, we compute the relative phase $\phi$ from the length of the cavity $L$ with the field's frequency $\omega$.
+
+One can highlight that for a caracteristic space-frequency of the cavity $k=\frac{n\pi}{L}$, we have:
 \begin{equation}
-2\phi = 2L \times \frac{n\pi}{L} + 2\pi = 2\pi(n + 1) \quad \equiv \quad 0 \quad [2\pi]
+\label{phimodif}
+2\phi = \frac{2L}{c} \times \frac{cn\pi}{L} + 2\pi = 2\pi(n + 1) \quad \equiv \quad 0 \quad [2\pi]
 \end{equation}
 meaning that those frequencies does not generate any phase shift after one complete round-trip, involving constructive inteferences then standing waves.
 
 Putting \eqref{eqrt} in \eqref{eqecirc} leds to:
 \begin{equation}
-\frac{\overline{E}_{circ}}{\overline{E}_{launch}} = \frac{1}{1 - R_1 R_2 e^{-i2\phi}}
+\frac{\overline{E}_{circ}}{\overline{E}_{launch}} = \frac{1}{1 - r_1 r_2 e^{-i2\phi}}
 \end{equation}
-Then, one use the relation $ I \simeq \vert\overline{E}\vert^2$, which is valid for an average of the intensity over some periods of the $\overline{E}$-field \footnote{See section ??} and by the definition \eqref{eqairy}, one obtain:
+Then, one uses the relation $ I \simeq \vert\overline{E}\vert^2$, which is valid for an average of the intensity over some periods of the $\overline{E}$-field \footnote{See section ??} and by the definition \eqref{eqairy}, one obtains:
 \begin{equation}
-A(\phi) = \frac{1}{(1 - R_1 R_2)^2 + 4 R_1 R_2 \sin^2(\phi)}
+\label{airyformula}
+A(\phi) = \frac{1}{(1 - r_1 r_2)^2 + 4 r_1 r_2 \sin^2(\phi)}
 \end{equation}
+Moreover, to get the actual distribution that we observe through the cavity, that is to say, the enhancment factor at the output of the cavity, we set:
+\begin{equation}
+\label{airyformulasec}
+A'(\phi) = (1-r_1^2)(1-r_2^2)\times A(\phi)
+\end{equation}
+where one uses the intensity transmission coeffcients $t_{1,2}^2 = 1-r_{1,2}^2$.Now, in order to sketch the function, independent of the size of the cavity $L$, we shall use the third term of the equality \eqref{phimodif} to reparametrize the round-trip dephasing variable $\phi$:
+\begin{equation}
+\label{phidef}
+\phi = \pi(x+1) \quad \equiv \quad \pi x \quad [\pi]
+\end{equation}
+where the integer variable $n$ has been replaced by the continuous one $x \in \mathbb{R}$ so that one can also investigate the behavior of the enhancment factor $A'(\phi) \sim A'(x)$ away from the resonant frequencies. Fig (??) is a normalized drawing\footnote{One divides the whole graph by $A'(0)$} of the airy distribution for a short amount of negative and positive resonant frequencies through a couple of reflexion coefficient $r_{1,2}$. 
 
-figure, description, linewidth, mirror coeff dependence, similar behavior for atoms with lorentzian
+(add figure!)
 
+To clarify, the abscisse coordinate is the factor quantity between two caracteristic frequencies $\frac{n\pi}{L}$, which can be equivalently spatial or temporal as we get ride of the constant $c$ in our calculation: then $x$ is a frequency divided by the free spectral range (FSR) In other words, for $x=\frac{1}{2}$, one gets the enhancment factor $A'$ for exactly a frequency halfway between two resonant ones, whereas $x=1$ gives the $A'$ factor for the first resonant frequency of the cavity.\footnote{One could say that the first resonant frequency is $x=0$ according to the figure or even the formula \eqref{airyformula} itslef. However, $x=0$ also means $n=0$: the launched field would have null frequency, which is not a physical solution.}
 
-\footnote{It also exists another approach involving }
+From those previous results, we can now define the \textit{full width at half maximum} (FWHM) which approximately represents how broad is the range around a resonant frequency where the field is modulated by more than one-half. Thanks to \eqref{airyformula}, one obtains $ A(0) / 2$ when the denominator respects:
+\begin{equation}
+(1 - r_1 r_2)^2 = 4 r_1 r_2 \sin^2(\Delta\phi) \Rightarrow \Delta\phi = \arcsin \left(\frac{1 - r_1 r_2}{2\sqrt{r_1r_2}} \right)
+\end{equation}
+with, in virtue of \eqref{phidef}:
+\begin{equation}
+\Delta\phi = \frac{\pi}{2}\Delta\nu
+\end{equation}
+where $\textrm{FWHM} \stackrel{\text{def}}{=} \Delta\nu$.
 
+Finally, one can sketch the FWHM in fonction of the mirror reflectivities $r_{1,2}$ and obtains Fig ??
 
+(add figure)
+
+Two important points are noticeable:
+\begin{itemize}
+	\item The linewidth of a cavity is invertly dependent on the mirrors reflectivity. In other words, more transmitive are the mirrors, broader is the frequency range around resonances, giving a \textit{less selective} cavity, and reciprocally. Then, two perfeclty reflective mirrors allow the FWHM to tend to zero: the cavity selects only and exactly the resonant frequencies $\frac{n\pi}{L}$. Formally, the \textit{selectivity} of a cavity is defined its \textit{finesse} which reads $F \stackrel{\text{def}}{=} \frac{\Delta\nu}{\textrm{FSR}}$: one normalizes the linewidth by the distance (in term of frequency) separating two resonances. On Fig ??, as FSR is unity then the ordinate axis is also the finesse by definition.
+	\item The function modelizing the FWHM tends to infinity below a certain value which can be evaluated to approximately $r_1r_2 \approx 0.17$. That is due to the behavior of the $\arcsin$ which is not defined beyond $x=1$ for $x \in \mathbb{R}^+$. 
+\end{itemize}
+
+Nevertherless, it is always possible to build an experiment involving mirrors with high-losses (i.e very low reflection or ver high transmission), without the output frequency going crazy. Thereby, what happens? Well, this is a limitation case of this \textit{Airy}-model and in the common scientific description of a cavity, one utilizes the Lorentzian approach where one defines a coherent time of the light from the reflection coefficient and the cavity length, then gets a differential rate equation of the amount of photons (i.e an exponential decay of the electric field) which, by virtue of the Fourier transform, gives a Lorentzian as a spectrum around one resonant frequency. Then, to obtain the full cavity spectrum, one has to place each Lorentzian of a given resonance on top of each other on the same graph.\footnote{Note that when treating the spontaneaous emission of an atom (or more formally, a two-level atomic system), one also deals with differential rate equations, which represents the exponential lifetime decay of the excitation, giving a Lorentzian as a spectrum: longer it takes to the system to decay, broader is the bandwidth. However, the analogy stops here: for a cavity, the whole electric field spectrum is affected by the linewidth, whereas, for a two-level atom, the spectrum represents the frequency uncertainty as the atom can spontaneously emit a photon with frequency slightly different from what the atom has been excited with.}
+
+The Lorentzian model is highly faithfull to the real world experiment for all the possible reflective coefficients and tends to give the same caracteristic values (linewidth, finesse, ...) than the Airy-model from half to full reflective mirrors. However, it may seem to be less intuitive even if the derivation is straigthforward and, after all, the goal here was to show the principle of interference inside a cavity due to the round-trip dephasing term.
+
+Finally, the next step for an optical cavity is, as many of physical systems, to interact with its environment. In other words, what happens if one adds an element, let's say atoms, inside of it? Well, this is basically the principle of lots of current experiments and avdvanced optical tools, namely the \textit{LASER} among others, and the next section is decidated to the mathematical formulation of one first model for a cavity.
 
 \end{document}
