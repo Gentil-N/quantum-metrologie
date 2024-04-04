@@ -1,4 +1,4 @@
-\documentclass[11pt]{report}
+ \documentclass[11pt]{report}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage[a4paper,width=155mm,top=20mm,bottom=20mm]{geometry}
@@ -8,6 +8,12 @@
 \usepackage{amssymb}
 \usepackage{esvect}
 \usepackage{stmaryrd}
+\usepackage{bbold}
+
+\usepackage{mathtools}
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1\,\delimsize\vert\,\mathopen{}#2}
 
 
 
@@ -74,7 +80,7 @@ Now, one can express the round-trip field from the circular one, dephased by a c
 \end{equation} 
 Then, after a complete round-trip, one obtains for the "RT" field a total angular shift of:
 \begin{equation}
-\frac{2L}{c}\omega + 2\pi \stackrel{\text{def}}{=} 2\phi
+2\phi \stackrel{\text{def}}{=} \frac{2L}{c}\omega + 2\pi
 \end{equation} 
 Thereby:
 \begin{equation}
@@ -113,7 +119,7 @@ where the integer variable $n$ has been replaced by the continuous one $x \in \m
 
 (add figure!)
 
-To clarify, the abscisse coordinate is the factor quantity between two caracteristic frequencies $\frac{n\pi}{L}$, which can be equivalently spatial or temporal as we get ride of the constant $c$ in our calculation: then $x$ is a frequency divided by the free spectral range (FSR) In other words, for $x=\frac{1}{2}$, one gets the enhancment factor $A'$ for exactly a frequency halfway between two resonant ones, whereas $x=1$ gives the $A'$ factor for the first resonant frequency of the cavity.\footnote{One could say that the first resonant frequency is $x=0$ according to the figure or even the formula \eqref{airyformula} itslef. However, $x=0$ also means $n=0$: the launched field would have null frequency, which is not a physical solution.}
+To clarify, the abscisse coordinate is the factor quantity between two caracteristic frequencies $\frac{n\pi}{L}$, which can be equivalently spatial or temporal as we get ride of the constant $c$ in our calculation: then $x$ is a frequency divided by the free spectral range (FSR) In other words, for $x=\frac{1}{2}$, one gets the enhancment factor $A'$ for exactly a frequency halfway between two resonances, whereas $x=1$ gives the $A'$ factor for the first resonant frequency of the cavity.\footnote{One could say that the first resonant frequency is $x=0$ according to the figure or even the formula \eqref{airyformula} itslef. However, $x=0$ also means $n=0$: the launched field would have null frequency, which is not a physical solution.}
 
 From those previous results, we can now define the \textit{full width at half maximum} (FWHM) which approximately represents how broad is the range around a resonant frequency where the field is modulated by more than one-half. Thanks to \eqref{airyformula}, one obtains $ A(0) / 2$ when the denominator respects:
 \begin{equation}
@@ -131,14 +137,120 @@ Finally, one can sketch the FWHM in fonction of the mirror reflectivities $r_{1,
 
 Two important points are noticeable:
 \begin{itemize}
-	\item The linewidth of a cavity is invertly dependent on the mirrors reflectivity. In other words, more transmitive are the mirrors, broader is the frequency range around resonances, giving a \textit{less selective} cavity, and reciprocally. Then, two perfeclty reflective mirrors allow the FWHM to tend to zero: the cavity selects only and exactly the resonant frequencies $\frac{n\pi}{L}$. Formally, the \textit{selectivity} of a cavity is defined its \textit{finesse} which reads $F \stackrel{\text{def}}{=} \frac{\Delta\nu}{\textrm{FSR}}$: one normalizes the linewidth by the distance (in term of frequency) separating two resonances. On Fig ??, as FSR is unity then the ordinate axis is also the finesse by definition.
+	\item The linewidth of a cavity is invertly dependent on the mirrors reflectivity. In other words, more transmitive are the mirrors, broader is the frequency range around resonances, giving a \textit{less selective} cavity, and reciprocally. Then, two perfeclty reflective mirrors allow the FWHM to tend to zero: the cavity selects only and exactly the resonant frequencies $\frac{n\pi}{L}$. Formally, the \textit{selectivity} of a cavity is defined by its \textit{finesse} which reads $F \stackrel{\text{def}}{=} \frac{\Delta\nu}{\textrm{FSR}}$: one normalizes the linewidth by the distance (in term of frequency) separating two resonances. On Fig ??, as FSR is unity then the ordinate axis is also the finesse by definition.
 	\item The function modelizing the FWHM tends to infinity below a certain value which can be evaluated to approximately $r_1r_2 \approx 0.17$. That is due to the behavior of the $\arcsin$ which is not defined beyond $x=1$ for $x \in \mathbb{R}^+$. 
 \end{itemize}
 
-Nevertherless, it is always possible to build an experiment involving mirrors with high-losses (i.e very low reflection or ver high transmission), without the output frequency going crazy. Thereby, what happens? Well, this is a limitation case of this \textit{Airy}-model and in the common scientific description of a cavity, one utilizes the Lorentzian approach where one defines a coherent time of the light from the reflection coefficient and the cavity length, then gets a differential rate equation of the amount of photons (i.e an exponential decay of the electric field) which, by virtue of the Fourier transform, gives a Lorentzian as a spectrum around one resonant frequency. Then, to obtain the full cavity spectrum, one has to place each Lorentzian of a given resonance on top of each other on the same graph.\footnote{Note that when treating the spontaneaous emission of an atom (or more formally, a two-level atomic system), one also deals with differential rate equations, which represents the exponential lifetime decay of the excitation, giving a Lorentzian as a spectrum: longer it takes to the system to decay, broader is the bandwidth. However, the analogy stops here: for a cavity, the whole electric field spectrum is affected by the linewidth, whereas, for a two-level atom, the spectrum represents the frequency uncertainty as the atom can spontaneously emit a photon with frequency slightly different from what the atom has been excited with.}
+Nevertherless, it is always possible to build an experiment involving mirrors with high-losses (i.e very low reflection or very high transmission), without the output frequency going crazy. Thereby, what happens? Well, this is a limitation case of this \textit{Airy}-model and in the common scientific description of a cavity, one utilizes the Lorentzian approach where one defines a coherent time of the light from the reflection coefficient and the cavity length, then gets a differential rate equation of the amount of photons (i.e an exponential decay of the electric field) which, by virtue of the Fourier transform, gives a Lorentzian as a spectrum around one resonant frequency. Then, to obtain the full cavity spectrum, one has to place each Lorentzian of a given resonance on top of each other on the same graph.\footnote{Note that when treating the spontaneaous emission of an atom (or more formally, a two-level atomic system), one also deals with differential rate equations, which represents the exponential lifetime decay of the excitation, giving a Lorentzian as a spectrum: longer it takes to the system to decay, broader is the bandwidth. However, the analogy stops here: for a cavity, the whole electric field spectrum is affected by the linewidth, whereas, for a two-level atom, the spectrum represents the frequency uncertainty as the atom can spontaneously emit a photon with frequency slightly different from what the atom has been excited with.}
 
 The Lorentzian model is highly faithfull to the real world experiment for all the possible reflective coefficients and tends to give the same caracteristic values (linewidth, finesse, ...) than the Airy-model from half to full reflective mirrors. However, it may seem to be less intuitive even if the derivation is straigthforward and, after all, the goal here was to show the principle of interference inside a cavity due to the round-trip dephasing term.
 
-Finally, the next step for an optical cavity is, as many of physical systems, to interact with its environment. In other words, what happens if one adds an element, let's say atoms, inside of it? Well, this is basically the principle of lots of current experiments and avdvanced optical tools, namely the \textit{LASER} among others, and the next section is decidated to the mathematical formulation of one first model for a cavity.
+Finally, the next step for an optical cavity is, as many of physical systems, to interact with its environment. In other words, what happens if one adds an element, let's say atoms, inside of it? Well, this is basically the principle of lots of current experiments and avdvanced optical tools, namely the \textit{LASER} among others, and the next section is decidated to the mathematical formulation of one first model for a cavity filled with a gain medium.
+
+\section{Jaynes-Cummings model}
+\paragraph{}
+As an introduction, it is important to remind that the Jaynes-Cummings (JC) approach is no more no less than a model, which means that it is based on some hypothesis and has limitations which leads to refinements for more complex physical systems. In the current section, we shall present as wide as possible the principles of this model which will be the foundments of all the next derivated/evoluted models\footnote{As written, the JC-model may seem to be a pre-model or even a \textit{toy tool} in view of introducing other legitimate models. Nevertheless, the JC-model is an actual physical approach, currently used for real use-cases in Quantum Optics, especially whith single atom interactions.}, even if the section is not supposed to be exhaustive but only a reference-like for further theoretical developments.
+
+First of all, our system is composed of:
+\begin{itemize}
+	\item An electric field inside a cavity: this E-field is quantized and can only be a superposition of resonances.
+	\item A single two-level system: this system has a structure of ground-excited state and can represent a transition of an atom for example.
+\end{itemize}
+
+When quantizing the the E-field inside of a box of volume $V = L^3$ (i.e the cavity in three dimensions), one finds that the corresponding hamiltonian operator is [??Loudon p143]:
+\begin{align}
+\hat{H}_{cav} &= \int_{cavity} \left[\epsilon_0 \hat{E}(\vv{r}, t) \cdot \hat{E}(\vv{r}, t) + \mu_0^{-1} \hat{B}(\vv{r}, t) \cdot \hat{B}(\vv{r}, t)\right] \quad dV\\
+&= \sum_{\vv{k}} \sum_{\lambda} \hbar \omega_{c,\vv{k}} \left( \hat{a}_{\lambda \vv{k}}^\dag \hat{a}_{\lambda \vv{k}} + \frac{1}{2} \right)
+\end{align}
+where $\hat{E}(\vv{r}, t)$ and $\hat{B}(\vv{r}, t)$ are respectively the electric and magnetic operators; $\epsilon_0$ and $\mu_0$ the electric and magnetic susceptibility of the vacuum respectively, $\omega_{c,\vv{k}}$ the frequency mode; $\lambda=\pm 1$ the polarization; $\hat{a}_{\lambda \vv{k}}^\dag$ with $\hat{a}_{\lambda \vv{k}}^\dag$ the ladders operator of the field.
+
+Now, we define the electric field as exactly a unique mode with a unique polarization. Thereby:
+\begin{equation}
+\hat{H}_{cav} = \hbar \omega_c \left( \hat{a}^\dag \hat{a} + \frac{1}{2} \right)
+\end{equation}
+where we dropped the subscripts $\vv{k}$ and $\lambda$. In other words, we represent the electric wave as a perfectly coherent field which fits a resonance of the cavity at frequency $\omega_c$. As we can see, this one-mode cavity system is treated as a quantum harmonic oscillator.
+
+Then comes the choice of the model for the ground-excited system. Sometimes, in the litterature [??MandelWolf], one utilizes another quantum harmonic oscillator, namely:
+\begin{equation}
+\hat{H}_{atom} = \hbar \omega_a \left( \hat{b}^\dag \hat{b} + \frac{1}{2} \right)
+\end{equation}
+where $\hat{b}$ is the bosonic operator of the two-level system. However, this model allows mutliple excited levels and the energy of the atom-system is artifically restrained to the first two levels.
+
+In fact, an advantageous choice is to use the spin-half quantum system:
+\begin{equation}
+\hat{H}_{atom} = \hbar \omega_a \hat{\sigma_z}
+\end{equation}
+where $\hat{\sigma_z}$ is the third Pauli matrix.
+This model allows us to use the spin-down $\ket{\downarrow}$ as the ground state with an energy: \begin{equation}
+E_g \stackrel{\text{def}}{=} \bra{\downarrow}\hat{H}_{atom}\ket{\downarrow} = -\hbar\omega_a
+\end{equation}
+and $\ket{\uparrow}$ as the excited state with an energy:
+\begin{equation}
+E_e \stackrel{\text{def}}{=} \bra{\uparrow}\hat{H}_{atom}\ket{\uparrow} = \hbar\omega_a
+\end{equation} Moreover, the Pauli matrices can exponentiates to the Lie algebra of SU(2) then follows similar commutator relations, namely:
+\begin{equation}
+{\displaystyle [\hat{\sigma} _{j},\hat{\sigma} _{k}]=2i\varepsilon _{jkl}\,\hat{\sigma} _{l},}
+\end{equation} 
+where $\varepsilon _{jkl}$ is the Levi-Civita symbol. For the ladder operators $\sigma_{\pm}=\sigma_x \pm i\sigma_y$, one can esasily prove the following projections:
+\begin{equation}
+\hat{\sigma}_+ \ket{\downarrow} = \ket{\uparrow} \quad\quad
+\hat{\sigma}_- \ket{\downarrow} = 0 \quad\quad
+\hat{\sigma}_- \ket{\uparrow} = \ket{\downarrow} \quad\quad
+\hat{\sigma}_+ \ket{\uparrow} = 0 \quad\quad
+\end{equation}
+which means that one can excite a ground state or damp an excited state but one cannot excite an already excited state or damp a ground state: the spin-1/2 model is restrained to a pair of states by definition.
+
+Now that we got the hamiltonian operators for the cavity field and the two-level system, we use the tensor product in order to create a quantum system all-encompassing those two systems:
+\begin{equation}
+\hat{H}_{JC} = \hat{H}_{atom} \otimes \mathbb{1}_{cav,2} + \mathbb{1}_{atom,n} \otimes \hat{H}_{cav} + \hat{H}_{int}
+\end{equation}
+where $\mathbb{1}_{cav,2}$ and $\mathbb{1}_{atom,n}$ are the identity operators for the Hilbert-space of the cavity and the atom respectively. Naturally, by their definition the Hilbert-space of the atom is of dimension $2$ (i.e two states form the basis) whereas the Hilbert-space of the cavity is of dimension $n$ as the quantum harmonic oscillator is associated to a Fock-space of the same dimension (i.e one has $n$ possible different levels of energy for the electric field). In other words, we build another Hilbert-space of dimension $2n$ from two separated system.\footnote{$\hat{H}_{atom}$ and $\hat{H}_{cav}$ are often refered to the energy of the atom and the cavity field respectively, which is a bit tendencious as this is only true when one takes those two systems separately, but falls down as soon as we mix them: the eigenvalues (i.e energies) are very different from the eigenvalues of the separated systems. Moreover, a hamiltonian operator corresponds to the energy if and only if it is \textit{explicitly} independent of time (which is the case here but the reason should be precised).} We also defined $\hat{H}_{int}$ as an additional hamiltonian operator belonging to an Hilbert-space which is of dimension $2n$ by construction: this new term arises from the physical interaction of the two systems but not by the \textit{mixture} of the cavity and atom systems (i.e there is nothing related with the tensor product). This interaction term can be mathematically formulated with the electric field's acting on the dipole constitued by the atom:
+\begin{equation}
+\hat{H}_{int}  \stackrel{\text{def}}{=} -\hat{d}\cdot\hat{E}(\vv{r}, t)
+\end{equation}
+where $\hat{d}$ is the dipole operator in term spin-half operators (using Pauli matrices) and $\hat{E}$ the quantized electric field of the cavity. After centering the frame on the atom with $\vv{r} = 0$, the interaction hamiltonian transforms as:
+\begin{equation}
+\hat{H}_{int} = \hbar g \left[ (\hat{\sigma}_+ - \hat{\sigma}_-) \otimes (\hat{a}^\dag - \hat{a})\right]
+\end{equation}
+where $g$ is the coupling constant arising from multiple constant terms belonging to the dipole and electric operators: $g$ defines \textit{how strong/often} the cavity field and the atom will exchange energy.
+Finally, one obtains the complete hamiltonian operator for the Jaynes-Cummings model:
+\begin{align}
+\hat{H}_{JC} &\stackrel{\text{def}}{=} \hat{H}_0 + \hat{H}_{int}\\
+&= \hbar \omega_c \left( \hat{a}^\dag \hat{a} + \frac{1}{2} \right) \otimes \mathbb{1}_{cav,2} + \mathbb{1}_{atom,n} \otimes \hbar \omega_a \hat{\sigma_z} + \hbar g \left[ (\hat{\sigma}_+ - \hat{\sigma}_-) \otimes (\hat{a}^\dag - \hat{a})\right]\\
+&= \hbar \omega_c \hat{a}^\dag \hat{a} + \hbar \omega_a \hat{\sigma_z} + \hbar g \left[ (\hat{\sigma}_+ - \hat{\sigma}_-) (\hat{a}^\dag - \hat{a})\right]
+\end{align}
+where we omit the tensor product on the last line and remove the $\frac{1}{2}\hbar\omega_c$, which is only a choice of reference for the vacuum energy (i.e here we set zero). In the future, the \textit{atomic} operators will lies on the right of the \textit{field} operators in order to remind the implicit tensorial structure of the system.\footnote{Note that a tensor product is a commutative relation and this artifical sort is only present to clarify the notation and equations.}
+
+Then, we shall change the reference frame of the hamiltonian in order to deal only with the frequency difference $\Delta\omega \stackrel{\text{def}}{=} \omega_c - \omega_a$, called \textit{detuning}. It will be advantageous for the simulation part and also allow us to apply a very common approximation. In this way, we use a U(1) symmetry for the JC-hamiltonian in this manner:
+\begin{align}
+\hat{H}_{JC} &\rightarrow U\hat{H}_{JC}U^{-1} + i\hbar\dot{U}U^{-1}\\
+\ket{\psi} &\rightarrow U\ket{\psi}
+\end{align}
+where $\ket{\psi}$ is a solution of the Schrödinger equation for the JC-hamiltonian; $U$ is a unitary operator with its inverse $U^{-1}$ belonging to its dual space, involving $U^{-1}=U^{\dag}$; $\dot{U}$ is the one-time derivative of $U$. It can be proven that the transformed hamiltonian and $U\ket{\psi}$ vector plugged into the Schrödinger equation, give the same equation as the JC-hamiltonian and $\ket{\psi}$. Thereby, if one finds a solution $\ket{\phi}$ of the transformed system, then $U^{\dag}\ket{\phi}$ gives $\ket{\psi}$ which is a solution of the original system.
+
+In our case, we choose the unitary transformation as:
+\begin{equation}
+U \stackrel{\text{def}}{=} e^{i\omega_at\hat{H}_0} = e^{i\omega_at(\hat{n} + \hat{\sigma}_z)}
+\end{equation}
+As the U(1) symmetry is essentially a rotation along the complex unitary circle, we explicitly choose here a rotation of $\omega_at$ which means that the transformed hamiltonian will be placed in the same frame as the atom: one calls this frame the \textit{rotating frame}.
+
+From Annexe (??) one finally obtains the following parts for the transformed hamiltonian:
+\begin{align}
+i\hbar \dot{U} U^{\dag} &= -\hbar\omega_a(\hat{n} + \hat{\sigma}_z)\\
+U\hbar \omega_c\hat{n} U^{\dag} &= \hbar\omega_c\hat{n}\\
+U\hbar \omega_a\hat{\sigma}_z U^{\dag} &= \hbar\omega_a\hat{\sigma}_z\\
+U\hbar g\hat{\sigma}_+\hat{a} U^{\dag} &= \hbar g\hat{\sigma}_+\hat{a}\\
+U\hbar g\hat{\sigma}_-\hat{a}^{\dag} U^{\dag} &= \hbar g\hat{\sigma}_-\hat{a}^{\dag}\\
+\label{rwa_1}
+U\hbar g\hat{\sigma}_+\hat{a}^{\dag} U^{\dag} &= e^{2i\omega_at}\hbar g\hat{\sigma}_+\hat{a}^{\dag}\\
+\label{rwa_2}
+U\hbar g\hat{\sigma}_-\hat{a} U^{\dag} &= e^{-2i\omega_at}\hbar g\hat{\sigma}_-\hat{a}
+\end{align}
+where we utilize the common photon number operator of the field, $\hat{n} = \hat{a}^{\dag}\hat{a}$. As we shall us the detuning $\Delta\omega$ for the transformed hamiltonian instead of the respective cavity and atom frequency, it makes sense to write down a strong hypothesis on the system: $\omega_a \sim \omega_c$ which means that one assumes that the cavity and atom frequencies have the same order of magnitude. Thereby, the terms \eqref{rwa_1} and \eqref{rwa_2} are rotating extremely fast compared to our reference frame, about twice the cavity or atom frequency, and are qualified of anti-resonant. Then, those terms average to zero over some cycles and can be discarded.
+
+At the end of the day, one finds the transformed hamiltonian:
+\begin{equation}
+\hat{H}_{JC} \rightarrow \hbar\Delta\omega\,\hat{n} + \hbar g \left(\hat{\sigma}_+ \hat{a} + \hat{\sigma}_- \hat{a}^{\dag} \right)
+\end{equation}
 
 \end{document}
