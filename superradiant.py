@@ -29,7 +29,8 @@ spin_down = qp.spin_state(1/2, -1/2)
 
 op_hamiltonian = HBAR * DELTA_OMEGA * qp.tensor(qp.qeye(2), op_n) + HBAR * G * (qp.tensor(op_s_pos, op_a) + qp.tensor(op_s_neg, op_ad))
 
-psi_init = qp.tensor(spin_down, qp.coherent(FOCK_DIM, math.sqrt(MEAN_N)))
+#psi_init = qp.tensor(spin_down, qp.coherent(FOCK_DIM, math.sqrt(MEAN_N)))
+psi_init = qp.tensor(spin_up, qp.fock(FOCK_DIM, 0))
 
 time_range = np.linspace(0, 100, 10000)
 
@@ -44,6 +45,7 @@ ket_fock_1 = qp.tensor(spin_up, qp.qeye(FOCK_DIM))
 
 fig1, ax1 = plt.subplots(1, 1)
 fig1.set_size_inches(18.5, 10.5)
+ax1.plot(time_range, np.cos(time_range)**2, label="model")
 ax1.plot(time_range, qp.expect(rho_spin_up_fock_0, result.states), label="spin up")
 ax1.plot(time_range, qp.expect(rho_spin_down_fock_1, result.states), label="spin down")
 ax1.plot(time_range, qp.expect(ket_fock_1 * ket_fock_1.dag(), result.states), label="coherent revival")

@@ -191,20 +191,21 @@ E_e \stackrel{\text{def}}{=} \bra{\uparrow}\hat{H}_{atom}\ket{\uparrow} = \hbar\
 \begin{equation}
 {\displaystyle [\hat{\sigma} _{j},\hat{\sigma} _{k}]=2i\varepsilon _{jkl}\,\hat{\sigma} _{l},}
 \end{equation} 
-where $\varepsilon _{jkl}$ is the Levi-Civita symbol. For the ladder operators $\sigma_{\pm}=\sigma_x \pm i\sigma_y$, one can esasily prove the following projections:
+where $\varepsilon _{jkl}$ is the Levi-Civita symbol. For the ladder operators $\hat{\sigma}_{\pm}=\hat{\sigma}_x \pm i\hat{\sigma}_y$, one can esasily prove the following projections:
 \begin{equation}
+\label{sigmapm_rules}
 \hat{\sigma}_+ \ket{\downarrow} = \ket{\uparrow} \quad\quad
 \hat{\sigma}_- \ket{\downarrow} = 0 \quad\quad
 \hat{\sigma}_- \ket{\uparrow} = \ket{\downarrow} \quad\quad
 \hat{\sigma}_+ \ket{\uparrow} = 0 \quad\quad
 \end{equation}
-which means that one can excite a ground state or damp an excited state but one cannot excite an already excited state or damp a ground state: the spin-1/2 model is restrained to a pair of states by definition.
+which means that one can excite a ground state or damp an excited state but one cannot excite an already excited state or damp a ground state: the spin-1/2 model is restrained to a pair of states by definition.\footnote{From an autor to another, the eigenvalues may differ from a constant (in particular by a factor of $2$). Keep in mind that the Pauli matrix operators are taken from $\hat{\sigma}_i = \frac{2}{\hbar}\hat{S}_i$ where $\hat{S}_i$ is the spin operator.}
 
 Now that we got the hamiltonian operators for the cavity field and the two-level system, we use the tensor product in order to create a quantum system all-encompassing those two systems:
 \begin{equation}
 \hat{H}_{JC} = \hat{H}_{atom} \otimes \mathbb{1}_{cav,2} + \mathbb{1}_{atom,n} \otimes \hat{H}_{cav} + \hat{H}_{int}
 \end{equation}
-where $\mathbb{1}_{cav,2}$ and $\mathbb{1}_{atom,n}$ are the identity operators for the Hilbert-space of the cavity and the atom respectively. Naturally, by their definition the Hilbert-space of the atom is of dimension $2$ (i.e two states form the basis) whereas the Hilbert-space of the cavity is of dimension $n$ as the quantum harmonic oscillator is associated to a Fock-space of the same dimension (i.e one has $n$ possible different levels of energy for the electric field). In other words, we build another Hilbert-space of dimension $2n$ from two separated system.\footnote{$\hat{H}_{atom}$ and $\hat{H}_{cav}$ are often refered to the energy of the atom and the cavity field respectively, which is a bit tendencious as this is only true when one takes those two systems separately, but falls down as soon as we mix them: the eigenvalues (i.e energies) are very different from the eigenvalues of the separated systems. Moreover, a hamiltonian operator corresponds to the energy if and only if it is \textit{explicitly} independent of time (which is the case here but the reason should be precised).} We also defined $\hat{H}_{int}$ as an additional hamiltonian operator belonging to an Hilbert-space which is of dimension $2n$ by construction: this new term arises from the physical interaction of the two systems but not by the \textit{mixture} of the cavity and atom systems (i.e there is nothing related with the tensor product). This interaction term can be mathematically formulated with the electric field's acting on the dipole constitued by the atom:
+where $\mathbb{1}_{cav,2}$ and $\mathbb{1}_{atom,n}$ are the identity operators for the Hilbert-space of the cavity and the atom respectively. Naturally, by their definition the Hilbert-space of the atom is of dimension $2$ (i.e two states form the basis) whereas the Hilbert-space of the cavity is of dimension $n$ as the quantum harmonic oscillator is associated to a Fock-space of the same dimension (i.e one has $n$ possible different levels of energy for the electric field). In other words, we build another Hilbert-space of dimension $2n$ from two separated system.\footnote{$\hat{H}_{atom}$ and $\hat{H}_{cav}$ are often refered to the energy of the atom and the cavity field respectively, which is a bit tendencious as this is only true when one takes those two systems separately, but falls down as soon as we mix them and add the interaction term: the eigenvalues (i.e energies) with an interaction are very different from the eigenvalues of the separated systems. Moreover, a hamiltonian operator corresponds to the energy if and only if it is \textit{explicitly} independent of time (which is the case here but it is always nice to precise the reason).} We also defined $\hat{H}_{int}$ as an additional hamiltonian operator belonging to an Hilbert-space which is of dimension $2n$ by construction: this new term arises from the physical interaction of the two systems but not by the \textit{mixture} of the cavity and atom systems (i.e there is nothing related with the tensor product). This interaction term can be mathematically formulated with the electric field's acting on the dipole constitued by the atom:
 \begin{equation}
 \hat{H}_{int}  \stackrel{\text{def}}{=} -\hat{d}\cdot\hat{E}(\vv{r}, t)
 \end{equation}
@@ -217,6 +218,7 @@ Finally, one obtains the complete hamiltonian operator for the Jaynes-Cummings m
 \begin{align}
 \hat{H}_{JC} &\stackrel{\text{def}}{=} \hat{H}_0 + \hat{H}_{int}\\
 &= \hbar \omega_c \left( \hat{a}^\dag \hat{a} + \frac{1}{2} \right) \otimes \mathbb{1}_{cav,2} + \mathbb{1}_{atom,n} \otimes \hbar \omega_a \hat{\sigma_z} + \hbar g \left[ (\hat{\sigma}_+ - \hat{\sigma}_-) \otimes (\hat{a}^\dag - \hat{a})\right]\\
+\label{hjc_original_frame}
 &= \hbar \omega_c \hat{a}^\dag \hat{a} + \hbar \omega_a \hat{\sigma_z} + \hbar g \left[ (\hat{\sigma}_+ - \hat{\sigma}_-) (\hat{a}^\dag - \hat{a})\right]
 \end{align}
 where we omit the tensor product on the last line and remove the $\frac{1}{2}\hbar\omega_c$, which is only a choice of reference for the vacuum energy (i.e here we set zero). In the future, the \textit{atomic} operators will lies on the right of the \textit{field} operators in order to remind the implicit tensorial structure of the system.\footnote{Note that a tensor product is a commutative relation and this artifical sort is only present to clarify the notation and equations.}
@@ -230,9 +232,9 @@ where $\ket{\psi}$ is a solution of the Schrödinger equation for the JC-hamilto
 
 In our case, we choose the unitary transformation as:
 \begin{equation}
-U \stackrel{\text{def}}{=} e^{i\omega_at\hat{H}_0} = e^{i\omega_at(\hat{n} + \hat{\sigma}_z)}
+U \stackrel{\text{def}}{=} e^{\frac{i\omega_at}{\hbar}\hat{H}_0} = e^{i\omega_at(\hat{n} + \hat{\sigma}_z)}
 \end{equation}
-As the U(1) symmetry is essentially a rotation along the complex unitary circle, we explicitly choose here a rotation of $\omega_at$ which means that the transformed hamiltonian will be placed in the same frame as the atom: one calls this frame the \textit{rotating frame}.
+where we utilize the common photon number operator of the field, $\hat{n} = \hat{a}^{\dag}\hat{a}$. As the U(1) symmetry is essentially a rotation along the complex unitary circle, we explicitly choose here a rotation of $\omega_at$ which means that the transformed hamiltonian will be placed in the same frame as the atom: one calls this frame the \textit{rotating frame}.
 
 From Annexe (??) one finally obtains the following parts for the transformed hamiltonian:
 \begin{align}
@@ -246,11 +248,64 @@ U\hbar g\hat{\sigma}_+\hat{a}^{\dag} U^{\dag} &= e^{2i\omega_at}\hbar g\hat{\sig
 \label{rwa_2}
 U\hbar g\hat{\sigma}_-\hat{a} U^{\dag} &= e^{-2i\omega_at}\hbar g\hat{\sigma}_-\hat{a}
 \end{align}
-where we utilize the common photon number operator of the field, $\hat{n} = \hat{a}^{\dag}\hat{a}$. As we shall us the detuning $\Delta\omega$ for the transformed hamiltonian instead of the respective cavity and atom frequency, it makes sense to write down a strong hypothesis on the system: $\omega_a \sim \omega_c$ which means that one assumes that the cavity and atom frequencies have the same order of magnitude. Thereby, the terms \eqref{rwa_1} and \eqref{rwa_2} are rotating extremely fast compared to our reference frame, about twice the cavity or atom frequency, and are qualified of anti-resonant. Then, those terms average to zero over some cycles and can be discarded.
+As we shall us the detuning $\Delta\omega$ for the transformed hamiltonian instead of the respective cavity and atom frequency, it makes sense to write down a strong hypothesis on the system: $\omega_a \sim \omega_c$ which means that one assumes that the cavity and atom frequencies have the same order of magnitude. Thereby, the terms \eqref{rwa_1} and \eqref{rwa_2} are rotating extremely fast compared to our reference frame, about twice the cavity or atom frequency, and are qualified of \textit{anti-resonant}. Then, those terms average to zero over some cycles and can be discarded. This approximation is called the \textit{rotating wave approximation} (RWA).\footnote{Here, we firstly change the reference frame in order to introduce the RWA. However, this is not necessary. Indeed, the RWA only influence the interaction hamiltonian and one can apply this approximation directly in \eqref{hjc_original_frame} through the interaction picture evolution.}
 
 At the end of the day, one finds the transformed hamiltonian:
 \begin{equation}
 \hat{H}_{JC} \rightarrow \hbar\Delta\omega\,\hat{n} + \hbar g \left(\hat{\sigma}_+ \hat{a} + \hat{\sigma}_- \hat{a}^{\dag} \right)
 \end{equation}
+that we rename by convenience and without ambiguity $\hat{H}_{JC}$. One may first notice that the atomic hamiltonian term vanished and only the field operator remains of $\hat{H}_0$: that is due to the new frame which \textit{follows} the atomic frequency, then the transformed $\hat{H}_{cav}$ is proportional to the detuning. It is also interesting to see how a \textit{generic} JC-state (i.e $\ket{\uparrow} \otimes \ket{n}$ or $\ket{\downarrow} \otimes \ket{n}$ which are also called \textit{bare states}) is influenced by the transformed interaction hamiltonian:
+\begin{align}
+\hat{H}_{int} \cdot \ket{\uparrow} \otimes \ket{n} &= \hbar g \left[ (\hat{\sigma}_+ \otimes \hat{a}) \cdot (\ket{\uparrow} \otimes \ket{n}) + (\hat{\sigma}_- \otimes \hat{a}^{\dag}) \cdot (\ket{\uparrow} \otimes \ket{n}) \right]\\
+&= \hbar g \left[ \hat{\sigma}_+\ket{\uparrow} \otimes \hat{a} \ket{n} + \hat{\sigma}_- \ket{\uparrow} \otimes \hat{a}^{\dag} \ket{n} \right]\\
+&= \hbar g \left[ 0 + \ket{\downarrow} \otimes \sqrt{n+1}\ket{n+1} \right]\\
+&= \hbar g \ket{\downarrow} \otimes \sqrt{n+1}\ket{n+1} \stackrel{\text{def}}{=} \hbar g \sqrt{n+1} \ket{\downarrow, n+1}
+\end{align}
+where we used \eqref{sigmapm_rules}. Equivalently:
+\begin{align}
+\hat{H}_{int} \cdot \ket{\downarrow, n} &= \hbar g \left[ \hat{\sigma}_+ \hat{a} \ket{\downarrow, n} + \hat{\sigma}_- \hat{a}^{\dag} \ket{\downarrow, n} \right]\\
+&= \hbar g \sqrt{n} \ket{\downarrow, n-1}
+\end{align}
+In other words, in the first case, an excited two-level system decays into its ground state, releasing a photon into the field (i.e the total energy is conserved), whereas in the second case, an atom \textit{at rest} absorbs a photon of the field and ends up in its excited state: this is intuitively how one may imagine the interaction between the atom and the cavity field system.
+
+In order to solve the system evolution, one wants to diagonalize the hamiltonian by finding the eigenstates and the eigenvalues. It turns out that $\hat{H}_{JC}$ can be written by $2\times 2$ blocks in the JC-states:\footnote{The reason comes from the bare states being degenerated with eigenvalue $n+1$ when applied on the non-transformed base hamiltonian $\hat{H}_0$.}
+\begin{equation}
+\label{jc_block}
+\hat{H}_{JC} = \bigotimes_n \begin{bmatrix}
+\hbar \Delta\omega \, (n-1) & 2\hbar g \sqrt{n}\\
+2\hbar g \sqrt{n} & \hbar \Delta\omega \, n
+\end{bmatrix}
+\end{equation}
+where $n$ under the tensor product is the fock space dimension associated to the cavity system.
+
+After diagonalizing each block of \eqref{jc_block} (Annexe ??), one finds the following egeinvalues and eigenstates:
+\begin{align}
+E_{n, \pm} &= \hbar\Delta\omega\,(n-\frac{1}{2}) \pm \frac{\hbar}{2}\sqrt{4g^2n + \Delta\omega ^2}\\
+\ket{n, +} &= \cos\left(\frac{\theta_n}{2}\right) \ket{\uparrow, n - 1}  + \sin\left(\frac{\theta_n}{2}\right) \ket{\downarrow, n}\\
+\ket{n, -} &= \cos\left(\frac{\theta_n}{2}\right) \ket{\downarrow, n}  - \cos\left(\frac{\theta_n}{2}\right) \ket{\uparrow, n - 1}
+\end{align}
+with:
+\begin{equation}
+\tan\left(\theta_n\right) = -\frac{4\sqrt{n}g}{\Delta\omega}
+\end{equation}
+
+To finish with the JC-model, we shall demonstrate one relevant case: the \textit{Rabi flopping} (or more explicitly the Rabi oscillations) when the detuning is null or can be assimilated as vanishing (i.e $\Delta\omega = 0$). Thereby, one starts with the two-level system as excited with an \textit{empty} cavity field:
+\begin{equation}
+\ket{\psi(0)} = \ket{\uparrow, n = 0} = \cos\left(\frac{\theta_{1}}{2}\right) \ket{1, +} - \sin\left(\frac{\theta_{1}}{2}\right) \ket{1, -}
+\end{equation}
+where we rewrite the initial state in terms of eigenstates.
+
+The, applying the spatial evolution operator, one finds (see Annexe ??)
+\begin{align}
+\ket{\psi(t)} &= e^{-\frac{i}{\hbar}E_{1,+}t} \cos\left(\frac{\theta_{1}}{2}\right) \ket{1, +} - e^{-\frac{i}{\hbar}E_{1,-}t} \sin\left(\frac{\theta_{1}}{2}\right) \ket{1, -}\\
+&= \cos\left(\Omega t\right) \ket{\uparrow, 0} - i \sin\left(\Omega t\right) \ket{\downarrow, 1}
+\end{align}
+where we defined the Rabi frequency $\Omega = 2g$. Making the projection (i.e a measurment) along $\ket{\uparrow, 0}$ or $\ket{\downarrow, 1}$ and one ends up with the Rabi oscillations sketched on Fig ??.
+
+(add figure!!)
+
+As we can see on Fig ??, the probabilities of finding one photon with the atom in its ground state, while no photon with the atom in the excited state, oscillate in opposite phase.
+
+Numerically, if one puts a small detuning (i.e $\omega_a$ is still about the same order of magnitude of $omega_c$), one can numerically sketch on Fig ?? where we see that the energy transfer is progressively discarded as we increase the detuning: the probabilities of finding an inversed state decreases. 
 
 \end{document}

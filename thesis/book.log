@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2024.3.28)  4 APR 2024 17:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2024.3.28)  5 APR 2024 16:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -307,43 +307,44 @@ Chapter 1.
 LaTeX Font Info:    Trying to load font information for U+bbold on input line 6
 4.
  (/usr/share/texlive/texmf-dist/tex/latex/bbold/Ubbold.fd) [2] [3] [4]
-[5] [6] [7] (./book.aux) ) 
+[5] [6] [7] [8] [9] (./book.aux) ) 
 Here is how much of TeX's memory you used:
- 4263 strings out of 476091
- 65731 string characters out of 5794081
+ 4266 strings out of 476091
+ 65776 string characters out of 5794081
  1870330 words of memory out of 5000000
- 24576 multiletter control sequences out of 15000+600000
+ 24579 multiletter control sequences out of 15000+600000
  526484 words of font info for 92 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,22n,62p,1596b,222s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t
-s1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/bbold-type1/bbold10.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-r6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/font
-s/type1/public/amsfonts/cm/cmti9.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/cm-supe
-r/sfrm1095.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stmaryrd/stmar
-y10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/esvect/vect10.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/esvect/vect8.pfb>
-Output written on book.pdf (9 pages, 284056 bytes).
+ 57i,22n,62p,1655b,222s stack positions out of 10000i,1000n,20000p,200000b,200000s
+{/usr/share/texmf/fonts/enc/dvips/cm-super/cm
+-super-ts1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/bbold-type1/bb
+old10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/font
+s/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+r8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/font
+s/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/symbols/msbm7.pfb></usr/share/texmf/fonts/type1/public/c
+m-super/sfrm1095.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stmaryrd
+/stmary10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/esvect/vect10.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/public/esvect/vect8.pfb>
+Output written on book.pdf (11 pages, 299402 bytes).
 PDF statistics:
- 160 PDF objects out of 1000 (max. 8388607)
- 98 compressed objects within 1 object stream
+ 172 PDF objects out of 1000 (max. 8388607)
+ 105 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
