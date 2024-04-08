@@ -170,8 +170,9 @@ Now, we define the electric field as exactly a unique mode with a unique polariz
 \end{equation}
 where we dropped the subscripts $\vv{k}$ and $\lambda$. In other words, we represent the electric wave as a perfectly coherent field which fits a resonance of the cavity at frequency $\omega_c$. As we can see, this one-mode cavity system is treated as a quantum harmonic oscillator.
 
-Then comes the choice of the model for the ground-excited system. Sometimes, in the litterature [??MandelWolf], one utilizes another quantum harmonic oscillator, namely:
+Then comes the choice of the model for the ground-excited system. Sometimes, in the litterature [??MandelWolf], one utilizes another quantum harmonic oscillator with bosonic modes, namely:
 \begin{equation}
+\label{sec_bosonic_mw}
 \hat{H}_{atom} = \hbar \omega_a \left( \hat{b}^\dag \hat{b} + \frac{1}{2} \right)
 \end{equation}
 where $\hat{b}$ is the bosonic operator of the two-level system. However, this model allows mutliple excited levels and the energy of the atom-system is artifically restrained to the first two levels.
@@ -189,6 +190,7 @@ and $\ket{\uparrow}$ as the excited state with an energy:
 E_e \stackrel{\text{def}}{=} \bra{\uparrow}\hat{H}_{atom}\ket{\uparrow} = \hbar\omega_a
 \end{equation} Moreover, the Pauli matrices can exponentiates to the Lie algebra of SU(2) then follows similar commutator relations, namely:
 \begin{equation}
+\label{sigma_commut}
 {\displaystyle [\hat{\sigma} _{j},\hat{\sigma} _{k}]=2i\varepsilon _{jkl}\,\hat{\sigma} _{l},}
 \end{equation} 
 where $\varepsilon _{jkl}$ is the Levi-Civita symbol. For the ladder operators $\hat{\sigma}_{\pm}=\hat{\sigma}_x \pm i\hat{\sigma}_y$, one can esasily prove the following projections:
@@ -252,6 +254,7 @@ As we shall us the detuning $\Delta\omega$ for the transformed hamiltonian inste
 
 At the end of the day, one finds the transformed hamiltonian:
 \begin{equation}
+\label{HJC}
 \hat{H}_{JC} \rightarrow \hbar\Delta\omega\,\hat{n} + \hbar g \left(\hat{\sigma}_+ \hat{a} + \hat{\sigma}_- \hat{a}^{\dag} \right)
 \end{equation}
 that we rename by convenience and without ambiguity $\hat{H}_{JC}$. One may first notice that the atomic hamiltonian term vanished and only the field operator remains of $\hat{H}_0$: that is due to the new frame which \textit{follows} the atomic frequency, then the transformed $\hat{H}_{cav}$ is proportional to the detuning. It is also interesting to see how a \textit{generic} JC-state (i.e $\ket{\uparrow} \otimes \ket{n}$ or $\ket{\downarrow} \otimes \ket{n}$ which are also called \textit{bare states}) is influenced by the transformed interaction hamiltonian:
@@ -280,9 +283,9 @@ where $n$ under the tensor product is the fock space dimension associated to the
 
 After diagonalizing each block of \eqref{jc_block} (Annexe ??), one finds the following egeinvalues and eigenstates:
 \begin{align}
-E_{n, \pm} &= \hbar\Delta\omega\,(n-\frac{1}{2}) \pm \frac{\hbar}{2}\sqrt{4g^2n + \Delta\omega ^2}\\
-\ket{n, +} &= \cos\left(\frac{\theta_n}{2}\right) \ket{\uparrow, n - 1}  + \sin\left(\frac{\theta_n}{2}\right) \ket{\downarrow, n}\\
-\ket{n, -} &= \cos\left(\frac{\theta_n}{2}\right) \ket{\downarrow, n}  - \cos\left(\frac{\theta_n}{2}\right) \ket{\uparrow, n - 1}
+E_{n, \pm} &\stackrel{\text{def}}{=} \hbar\Delta\omega\,(n-\frac{1}{2}) \pm \frac{\hbar}{2}\sqrt{4g^2n + \Delta\omega ^2}\\
+\ket{n, +} &\stackrel{\text{def}}{=} \cos\left(\frac{\theta_n}{2}\right) \ket{\uparrow, n - 1}  + \sin\left(\frac{\theta_n}{2}\right) \ket{\downarrow, n}\\
+\ket{n, -} &\stackrel{\text{def}}{=} \cos\left(\frac{\theta_n}{2}\right) \ket{\downarrow, n}  - \cos\left(\frac{\theta_n}{2}\right) \ket{\uparrow, n - 1}
 \end{align}
 with:
 \begin{equation}
@@ -291,7 +294,7 @@ with:
 
 To finish with the JC-model, we shall demonstrate one relevant case: the \textit{Rabi flopping} (or more explicitly the Rabi oscillations) when the detuning is null or can be assimilated as vanishing (i.e $\Delta\omega = 0$). Thereby, one starts with the two-level system as excited with an \textit{empty} cavity field:
 \begin{equation}
-\ket{\psi(0)} = \ket{\uparrow, n = 0} = \cos\left(\frac{\theta_{1}}{2}\right) \ket{1, +} - \sin\left(\frac{\theta_{1}}{2}\right) \ket{1, -}
+\ket{\psi(0)} \stackrel{\text{def}}{=} \ket{\uparrow, n = 0} = \cos\left(\frac{\theta_{1}}{2}\right) \ket{1, +} - \sin\left(\frac{\theta_{1}}{2}\right) \ket{1, -}
 \end{equation}
 where we rewrite the initial state in terms of eigenstates.
 
@@ -306,6 +309,25 @@ where we defined the Rabi frequency $\Omega = 2g$. Making the projection (i.e a 
 
 As we can see on Fig ??, the probabilities of finding one photon with the atom in its ground state, while no photon with the atom in the excited state, oscillate in opposite phase.
 
-Numerically, if one puts a small detuning (i.e $\omega_a$ is still about the same order of magnitude of $omega_c$), one can numerically sketch on Fig ?? where we see that the energy transfer is progressively discarded as we increase the detuning: the probabilities of finding an inversed state decreases. 
+Numerically, if one puts a small detuning (i.e $\omega_a$ is still about the same order of magnitude of $\omega_c$), one can numerically sketch Fig ?? where we see that the energy transfer is progressively discarded as we increase the detuning: the probabilities of inversing the intial state decreases.\footnote{Of course, it depends on the initial state. Here we choosed to work with the pair $\ket{\uparrow, 0}$ and $\ket{\downarrow, 1}$ but similar behaviors happen for other states.}
+
+As we can notice, this model is mainly limited by its atomic level capability which is of number of two. Thereby, one would probably like to theoretically predict the behavior for many two-level systems (or equivalently several spins). Then, we shall introduce an extension of this model in the next section.
+
+\section{Tavis-Cummings model and open quantum systems}
+\paragraph{}
+
+In order to include more atoms, one needs to extend the Hilbert space involved into the JC-model. In fact, there are two ways of coupling more two-level systems, linked to the question: "Are they distinguishable?". Indeed, here is the first \textit{naïve} idea to introduce $N$ atoms:
+\begin{align}
+\label{dist_sig_1}
+\hat{\sigma}_i &\rightarrow \hat{\sigma}_i^1 \otimes \mathbb{1}^{2,...,N} + \mathbb{1}^{1} \otimes \hat{\sigma}_i^2 \otimes \mathbb{1}^{3,...,N} + ... + \mathbb{1}^{1,...,N-1} \otimes \hat{\sigma}_i^N\\
+\label{dist_sig_2}
+&\stackrel{\text{def}}{=} \sum_{j=1}^{N} \hat{\sigma}_i^j
+\end{align}
+where $i \in \left[x,y,z\right]$ and the upper indices indicate the Hilbert spaces involved into the operator owning them: $\mathbb{1}_{k,...,m}$ is the identity operator for the group of spaces from $k$ to $m$.\footnote{We intentionnaly split the tensor product in the transformation \eqref{dist_sig_1} for the sake of clarity even if the tensor product is commutative by construction. However, we drop the tensor notation in definition \eqref{dist_sig_2} for simplicity.}
+As this transformation is made of linear combination of two-level system and as the unitary transformation in the previous section, involving commutator rules from the Pauli matrices, are still valid by independency of a system to another (i.e \eqref{sigma_commut} can be upper indexed for each Hilbert space), this leads to an equivalent hamiltonian of \eqref{HJC}:
+\begin{equation}
+\hbar\Delta\omega\,\hat{n} + \hbar g \sum_{j=1}^{N} \left(\hat{\sigma}_+^j \hat{a} + \hat{\sigma}_-^j \hat{a}^{\dag} \right)
+\end{equation}
+Thereby, this extended system is composed of $N+1$ independent sub-system with dimension scaling as $2^N \times N_{Fock}$ where $N_{Fock}$ is the space dimension of the cavity system. By \textit{independent}, we mean that each atom-like system is distinguishable from another. However, we do not have good reason to modelize our original experiment with independent atoms. Even worse, the superradiant effect is allowed only by a collective ensemble, that is to say the atoms are indistinguishable and react as a whole multi-level system.\footnote{The second harmonic oscillator defined in \eqref{sec_bosonic_mw} could make sense but this bosonic structure doesn't allow us to treat degeneracies which appear to be a key property in our actual model.} Indeed, R.H.Dicke, in its original paper [??] of coherent radiation process, states that the atom to atom distance (hence the gaz volume) must be much smaller than the wavelength of the surrounding electric field in order to reach an enhanced and coherent radiation. Nevertheless, in our experiment, the atomic cloud does not respect this condition for superradiance but as the atoms are enclosed into a cavity, this leads to collective interaction from the field to the cloud of atoms, hence indistinguishability.
 
 \end{document}
