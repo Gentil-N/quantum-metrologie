@@ -1,4 +1,4 @@
- \documentclass[11pt]{report}
+ \documentclass[12pt]{report}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage[a4paper,width=155mm,top=20mm,bottom=20mm]{geometry}
@@ -191,7 +191,7 @@ E_e \stackrel{\text{def}}{=} \bra{\uparrow}\hat{H}_{atom}\ket{\uparrow} = \hbar\
 \end{equation} Moreover, the Pauli matrices can exponentiates to the Lie algebra of SU(2) then follows similar commutator relations, namely:
 \begin{equation}
 \label{sigma_commut}
-{\displaystyle [\hat{\sigma} _{j},\hat{\sigma} _{k}]=2i\varepsilon _{jkl}\,\hat{\sigma} _{l},}
+{\displaystyle [\hat{\sigma} _{j},\hat{\sigma} _{k}]=2i\varepsilon _{jkl}\,\hat{\sigma} _{l}}
 \end{equation} 
 where $\varepsilon _{jkl}$ is the Levi-Civita symbol. For the ladder operators $\hat{\sigma}_{\pm}=\hat{\sigma}_x \pm i\hat{\sigma}_y$, one can esasily prove the following projections:
 \begin{equation}
@@ -223,7 +223,7 @@ Finally, one obtains the complete hamiltonian operator for the Jaynes-Cummings m
 \label{hjc_original_frame}
 &= \hbar \omega_c \hat{a}^\dag \hat{a} + \hbar \omega_a \hat{\sigma_z} + \hbar g \left[ (\hat{\sigma}_+ - \hat{\sigma}_-) (\hat{a}^\dag - \hat{a})\right]
 \end{align}
-where we omit the tensor product on the last line and remove the $\frac{1}{2}\hbar\omega_c$, which is only a choice of reference for the vacuum energy (i.e here we set zero). In the future, the \textit{atomic} operators will lies on the right of the \textit{field} operators in order to remind the implicit tensorial structure of the system.\footnote{Note that a tensor product is a commutative relation and this artifical sort is only present to clarify the notation and equations.}
+where we omit the tensor product on the last line and remove the $\frac{1}{2}\hbar\omega_c$, which is only a choice of reference for the vacuum energy (i.e here we set zero). In the future, the \textit{atomic} operators will lies on the right of the \textit{field} operators in order to remind the implicit tensorial structure of the system.\footnote{Note that we can reverse the tensor product order as long as one does not involve the coefficient of the states and this artifical sort is only present to clarify the notation and equations.}
 
 Then, we shall change the reference frame of the hamiltonian in order to deal only with the frequency difference $\Delta\omega \stackrel{\text{def}}{=} \omega_c - \omega_a$, called \textit{detuning}. It will be advantageous for the simulation part and also allow us to apply a very common approximation. In this way, we use a U(1) symmetry for the JC-hamiltonian in this manner:
 \begin{align}
@@ -298,7 +298,7 @@ To finish with the JC-model, we shall demonstrate one relevant case: the \textit
 \end{equation}
 where we rewrite the initial state in terms of eigenstates.
 
-The, applying the spatial evolution operator, one finds (see Annexe ??)
+Then, applying the spatial evolution operator, one finds (see Annexe ??)
 \begin{align}
 \ket{\psi(t)} &= e^{-\frac{i}{\hbar}E_{1,+}t} \cos\left(\frac{\theta_{1}}{2}\right) \ket{1, +} - e^{-\frac{i}{\hbar}E_{1,-}t} \sin\left(\frac{\theta_{1}}{2}\right) \ket{1, -}\\
 &= \cos\left(\Omega t\right) \ket{\uparrow, 0} - i \sin\left(\Omega t\right) \ket{\downarrow, 1}
@@ -313,21 +313,116 @@ Numerically, if one puts a small detuning (i.e $\omega_a$ is still about the sam
 
 As we can notice, this model is mainly limited by its atomic level capability which is of number of two. Thereby, one would probably like to theoretically predict the behavior for many two-level systems (or equivalently several spins). Then, we shall introduce an extension of this model in the next section.
 
-\section{Tavis-Cummings model and open quantum systems}
+\section{Tavis-Cummings model}
 \paragraph{}
 
-In order to include more atoms, one needs to extend the Hilbert space involved into the JC-model. In fact, there are two ways of coupling more two-level systems, linked to the question: "Are they distinguishable?". Indeed, here is the first \textit{naïve} idea to introduce $N$ atoms:
+In order to include more atoms, one needs to extend the Hilbert space involved into the JC-model. In fact, there are two ways of coupling more two-level systems, linked to the question: "Are the sub-systems distinguishable?". Indeed, here is the first \textit{naïve} idea to introduce $N$ atoms:
 \begin{align}
 \label{dist_sig_1}
 \hat{\sigma}_i &\rightarrow \hat{\sigma}_i^1 \otimes \mathbb{1}^{2,...,N} + \mathbb{1}^{1} \otimes \hat{\sigma}_i^2 \otimes \mathbb{1}^{3,...,N} + ... + \mathbb{1}^{1,...,N-1} \otimes \hat{\sigma}_i^N\\
 \label{dist_sig_2}
 &\stackrel{\text{def}}{=} \sum_{j=1}^{N} \hat{\sigma}_i^j
 \end{align}
-where $i \in \left[x,y,z\right]$ and the upper indices indicate the Hilbert spaces involved into the operator owning them: $\mathbb{1}_{k,...,m}$ is the identity operator for the group of spaces from $k$ to $m$.\footnote{We intentionnaly split the tensor product in the transformation \eqref{dist_sig_1} for the sake of clarity even if the tensor product is commutative by construction. However, we drop the tensor notation in definition \eqref{dist_sig_2} for simplicity.}
+where $i \in \left[x,y,z\right]$ and the upper indices indicate the Hilbert spaces involved into the operator owning them: $\mathbb{1}_{k,...,m}$ is the identity operator for the group of spaces from $k$ to $m$.\footnote{We intentionnaly split the tensor product in the transformation \eqref{dist_sig_1} for the sake of clarity even if the tensor product can be reversed. However, we drop the tensor notation in definition \eqref{dist_sig_2} for simplicity.}
 As this transformation is made of linear combination of two-level system and as the unitary transformation in the previous section, involving commutator rules from the Pauli matrices, are still valid by independency of a system to another (i.e \eqref{sigma_commut} can be upper indexed for each Hilbert space), this leads to an equivalent hamiltonian of \eqref{HJC}:
 \begin{equation}
 \hbar\Delta\omega\,\hat{n} + \hbar g \sum_{j=1}^{N} \left(\hat{\sigma}_+^j \hat{a} + \hat{\sigma}_-^j \hat{a}^{\dag} \right)
 \end{equation}
-Thereby, this extended system is composed of $N+1$ independent sub-system with dimension scaling as $2^N \times N_{Fock}$ where $N_{Fock}$ is the space dimension of the cavity system. By \textit{independent}, we mean that each atom-like system is distinguishable from another. However, we do not have good reason to modelize our original experiment with independent atoms. Even worse, the superradiant effect is allowed only by a collective ensemble, that is to say the atoms are indistinguishable and react as a whole multi-level system.\footnote{The second harmonic oscillator defined in \eqref{sec_bosonic_mw} could make sense but this bosonic structure doesn't allow us to treat degeneracies which appear to be a key property in our actual model.} Indeed, R.H.Dicke, in its original paper [??] of coherent radiation process, states that the atom to atom distance (hence the gaz volume) must be much smaller than the wavelength of the surrounding electric field in order to reach an enhanced and coherent radiation. Nevertheless, in our experiment, the atomic cloud does not respect this condition for superradiance but as the atoms are enclosed into a cavity, this leads to collective interaction from the field to the cloud of atoms, hence indistinguishability.
+Thereby, this extended system is composed of $N+1$ independent sub-system with dimension scaling as $2^N \times N_{Fock}$ where $N_{Fock}$ is the space dimension of the cavity system. By \textit{independent}, we mean that each atom-like system is distinguishable from another. However, we do not have good reason to modelize our original experiment with independent atoms. Even worse, the superradiant effect is allowed by a collective ensemble, that is to say the atoms are indistinguishable and react as a whole multi-level system.\footnote{The second harmonic oscillator defined in \eqref{sec_bosonic_mw} could make sense but as the original argument in the JC-model, this bosonic structure doesn't allow a closed set of energies (i.e the atom group excitation could tend to infinity).} Indeed, R.H. Dicke, in its original paper [??] of coherent radiation process, states that the atom to atom distance (hence the gaz volume) must be much smaller than the wavelength of the surrounding electric field in order to reach an enhanced and coherent radiation. Nevertheless, in our experiment, the atomic cloud does not respect this condition for superradiance but as the atoms are enclosed into a cavity, this leads to collective interaction from the field to the cloud of atoms, hence indistinguishability.
+
+Therefore, as the spins are assumed to be identical in \eqref{dist_sig_2}, one uses instead the collective spin operator:
+\begin{equation}
+\sum_{j=1}^{N} \hat{\sigma}_i^j \rightarrow \frac{\hbar}{2} \hat{S}_j
+\end{equation}
+where $\hat{S}_j$ follows the spin algebra similar to the Pauli matrices with, among other relations, the commutator:
+\begin{equation}
+{\displaystyle [\hat{S} _{j},\hat{S} _{k}]=i\hbar\varepsilon _{jkl}\,\hat{S} _{l}}
+\end{equation}
+Then, one obtains the following hamiltoninan for indistinguishable N two-level systems:
+\begin{equation}
+H_{TC} \stackrel{\text{def}}{=} \hbar\Delta\omega\,\hat{n} + g \left(\hat{S}_+ \hat{a} + \hat{S}_-\hat{a}^{\dag} \right)
+\end{equation}
+where the constant $g$ \textit{swallows} a factor of 2 (i.e $2g \rightarrow g$). Historically, this type of hamiltonian refers to the Tavis-Cummings (TC) model as it only includes a co-rotating term by the RWA (which is the actual interaction part of the TC-hamiltonian) then the TC-model keep the U(1) symmetry. However, R.H. Dicke proposes another hamiltonian involving a counter-rotating term of $\hat{S}_- \hat{a} + \hat{S}_+\hat{a}^{\dag}$ (without unitary transformation) which breaks the U(1) symmetry: we shall not utilize the Dicke model here because a posteriori (by simulation), the additional term is unnecessary.
+
+This model may represent a group of N atom where each atom can be in its ground state or excited state, interacting with a radiation field. For practical reason, this system of two-level system is often called a \textit{gain medium} as models involving such systems can be utilized for LASER simulation where the the lasing beam is enhanced by population inversion.
+
+By construction, if one choose a unique atom with $N=1$, the spin structure is quantized as:
+\begin{equation}
+s = \frac{1}{2} \quad; \quad m = \pm \frac{1}{2}
+\end{equation}
+which allows two pure states, similar to $\ket{\uparrow}$ and $\ket{\downarrow}$. Morevover, if one increases the number of atom to $N=2$, one get three pure states:
+\begin{align*}
+s = 1 \,;\, m = -1 \quad &\sim \quad \ket{\downarrow, \downarrow}\\
+s = 1 \,;\, m = 1 \quad &\sim \quad \ket{\uparrow, \uparrow}\\
+s = 1 \,;\, m = 0 \quad &\sim \quad \ket{\downarrow, \uparrow} \quad \textrm{or} \quad \ket{\uparrow, \downarrow}\\
+\end{align*}
+where the last case involves two well different states of the two distinguishable systems. However, our atoms are represented as a collective spin structure which means that they are indistinguishable leading to considerate those two different states as identical from an energy point of view. In that way, our system of collective spin system scales as $2 \times \frac{N}{2} + 1 = N + 1$ for $N$ two-level systems and the global system involving the field scales now as $(N+1) \times N_{Fock}$ which looses the exponential behavior from the distinguishable case: this is a great advantage from a simulation point of view.
+
+In other words, one can create a global excitation state $\ket{s = N/2, m = N/2}$ where all the atoms are excited and, at the opposite, a global ground state $\ket{s = N/2, m = -N/2}$. However, for other values of $m$, one cannot \textit{say} or predict which atom or sub-group of atoms are excited: this leads to degeneracies determined by the binomial coefficient,
+\begin{equation}
+\textrm{Number of "equivalent state"} = \frac{N!}{N_{excited}!(N-N_{excited}!)} = \begin{pmatrix}
+N\\
+N_{excited}
+\end{pmatrix} 	
+\end{equation}
+where $N_{excited}$ is the number of excited two-level syste, and the \textit{equivalent} term holds for a collective spin system point of view. It is well known that the maximum of the binomial coefficient is reached for $N_{excited} = \frac{N}{2}$ meaning that the maximum amount of degeneracies is reached when the gain medium is half-populated of excited entities.
+
+Finally, we obtained a hamiltonian which looks very close to the JC-model and the natural question which now arises is: "How does one populate the gain medium of excitation? How the photons may leak oustside of the cavity?". For the first case, one may start with a state of the desired excited population. However, it exists another approach where our quantum system is included into a quantum \textit{bath}, allowing energy to leak in and out.\footnote{We do not go further into the spectrum caracterisation of $\hat{H}_{TC}$, even if it may be done, because the master equation shall complexify the exact solution at a point that we use another approach for the numerical simulation.}
+
+\section{Open quantum systems and the master equation}
+\paragraph{}
+
+Firstly, we introduce the density operator in order to also treat probabilistic mixtures:
+\begin{equation}
+\label{def_dens_mat}
+\rho = \sum_i p_i \ket{\psi_i}\bra{\psi_i}
+\end{equation}
+where $\left\lbrace \ket{\psi}, p_i \right\rbrace$ is a set of pure state associated to a probability. Equivalently, if we fix an arbitrary basis $\left\lbrace \ket{i} \right\rbrace$ of the Hilbert space, we can write:
+\begin{equation}
+\rho = \sum_{i,j} \rho_{i,j} \ket{i}\bra{j}
+\end{equation}
+where $\rho_{i,j}$ are the matrix coefficient of $\rho$ in the the given basis. It can be shown that a density matrix fulfill three essential conditions which are equivalent in regard of \eqref{def_dens_mat}:
+\begin{itemize}
+	\item $\rho$ is positive semi-definite: $\bra{v} \rho \ket{v} \geqslant 0, \quad \forall \ket{v}$
+	\item $\rho$ is hermitian: $\rho = \rho^\dagger$
+	\item $\rho$ is trace one: $\sum_i p_i = \sum_i \rho_{i, i} = 1$
+\end{itemize}
+
+As a ket state obeys to Schrodinger's equation, one can derive a similar equation of evolution for a density matrix, called \textit{Liouville - von Neumann} equation. Indeed, one may consider the two following equations:
+\begin{equation}
+i\hbar\partial _t\ket{\phi} = \hat{H}\ket{\phi} \Leftrightarrow -i\hbar\partial _t\bra{\phi} = \bra{\phi}\hat{H}
+\end{equation}
+where $\ket{\phi}$ is any solution to the Schrodinger equation. Then coupling those to \eqref{def_dens_mat} one shall find:
+\begin{equation}
+i\hbar\dot{\rho} = \left[ \hat{H}, \rho \right] \Leftrightarrow \dot{\rho} = -\frac{-}{\hbar} \left[ \hat{H}, \rho \right]
+\end{equation}
+One can notice that this equation relies on the Schrodinger point of view, where the states evolves in time whereas the operators are static. At the opposite, the Heinsenberg picture gives:
+\begin{equation}
+\dot{\hat{X}} = \frac{i}{\hbar} \left[ \hat{H}, \hat{X} \right]
+\end{equation}
+where $\hat{X}$ is any operator (not necessecarily an observable or hermitian).\footnote{This brutal change of picture shall be crucial for the section introducing $g^1$ and $g^2$ simulation with the cumulant expansion technique.}
+
+At this point, we are able to simulate the evolution of the closed quantum TC-model for any initial state. It turns out that our experiment involves several \textit{leaks} (in and out) in term of global energy: they are three in number:
+\begin{itemize}
+	\item Cavity leak: as mentionned in section 1.1, the cavity purpose is to release a part of the electric field (at the cost of the linewidth broadened) in order to actually collect the radiation. In other words, some photons are transmitted through one of the mirror: this is a global energy loss in our TC system.
+	\item Gain medium leak: counter-intuitively, the atoms (or dipole systems) may incoherently release a photon with frequency very different to the actual cavity resonances. Those photons does not couple to the surrounding electric field and are lost: this effect is another global energy loss and is called \textit{spontaneous decay into free space}.
+	\item Gain medium repump: as the expriments works on a \textit{quasi}-continous radiation, even starting with excited atoms (which is not the case), we need to add some energy in order to compensate the phase coherent decay of our atoms which produce the actual radiation (through the cavity leak). This is a global energy gain in the system.
+\end{itemize}
+
+Therefore, we introduce a quantum \textit{bath} system which represent the environment of our TC quantum system. The total hamiltonian reads\footnote{For simplicity, we drop the tensor product but it is important to keep in mind that the total hamiltonian lives into an Hilbert space with higher dimension than the TC system.}
+\begin{equation}
+\hat{H}_{total} = \hat{H}_{TC} + \hat{H}_{bath} + \hat{H}_{TC-bath}
+\end{equation}
+Then, one chooses the interaction picture where the evolution is set by the interaction hamiltonian $\hat{H}_{TC-bath}$ between the bath and our system. One starts with a bath and our system without cross correlation. Afterward, the time evolution of the density matrix of the total system can be written in term of an infinite iterative equation: one uses the \textit{Born} approximation stating that the bath-TC interaction coupling is weak compared to the size of the bath, allowing to \textit{cut} the inifinte serie as the bath evolution is independent of the system evolution. Then, one makes a last assomption that the bath has a \textit{short memory} meaning that the correlations are not significant for long time intervals if the bath is subject to fast dynamics: this is the \textit{Markov} approximation.
+
+At the end of the day, one obtains the open quantum system equation, often called the master equation:
+\begin{equation}
+\dot{\rho} = -\frac{i}{\hbar} \left[ \hat{H}, \rho \right] + \sum_j \gamma_j \left( \hat{L}_j \rho \hat{L}_j^\dagger - \frac{1}{2} \left\lbrace \hat{L}_j^\dagger \hat{L}_j, \rho \right\rbrace \right)
+\end{equation}
+where $j$ indexes the different \textit{leak} operators $\hat{L}_j$, often called \textit{jump} operators or more simply \textit{lindblad} operators. Also, $\gamma_j$ are the associated \textit{damping} rate (even if the operator's purpose may be to add energy) and the curly brackets are the anti-commutator relation.
+Equivalently for the Heisenberg picture, on finds:
+\begin{equation}
+\dot{\hat{X}} = \frac{i}{\hbar} \left[ \hat{H}, \hat{X} \right] + \sum_j \gamma_j \left( \hat{L}_j \hat{X} \hat{L}_j^\dagger - \frac{1}{2} \left\lbrace \hat{L}_j^\dagger \hat{L}_j, \hat{X} \right\rbrace \right)
+\end{equation}
 
 \end{document}
