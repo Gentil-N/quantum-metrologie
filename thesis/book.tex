@@ -4,6 +4,7 @@
 \usepackage[a4paper,width=155mm,top=20mm,bottom=20mm]{geometry}
 \graphicspath{ {images/} }
 
+\usepackage{mathrsfs}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{esvect}
@@ -12,7 +13,9 @@
 
 \usepackage{mathtools}
 \DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\bbra{\langle\langle}{\rvert}
 \DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiter\kket{\lvert}{\rangle\rangle}
 \DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1\,\delimsize\vert\,\mathopen{}#2}
 
 
@@ -375,10 +378,11 @@ Finally, we obtained a hamiltonian which looks very close to the JC-model and th
 Firstly, we introduce the density operator in order to also treat probabilistic mixtures:
 \begin{equation}
 \label{def_dens_mat}
-\rho = \sum_i p_i \ket{\psi_i}\bra{\psi_i}
+\rho \stackrel{\text{def}}{=} \sum_i p_i \ket{\psi_i}\bra{\psi_i}
 \end{equation}
 where $\left\lbrace \ket{\psi}, p_i \right\rbrace$ is a set of pure state associated to a probability. Equivalently, if we fix an arbitrary basis $\left\lbrace \ket{i} \right\rbrace$ of the Hilbert space, we can write:
 \begin{equation}
+\label{deftwo_dens_mat}
 \rho = \sum_{i,j} \rho_{i,j} \ket{i}\bra{j}
 \end{equation}
 where $\rho_{i,j}$ are the matrix coefficient of $\rho$ in the the given basis. It can be shown that a density matrix fulfill three essential conditions which are equivalent in regard of \eqref{def_dens_mat}:
@@ -394,7 +398,8 @@ i\hbar\partial _t\ket{\phi} = \hat{H}\ket{\phi} \Leftrightarrow -i\hbar\partial 
 \end{equation}
 where $\ket{\phi}$ is any solution to the Schrodinger equation. Then coupling those to \eqref{def_dens_mat} one shall find:
 \begin{equation}
-i\hbar\dot{\rho} = \left[ \hat{H}, \rho \right] \Leftrightarrow \dot{\rho} = -\frac{-}{\hbar} \left[ \hat{H}, \rho \right]
+\label{vonneuman}
+i\hbar\dot{\rho} = \left[ \hat{H}, \rho \right] \Leftrightarrow \dot{\rho} = -\frac{i}{\hbar} \left[ \hat{H}, \rho \right]
 \end{equation}
 One can notice that this equation relies on the Schrodinger point of view, where the states evolves in time whereas the operators are static. At the opposite, the Heinsenberg picture gives:
 \begin{equation}
@@ -415,14 +420,88 @@ Therefore, we introduce a quantum \textit{bath} system which represent the envir
 \end{equation}
 Then, one chooses the interaction picture where the evolution is set by the interaction hamiltonian $\hat{H}_{TC-bath}$ between the bath and our system. One starts with a bath and our system without cross correlation. Afterward, the time evolution of the density matrix of the total system can be written in term of an infinite iterative equation: one uses the \textit{Born} approximation stating that the bath-TC interaction coupling is weak compared to the size of the bath, allowing to \textit{cut} the inifinte serie as the bath evolution is independent of the system evolution. Then, one makes a last assomption that the bath has a \textit{short memory} meaning that the correlations are not significant for long time intervals if the bath is subject to fast dynamics: this is the \textit{Markov} approximation.
 
-At the end of the day, one obtains the open quantum system equation, often called the master equation:
+At the end of the day, one obtains the open quantum system equation, often called the \textit{master equation}:
 \begin{equation}
 \dot{\rho} = -\frac{i}{\hbar} \left[ \hat{H}, \rho \right] + \sum_j \gamma_j \left( \hat{L}_j \rho \hat{L}_j^\dagger - \frac{1}{2} \left\lbrace \hat{L}_j^\dagger \hat{L}_j, \rho \right\rbrace \right)
 \end{equation}
 where $j$ indexes the different \textit{leak} operators $\hat{L}_j$, often called \textit{jump} operators or more simply \textit{lindblad} operators. Also, $\gamma_j$ are the associated \textit{damping} rate (even if the operator's purpose may be to add energy) and the curly brackets are the anti-commutator relation.
 Equivalently for the Heisenberg picture, on finds:
 \begin{equation}
-\dot{\hat{X}} = \frac{i}{\hbar} \left[ \hat{H}, \hat{X} \right] + \sum_j \gamma_j \left( \hat{L}_j \hat{X} \hat{L}_j^\dagger - \frac{1}{2} \left\lbrace \hat{L}_j^\dagger \hat{L}_j, \hat{X} \right\rbrace \right)
+\label{master_eq_heis}
+\dot{\hat{X}} = \frac{i}{\hbar} \left[ \hat{H}, \hat{X} \right] + \sum_j \gamma_j \left( \hat{L}_j^\dagger \hat{X} \hat{L}_j - \frac{1}{2} \left\lbrace \hat{L}_j^\dagger \hat{L}_j, \hat{X} \right\rbrace \right)
 \end{equation}
+where one may notice the sign difference in front of the commutator and the opposite dagger symbol on the lindblad operator of the first term of the sum.
+In our case, we get three lindblad operators, representing the various \textit{leaks} of the TC quantum system:
+\begin{itemize}
+	\item The cavity leak or \textit{cavity decay} operates at a rate $\kappa$. The associated lindblad operator is the destruction operator of the cavity field $\hat{a}$: this ladder operator removes energy from the harmonic oscillator.
+	\item The spontaneous decay into free space operates at a rate $\gamma$. The associated lindblad operator is the collective spin ladder operator $\hat{S}_-$ which \textit{collectively} removes energy from the atomic system.
+	\item The repump operates at a rate $\nu$ and is associated to the lindblad operator $\hat{S}_+$: we assume that an external laser \textit{feeds} collectively the ensemble of two-level system, which has for effect to add energy into the TC quantum system.
+\end{itemize}
+
+To summarize, the density matrix evolution responds to the following first order differential equation:
+\begin{align}
+\label{rho_master_eq}
+\begin{split}
+\dot{\rho} = &\left[ \rho \, , \, i\Delta\omega\,\hat{n} + \frac{i}{\hbar} g \left(\hat{S}_+ \hat{a} + \hat{S}_-\hat{a}^{\dag} \right)\right]\\
+&+ \kappa \left( \hat{a} \rho \hat{a}^\dagger - \frac{1}{2} \left\lbrace \hat{a}^\dagger \hat{a}, \rho \right\rbrace \right)\\
+&+ \gamma \left( \hat{S}_- \rho \hat{S}_+ - \frac{1}{2} \left\lbrace \hat{S}_+ \hat{S}_-, \rho \right\rbrace \right)\\
+&+ \nu \left( \hat{S}_+ \rho \hat{S}_- - \frac{1}{2} \left\lbrace \hat{S}_- \hat{S}_+, \rho \right\rbrace \right)
+\end{split}
+\end{align}
+where with have taken $\hat{H}_{TC}$ as the hamiltonian. There is a similar equation (close to a sign and dagger operators) for any operator $\hat{X}$. This differential equation is a system of linear differential equation in a sense that each time derivated term of the density matrix is dependent of linear terms of the density matrix. In other words:
+\begin{equation}
+\dot{\rho_{i,j}} = \sum_{k,l} \alpha_{k,l} \rho_{k,l}
+\end{equation}
+where $\rho_{i,j}$ are the density matrix components with indices $(i,j)$ $\alpha_{k,l}$ are fixed complex coefficent dependent on operator values and constants. 
+
+Thereby, this system is numerically solvable with standard integration methods as the Runge-Kutta approach.\footnote{Note that the Runge-Kutta method is not restricted to linear systems as, by definition, this approach treats any function $f$ where $\dot{y} = f(y, t)$ and $y$ can be any variable of any vector space: $y \in \mathbb{R}, \mathbb{R}^2, \mathbb{R}^3, ..., \mathbb{C}, \mathbb{C}^2, \mathbb{C}^3, ...$ for examples.} As one could think, if the system is linear, it should be diagonalizable hence exactly solvable by exponentiation. However, this approach is not possible in the form of \eqref{rho_master_eq} as the equation is treating the density operator as, obsviously, a matrix. 
+
+Nevertheless, one may introduce a new concept called the \textit{linearization} of the density operator. In fact, the density matrix lies in the Hilbert space $\mathscr{H}_{TC} = \mathscr{H}_{cav} \otimes \mathscr{H}_{atoms}$ and one may transform this matrix into a vector lying in the new space $\mathscr{H}_{TC} \otimes \mathscr{H}_{TC}$, which is often called the \textit{Fock-Liouville space}. In this way, \eqref{deftwo_dens_mat} becomes:
+\begin{equation}
+\rho = \sum_{i,j} \rho_{i,j} \ket{i}\bra{j} \rightarrow \sum_{i,j} \rho_{i,j} \ket{i} \otimes \ket{j} = \begin{pmatrix}
+\rho_{0,0}\\
+\rho_{0,1}\\
+\vdots\\
+\rho_{n-1,n-1}
+\end{pmatrix}
+\stackrel{\text{def}}{=} \kket{\rho}
+\end{equation}
+where $n$ is the dimension of $\mathscr{H}_{TC}$. Then, the von-Neumann equation \eqref{vonneuman} transforms as:
+\begin{equation}
+\dot{\rho} = -\frac{i}{\hbar}\left( \hat{H}\rho - \rho\hat{H} \right) \rightarrow \kket{\dot{\rho}} = -\frac{i}{\hbar} \mathcal{H}\kket{\rho}
+\end{equation}
+where $\mathcal{H}$ is a superoperator defined as $\mathcal{H}\kket{\cdot} \rightarrow \left[ \hat{H}, \cdot \right]$.\footnote{This is not a definition symbol because the left side does not lie in the same space as the right side: $\mathcal{H}$ belongs to the \textit{superspace} $\mathscr{H}_{TC} \otimes \mathscr{H}_{TC}$ whereas the commutator lies in $\mathscr{H}_{TC}$ only.} Similarly, one may define the lindblad superoperator:
+\begin{equation}
+\mathcal{D}[\hat{L}_j] \kket{\rho} \rightarrow \hat{L}_j \rho \hat{L}_j^\dagger - \frac{1}{2} \left\lbrace \hat{L}_j^\dagger \hat{L}_j, \rho \right\rbrace
+\end{equation}
+and the master equation becomes:
+\begin{align}
+\begin{split}
+\kket{\dot{\rho}} &= -\frac{i}{\hbar} \mathcal{H}\kket{\rho} + \kappa \mathcal{D}[\hat{a}] \kket{\rho} + \gamma \mathcal{D}[\hat{S}_-] \kket{\rho} + \nu \mathcal{D}[\hat{S}_+] \kket{\rho}\\
+&= \left(-\frac{i}{\hbar} \mathcal{H} + \kappa \mathcal{D}[\hat{a}] + \gamma \mathcal{D}[\hat{S}_-] + \nu \mathcal{D}[\hat{S}_+]\right)\kket{\rho} \\
+&= \mathcal{L}\kket{\rho}
+\end{split}
+\end{align}
+where we defined the Liouvillian superoperator $\mathcal{L}$ from the second line of the equation. From that, it is possible to calculate the eigenvalues and eigenvectors in order to find the exact values of $\kket{\rho}$ at any time $t$.\footnote{Note that as the Liouvillian superoperator is not hermitian by construction, the right and left eigenvectors are associated to different eigenvalues. See [??] for more details.}
+
+However, the first limitation of this method is the size of the system. Indeed, as $\mathscr{H}_{TC}$ scales according to $(N+1) \times N_{Fock}$ then the Fock-Liouville space scales as the square:
+\begin{equation}
+\textrm{dim}\left(\mathscr{H}_{TC} \otimes \mathscr{H}_{TC}\right) = \left((N+1) \times N_{Fock}\right)^2
+\end{equation}
+In order to hold the decay of the atoms, the Fock space associated to the cavity field must be at least the same dimension as the number of two-level systems.\footnote{In practice, we take twice the size for \textit{security} and a double check of the photon number after computation asserts that we are not overflowing the Fock space.} Then, for $N$ dipoles as a gain medium:
+\begin{equation}
+\textrm{dim}\left(\mathscr{H}_{TC} \otimes \mathscr{H}_{TC}\right) \sim N^4
+\end{equation}
+Thereby, the number of components for the vector $\kket{\rho}$ scales according to the same rule. Moreover, the number of components inside the \textit{super}-matrix representing the Liouville superoperator scales as the square of it, namely as $N^8$. For instance, let's say that we want to numerically simulate our model with one hundred atoms: the super-matrix owns $10^{16}$ components. As each component is a complex number represented by two floats of 32-bit each (in the low precision case): 8 byte per component. At the end of the day, we need approximately $80,000$ TB only to store the Liouvilian superoperator.\footnote{1TB = 1000 GB which is somehow a common hard-drive capacity for the family computers on the current tech-market (2024).}. Ideally, we would like to simulate a couple of millions of atoms.
+
+Unfortunately, the first method of solving, involving the RK intergation, suffers the same problem for many particles: as we stay in the original Hilbert space $\mathscr{H}_{TC}$, the power scale is less important but still unreachable for more than a few hundreds of atoms. Even worse, this solution is not exact, in a sense that we get the solution for a finite time interval where the computation time is dependent on it!
+
+This case is a good example of the classical computer limitation and this sort of problem is part of the reason of building a quantum computer/simulator. Indeed, one could make use of the parallelism behavior of the qubit in order to simulate many cross interaction at the same time. However, those kind of projects are not yet achieved and we have to find a \textit{smart} solution, in a sense that we are ready to lose a bit of precision in exchange of computation power and memory space. In fact, all the crossed terms essentially represent the multiple interaction holded by each atom. Secondly, the question we have to ask is: "what mesure do we want from the simulation?". As we shall see in later section, our interested correlation function are, roughly, the expectation values of operators accross the time. In other words, we absolutely do not care about the behavior of individual terms. So, what happens if one plugs directly the excpectation value on the "Heisenberg version" of the master equation \eqref{master_eq_heis}? This is the subject of the next section.
+
+\section{Cumulant expansion method}
+\paragraph{}
+Recall the g1 and g2 formula rapidly: to give a goal.
+
+Then let's ride baby.
 
 \end{document}
