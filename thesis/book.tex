@@ -17,6 +17,7 @@
 \DeclarePairedDelimiter\ket{\lvert}{\rangle}
 \DeclarePairedDelimiter\kket{\lvert}{\rangle\rangle}
 \DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1\,\delimsize\vert\,\mathopen{}#2}
+\DeclareMathOperator{\Tr}{Tr}
 
 
 
@@ -505,27 +506,84 @@ Firstly, even we go into more details in chapter ?? about their signification, w
 
 Thereby, in the case of a non-stationary electric field, one can define the first order correlation function as:
 \begin{equation}
-{\displaystyle g ^{(1)}(t_{1},t_{2})={\frac {\left\langle E^{*}(t_{1})E(t_{2})\right\rangle }{\left(\left\langle \left|E(t_{1})\right|^{2}\right\rangle \left\langle \left|E(t_{2})\right|^{2}\right\rangle \right)^{\frac {1}{2}}}}}
+{\displaystyle g ^{1}(t_{1},t_{2})\stackrel{\text{def}}{=}{\frac {\left\langle E^{*}(t_{1})E(t_{2})\right\rangle }{\sqrt{\left\langle \left|E(t_{1})\right|^{2}\right\rangle \left\langle \left|E(t_{2})\right|^{2}\right\rangle }}}}
 \end{equation}
-where $E(t) \in \mathbb{C}$ is the phasor representation of the electric field and the mean symbol $\left\langle \cdot \right\rangle$ is an ensemble average over a set of electric signal. In the stationary case, the distribution of the norm of the electric signal is independent of time and one may find the following definition:
-\begin{equation}
-{\displaystyle g ^{(1)}(\tau )={\frac {\left\langle E^{*}(t)E(t+\tau )\right\rangle }{\left\langle \left|E(t)\right|^{2}\right\rangle }}}
-\end{equation}
-where the mean value symbol represent now a time average.
+where $E(t) \in \mathbb{C}$ is the phasor representation of the electric field and the mean symbol $\left\langle \cdot \right\rangle$ is an ensemble average over a set of electric signal. Note that we also make the assumption that the correlation measurement is done at $r_1 = r_2 = 0$ for both detectors of the electric field.
+
 In turns out that any eletric field can be quantized  with the help of an artificial \textit{quantization box} of volume $V$ and the associated formulas are:
 \begin{equation}
-{\displaystyle {\hat {E}}^{+}=i\sum \limits _{\mathbf {k} ,\mu }{\sqrt {\frac {\hbar \omega _{k}}{2\epsilon _{0}V}}}{\hat {a}}_{\mathbf {k} ,\mu }e^{i\mathbf {k} .\mathbf {r} }\mathbf {e} _{\mathbf {k} ,\mu }} \quad \quad {\displaystyle {\hat {E}}^{-}=-i\sum \limits _{\mathbf {k} ,\mu }{\sqrt {\frac {\hbar \omega _{k}}{2\epsilon _{0}V}}}{\hat {a}}^\dagger_{\mathbf {k} ,\mu }e^{-i\mathbf {k} .\mathbf {r} }\mathbf {e}^* _{\mathbf {k} ,\mu }}
+{\displaystyle {\hat {E}}^{+}=i\sum \limits _{\vv {k} ,\lambda }{\sqrt {\frac {\hbar \omega _{k}}{2\epsilon _{0}V}}}{\hat {a}}_{\vv {k} ,\lambda }e^{i\vv {k} .\vv {r} }\vv {e} _{\vv {k} ,\lambda }} \quad \quad {\displaystyle {\hat {E}}^{-}=-i\sum \limits _{\vv {k} ,\lambda }{\sqrt {\frac {\hbar \omega _{k}}{2\epsilon _{0}V}}}{\hat {a}}^\dagger_{\vv {k} ,\lambda }e^{-i\vv {k} .\vv {r} }\vv {e}^* _{\vv {k} ,\lambda }}
 \end{equation}
-where 
-${\displaystyle \mathbf {k} }$ is the polarization vector, 
-${\displaystyle \mathbf {e} _{\mathbf {k} ,\mu }}$ is the unit vector perpendicular to 
-${\displaystyle \mathbf {k} }$, with 
-${\displaystyle \mu }$ signifying one of the two vectors that are perpendincular to the polarization vector
-${\displaystyle \omega _{k}}$ is the frequency
+where ${\displaystyle \omega _{k}}$ is the mode frequency associated to the polarization vector ${\displaystyle \vv {k} }$, 
+${\displaystyle \vv {e} _{\vv {k} ,\lambda }} \in \mathbb{C}^3$ is the unit vector perpendicular to 
+${\displaystyle \vv {k} }$, with 
+${\displaystyle \lambda }$ signifying one of the two vectors that are perpendicular to the polarization vector. Now, making the assumption that the electric field is composed of one frequency (i.e a unique mode of the \textit{fake}-cavity) and replacing the electric field phasor components by their quantum operator counterparts, one finds the quantum equivalent of the first order correlation function:
+\begin{equation}
+g^1(t_1, t_2) = \frac{\left\langle \hat{a}^\dagger(t_1)\hat{a}(t_2) \right\rangle}{\sqrt{\left\langle \hat{a}^\dagger(t_1)\hat{a}(t_1) \right\rangle \left\langle \hat{a}^\dagger(t_2)\hat{a}(t_2) \right\rangle}}
+\end{equation}
+where we may notice that the denominator terms are function of the mean photon number $\hat{n}$ at time $t_1$ and $t_2$. Moreover, we considered the time evolution of the electric field as the time evolution of the operators, in other words, the Heisenberg picture. This consideration comes from the fact that the numerator is a mean value of two operators evaluated at a different time each. Indeed, we define the mean value of any operator $\hat{X}$ as the quantum measurement of $\hat{X}$ over a pure state $\ket{\psi}$ or a density matrix $\rho$:\footnote{Equation \eqref{quantum_meas} is directly derivated from the second postulate (\textit{measurement postulate}) of the Quantum Mechanic Theory.}
+\begin{equation}
+\label{quantum_meas}
+\left\langle \hat{X} \right\rangle_{\psi \, or \, \rho} = \bra{\psi}\hat{X}\ket{\psi} \quad or \quad \Tr \left[ \rho \hat{X} \right]
+\end{equation}
+Which leads, for the time evolution of the mean value, to the two famous pictures (considering a density matrix as the measured state):
+\begin{align}
+\begin{split}
+\textrm{Schrödinger picture:} \quad\quad \left\langle \hat{X} \right\rangle_{\rho} (t) = \Tr \left[ \rho(t)\cdot \hat{X} \right]\\
+\textrm{Heisenberg picture:} \quad\quad \left\langle \hat{X} \right\rangle_{\rho} (t) = \Tr \left[ \rho\cdot \hat{X}(t) \right]\\
+\end{split}
+\end{align}
+If we set $\hat{X}(t_1,t_2) = \hat{Y}(t_1)\hat{Z}(t_2)$, it becomes obvious that the Heinsberg picture is appropriate:
+\begin{equation}
+\left\langle \hat{X} \right\rangle _{\rho} (t_1, t_2) = \Tr \left[ \rho \cdot \hat{Y}(t_1) \cdot \hat{Z}(t_2)\right]
+\end{equation} 
+In other words, we are looking for the time evolution of $\hat{a}^\dagger$ and $\hat{a}$ but not the time evolution of the initial state. By the way, those previous equations shows that the quantum $g^1$ is dependent on the choice of the initial state.
 
-Similarly, for the second order correlation fonction
-Recall the g1 and g2 formula rapidly: to give a goal.
+It is important to note that $g^1$ is by definition a 2D map\footnote{Only in its non-stationary form.}. As we are going to run numerical simulations through it, we can consider $t_2$ as a fixed value and compute the time evolution of $g^1$ according to $t_1$:
+\begin{equation}
+\label{quantum_g1_1D_map}
+g^1(t_1)_{t_2} = \frac{\left\langle \hat{a}^\dagger(t_1)\hat{a}_{t_2} \right\rangle}{\sqrt{\left\langle \hat{n}(t_1) \right\rangle \left\langle \hat{n}_{t_2} \right\rangle}}
+\end{equation}
+which is a 1D map (i.e a function), then repeat the process for every $t_2$ of the targeted time interval.
 
-Then let's ride baby.
+Moreover, in the stationary case, the distribution of the the electric signal is independent of time and one may find that $g^1$ is only dependent on the time difference $t_1 - t_2 \stackrel{\text{def}}{=} \tau$:
+\begin{equation}
+g^1(\tau)_{stationary} = \frac{\left\langle \hat{a}^\dagger(t_2 + \tau)\hat{a}(t_2) \right\rangle}{\sqrt{\left\langle \hat{n}(t_2 + \tau) \right\rangle \left\langle \hat{n}(t_2) \right\rangle}}=\frac{\left\langle \hat{a}^\dagger(\tau)\hat{a}(0) \right\rangle}{\sqrt{\left\langle \hat{n}(\tau) \right\rangle \left\langle \hat{n}(0) \right\rangle}}
+\end{equation}
+where we set $t_2 = 0$ as the process is considered as stationary, hence, independent on the reference time. Note the similarities with the non-stationary case \eqref{quantum_g1_1D_map} from a computational point of view: the reference time $t_2$ is just a question of initial value of the operators $\hat{a}$ and $\hat{n}$.
+
+Similarly, for the classical second order correlation fonction, one defines:
+\begin{equation}
+{\displaystyle g ^{2}(t_{1},t_{2})\stackrel{\text{def}}{=}{\frac {\left\langle E^{*}(t_{1})E^{*}(t_{2})E(t_{2})E(t_{1})\right\rangle }{\left\langle \left|E(t_{1})\right|^{2}\right\rangle \left\langle \left|E(t_{2})\right|^{2}\right\rangle}}}
+\end{equation}
+Then, the quantum equivalent reads as:
+\begin{equation}
+{\displaystyle g ^{2}(t_1, t_2)={\frac {\left\langle \hat{a}^\dagger(t_1)\hat{a}^\dagger(t_2)\hat{a}(t_2)\hat{a}(t_1)\right\rangle }{\left\langle \hat{n}(t_1) \right\rangle \left\langle \hat{n}(t_2) \right\rangle}}}
+\end{equation}
+As before, the stationary assumption allows us to write:
+\begin{equation}
+{\displaystyle g ^{2}(\tau)={\frac {\left\langle \hat{a}^\dagger(0)\hat{a}^\dagger(\tau)\hat{a}(\tau)\hat{a}(0)\right\rangle }{\left\langle \hat{n}(\tau) \right\rangle \left\langle \hat{n}(0) \right\rangle}}}
+\end{equation}
+
+At the end of day, the desired quantities are complex values dependent on operator evolution. That is to say, we actually want the quantum measurement of the ladder and photon number operators. Then, let's start with the value $\left\langle\hat{a}^\dagger\right\rangle$ from the differential equation:
+\begin{align}
+\begin{split}
+\frac{d}{dt}\hat{a}^\dagger = &\quad\frac{i}{\hbar}\left[ \hat{a}^\dagger \, , \,\hat{H}_{TC} \right]\\
+&+ \kappa \left( \hat{a} \hat{a}^\dagger \hat{a}^\dagger - \frac{1}{2} \hat{a}^\dagger \hat{a} \hat{a}^\dagger - \frac{1}{2} \hat{a}^\dagger \hat{a}^\dagger \hat{a} \right)\\
+&+ \gamma \left( \hat{S}_- \hat{a}^\dagger \hat{S}_+ - \frac{1}{2} \hat{S}_+ \hat{S}_- \hat{a}^\dagger - \frac{1}{2} \hat{a}^\dagger \hat{S}_+ \hat{S}_- \right)\\
+&+ \nu \left( \hat{S}_+ \hat{a}^\dagger \hat{S}_- - \frac{1}{2} \hat{S}_- \hat{S}_+ \hat{a}^\dagger - \frac{1}{2} \hat{a}^\dagger \hat{S}_- \hat{S}_+ \right)
+\end{split}
+\end{align}
+which is the \textit{Heisenberg} equivalent of \eqref{rho_master_eq}. One uses the standard commutation relations, remembering that the collective spin operator does not lie into the same space as the cavity ladder operators then one obtains\footnote{See details in Annexe ??}:
+\begin{equation}
+\frac{d}{dt}\hat{a}^\dagger = \left(i\Delta\omega - \frac{\kappa}{2} \right) \hat{a}^\dagger + \frac{ig}{\hbar} \hat{S}_+
+\end{equation}
+Making measurement and knowing that a projection is a linear operation on a time derivative, one gets:
+\begin{equation}
+\frac{d}{dt}\left\langle\hat{a}^\dagger\right\rangle = \left(i\Delta\omega - \frac{\kappa}{2} \right) \left\langle\hat{a}^\dagger\right\rangle + \frac{ig}{\hbar} \left\langle\hat{S}_+\right\rangle
+\end{equation}
+which is again a differential equation involving but involving only complex (or real) numbers: we have lost all the cross interaction information contained inside the operator and reduced it to the mean value of the operators. However, this first order differential equation is of two variable instead of one as the master equation with the variable $\rho$. Indeed, $\left\langle\hat{S}_+\right\rangle$ is also time dependent and one needs its time evolution in order to solve the equation: in fact, we are actually treating a system of equations and are now looking for the second member. Then, we can reengage the process with the operator $\hat{S}_+$ instead.
+
+on trouve 2 ops. Quoi? Mean field: pas d'interaction quantique. Sinon, cumulant expansion. Et on continue.
 
 \end{document}
