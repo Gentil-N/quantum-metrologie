@@ -493,7 +493,7 @@ In order to hold the decay of the atoms, the Fock space associated to the cavity
 \begin{equation}
 \textrm{dim}\left(\mathscr{H}_{TC} \otimes \mathscr{H}_{TC}\right) \sim N^4
 \end{equation}
-Thereby, the number of components for the vector $\kket{\rho}$ scales according to the same rule. Moreover, the number of components inside the \textit{super}-matrix representing the Liouville superoperator scales as the square of it, namely as $N^8$. For instance, let's say that we want to numerically simulate our model with one hundred atoms: the super-matrix owns $10^{16}$ components. As each component is a complex number represented by two floats of 32-bit each (in the low precision case): 8 byte per component. At the end of the day, we need approximately $80,000$ TB only to store the Liouvilian superoperator.\footnote{1TB = 1000 GB which is somehow a common hard-drive capacity for the family computers on the current tech-market (2024).}. Ideally, we would like to simulate a couple of millions of atoms.
+Thereby, the number of components for the vector $\kket{\rho}$ scales according to the same rule. Moreover, the number of components inside the \textit{super}-matrix representing the Liouville superoperator scales as the square of it, namely as $N^8$. For instance, let's say that we want to numerically simulate our model with one hundred atoms: the super-matrix owns $10^{16}$ components. As each component is a complex number represented by two floats of 32-bit each (in the low precision case): 8 byte per component. At the end of the day, we need approximately $80,000$ TB only to store the Liouvilian superoperator\footnote{1TB = 1000 GB which is somehow a common hard-drive capacity for the family computers on the current tech-market (2024).}. Ideally, we would like to simulate a couple of millions of atoms.
 
 Unfortunately, the first method of solving, involving the RK intergation, suffers the same problem for many particles: as we stay in the original Hilbert space $\mathscr{H}_{TC}$, the power scale is less important but many atoms simulation is still unreachable for more than a few hundreds of atoms. Even worse, this solution is not exact, in a sense that we get the solution for a finite time interval where the computation time is dependent on it!
 
@@ -502,7 +502,7 @@ This case is a good example of the classical computer limitation and this sort o
 \section{Cumulant expansion method}
 \paragraph{}
 
-Firstly, even we go into more details in chapter ?? about their signification, we have to recall what are the first and second order correlation function in term of quantum operators in order to visualize which sort of values we need to extract from the master equation.
+Firstly, even if we go into more details in chapter ?? about their signification, we have to recall what are the first and second order correlation function in term of quantum operators in order to visualize which sort of values we need to extract from the master equation.
 
 Thereby, in the case of a non-stationary electric field, one can define the first order correlation function as:
 \begin{equation}
@@ -554,16 +554,17 @@ where we set $t_2 = 0$ as the process is considered as stationary, hence, indepe
 
 Similarly, for the classical second order correlation fonction, one defines:
 \begin{equation}
-{\displaystyle g ^{2}(t_{1},t_{2})\stackrel{\text{def}}{=}{\frac {\left\langle E^{*}(t_{1})E^{*}(t_{2})E(t_{2})E(t_{1})\right\rangle }{\left\langle \left|E(t_{1})\right|^{2}\right\rangle \left\langle \left|E(t_{2})\right|^{2}\right\rangle}}}
+{\displaystyle g ^{2}(t_{1},t_{2})\stackrel{\text{def}}{=}{\frac {\left\langle E^{*}(t_{2})E^{*}(t_{1})E(t_{1})E(t_{2})\right\rangle }{\left\langle \left|E(t_{1})\right|^{2}\right\rangle \left\langle \left|E(t_{2})\right|^{2}\right\rangle}}}
 \end{equation}
 Then, the quantum equivalent reads as:
 \begin{equation}
-{\displaystyle g ^{2}(t_1, t_2)={\frac {\left\langle \hat{a}^\dagger(t_1)\hat{a}^\dagger(t_2)\hat{a}(t_2)\hat{a}(t_1)\right\rangle }{\left\langle \hat{n}(t_1) \right\rangle \left\langle \hat{n}(t_2) \right\rangle}}}
+{\displaystyle g ^{2}(t_1, t_2)={\frac {\left\langle \hat{a}^\dagger(t_2)\hat{a}^\dagger(t_1)\hat{a}(t_1)\hat{a}(t_2)\right\rangle }{\left\langle \hat{n}(t_1) \right\rangle \left\langle \hat{n}(t_2) \right\rangle}}}
 \end{equation}
 As before, the stationary assumption allows us to write:
 \begin{equation}
 {\displaystyle g ^{2}(\tau)={\frac {\left\langle \hat{a}^\dagger(0)\hat{a}^\dagger(\tau)\hat{a}(\tau)\hat{a}(0)\right\rangle }{\left\langle \hat{n}(\tau) \right\rangle \left\langle \hat{n}(0) \right\rangle}}}
 \end{equation}
+\footnote{It is possible to define $t_2 - t_1 \stackrel{\text{def}}{=} \tau$. This time reverse step does not affect the function itself as $g^2(\tau) = g^2(-\tau)$ for a stationary process. The same property hold for $g^1$.}.
 
 At the end of day, the desired quantities are complex values dependent on operator evolution. That is to say, we actually want the quantum measurement of the ladder and photon number operators. Then, let's start with the value $\left\langle\hat{a}^\dagger\right\rangle$ from the differential equation:
 \begin{align}
@@ -574,16 +575,120 @@ At the end of day, the desired quantities are complex values dependent on operat
 &+ \nu \left( \hat{S}_+ \hat{a}^\dagger \hat{S}_- - \frac{1}{2} \hat{S}_- \hat{S}_+ \hat{a}^\dagger - \frac{1}{2} \hat{a}^\dagger \hat{S}_- \hat{S}_+ \right)
 \end{split}
 \end{align}
-which is the \textit{Heisenberg} equivalent of \eqref{rho_master_eq}. One uses the standard commutation relations, remembering that the collective spin operator does not lie into the same space as the cavity ladder operators then one obtains\footnote{See details in Annexe ??}:
+which is the \textit{Heisenberg} equivalent of \eqref{rho_master_eq}.\footnote{We intentionally omit the artcifial order of the operators that we made earlier for the implicit representation of the tensor structure: no ordering allows us to highlight the lindblad operators.} One uses the standard commutation relations, remembering that the collective spin operator does not lie into the same space as the cavity ladder operators then one obtains\footnote{See details in Annexe ??}:
 \begin{equation}
+\label{ad_pure}
 \frac{d}{dt}\hat{a}^\dagger = \left(i\Delta\omega - \frac{\kappa}{2} \right) \hat{a}^\dagger + \frac{ig}{\hbar} \hat{S}_+
 \end{equation}
-Making measurement and knowing that a projection is a linear operation on a time derivative, one gets:
+Making measurement according to a state $\rho$ and knowing that a projection is a linear operation on a time derivative, one gets:
 \begin{equation}
+\label{ad_mean_field}
 \frac{d}{dt}\left\langle\hat{a}^\dagger\right\rangle = \left(i\Delta\omega - \frac{\kappa}{2} \right) \left\langle\hat{a}^\dagger\right\rangle + \frac{ig}{\hbar} \left\langle\hat{S}_+\right\rangle
 \end{equation}
-which is again a differential equation involving but involving only complex (or real) numbers: we have lost all the cross interaction information contained inside the operator and reduced it to the mean value of the operators. However, this first order differential equation is of two variable instead of one as the master equation with the variable $\rho$. Indeed, $\left\langle\hat{S}_+\right\rangle$ is also time dependent and one needs its time evolution in order to solve the equation: in fact, we are actually treating a system of equations and are now looking for the second member. Then, we can reengage the process with the operator $\hat{S}_+$ instead.
+which is again a differential equation involving but involving only complex (or real) numbers: we have lost all the cross interaction information contained inside the operator and reduced it to the mean value of the operators. However, this first order differential equation is of two variable instead of one as the master equation with the variable $\rho$. Indeed, $\left\langle\hat{S}_+\right\rangle$ is also time dependent and one needs its time evolution in order to solve the equation: in fact, we are actually treating a system of equations and are now looking for the second member. Then, we can reengage the process with the operator $\hat{S}_+$ instead and the differential equation is this time:
+\begin{equation}
+\frac{d}{dt}\left\langle\hat{S}_+\right\rangle = -2ig\left\langle\hat{S}_+ \hat{a}^\dagger\right\rangle + \hbar (\nu - \gamma)\left\langle \hat{S}_z \hat{S}_+\right\rangle - \nu \hbar ^2 \left\langle\hat{S}_+\right\rangle
+\end{equation}
+Unfortunately, this new equation leads to new variables, namely: $\left\langle\hat{S}_+ \hat{a}^\dagger\right\rangle$ and $\left\langle \hat{S}_z \hat{S}_+\right\rangle$. Moreover, the mean value or cross-correlation between two operators (or even for two random variable from a classical point of view) is not equal to the multiplication of the individual correlations: 
+\begin{equation}
+\left\langle \hat{X}\hat{Y} \right\rangle \neq \left\langle \hat{X} \right\rangle \left\langle \hat{Y} \right\rangle
+\end{equation} 
+Therefore, it makes sense to write:
+\begin{equation}
+\left\langle \hat{X}\hat{Y} \right\rangle = \left\langle \hat{X} \right\rangle \left\langle \hat{Y} \right\rangle
+\end{equation} 
+only if we assume that $\hat{X}$ and $\hat{Y}$ are independent in term of probability representation. In that case, one loses all the quantum interaction happening in the correlated variables: this approximation is named \textit{mean field approximation}.
 
-on trouve 2 ops. Quoi? Mean field: pas d'interaction quantique. Sinon, cumulant expansion. Et on continue.
+If one applies this approximation, one shall obtain:
+\begin{equation}
+\label{sp_mean_field}
+\frac{d}{dt}\left\langle\hat{S}_+\right\rangle = -2ig\left\langle\hat{S}_+ \right\rangle\left\langle\hat{a}^\dagger\right\rangle + \hbar (\nu - \gamma)\left\langle \hat{S}_z \right\rangle\left\langle\hat{S}_+\right\rangle - \nu \hbar ^2 \left\langle\hat{S}_+\right\rangle
+\end{equation}
+Now the only missing variable equation evolution is $\left\langle \hat{S}_z \right\rangle$. Then we repeat the process again and we find two more equations.
+\begin{equation}
+\label{sz_mean_field}
+\frac{d}{dt}\left\langle\hat{S}_z\right\rangle = -ig\left\langle\hat{S}_+ \right\rangle\left\langle\hat{a}\right\rangle + ig\left\langle\hat{S}_- \right\rangle\left\langle\hat{a}^\dagger\right\rangle + \hbar (\gamma - \nu)\left\langle \hat{S}_- \right\rangle\left\langle\hat{S}_+\right\rangle - 2\nu \hbar ^2 \left\langle\hat{S}_z\right\rangle
+\end{equation}
+One can be tented to develop two more variables which would be $\left\langle\hat{S}_- \right\rangle$ and $\left\langle\hat{a}\right\rangle$. However, those two operators are the conjugate transpose of $\hat{S}_+$ and $\hat{a}^\dagger$ respectively and their quantum measurement is just complex conjugate:
+\begin{equation}
+\left\langle\hat{S}_- \right\rangle = \left\langle\hat{S}_+ \right\rangle^* \quad\quad \left\langle\hat{a}\right\rangle = \left\langle\hat{a}^\dagger\right\rangle^*
+\end{equation}
+Therefore, the three differential equations \eqref{ad_mean_field}, \eqref{sp_mean_field} and \eqref{sz_mean_field} form a complete system of equation, hence, can be solved taking the initial values as:
+\begin{equation}
+\left\langle \hat{a}^\dagger \right\rangle (t=0) = \Tr\left[ \rho \hat{a}^\dagger_0 \right]
+\end{equation}
+where $\rho$ is the initial density matrix of the system and $\hat{a}^\dagger_0$ is the common constructor operator\footnote{Note that a $t=0$, quantum measurements according to the Schrödinger or Heisenberg picture are equivalent.}. One may say that this system of equation is a \textit{closed} form in a sense that, with the mean field approximation, if one chooses any of the five operators $\hat{a}^\dagger$,$\hat{a}$, $\hat{S}_+$, $\hat{S}_-$ or $\hat{S}_z$ at the start, then the final set of differential would be exactly the same as \eqref{ad_mean_field}, \eqref{sp_mean_field} and \eqref{sz_mean_field} (taking into account the complex conjugated equations).
+
+Now, we have to remember that, in addition of retrieving the quantum correlation lost with the mean field approximation (i.e a first order approximation), our goal is to get the evolution of correlation functions involving several operators. In fact, it is clear that if we develop a differential equation with $\left\langle\hat{S}_+ \hat{a}^\dagger\right\rangle$ for example, we shall get correlation variables involving three or more operators. Reapting the process will certainly give an infinity amount of differential equations. In other words, we have to \textit{break the loop} with a certain order of approximation. In this way, one may invoke the definition of the \textit{joint cumulant}:
+\begin{equation}
+\left\langle\hat{X}_1\hat{X}_2...\hat{X}_n\right\rangle_c \stackrel{\text{def}}{=} \sum_{p \in P(\mathcal{I})} (\vert p \vert - 1)!(-1)^{\vert p \vert -1} \prod_{B \in p} \left\langle \prod_{i \in B}\hat{X}_i\right\rangle
+\end{equation}
+where $\mathcal{I} = \left\rbrace 1,2, ..., n \right\rbrace$, $P(\mathcal{I})$ is the set of all partition of $\mathcal{I}$, $\vert p \vert$ is the length of the partition and B is successively each element of the partition. It is possible to prove (ref ??) that the joint cumulant is null if any operator $\hat{X}_i$ is independent of all the others (in term of probabilities). Then, the main approximation is to assume that, at a certain number of operator $m$ inside the cumulant, at least one of the operator among them is independent of the others. This implies $\left\langle\hat{X}_1\hat{X}_2...\hat{X}_m\right\rangle_c = 0$ and one may write:
+\begin{equation}
+\left\langle\hat{X}_1\hat{X}_2...\hat{X}_m\right\rangle = \sum_{p \in P(\mathcal{I})/\mathcal{I}} (\vert p \vert - 1)!(-1)^{\vert p \vert -1} \prod_{B \in p} \left\langle \prod_{i \in B}\hat{X}_i\right\rangle
+\end{equation}
+where $\mathcal{I} = \left\lbrace 1,2, ..., n \right\rbrace$ and $P(\mathcal{I})/\mathcal{I}$ is the set of all the partitions of $\mathcal{I}$ without $\mathcal{I}$ itslef. From that, it is obvious that the mean field approximation is condidering  this formula  with $m=2$. Then, for $m=3$:
+\begin{equation}
+\left\langle\hat{X}_1\hat{X}_2\hat{X}_3\right\rangle = \left\langle\hat{X}_1\hat{X}_2\right\rangle\left\langle\hat{X}_3\right\rangle + \left\langle\hat{X}_1\hat{X}_3\right\rangle\left\langle\hat{X}_2\right\rangle + \left\langle\hat{X}_2\hat{X}_3\right\rangle\left\langle\hat{X}_1\right\rangle - 2\left\langle\hat{X}_1\right\rangle\left\langle\hat{X}_2\right\rangle\left\langle\hat{X}_3\right\rangle
+\end{equation}
+and so on for $m>3$. This approximation is named the \textit{cumulant expansion method}.
+
+At the end of day, the algorithmic approach is choosing an order $m$ where, if one finds a correlation variable with $m$ or more operators inside of the correlation brackets when developing the set of equations, one applies the cumulant expansion in order to transform a correlation variable of $m$ operators into several correlation variables of $m-1$ operators. In other words, $m$ is the amount of operators where one \textit{breaks the loop}. Finally, one may choose any order of approximation knowing that greater is the order (i.e, more operator we have inside the correlation brackets), more quantum correlations one takes into account (i.e more precision in the simulation) \textit{but} more equations one has to treat and more computational power one needs. The question is then to find a good compromise.
+
+Nevertheless, at any order of the expansion one can go, the time evolution of the correlation variable involve the time evolution of all the operators inside of it at the same time reference. That is to say:
+\begin{equation}
+\left\langle\hat{X}_1\hat{X}_2\right\rangle (t) = \left\langle\hat{X}_1(t)\hat{X}_2(t)\right\rangle
+\end{equation}
+for instance. In other words, one cannot access the $g^1$ and $g^2$ values directly from this method as those two correlation invlove different time evolution of the operators. However, one may see from \eqref{quantum_g1_1D_map} that the desired differential equation needed for $g^1$ before making the quantum measurment (i.e before applying $\left\langle \cdot \right\rangle$) reads:
+\begin{equation}
+\frac{d}{dt_1} \left(\hat{a}^\dagger(t_1)\hat{a}_{t_2}\right) = \frac{d}{dt_1} \left(\hat{a}^\dagger(t_1)\right)\hat{a}_{t_2}
+\end{equation}
+where $\hat{a}_{t_2}$ is treated as a constant compared to $t_1$. We can see that the right term of the previous equation calls the already derivated formula \eqref{ad_pure} of $\hat{a}^\dagger$, which is of the form:
+\begin{equation}
+\frac{d}{dt_1} \hat{a}^\dagger(t_1) = f(\hat{a}^\dagger(t_1)) 
+\end{equation}
+where $f$ is basically the heisenberg version of the master equation. Then multiplying by a tme constant operator (compared to $t_1$), namely $\hat{a}_{t_2}$ \footnote{We make this choice of $\hat{a}_{t_2}$ in order to fit the $g^1$ notation but it is important to keep in mind that it could be any constant operator.}, one obtains:
+\begin{equation}
+\frac{d}{dt_1} \left(\hat{a}^\dagger(t_1)\right) \hat{a}_{t_2} = f(\hat{a}^\dagger(t_1)) \hat{a}_{t_2}
+\end{equation}
+which, in the case of \eqref{ad_pure}, reads as:
+\begin{equation}
+\frac{d}{dt_1}\left(\hat{a}^\dagger(t_1)\right)\hat{a}_{t_2} = \left(i\Delta\omega - \frac{\kappa}{2} \right) \hat{a}^\dagger(t_1)\hat{a}_{t_2} + \frac{ig}{\hbar} \hat{S}_+(t_1)\hat{a}_{t_2}
+\end{equation}
+Now, one can make a quantum measurement and gets:
+\begin{equation}
+\label{g1_explicit_cumu}
+\frac{d}{dt_1}\left\langle\hat{a}^\dagger(t_1)\hat{a}_{t_2}\right\rangle = \left(i\Delta\omega - \frac{\kappa}{2} \right) \left\langle\hat{a}^\dagger(t_1)\hat{a}_{t_2}\right\rangle + \frac{ig}{\hbar} \left\langle\hat{S}_+(t_1)\hat{a}_{t_2}\right\rangle
+\end{equation}
+Of course, this \textit{multiplication followed by quantum measurement} must be applied to the whole set of differential equation in order to \textit{update} all the correlation variables: before obtaining \eqref{g1_explicit_cumu}, one derived the closed system of equation containing $\left\langle\hat{S}_+(t_1)\right\rangle$ but not $\left\langle\hat{S}_+(t_1)\hat{a}_{t_2}\right\rangle$\footnote{Algorithmically speaking, the set is first derived without applying the brackets (i.e quantum measurement), then the multiplication and brackets are applied.}.
+
+The initial value of \eqref{g1_explicit_cumu} is expressed as:
+\begin{equation}
+\left\langle\hat{a}^\dagger(t_1)\hat{a}_{t_2}\right\rangle (t_1=0) = \left\langle\hat{a}^\dagger_0\hat{a}_{t_2}\right\rangle
+\end{equation}
+However, we do not dispose to this information as we only know the initial operator values $\hat{a}^\dagger_0$ and $\hat{a}_0$ but not the time evolution of $\hat{a}_{t_2}$. Nevertheless, if we derive a set of equation to a certain order allowing the access to the correlation variable $\left\langle\hat{a}^\dagger(t)\hat{a}(t)\right\rangle$, then we can get any intial value of \eqref{g1_explicit_cumu} for $t_1=t_2$: solving the system of differential equation leads to solution with $t_1\geqslant t_2$ which represents the lower-half of the 2D map accoring to the diagonal $t_1=t_2$ as on Fig ??.
+
+This initial value problem only stands for non-stationary processes. Indeed, for a stationary process, we firstly have to numerically compute a time interval long enough to reach the steady-state of the correlation variables. Then, as stated in the begining of this section, $g^1$ for a stationary process is dependent on the time difference $\tau$, that is to say, once $\left\langle\hat{a}^\dagger(t)\hat{a}(t)\right\rangle$ is stable after a certain amount of time, let's say at $t=t_{stable}$, we have the following relation:
+\begin{equation}
+\left\langle\hat{a}^\dagger(t_1 + t_{stable})\hat{a}_{t_2 + t_{stable}}\right\rangle = \left\langle\hat{a}^\dagger(t_1)\hat{a}_{t_2}\right\rangle
+\end{equation}
+hence, $\left\langle\hat{a}^\dagger(t_{stable})\hat{a}_{t_{stable}}\right\rangle$ becomes the initial value of \eqref{g1_explicit_cumu}. Obviously, the same argmuent applies for the whole system of differential equations.
+
+Similarly, equivalent steps allow us to compute $g^2$. Indeed, this time the desired differential equation reads:
+\begin{equation}
+\frac{d}{dt_1} \left(\hat{a}^\dagger_{t_2}\hat{a}^\dagger(t_1)\hat{a}(t_1)\hat{a}_{t_2}\right) = \hat{a}^\dagger_{t_2} \left(\frac{d}{dt_1} \hat{a}^\dagger(t_1)\hat{a}(t_1)\right)\hat{a}_{t_2}
+\end{equation}
+which leads to calulate the differential equation (hence, the complete set of differential equation) for:
+\begin{equation}
+\frac{d}{dt} \left(\hat{a}^\dagger(t)\hat{a}(t)\right)
+\end{equation}
+then multiplying the full set on the left by $\hat{a}^\dagger_{t_2}$ and on the right by $\hat{a}_{t_2}$ before doing the quantum measurement (i.e applying the brackets). The initial values are computed from a complete set of equation involving:
+\begin{equation}
+\label{init_g2}
+\left\langle\hat{a}^\dagger(t)\hat{a}^\dagger(t)\hat{a}(t)\hat{a}(t)\right\rangle
+\end{equation}
+Again, this allows time evolution only when $t_1\geqslant t_2$ for non-stationary process whereas we need to reach the steady-state of the set of differential equation involving \eqref{init_g2} in order to get the stable values hence a stationary process for $g^2(\tau)$.
+
+In general, if one wants to numerically simulate the behavior of $g^1$ and $g^2$ of the quantum system (stationary or not), it is necessary to generate a complete set of equation at a minimum order of $m=5$ (i.e maximum four operators inside the correlation variables). From this set of equation, one must generate another set by multiplying the first set with $\hat{a}_{t_2}$ by the right. Finally, the last set is generated from the second one by mutliplying it with $\hat{a}^\dagger_{t_2}$ by the left. At the end of the day, one gets three independent complete set of differential equation of order, at least, $m=5$, $m=6$ and $m=7$. \footnote{The variable $m$ is \textit{artificially} incremented by one each time as the correlation variables get an additional operator constant: we do not derive explicitely a set with $m=6$ and $m=7$.}
 
 \end{document}
