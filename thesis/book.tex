@@ -31,7 +31,7 @@
 My very nice abstract
 \end{abstract}
 
-\chapter{First chapter}
+\chapter{Theoretical Development}
 \section{Optical Cavity}
 \paragraph{}
 We firstly introduce one of the most common object of quantum optic, namely, the \textit{optical cavity}. It is mainly constitued of two mirrors mounted perpendicularly to the optical axis at a certain distance from each other. The idea behind this simple setup is to select a discret range of wavelengths defined by the space between the mirrors. 
@@ -633,7 +633,7 @@ where $\mathcal{I} = \left\lbrace 1,2, ..., n \right\rbrace$ and $P(\mathcal{I})
 \end{equation}
 and so on for $m>3$. This approximation is named the \textit{cumulant expansion method}.
 
-At the end of day, the algorithmic approach is choosing an order $m$ where, if one finds a correlation variable with $m$ or more operators inside of the correlation brackets when developing the set of equations, one applies the cumulant expansion in order to transform a correlation variable of $m$ operators into several correlation variables of $m-1$ operators. In other words, $m$ is the amount of operators where one \textit{breaks the loop}. Finally, one may choose any order of approximation knowing that greater is the order (i.e, more operator we have inside the correlation brackets), more quantum correlations one takes into account (i.e more precision in the simulation) \textit{but} more equations one has to treat and more computational power one needs. The question is then to find a good compromise.
+At the end of day, the algorithmic approach is choosing an order $m$ where, if one finds a correlation variable with $m$ or more operators inside of the correlation brackets when developing the set of equations, one applies the cumulant expansion in order to transform a correlation variable of $m$ operators into several correlation variables of $m-1$ operators. In other words, $m$ is the amount of operators where one \textit{breaks the loop}. Finally, one may choose any order of approximation knowing that greater is the order (i.e, more operator we have inside the correlation brackets), more quantum correlations one takes into account (i.e more precision in the simulation) \textit{but} more equations one has to treat and more computational power is needed. The question is then to find a good compromise.
 
 Nevertheless, at any order of the expansion one can go, the time evolution of the correlation variable involve the time evolution of all the operators inside of it at the same time reference. That is to say:
 \begin{equation}
@@ -690,5 +690,74 @@ then multiplying the full set on the left by $\hat{a}^\dagger_{t_2}$ and on the 
 Again, this allows time evolution only when $t_1\geqslant t_2$ for non-stationary process whereas we need to reach the steady-state of the set of differential equation involving \eqref{init_g2} in order to get the stable values hence a stationary process for $g^2(\tau)$.
 
 In general, if one wants to numerically simulate the behavior of $g^1$ and $g^2$ of the quantum system (stationary or not), it is necessary to generate a complete set of equation at a minimum order of $m=5$ (i.e maximum four operators inside the correlation variables). From this set of equation, one must generate another set by multiplying the first set with $\hat{a}_{t_2}$ by the right. Finally, the last set is generated from the second one by mutliplying it with $\hat{a}^\dagger_{t_2}$ by the left. At the end of the day, one gets three independent complete set of differential equation of order, at least, $m=5$, $m=6$ and $m=7$. \footnote{The variable $m$ is \textit{artificially} incremented by one each time as the correlation variables get an additional operator constant: we do not derive explicitely a set with $m=6$ and $m=7$.}
+
+\chapter{Heterodyne experiment}
+\section{Standard setup for $g^1$ and its limitations}
+\paragraph{}
+
+In this section, we shall describe a standard method of measuring the frist order correlation function of a given classical electric field. This is meant to introduce some concepts of wave mixing, intensity detection and noise limit. Some detection properties are limited in the present case and this give a justification of the setup used in the actual experiment for measuring $g^1$.
+
+Firstly, let's consider a linearly poilarized electric field $E_1(x, t)$ in its phasor representation as in equation \eqref{eq1} where we droped the vector sign as the field can be described only by its amplitude. Note that at this point, we do not make any hypothesis about the frequencies bearing by this field except that the field is quasi-monochromatic (i.e the linewidth of the emited light is not null around the main frequency beat). This field is our field of interest, that is to say, we want to extract coherence information from it. Thereby, we mix it with another field $E_2(x, t)$ which trivially gives a total field of:
+\begin{equation}
+E_{total} = E_1 + E_2
+\end{equation}
+Now, we place a detector at $x=0$ relatively to the total field. However, to highlight the phase difference from a field to another at the detector, we write the second electric field with a time delay $\tau$. In the classical view, the role of the detector is to transform a mean light intensity (i.e an amount of photon) into an electric intensity (i.e an amount of electron). With certain hypothesis \footnote{See section ?? (Data analysis)} one may approximate the intensity as:
+\begin{align}
+\begin{split}
+I_{total}(t, \tau) \simeq \vert\overline{E}_{total}(t)\vert^2 &= (\overline{E}_1(t) + \overline{E}_2(t + \tau))(\overline{E}_1^*(t) + \overline{E}_2^*(t + \tau))\\
+&= \vert \overline{E}_1(t) \vert^2 + \vert \overline{E}_2(t + \tau) \vert^2 + 2\Re\left\lbrace \overline{E}_1(t)\overline{E}_2^*(t + \tau)\right\rbrace
+\end{split}
+\end{align}
+that we may rewrite for simplicity:
+\begin{equation}
+I_{total}(t, \tau) = I_1(t) + I_2(t + \tau) + 2\Re\left\lbrace \overline{E}_1(t) \overline{E}_2^*(t + \tau)\right\rbrace
+\end{equation}
+where the approximation sign is implicit.
+
+Then, we assume that the dectector transfer exactly $100\% $ of the received light into the eletric wire (i.e quantum efficiency $\eta = 1$) and that the collected intensity is the mean value of the total intensity for an interval of time $T$:
+\begin{equation}
+I_{detected}(\tau) = \left\langle I_{total}(t) \right\rangle_T = \left\langle I_1(t) \right\rangle_T + \left\langle I_2(t + \tau) \right\rangle _T + 2\left\langle \Re\left\lbrace \overline{E}_1(t) \overline{E}_2^*(t + \tau)\right\rbrace \right\rangle _T
+\end{equation}
+with:
+\begin{equation}
+\left\langle \cdot \right\rangle _T = \int_T \cdot \,\,dt
+\end{equation}
+
+We introduce the correlation variable:
+\begin{equation}
+\label{gamma_corr_def}
+\gamma_{1,2}(\tau) \stackrel{\text{def}}{=} \frac{\left\langle E_1(t) E_2^*(t + \tau) \right\rangle _T}{\sqrt{\left\langle I_1(t) \right\rangle_T \left\langle I_2(t + \tau) \right\rangle _T }} \in \mathbb{C}
+\end{equation}
+This previous definition transforms $I_{detected}$ as:
+\begin{equation}
+I_{detected} = I_1 + I_2 + 2\sqrt{I_1 I_2} \Re \left\lbrace \gamma_{1,2} \right\rbrace
+\end{equation}
+where we interchanged $\Re \left\lbrace \cdot \right\rbrace$ with $\left\langle \cdot \right \rangle$ \footnote{In other words, the mean value of the real part is equivalent to the real part of the mean value, by linearity.} and where we dropped the time dependences of the intensity terms (from integration, those terms becomes constant according to the time $t$).
+By its normalization factor (i.e the denominator in \eqref{gamma_corr_def}), one may say that the norm of gamma is included between $0$ and $1$ where $0$ holds for complete incoherence whereas $1$ holds for full coherence. This means that we can write two extrema:
+\begin{align}
+I_{detected, max} &= I_1 + I_2 + 2\sqrt{I_1 I_2} \vert \gamma_{1,2} \vert\\
+I_{detected, min} &= I_1 + I_2 - 2\sqrt{I_1 I_2} \vert \gamma_{1,2} \vert
+\end{align}
+Moreover, we define a last variable $\nu$ called the \textit{visibility}\footnote{Sometimes, $\nu$ is named the \textit{fringes visibility} in order to recall the peridicity involved in interference experiments.}:
+\begin{align}
+\nu \stackrel{\text{def}}{=} \frac{I_{max} - I_{min}}{I_{max} + I_{min}}
+\end{align}
+which represents the maximal contrast that one may observe for an intensity signal. From the dectector point of view, that is to say, the visibility of the electric signal after the wire reads:
+\begin{align}
+\nu = \frac{I_{detected, max} - I_{detected, min}}{I_{detected, max} + I_{detected, min}} = \frac{2\sqrt{I_1 I_2} \vert \gamma_{1,2} \vert}{I_1 + I_2}
+\end{align}
+In other words, the visibility two mixed electric field is proportional to the coherence term $\left\langle E_1(t) E_2^*(t + \tau) \right\rangle _T$.
+
+Now, we make two final hypothesis:
+\begin{itemize}
+	\item The second electric field is coming from the same source as the first one: $E_1 = E_2 = E$. However, the two field are still delayed from each other by a time $\tau$. Experimentally, this may be reproduced with a simple Michelson interferometer which allows to vary the delay thanks to the difference of the optic path length of the two arms.
+	\item The the mean value of the total intensity $I_{total}$ is constant over the time. This assumption is not necessarily obvious in a sense that our previous development could involve pulses of light, gaussian envelopes, etc. However this hypothesis lets us write that the detected intensity does not vary with time, hence the mean of interval lengths $T$ taken at  different origins give the same value: $\left\langle I(t) \right\rangle_T = \left\langle I(t + \tau) \right\rangle _T$.
+\end{itemize}
+At the end of the day, we obtain:
+\begin{equation}
+\nu = \vert \gamma_{1, 2} \vert = \frac{\vert\left\langle E(t) E^*(t + \tau) \right\rangle _T\vert}{\vert I \vert} = \vert g^1(\tau) \vert
+\end{equation}
+that is to say, for a quasi-monochromatic input field, the detection of the output field of a Michelson interferometer gives the norm of the first order correlation function through the connected oscilloscope. Then, varying the path length difference allows to sketch the norm of $g^1$ according to the time delay $\tau$.
+
 
 \end{document}
