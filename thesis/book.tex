@@ -699,6 +699,7 @@ In this section, we shall describe a standard method of measuring the frist orde
 
 Firstly, let's consider a linearly poilarized electric field $E_1(x, t)$ in its phasor representation as in equation \eqref{eq1} where we droped the vector sign as the field can be described only by its amplitude. Note that at this point, we do not make any hypothesis about the frequencies bearing by this field except that the field is quasi-monochromatic (i.e the linewidth of the emited light is not null around the main frequency beat). This field is our field of interest, that is to say, we want to extract coherence information from it. Thereby, we mix it with another field $E_2(x, t)$ which trivially gives a total field of:
 \begin{equation}
+\label{e_tot_def}
 E_{total} = E_1 + E_2
 \end{equation}
 Now, we place a detector at $x=0$ relatively to the total field. However, to highlight the phase difference from a field to another at the detector, we write the second electric field with a time delay $\tau$. In the classical view, the role of the detector is to transform a mean light intensity (i.e an amount of photon) into an electric intensity (i.e an amount of electron). With certain hypothesis \footnote{See section ?? (Data analysis)} one may approximate the intensity as:
@@ -716,7 +717,7 @@ where the approximation sign is implicit.
 
 Then, we assume that the dectector transfer exactly $100\% $ of the received light into the eletric wire (i.e quantum efficiency $\eta = 1$) and that the collected intensity is the mean value of the total intensity for an interval of time $T$:
 \begin{equation}
-I_{detected}(\tau) = \left\langle I_{total}(t) \right\rangle_T = \left\langle I_1(t) \right\rangle_T + \left\langle I_2(t + \tau) \right\rangle _T + 2\left\langle \Re\left\lbrace \overline{E}_1(t) \overline{E}_2^*(t + \tau)\right\rbrace \right\rangle _T
+I_{detected}(\tau) \stackrel{\text{def}}{=} \left\langle I_{total}(t) \right\rangle_T = \left\langle I_1(t) \right\rangle_T + \left\langle I_2(t + \tau) \right\rangle _T + 2\left\langle \Re\left\lbrace \overline{E}_1(t) \overline{E}_2^*(t + \tau)\right\rbrace \right\rangle _T
 \end{equation}
 with:
 \begin{equation}
@@ -738,8 +739,9 @@ By its normalization factor (i.e the denominator in \eqref{gamma_corr_def}), one
 I_{detected, max} &= I_1 + I_2 + 2\sqrt{I_1 I_2} \vert \gamma_{1,2} \vert\\
 I_{detected, min} &= I_1 + I_2 - 2\sqrt{I_1 I_2} \vert \gamma_{1,2} \vert
 \end{align}
-Moreover, we define a last variable $\nu$ called the \textit{visibility}\footnote{Sometimes, $\nu$ is named the \textit{fringes visibility} in order to recall the peridicity involved in interference experiments.}:
+Moreover, we define a last variable $\nu$ called the \textit{visibility}\footnote{Sometimes, $\nu$ is named the \textit{fringes visibility} in order to recall the periodicity involved in interference experiments.}:
 \begin{align}
+\label{def_visibility}
 \nu \stackrel{\text{def}}{=} \frac{I_{max} - I_{min}}{I_{max} + I_{min}}
 \end{align}
 which represents the maximal contrast that one may observe for an intensity signal. From the dectector point of view, that is to say, the visibility of the electric signal after the wire reads:
@@ -757,7 +759,65 @@ At the end of the day, we obtain:
 \begin{equation}
 \nu = \vert \gamma_{1, 2} \vert = \frac{\vert\left\langle E(t) E^*(t + \tau) \right\rangle _T\vert}{\vert I \vert} = \vert g^1(\tau) \vert
 \end{equation}
-that is to say, for a quasi-monochromatic input field, the detection of the output field of a Michelson interferometer gives the norm of the first order correlation function through the connected oscilloscope. Then, varying the path length difference allows to sketch the norm of $g^1$ according to the time delay $\tau$.
+that is to say, for a quasi-monochromatic input field, the detection of the output field of a Michelson interferometer produces a detected intensity through the connected oscilloscope which, after maths done, gives the norm of the first order correlation function. Then, varying the path length difference allows to sketch the norm of $g^1$ according to the time delay $\tau$. It is important to notice that if we set:
+\begin{equation}
+I_{detected}(\tau) \stackrel{\text{def}}{=} \eta \left\langle I_{total}(t) \right\rangle_T
+\end{equation}
+Then, when defining the visbility in \eqref{def_visibility}, the quantum efficiency vanishes equally through the division. In other words, measuring $g^1$ in this way is not dependent on the dectector efficiency: loosing photons at the arrival does not change the statistics with the visibility approach.
 
+However, although the Michelson interferometer is a simple setup which gives nicely $g^1$, this method suffer from three major incovenients:
+\begin{itemize}
+	\item The detector must follow the frequency of the input field: as we are overlapping the same field (i.e the same frequency), the resulting field gives only component of null, same or twice the original frequency. In other words, as the actual experiment works with lasers involving a few hundreds of THz, our detector must follow those frequencies. No real dectector can achieve it in those days.\footnote{Actually, the detector is able to show the mean intensity value, that is to say a DC signal, in the presence of \textit{any} light (depending on the specification). However, because of the \textit{dead time} and other technical reasons, modern detectors are not able to follow the high frequency variations of orders of THz.}
+	\item As the theory is facing experiment, it is worth to notice that the detector \textit{always} has a specific range of possible power inputs. In other words, for to low or to high laser power, the detector does not send any electric signal, which is critical for the first case as the cavity output gives superadiant lasing of a few nano watts.
+	\item This configuration is highly sensitive to the noise. Indeed, any variation in the detected intensity is concidered as a variation from the electric field, thus, a variation for $g^1$. However, those variations are not necessarily only representative of the output field generated by the quantum system but also by other external perturbations called \textit{noise} which can be classical (electric current noise for example) or quantum\footnote{The quantum noise is not directly related to the quantum system in itlsef but by the fundamental photon statistics generated from the system.}.
+\end{itemize}
+
+At the end of the day, this setup turns out to not be optimal for rigorous and/or advanced measurements. Therefore, the next section shall present another approach as well as the basic concept involved in order to solve the three previous inconvenients.
+
+\section{Balanced heterodyne setup}
+\paragraph{}
+
+An heterodyne setup is, as stated by its name, an experiment involving two mixed electric fields of \textit{different} frequencies\footnote{"Hetero" is the Greek prefix meaning "irregularity" and "dyne" suffix for "dynamic" in contrary to "homo" (= "same") for a homodyne setup with equal frequencies.} which are collected by two detectors. The electric current produced by both detected intensity, that we call \textit{photocurrent}, is then substracted and the resulting electric signal can be recorded on an oscilloscope for example. 
+
+The heterodyne setup used in the actual experiment is summarysed on Fig ??.
+\begin{itemize}
+ \item $\vv{E}_{cav}$ is the electric field generated at the ouput of the cavity.
+ \item $\vv{E}_{LO}$ stands for the electric field named the \textit{local oscillator} and sometimes abbreviated as the \textit{reference} laser. Its frequency diverges from the cavity field frequency. It is in general emited from a laser and hence is concidered as \textit{nearly}\footnote{$\vv{E}_{LO}$ cannot be perfectly coherent from an experimental point of view but we consider it as such in the theoretical developement.} perfectly coherent source.
+ \item The beam splitter essentially mix the input fields in a way described in section ?? (Data analysis) which roughly gives, as outputs, the added or substracted input fields.
+\end{itemize}
+The experiement is configured as the input electric fields being linearly and parallely polarized: so we consider $\vv{E}_{cav}$ and $\vv{E}_{LO}$ as such. This simplifies the equation by only taking into account the amplitude of the fields instdead of their vector components. Also, as the intensity calculation involve a scalar product of the electric vector fields, the linear polarization allows to maximise the light power when mixing two E-fields.
+
+In order to show the different frequency components involved into the detected intensity, we mix the two E-fields as in \eqref{e_tot_def} with the following definitions:
+\begin{align}
+\begin{split}
+E_{cav}(t) &=\frac{{E}_{cav}}{2} e^{i\omega_{c}t} + \frac{{E}_{cav}}{2} e^{-i\omega_{c}t} \\
+E_{LO}(t) &= \frac{{E}_{LO}}{2} e^{i\omega_{LO}t} + \frac{{E}_{LO}}{2} e^{-i\omega_{LO}t}
+\end{split}
+\end{align}
+that is to say, we consider $E_{cav}(t)$ as perfectly coherent (i.e monochromatic) and we omit the phase difference, the whole for the sake of simplicity as the excpected result effects would be similar in case of phase unmatch and quasi-monochromatic cavity field. Note that $E_{cav/LO}$ without the time dependence $t$ is the amplitude of the respective field.
+
+Now appling the exact formula $I_{total}(t) = E_{total}(t)^2$, one gets four different terms\footnote{See annexe ??}:
+\begin{align}
+I_{total,a}(t) &= E_{cav}^2\cos^2(\omega_{cav}t)\\
+I_{total,b}(t) &= E_{LO}^2\cos^2(\omega_{LO}t)\\
+\label{mix_hetero_ic}
+I_{total,c}(t) &= E_{cav}E_{LO}\cos\left((\omega_{cav} - \omega_{LO})t\right)\\
+I_{total,d}(t) &= E_{cav}E_{LO}\cos\left((\omega_{cav} + \omega_{LO})t\right)
+\end{align}
+where $I_{total}(t) = I_{total,a}(t) + I_{total,b}(t) + I_{total,c}(t)$. In other words, the detected intensity, which is propotional to the total intensity, has four \textit{beat mode} as one would see on a spectrum analyzer: $\omega_{cav}$, $\omega_{LO}$, $\omega_{cav} - \omega_{LO}$ and $\omega_{cav} + \omega_{LO}$. As stated in the previous section, the cavity frequency is in order of THz, which is undetectable for a realistic detector. Now, if we set the frequency of the local oscillator of the same order of magnitude as $\omega_{cav}$ but \textit{slightly} shifted with $\omega_{LO} = \omega_{cav} + \delta\omega$ and $\delta\omega$ is a frequency belonging to the bandwidth of the detector, then we get again four beats:
+\begin{equation}
+\omega_{cav}, \quad\quad \omega_{cav} + \delta\omega, \quad\quad \delta\omega, \quad\quad 2\omega_{cav} + \delta\omega
+\end{equation}
+The only detected beat is $\delta\omega$ as all the others are of order of $\omega_{cav}$ (i.e in few hundreds of Thz). Thereby, the detector is sensitive to the frequency variations of $I_{total,c}(t)$ only. Moreover, this is not the only advantage of adding a local oscillator. Indeed, one may notice that the intensity term \eqref{mix_hetero_ic} is dependent to the amplitude of the cavity field \textit{and} the amplitude of the local oscillator. In that way, we are able to tune the total light intensity observed and face the problem of low power from the cavity field: the local oscillator is a well controlled laser and if, for example, the $E_{cav}$-field power is in order of picowatts (i.e well below the range of detected power), it is enough to power up the reference laser in order to detect the expected beat again.
+
+Finally, the principle of photocurrent substraction is called a balanced detection. As we substract the two photocurrent, the resulting electric signal should be null in the case where both fields are equal. In that way, a very samll variation in one arm should give a non-null signal: this setup is extremely sensitive to small variations. However, even with the exact same field hitting both diodes of the dectector, some noise still resides. We distinguish three types of noise:
+\begin{itemize}
+	\item The shot noise: it reflects the statistical randomness of the light and is only dependent on the quantum uncertainties of the photon. That is why, it is often called equivalently \textit{quantum noise}. For sub-Poissonian lights, where the photons are anti-bunched, it is possible to detect light below the shot noise limit (which is defined by the classical limit of detection for Poissonian light).
+	\item The eletrical noise: all the electric component induces a white noise into the resulting signal which is inner to the way the detector is manufactured.
+	\item The amplified power noise: when amplifying the photocurrent through the circuit, the global noise is also amplified  and is linearly dependent to the mean intensity light for Poissonian distribution of the photons (i.e for classical light)\footnote{See Fox ??}. In other words, more powerful is the incoming beam, more important is the variance (i.e the shift to the mean) of the photocurrent after amplification.
+\end{itemize} 
+The first two types of noises are uncorellated and just add together while the amplified power noise is dependent of both the quantum and electrical noise as it amplifies them. 
+
+Thus, the idea behind balanced detection is to cancel the classical noise which can randomly appear on both diodes of the detector at the same time. Indeed, if any correlated variation of the signal apperas in both emited photocurrent, the substraction \textit{erase} this correlated variation (i.e noise) in a sense that the resulting signal owns only the quantum noise and the uncorrorelated photocurrent noise. Nevertheless, the remaining noise may be considered as very small for our purpose and the detector is made in order to reduce the electrical and amplified power noise in the bandwidth of interest. This reduction of noise by electronic design is the subject of the next section.
 
 \end{document}
