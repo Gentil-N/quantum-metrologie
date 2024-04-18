@@ -560,11 +560,10 @@ Then, the quantum equivalent reads as:
 \begin{equation}
 {\displaystyle g ^{2}(t_1, t_2)={\frac {\left\langle \hat{a}^\dagger(t_2)\hat{a}^\dagger(t_1)\hat{a}(t_1)\hat{a}(t_2)\right\rangle }{\left\langle \hat{n}(t_1) \right\rangle \left\langle \hat{n}(t_2) \right\rangle}}}
 \end{equation}
-As before, the stationary assumption allows us to write:
+As before, the stationary assumption allows us to write\footnote{It is possible to define $t_2 - t_1 \stackrel{\text{def}}{=} \tau$. This time reverse step does not affect the function itself as $g^2(\tau) = g^2(-\tau)$ for a stationary process. The same property hold for $g^1$.}:
 \begin{equation}
 {\displaystyle g ^{2}(\tau)={\frac {\left\langle \hat{a}^\dagger(0)\hat{a}^\dagger(\tau)\hat{a}(\tau)\hat{a}(0)\right\rangle }{\left\langle \hat{n}(\tau) \right\rangle \left\langle \hat{n}(0) \right\rangle}}}
 \end{equation}
-\footnote{It is possible to define $t_2 - t_1 \stackrel{\text{def}}{=} \tau$. This time reverse step does not affect the function itself as $g^2(\tau) = g^2(-\tau)$ for a stationary process. The same property hold for $g^1$.}.
 
 At the end of day, the desired quantities are complex values dependent on operator evolution. That is to say, we actually want the quantum measurement of the ladder and photon number operators. Then, let's start with the value $\left\langle\hat{a}^\dagger\right\rangle$ from the differential equation:
 \begin{align}
@@ -575,7 +574,7 @@ At the end of day, the desired quantities are complex values dependent on operat
 &+ \nu \left( \hat{S}_+ \hat{a}^\dagger \hat{S}_- - \frac{1}{2} \hat{S}_- \hat{S}_+ \hat{a}^\dagger - \frac{1}{2} \hat{a}^\dagger \hat{S}_- \hat{S}_+ \right)
 \end{split}
 \end{align}
-which is the \textit{Heisenberg} equivalent of \eqref{rho_master_eq}.\footnote{We intentionally omit the artcifial order of the operators that we made earlier for the implicit representation of the tensor structure: no ordering allows us to highlight the lindblad operators.} One uses the standard commutation relations, remembering that the collective spin operator does not lie into the same space as the cavity ladder operators then one obtains\footnote{See details in Annexe ??}:
+which is the \textit{Heisenberg} equivalent of \eqref{rho_master_eq}.\footnote{We intentionally omit the artificial order of the operators that we made earlier for the implicit representation of the tensor structure: no ordering allows us to highlight the lindblad operators.} One uses the standard commutation relations, remembering that the collective spin operator does not lie into the same space as the cavity ladder operators then one obtains\footnote{See details in Annexe ??}:
 \begin{equation}
 \label{ad_pure}
 \frac{d}{dt}\hat{a}^\dagger = \left(i\Delta\omega - \frac{\kappa}{2} \right) \hat{a}^\dagger + \frac{ig}{\hbar} \hat{S}_+
@@ -619,7 +618,7 @@ Therefore, the three differential equations \eqref{ad_mean_field}, \eqref{sp_mea
 \end{equation}
 where $\rho$ is the initial density matrix of the system and $\hat{a}^\dagger_0$ is the common constructor operator\footnote{Note that a $t=0$, quantum measurements according to the Schrödinger or Heisenberg picture are equivalent.}. One may say that this system of equation is a \textit{closed} form in a sense that, with the mean field approximation, if one chooses any of the five operators $\hat{a}^\dagger$,$\hat{a}$, $\hat{S}_+$, $\hat{S}_-$ or $\hat{S}_z$ at the start, then the final set of differential would be exactly the same as \eqref{ad_mean_field}, \eqref{sp_mean_field} and \eqref{sz_mean_field} (taking into account the complex conjugated equations).
 
-Now, we have to remember that, in addition of retrieving the quantum correlation lost with the mean field approximation (i.e a first order approximation), our goal is to get the evolution of correlation functions involving several operators. In fact, it is clear that if we develop a differential equation with $\left\langle\hat{S}_+ \hat{a}^\dagger\right\rangle$ for example, we shall get correlation variables involving three or more operators. Reapting the process will certainly give an infinity amount of differential equations. In other words, we have to \textit{break the loop} with a certain order of approximation. In this way, one may invoke the definition of the \textit{joint cumulant}:
+Now, we have to remember that, in addition of retrieving the quantum correlation lost with the mean field approximation (i.e a first order approximation), our goal is to get the evolution of correlation functions involving several operators. In fact, it is clear that if we develop a differential equation with $\left\langle\hat{S}_+ \hat{a}^\dagger\right\rangle$ for example, we shall get correlation variables involving three or more operators. Repeating the process will certainly give an infinity amount of differential equations. In other words, we have to \textit{break the loop} with a certain order of approximation. In this way, one may invoke the definition of the \textit{joint cumulant}:
 \begin{equation}
 \left\langle\hat{X}_1\hat{X}_2...\hat{X}_n\right\rangle_c \stackrel{\text{def}}{=} \sum_{p \in P(\mathcal{I})} (\vert p \vert - 1)!(-1)^{\vert p \vert -1} \prod_{B \in p} \left\langle \prod_{i \in B}\hat{X}_i\right\rangle
 \end{equation}
@@ -753,7 +752,7 @@ In other words, the visibility two mixed electric field is proportional to the c
 Now, we make two final hypothesis:
 \begin{itemize}
 	\item The second electric field is coming from the same source as the first one: $E_1 = E_2 = E$. However, the two field are still delayed from each other by a time $\tau$. Experimentally, this may be reproduced with a simple Michelson interferometer which allows to vary the delay thanks to the difference of the optic path length of the two arms.
-	\item The the mean value of the total intensity $I_{total}$ is constant over the time. This assumption is not necessarily obvious in a sense that our previous development could involve pulses of light, gaussian envelopes, etc. However this hypothesis lets us write that the detected intensity does not vary with time, hence the mean of interval lengths $T$ taken at  different origins give the same value: $\left\langle I(t) \right\rangle_T = \left\langle I(t + \tau) \right\rangle _T$.
+	\item The mean value of the total intensity $I_{total}$ is constant over the time. This assumption is not necessarily obvious in a sense that our previous development could involve pulses of light, gaussian envelopes, etc. However this hypothesis lets us write that the detected intensity does not vary with time, hence the mean of interval lengths $T$ taken at  different origins give the same value: $\left\langle I(t) \right\rangle_T = \left\langle I(t + \tau) \right\rangle _T$.
 \end{itemize}
 At the end of the day, we obtain:
 \begin{equation}
@@ -823,8 +822,51 @@ Thus, the idea behind balanced detection is to cancel the classical noise which 
 \section{Balanced low-noise detector}
 \paragraph{}
 
-In theory, the electronic circuit does not produce any additional noise. That is to say, if there is any variation of the photocurrent at the entry of the circuit, thus after the diodes, the output noise corresponds to this variation, except the amplification of the noise which is a side effect from the purpose of the circuit. In a real world however, without any photocurrent input, the exit cable of the detector shows a random ouput voltage. Of course, the detector must be under voltage, otherwise, no ouput can be generated as some essential components need an external source of electric power. Moreover, this electrical noise being evaluated in term of power (dBm), is a critical parameter. Indeed, if the shot noise limit is lower than the electrical noise, it is possible to loose some part of the data, especially the very weak quantum correlations. Therefore, it is essential to reduce the electrical noise generated by the internal components as much as possible.
+In theory, the electronic circuit does not produce any additional noise. That is to say, if there is any variation of the photocurrent at the entry of the circuit, thus after the diodes, the output noise corresponds to this variation (except the amplification of the noise which is a side effect from the purpose of the circuit). In a real world however, without any photocurrent input, the exit cable of the detector shows a random ouput voltage. Of course, the detector must be under voltage, otherwise, no ouput can be generated as some essential components need an external source of electric power. Moreover, this electrical noise being evaluated in term of power (dBm), is a critical parameter. Indeed, if the shot noise limit is lower than the electrical noise, it is possible to lose some part of the data, especially the very weak quantum correlations. Therefore, it is essential to reduce the electrical noise generated by the internal components as much as possible.
 
-Firstly, we introduce a basic diagram on the working principle of the detector in Fig ??. It is mainly composed of two diodes, which are also called \textit{photodiodes} as they react to the incoming light, plus an essential circuit called \textit{transimpedance amplifier} connected at the ouput of the diodes.
+Firstly, we introduce a basic diagram on the working principle of the detector in Fig ??. It is mainly composed of two diodes (block (1)), which are also called \textit{photodiodes} as they react to the incoming light, plus an essential circuit called \textit{transimpedance amplifier} (block (2)) connected in between of the diodes.
+
+Fig
+
+The photodiodes are placed in the so called \textit{photoconductive mode} where the region of reverse bias on the following diagram ?? defines the relation bewteen the voltage and the current. 
+
+Diag
+
+In fact a basic diode, by principle, allows the current to flow through it only if the voltage is positive on the cathode and negative on the anode (i.e forward bias). Otherwise, when reverse biased, the current does not flow\footnote{In practice, there exists a a certain voltage called \footnote{breakdown voltage} where the current suddenly flow exponentially from the anode to the cathode.}. For a photodiode, the same idea applies except that when reverse biased, the current can flow through it only if the diode is illuminated. Note that even if the current flows, the difference of voltage between the anode and cathode stays the same: in other words, the photodiode does not act as a switch where the the voltage is homogeneous through the component when the current flow (i.e when the circuit is closed). Thereby, if we isolate the block (1), the current flow through the positive voltage (+) above the first diode (D1) to the negative voltage (-) under the second diode (D2) when both photodiodes are illuminated. In that case, by Kirchhoff's current law, no current can flow through (A) to (B). Otherwise, we can distinguish two cases:
+\begin{itemize}
+ \item D1 is illuminated but not D2: as A is considered grounded, D1 is in reverse bias with a relative voltage of -5V (from cathode to anode) and the current flow from (+) to (A) and (B).
+ \item D2 is illuminated but not D1: as A is considered grounded, D1 is in reverse bias with a relative voltage of -5V (from cathode to anode) and the current flow from (B) to (A) and (-).
+\end{itemize}
+Therefore, both photodiodes makes the current flow in opposite direction. As the current quantity $I$ is proportional to the illumination, the direction of the current flux is leaded by the diode being the most illuminated. When the illumination is balanced, no current flows. In that way, we reproduce electronically a substraction over the photocurrent.
+
+Before, we considered (A) as grounded (zero voltage in theory) as well as (B) because the principle of the transimpedance amplifier is to transform the current into a voltage (with amplification of the signal) while while keeping its inputs grounded. In fact, block (2) owns a central component called \textit{operational amplifier} with two inputs:
+\begin{itemize}
+ \item Non-inverting input (+)
+ \item Inverting input (-)
+\end{itemize}
+and an ouput\footnote{This is an active component so it needs to be under tension thanks to additional entries that we do not represent here.}. To understand how the op-amp works in our case, we apply the \textit{golden rules}:
+\begin{itemize}
+ \item The op-amp's output attempts to do whatever it is necessary to make the voltage difference between the inputs zero until a saturation ouput voltage
+ \item The op-amp's inputs draw no current.
+\end{itemize} As showed on Fig ??, the inverting input is grounded which involve (B) to be grounded. Now, let's say that the output saturation voltage of the op-amp is 10V (i.e the max ouput is 10V and min is -10V), if a current flows through B, by second golden rule, then the current flows through the resistance R and generate a voltage.
+\begin{itemize}
+	\item If $I = 10mA$ with $R = 500\Omega$ then $C = -5V$.
+	\item If $I = 20mA$ with same resistance then $C = -10V$.
+	\item If $I = 40mA$ with same resistance then $C = -10V$ as the op-amp is saturated but (B) is know +10V in order to satisfy the relative voltage of 20V at the resistance.
+\end{itemize}
+where we used the formula:
+\begin{equation}
+\label{ueqri}
+U = R \times I
+\end{equation}
+with $U$ the tension in volts, $R$ the resistance in ohms, and $I$ the current in ampères. Evidently, those examples are representing a DC signal. However, the photodiodes react to a beat created by the overlap of two beams as described in the previous section\footnote{They react to the $\delta\omega$ term defined earlier which is in practice around 43MHz.}: this beat is an AC signal and from the previous example, the limit of photocurrent for saturation would variate periodically (according to the shape if the signal) between +20mA and -20mA.
+
+In other words, the transimpedance amplifier circuit has a limited range of input current which can be transformed into a voltage. In fact, one has to be careful on the photocurrent involved after the diodes (i.e at (A)) by testing the ouput voltage of the detector according to the light power hiting the diodes. Otherwise, if the incoming light deliver a photocurrent leading to saturation, one loses the data. Actually, as the photocurrent are substracted, the range limits must be tested with one of the two diodes disabled \footnote{In practice, we just put a piece of paper in front of one photodiode.}. The actual detector has a limited range output of $\pm$15V and the saturation test of the circuit is tested at the end of this section.
+
+In that configuration, one considers the electonical components as perfect or \textit{ideal}, meaning that their behavior follows their associated physical law (for example, \eqref{ueqri} is always respected). Therefore, except the amplified power noise which only increases the already existing photocurrent variance from the light, no additional noise is added. However, this concept is not real and the components add electrical noise by their own presence, especially the op-amp of the circuit\footnote{The op-amp is an \textit{active component} and is suspicious to create much more noise because of its tension inputs than its passive counter part which are the resistor, the capcaitor, the inductor, etc...}. Indeed, in reality, the non-inverting input, which is connected to the ground, may receive some nano-ampères (i.e somewhat a \textit{ghost} current) and, as stated earlier, the golden rules allows to generate a voltage at the ouput of the dectector even without incoming light. Thereby, we add one filter between (A) and (B) like sketched on diagram ??.
+
+Diag
+
+Jump on the purpose.
 
 \end{document}
