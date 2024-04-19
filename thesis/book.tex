@@ -861,12 +861,107 @@ U = R \times I
 \end{equation}
 with $U$ the tension in volts, $R$ the resistance in ohms, and $I$ the current in ampères. Evidently, those examples are representing a DC signal. However, the photodiodes react to a beat created by the overlap of two beams as described in the previous section\footnote{They react to the $\delta\omega$ term defined earlier which is in practice around 43MHz.}: this beat is an AC signal and from the previous example, the limit of photocurrent for saturation would variate periodically (according to the shape if the signal) between +20mA and -20mA.
 
-In other words, the transimpedance amplifier circuit has a limited range of input current which can be transformed into a voltage. In fact, one has to be careful on the photocurrent involved after the diodes (i.e at (A)) by testing the ouput voltage of the detector according to the light power hiting the diodes. Otherwise, if the incoming light deliver a photocurrent leading to saturation, one loses the data. Actually, as the photocurrent are substracted, the range limits must be tested with one of the two diodes disabled \footnote{In practice, we just put a piece of paper in front of one photodiode.}. The actual detector has a limited range output of $\pm$15V and the saturation test of the circuit is tested at the end of this section.
+In other words, the transimpedance amplifier circuit has a limited range of input current which can be transformed into a voltage. In fact, one has to be careful on the photocurrent involved after the diodes (i.e at (A)) by testing the ouput voltage of the detector according to the light power hiting the diodes. Otherwise, if the incoming light deliver a photocurrent leading to saturation, one loses the data. Actually, as the photocurrent are substracted, the range limits must be tested with one of the two diodes disabled \footnote{In practice, we just put a piece of paper in front of one photodiode.}. The actual detector has a limited range output of $\pm$15V and the saturation test of the circuit is tested in a further section.
 
 In that configuration, one considers the electonical components as perfect or \textit{ideal}, meaning that their behavior follows their associated physical law (for example, \eqref{ueqri} is always respected). Therefore, except the amplified power noise which only increases the already existing photocurrent variance from the light, no additional noise is added. However, this concept is not real and the components add electrical noise by their own presence, especially the op-amp of the circuit\footnote{The op-amp is an \textit{active component} and is suspicious to create much more noise because of its tension inputs than its passive counter part which are the resistor, the capcaitor, the inductor, etc...}. Indeed, in reality, the non-inverting input, which is connected to the ground, may receive some nano-ampères (i.e somewhat a \textit{ghost} current) and, as stated earlier, the golden rules allows to generate a voltage at the ouput of the dectector even without incoming light. Thereby, we add one filter between (A) and (B) like sketched on diagram ??.
 
 Diag
 
-Jump on the purpose.
+This filter is commonly called a \textit{Notch filter} or \textit{band-stop filter} as its purpose is to block a certain range of frequency in the response of the circuit. The gain of such a circuit is dicted by the formula\footnote{See Annexe ??}:
+\begin{equation}
+\left\lvert \frac{V_{out}}{V_{in}} (\omega) \right\rvert = \frac{1}{\sqrt{1 + \left(\frac{R}{\omega L - \frac{1}{\omega C}}\right)}}
+\end{equation}
+where the diagram ?? (b) sketch a typical response of this RLC circuit (a).
 
+Diag
+
+(Note on the image) $R = 10\Omega$, $C = 1 \quad\textrm{Farad}(F)$ and $L = 1 \quad\textrm{Henry}(H)$. As we can see, the gain is set to 1 (i.e the output voltage has the same value than the input voltage) except for a band of frequency where the center of this gap is found to be:
+\begin{equation}
+\label{rlc_resonance}
+\omega_0 = \frac{1}{\sqrt{LC}} \Leftrightarrow f_0 = \frac{1}{2\pi\sqrt{LC}}
+\end{equation}
+which is called the \textit{resonance} of the circuit caracterizing a null impedance of the LC component\footnote{Of course, it does not mean that L and C are null but \eqref{rlc_resonance} is an equivalent of removing the inductor and the capacitor from the Notch filter.}.
+
+Moreover, the whole circuit, as depicted on diagram ?? (previous diag) has a hidden filter. Indeed, the photodiodes, when enabled and receiving light, may be theoretically replaced by an equivalent circuit as represented on diagram ??: one current source in parallele of a capacitor and a resistance.
+
+Diag
+
+Those two capacitors add with an internal capacitance of the op-amp for which the value may be found in its associated data sheet. Here, we deal with a THS4021 from Texas Instrument for the op-amp and two S5973 photodiodes from Hamamatsu\footnote{Those two diodes have a high speed response of 1GHz: far more than the expected freqency of 43MHz.}. In this configuration, those three capacitors are in parallele and the total capacitance reads:
+\begin{equation}
+C_{total} = C_{photodiode,1} + C_{photodiode,2} + C_{op-amp}
+\end{equation}
+In theory (i.e from the data sheets) we have a total capacitance of $9pF$ (pico-Farads) but in practice, and with further analyses of the dectector, it turns out that $C_{total}$ is around $14pF$ Note that this formula is clearly the same for resistors in series. Now, the diagram ?? shows the simplified circuit of the dectector with the Notch filter.
+
+Diag
+
+Indeed, this additional capacity $C_1$ is in parallele with the inductor $L$ of the Notch filter. This new LC component is called a \textit{tank filter} and, in contrary to its counter part LC in serie, the tank filter allows only a certain range of frequency to go through the circuit:
+\begin{equation}
+\left\lvert \frac{V_{out}}{V_{in}} (\omega) \right\rvert = \frac{1}{\sqrt{1 + R^2\left(\frac{1}{\omega L} - \omega C\right)^2}}
+\end{equation}
+where the diagram ?? (b) sketch a typical response of this RLC circuit (a). 
+
+Diag
+
+(Note on the image) $R = 10\Omega$, $C = 1 \quad\textrm{Farad}(F)$ and $L = 1 \quad\textrm{Henry}(H)$. As we can see, the gain is set to 1 only for a very narrow frequency range (parametrized by the R, L and C values) which can be found to be the exact same as \eqref{rlc_resonance} which means that the impedance of LC component is null.
+
+Finally, we sketch in diagram ?? the actual (but simplified) version of the dectector with the two filters.
+
+Diag
+
+As we can see, compared to the transimpedance amplifier, this circuit on diagram ?? has an additional impedance $Z_{in}$ between the nodes (A) and (B). Considering the photodiodes as a current source, things get more complex than the transimpedance amplifier by the presence of $Z_{in}$. Actually, we use an \textit{electronic design automation software}, namely \textit{LTSpice}, in order to get the gain at the ouput of the actual detector. Then, from simulation, we get picture ?? which clearly shows that the filters does not affect the interesting region which consist of a narrow bandwidth arround 43MHz: the expected signal collected from the photodiodes is amplified whereas high frequencies (i.e above 100Mhz) are removed from the output signal.
+
+Picture
+
+However, we stated before that the noise is generated from the non-inverting input of the op-amp whereas the photodiodes does not receive light: the equivalent circuit corresponds to the simplified diagram which is given on figure ??.
+
+Fig
+
+This circuit (??) is called a non-inverting voltage amplifier where the gain may be formulated as\footnote{See Annexe ??}:
+\begin{equation}
+\textrm{Gain} = \frac{V_{out}}{V_{in}} = 1 + \frac{Z_{f}}{Z_{in}}
+\end{equation}
+where $Z_f$ is basically a resistor\footnote{On the real electronic scheme ??, the resistor owns an additional capacitor in parallele.} and $Z_{in}$ is composed of the filters (Notch plus Tank filter). Thanks to the inversion if the impedance, namely $1/Z_{in}$, the behavior of all the components constituing $Z_{in}$ are inverted. In other words, the Notch filter corresponds now to a \textit{band-pass} filter whereas the Tank filter corresponds to a \textit{band-cut} filter for the electronical noise. Thereby, we need to match the band-cut filter resonance, that is to say where the gain of the electronic noise is minimum, to the main frequency of our incoming beam (i.e 43MHz).
+
+Electronic scheme
+
+From simulation of the electronic scheme ??, we get the following gain graph ??. 
+
+Graph simu
+
+The peak clearly comes from the Notch filter with:
+\begin{equation}
+\label{peak_notch_original}
+f_{notch} = \frac{1}{2\pi\sqrt{100 \times 10^{-6} \times 20 \times 10^{-9}}} \simeq 112kHz
+\end{equation}
+whereas the deep \textit{should} come from the Tank filter with:
+\begin{equation}
+f_{tank} = \frac{1}{2\pi\sqrt{100 \times 10^{-6} \times 14 \times 10^{-12}}} \simeq 4.2MHz
+\end{equation}
+Then, we can compare those values with the detector directly connect to the spectrum analyzer (detector under tension and photodiodes blocked from incoming light). We obtain both centered\footnote{"Centered" in a sense that the graph are localized around the interesting features.} experimental graphs ??.
+
+Graphs 
+
+The peak corresponds very well to the theoretical one \eqref{peak_notch_original} with an error of about $\pm1$kHz. However, the deep is clearly shifted to $-400$kHz (i.e positioning at $3.8$MHz on the graph ??) from the simulated graph and is even shifted to to $-700$kHz (i.e positioning at $3.5$MHz): it appears after further tests and modificatiosn that there is a lack of understanding in the capacitor value and the best guess would be that the surrounding of the circuit induces a non-linear behavior of the stray capacitance of $14pF$, thus explaining the shift with the experimental graphs.
+
+Nevertheless, it is obvious that the drop of electronic noise is not localized on the right spot: ideally, the minimum noise gain would be at $43$MHz. In that way, we modify the inductor value to a theoretical one, namely $0.82\mu F$ instead of $100\mu F$:
+\begin{equation}
+f_{tank} = \frac{1}{2\pi\sqrt{0.82 \times 10^{-6} \times 14 \times 10^{-12}}} \simeq 46MHz
+\end{equation}
+which appears to be $3$MHz out of resonance. However, when simulating the full circuit with this new value for the inductor, one obtains the graph ??
+
+Graph simu
+
+where the deep of $-170$dBm clearly corresponds to the $43$MHz resonance. Thus, modifying the inductor to $0.82\mu F$ should move the deep to the correct position of $43$Mhz. Moreover, in the worst case of misunderstanding this misalignment with the theoretical resonances, the inductor would change values from several hundreds of micro-Farads, in order to reach a theoretical maximum of $60$MHz: for example, taking $L=0.5\mu F$ would give approximately $60$Mhz of resonance for the deep and considering a shift to the left, we should hit the targeted deep of $43$MHz. In that way, we commanded several inductors of values ranging $100nF$ to $2\mu F$ and replace the orginal inductor by removing and making a new soldered joint.
+
+Picture of the detector
+
+At the end of the day, we have an inductor of exactly $0.8\mu F$ which allow a nice deep of the noise gain of $-80$dBm\footnote{$100$dBm less of reduction from the simulation but it is sufficient for our purpose.} as showed on the experimental graph ?? taken from the oscilloscope after replacement of the component.
+
+Graphs
+
+The graph ?? also shows the peak from the Notch filter which, by virtue of \eqref{rlc_resonance} moved to the right at, apprxoimately, $900$kHz where, from simulation, we were waiting it at $700$kHz (again this shift to the left). However, the deep on graph ?? is very well localized around the expected light frequency of $43$Mhz.
+
+Finally, we succeded to modify the detector with our frequency requirements by replacing some components of the filters, in order to reduce as much as possible the electrical noise comming from the active components, namely the op-amp.
+
+The next section will focus on the parametrization/configuration of the detector which involve, among others, saturation test, amplification noise test and technical procedures in order to make sure that the experiment works in the parameter's range of the detector.
 \end{document}
