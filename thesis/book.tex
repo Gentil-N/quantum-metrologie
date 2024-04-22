@@ -809,15 +809,14 @@ where $I_{total}(t) = I_{total,a}(t) + I_{total,b}(t) + I_{total,c}(t)$. In othe
 \end{equation}
 The only detected beat is $\delta\omega$ as all the others are of order of $\omega_{cav}$ (i.e in few hundreds of Thz). Thereby, the detector is sensitive to the frequency variations of $I_{total,c}(t)$ only. Moreover, this is not the only advantage of adding a local oscillator. Indeed, one may notice that the intensity term \eqref{mix_hetero_ic} is dependent to the amplitude of the cavity field \textit{and} the amplitude of the local oscillator. In that way, we are able to tune the total light intensity observed and face the problem of low power from the cavity field: the local oscillator is a well controlled laser and if, for example, the $E_{cav}$-field power is in order of picowatts (i.e well below the range of detected power), it is enough to power up the reference laser in order to detect the expected beat again.
 
-Finally, the principle of photocurrent substraction is called a balanced detection. As we substract the two photocurrent, the resulting electric signal should be null in the case where both fields are equal. In that way, a very samll variation in one arm should give a non-null signal: this setup is extremely sensitive to small variations. However, even with the exact same field hitting both diodes of the dectector, some noise still resides. We distinguish three types of noise:
+Finally, the principle of photocurrent substraction is called a balanced detection. As we substract the two photocurrent, the resulting electric signal should be null in the case where both fields are equal. In that way, a very samll variation in one arm should give a non-null signal: this setup is extremely sensitive to small variations. However, even with the exact same field hitting both diodes of the dectector, some noise still resides. We distinguish two types of noise:
 \begin{itemize}
-	\item The shot noise: it reflects the statistical randomness of the light and is only dependent on the quantum uncertainties of the photons. That is why, it is often called equivalently \textit{quantum noise}. For sub-Poissonian lights, where the photons are anti-bunched, it is possible to detect light below the shot noise limit (which is defined by the classical limit of detection for Poissonian light).
+	\item The shot noise: it reflects the statistical randomness of the light and is only dependent on the quantum uncertainties of the photons. That is why, it is often called equivalently \textit{quantum noise}. For Poissonian distribution of the photons (i.e for classical light) the photocurrent noise is also amplified and is linearly dependent to the mean intensity light\footnote{See section 2.5}.. For sub-Poissonian lights, where the photons are anti-bunched, it is possible to detect light below the shot noise limit (which is defined by the classical limit of detection for Poissonian light)\footnote{See Fox ??}.
 	\item The eletrical noise: all the electric component induces a white noise into the resulting signal which is inner to the way the detector is manufactured.
-	\item The amplified power noise: when amplifying the photocurrent through the circuit, the photocurrent noise is also amplified and is linearly dependent to the mean intensity light for Poissonian distribution of the photons (i.e for classical light)\footnote{See Fox ??}. In other words, more powerful is the incoming beam, more important is the variance (i.e the shift to the mean) of the photocurrent after amplification.
 \end{itemize} 
-The first two types of noises are uncorellated and just add together while the amplified power noise is dependent of both the quantum and electrical noise as it amplifies them. 
+Those two types of noises are uncorrellated and just add together while the amplification through the circuit, naturally increases those two noises. 
 
-Thus, the idea behind balanced detection is to cancel the classical noise which can randomly appear on both diodes of the detector at the same time. Indeed, if any correlated variation of the signal apperas in both emited photocurrent, the substraction \textit{erases} this correlated variation (i.e noise) in a sense that the resulting signal then owns the quantum noise, the uncorrorelated photocurrent noise (which may be amplified) as well as the electric noise (which is a white noise, hence uncorrelated). Nevertheless, the remaining noise may be considered as very small for our purpose and the detector is made in order to reduce the electrical and amplified power noise in the bandwidth of interest. This reduction of noise by electronic design is the subject of the next section.
+Thus, the idea behind balanced detection is to cancel the classical noise which can randomly appear on both diodes of the detector at the same time. Indeed, if any correlated variation of the signal apperas in both emited photocurrent, the substraction \textit{erases} this correlated variation (i.e noise) in a sense that the resulting signal then owns the quantum noise, the uncorrelated photocurrent noise (which may be amplified) as well as the electric noise (which is a white noise, hence uncorrelated). Nevertheless, the remaining noise may be considered as very small for our purpose and the detector is made in order to reduce the electrical and amplified power noise in the bandwidth of interest. This reduction of noise by electronic design is the subject of the next section.
 
 \section{Balanced low-noise detector}
 \paragraph{}
@@ -886,7 +885,7 @@ Moreover, the whole circuit, as depicted on diagram ?? (previous diag) has a hid
 
 Diag
 
-Those two capacitors add with an internal capacitance of the op-amp for which the value may be found in its associated data sheet. Here, we deal with a THS4021 from Texas Instrument for the op-amp and two S5973 photodiodes from Hamamatsu\footnote{Those two diodes have a high speed response of 1GHz: far more than the expected freqency of 43MHz.}. In this configuration, those three capacitors are in parallele and the total capacitance reads:
+Those two capacitors add with an internal capacitance of the op-amp for which the value may be found in its associated data sheet. Here, we deal with a THS4021 from Texas Instrument for the op-amp and two S5971 photodiodes from Hamamatsu\footnote{Those two diodes have a high speed response of 100MHz: far more than the expected frequency of 43MHz.}. In this configuration, those three capacitors are in parallele and the total capacitance reads:
 \begin{equation}
 C_{total} = C_{photodiode,1} + C_{photodiode,2} + C_{op-amp}
 \end{equation}
@@ -951,7 +950,7 @@ which appears to be $3$MHz out of resonance. However, when simulating the full c
 
 Graph simu
 
-where the deep of $-170$dBm clearly corresponds to the $43$MHz resonance. Thus, modifying the inductor to $0.82\mu F$ should move the deep to the correct position of $43$Mhz. Moreover, in the worst case of misunderstanding this misalignment with the theoretical resonances, the inductor would change values from several hundreds of micro-Farads, in order to reach a theoretical maximum of $60$MHz: for example, taking $L=0.5\mu F$ would give approximately $60$Mhz of resonance for the deep and considering a shift to the left, we should hit the targeted deep of $43$MHz. In that way, we commanded several inductors of values ranging $100nF$ to $2\mu F$ and replace the orginal inductor by removing and making a new soldered joint.
+where the deep of $-170$dBm clearly corresponds to the $43$MHz resonance. Thus, modifying the inductor to $0.82\mu F$ should move the deep to the correct position of $43$Mhz. Moreover, in the worst case of misunderstanding this misalignment with the theoretical resonances, the inductor would change values from several hundreds of micro-Farads, in order to reach a theoretical maximum of $60$MHz: for example, taking $L=0.5\mu F$ would give approximately $60$Mhz of resonance for the deep and considering a shift to the left, we should attain the targeted deep of $43$MHz. In that way, we commanded several inductors of values ranging $100nF$ to $2\mu F$ and replace the orginal inductor by removing and making a new soldered joint.
 
 Picture of the detector
 
@@ -963,5 +962,95 @@ The graph ?? also shows the peak from the Notch filter which, by virtue of \eqre
 
 Finally, we succeded to modify the detector with our frequency requirements by replacing some components of the filters, in order to reduce as much as possible the electrical noise comming from the active components, namely the op-amp.
 
-The next section will focus on the parametrization/configuration of the detector which involve, among others, saturation test, amplification noise test and technical procedures in order to make sure that the experiment works in the parameter's range of the detector.
+The next sections will focus on the parametrization/configuration of the detector which involve, among others, saturation test, amplification noise test and technical procedures in order to make sure that the experiment works in the parameter's range of the detector.
+
+\section{Diodes size versus laser's cross section area}
+
+Firstly, we start to simply verify if the \textit{final} laser beam, which is composed of the cavity beam plus the optical oscillator laser, is not oversized compared to the diode area. Inddeed, the specification sheet for those diodes (S5971) gives an explicit photosensitive diameter size of 1.2mm (the sheet specifies it as the \textit{area size}). In other words, the laser beam after the overlap of the beam splitter must have a diameter of less than 1.2mm. Otherwise, we would \textit{spatially saturate} the diodes and lose some part of the laser's cross section area.
+
+Therefore, we add two lenses with a focal length of 50mm each in front of both diodes. We place them at 65mm from the diodes respectively as on Fig ??. 
+
+Fig
+
+From a geometrical optic's point of view, the laser is essentially an ensemble of parallel lines of light as one could perceive from a distant star. Thereby, from the optical rule involved for a convergent lens, the laser's parallel lines firstly converge after crossing the lens until they all reach the focal point, then diverges. With this configuration, summarized on Fig ??, the diodes are exactly 15mm after the focal point of the lenses. 
+
+Fig
+
+As the focal point to diode distance is lower than the focal length, the resulting laser's cross section area while hitting the diodes is smaller than the original one (i.e before the lens). This ratio is computed as follow:
+\begin{equation}
+\label{lens_cross_section_ratio}
+\textrm{Cross Section Area Ratio} \stackrel{\text{def}}{=} r_{cs} = \frac{\vert d-f \vert}{f}
+\end{equation}
+where $d$ is the the focal point to diode distance whereas $f$ is the focal length. Note the absolute value which avoid the ratio \eqref{lens_cross_section_ratio} to become negative if $d$ is smaller than $f$ (i.e the diodes reside in the \textit{convergent} part of the lens). Thus, we obtain in our case a $r_{cs} = 0.3$. In other words, the beams hitting the diodes after crossing the lenses are apprxoimately three times smaller in area than the original beam.
+
+In order to check if the amount $r_{cs} = 0.3$ of cross section area reduction is sufficient, we shall move progressively the dectector perperdicularly to the optical axis. As represented on Fig ??, we block one diode while transposing lateraly the detector and recording the DC output voltage\footnote{The DC component of the electric signal, when only one diode is enabled, is proportional to the intensity received (until saturation) independently of the frequencies of the light. }. 
+
+Fig 
+
+According to the laser beal size compared to the photosensitive area, two cases are distinguishable:
+\begin{itemize}
+	\item The laser beam size is smaller than the photodiodes: Fig ??. The voltage output increases, reach a plateau of constant voltage ouput, then decreases.
+	Fig
+	\item The laser beam size is equivalent to the photodiodes: Fig ??. The voltage output increases, reach a maximal pick of voltage, then decreases.
+	Fig 
+	\item The laser beam size is bigger than the photodiodes: Fig ??. The voltage output increases, reach a plateau of constant voltage ouput, then decreases.
+	Fig
+\end{itemize}
+As we can notice, this technic shows the same behavior for bigger or smaller beam sizes. However, it is possible to evaluate the beam's diameter by measuring the distance between the beginning and the end of the slope. Indeed, this measure is literraly the position when the laser's beam starts hitting the photosensitive area (i.e this is the beginning of the slope) whereas when the laser's beam is fully included into the photodiode (i.e this is the \textit{plateau} and the end of the slope). Moreover, if the beam is bigger than the photosensitive area, the plateau (hence the end of the slope) will be reached when the beam covers entirely the photodiode: the \textit{slope distance} is the photodiode's diameter, not the beam diameter. In other worlds, if we measure less than 1.2mm for the \textit{slope distance} then the laser's beam is encompassed into the photosensitive area.
+
+Fig ?? shows the results for two different powers involved in the local oscillator: using two powers ensure that we are not saturating the photodiodes in term of intensity when measuring the beam's size. As we consider the cavity laser very weak (in order of picowatts), the main power come out of the reference laser\footnote{In that case, we use two very distinct powers which are tuned mechanically, with a button on the \textit{laser box}. This is not a \textit{clean} method because it is not very precise and we shall use a different method in the next section.}.
+
+Fig
+
+As we can see, the yellow curves (low power) may be considered not saturating the diodes as those curves doesn't reach the same maximum than the red curves (high power).\footnote{Note than this argument, alone, does not allow to decide if the red curves means the saturation of the diodes or not}. We can measure the beam's diameter as roughly 0.6mm for the red curves and 1mm for the yellow curves. Thus, the laser beam is well encompassed into the photodiodes. Secondly, those measurements mean that the power associated to the read curves are saturating the diodes: before the beam hits entirely the photosensitive area, the detector reaches its maximum/minimum of output voltage which is now determined to be $\pm11$ volts.
+
+Note that the whole procedure relies on the horizontale diplacement. Naively, one could repeat the process accross different vertical positions: one should obtain a 2D map of the output voltage according to the relative beam to diode position. Nevertheless, we only check in practice that the ouput voltage cannot be maximized while moving the dectector up or down when the beam reaches the plateau region (This is done with the yellow curves power, knowing that we are not already saturating the diodes).
+
+\section{Power to noise ratio}
+\paragraph{}
+
+As we already mentioned in section 2.2 (Balanced heterodyne setup), the detection of light involves an amplification of the light's noise dependenging on the light's power. The photocurrent $i(t)$ produced by the diodes may \textit{always} be written with the sum of the mean photocurrent and a shift to the mean:
+\begin{equation}
+i(t) = \left\langle i \right\rangle + \Delta i(t)
+\end{equation}
+where the mean is obviously a constant over time. By definition of $\Delta i(t)$, its variance is not null. As the electrical power is given by the well known formula $P = U \times I$, applying \eqref{ueqri} gives naturally the noise power definition:
+\begin{equation}
+\label{def_p_noise}
+P_{noise}(t) \stackrel{\text{def}}{=} R \times (\Delta i(t))^2 
+\end{equation}
+where $R$ is a dummy constant dependent on the circuit design, meaning that the noise power is proportional to the variance of the photocurrent. However, the choice $R$ is not innocent: it is the \textit{resistance/impedance load} of the circuit, namely $Z_f$ from a previous section, which transforms the current into a voltage. The current-voltage link also implies that the noise power can be equivalently defined through the voltage's variance. At this stage of the development, we do not make any assumption on the source of the variance (i.e noise) of the current: this variance may come from the quantum noise and/or the photodiode noise which may produce some \textit{randmoness} from the transformation \textit{intensity to photocurrent}\footnote{We consider the photocurrent \textit{after} the diodes but \textit{before} the transimpedance amplifier: no electrical noise yet.}.
+
+It can be shown\footnote{See Fox ??} that the variance of the photocurrent from an incoming light is proportional to its mean value (with certain conditions on the statistics of the light, namely, having a \textit{classical} light):
+\begin{equation}
+\label{delta_i_var_prop_i}
+(\Delta i(t))^2 \propto \left\langle i \right\rangle
+\end{equation}
+This relation explicitely says that the quantum noise of a classical light (i.e with a Poissonian distribution) is proportional to the mean photon number. Then, putting \eqref{delta_i_var_prop_i} into \eqref{def_p_noise} gives:
+\begin{equation}
+P_{noise} \propto \left\langle i \right\rangle
+\end{equation}
+where $P_{noise}$ is not dependent on time anymore if we consider the mean current as constant over time\footnote{In reality, the noise power is now dependent on the frequency of the photocurrent.}. Then, we consider the photocurrent as proportional to the light intensity hitting the diodes (i.e no randomness into the photodiodes). Thus it comes\footnote{Formally we define the light intensity by its Poynting vector which is in watt per meter-squared. However, the measured power (i.e experimental) is in watts, thus normalized to the beam's cross section area.}:
+\begin{equation}
+\textrm{Noise power (in watts)} \propto \textrm{Light intensity (in watts)}
+\end{equation}
+In other words, increasing the intensity of the incoming light also increases linearly the variance of the photocurrent, that is to say, the quantum noise.
+
+As we collect the ouput voltage \textit{after} the whole circuit, the electrical noise is superposed to the quantum noise: as those two are uncorrelated, they add together. This means that the noise value, or equivalently the variance of the photocurrent, when no light hits the diodes, is exactly the amount of electrical noise in the circuit. Then, adding light progressively gives a linear curve which is the power to noise ratio. Obviously, this curve is limited by the saturation of the circuit\footnote{The global saturation could also be induced by the saturation of the photodiodes but it turns out experimentally that the saturation is made by the electrical components first, which cannot support a too high current/voltage level.}.
+
+In order to check experimentally this behavior and evaluate the power to noise ratio, we need a precise and efficient method to tune the local oscillator's power. To do so, we use a pair of optical devices:
+\begin{itemize}
+	\item A polarizer: this device allows only light with the same polarization to cross it. For a linearly polarized electric field, things get mathematically simpler as the resulting field $\vv{E}_{out}$ is the equivalent of the entering field $\vv{E}_{in}$ projected along the polarizer's unitary vector $\vv{e}_{pol}$:
+	\begin{equation}
+	\vv{E}_{out} = \left( \vv{E}_{in} \cdot \vv{e}_{pol} \right) \vv{e}_{pol}
+	\end{equation}
+	\item A waveplate: its working principle is described in Annexe ??. Here we use a \textit{lambda-half} waveplate (abbreviated $\lambda/2$-waveplate): for a linearly polarized electric field, this device simply rotate the polarization's direction of the electric field.  
+\end{itemize}
+
+Assuming that the input electric field is linearly polarized (which is the case experimentally), coupling those two devices makes a very precise power-tunable instrument. Fig ?? represents how they must be placed along the optical axis.
+
+Fig
+
+The waveplate rotate the electric field. The polarizer project the electric field. If the E-field is parallel to the polarizer axis, the output amplitude is the same as the input one. If the E-field is perpendicular to the polarizer axis, the ouput amplitude is null. Every E-field polarisation's direction in between shall give a reduced amplitude compared 
+to the maximum amplitude: because of the scalar operation, the amplitude relation is not linear but \textit{cosine} dependent, hence very sensitive for almost perpendicular E-fields.
+
 \end{document}
