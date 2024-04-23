@@ -784,27 +784,40 @@ The heterodyne setup used in the actual experiment is summarysed on Fig ??.
  \item $\vv{E}_{LO}$ stands for the electric field named the \textit{local oscillator} and sometimes abbreviated as the \textit{reference} laser. Its frequency diverges from the cavity field frequency. It is in general emited from a laser and hence is concidered as \textit{nearly}\footnote{$\vv{E}_{LO}$ cannot be perfectly coherent from an experimental point of view but we consider it as such in the theoretical developement.} perfectly coherent source.
  \item The beam splitter essentially mix the input fields in a way described in section ?? (Data analysis) which roughly gives, as outputs, the added or substracted input fields.
 \end{itemize}
-The experiement is configured as the input electric fields being linearly and parallely polarized: so we consider $\vv{E}_{cav}$ and $\vv{E}_{LO}$ as such. This simplifies the equation by only taking into account the amplitude of the fields instdead of their vector components. Also, as the intensity calculation involve a scalar product of the electric vector fields, the linear polarization allows to maximise the light power when mixing two E-fields.
 
 In order to show the different frequency components involved into the detected intensity, we mix the two E-fields as in \eqref{e_tot_def} with the following definitions:
 \begin{align}
+\label{e_cav_e_lo}
 \begin{split}
-E_{cav}(t) &=\frac{{E}_{cav}}{2} e^{i\omega_{c}t} + \frac{{E}_{cav}}{2} e^{-i\omega_{c}t} \\
-E_{LO}(t) &= \frac{{E}_{LO}}{2} e^{i\omega_{LO}t} + \frac{{E}_{LO}}{2} e^{-i\omega_{LO}t}
+\vv{E}_{cav}(t) &=\frac{\vv{E}_{cav}}{2} e^{i\omega_{c}t} + \frac{\vv{E}_{cav}}{2} e^{-i\omega_{c}t} \\
+\vv{E}_{LO}(t) &= \frac{\vv{E}_{LO}}{2} e^{i\omega_{LO}t} + \frac{\vv{E}_{LO}}{2} e^{-i\omega_{LO}t}
 \end{split}
+\end{align}that is to say, we consider $\vv{E}_{cav}(t)$ as perfectly coherent (i.e monochromatic) and we omit the phase difference, the whole for the sake of simplicity as the excpected result effects would be similar in case of phase unmatch and quasi-monochromatic cavity field. Note that $\vv{E}_{cav/LO}$ without the time dependence $t$ is the \textit{vector}-amplitude of the respective field (i.e a constant vector). Now appling the exact formula:
+\begin{equation}
+I_{total}(t) = \vv{E}_{total}(t)^2 = \left(\vv{E}_{cav}(t) + \vv{E}_{LO}(t)\right) \cdot \left(\vv{E}_{cav}(t) + \vv{E}_{LO}(t)\right)
+\end{equation} 
+one gets four different terms\footnote{See annexe ??}:
+\begin{align}
+I_{total,a}(t) &= \vert\vv{E}_{cav}\vert^2\cos^2(\omega_{cav}t)\\
+I_{total,b}(t) &= \vert\vv{E}_{LO}\vert^2\cos^2(\omega_{LO}t)\\
+I_{total,c}(t) &= \vv{E}_{cav}\cdot\vv{E}_{LO}\cos\left((\omega_{cav} - \omega_{LO})t\right)\\
+I_{total,d}(t) &= \vv{E}_{cav}\cdot\vv{E}_{LO}\cos\left((\omega_{cav} + \omega_{LO})t\right)
 \end{align}
-that is to say, we consider $E_{cav}(t)$ as perfectly coherent (i.e monochromatic) and we omit the phase difference, the whole for the sake of simplicity as the excpected result effects would be similar in case of phase unmatch and quasi-monochromatic cavity field. Note that $E_{cav/LO}$ without the time dependence $t$ is the amplitude of the respective field.
+where $I_{total}(t) = I_{total,a}(t) + I_{total,b}(t) + I_{total,c}(t) + + I_{total,d}(t)$.
 
-Now appling the exact formula $I_{total}(t) = E_{total}(t)^2$, one gets four different terms\footnote{See annexe ??}:
+The experiement is configured as the input electric fields being linearly and parallely polarized: so we consider $\vv{E}_{cav}$ and $\vv{E}_{LO}$ as such. This simplifies the equation by only taking into account the amplitude of the fields instead of their vector components. Also, as the intensity calculation involve a scalar product of the electric vector fields, the collinear polarization allows to maximise the light power when mixing two E-fields. We obtain:
 \begin{align}
 I_{total,a}(t) &= E_{cav}^2\cos^2(\omega_{cav}t)\\
 I_{total,b}(t) &= E_{LO}^2\cos^2(\omega_{LO}t)\\
 \label{mix_hetero_ic}
 I_{total,c}(t) &= E_{cav}E_{LO}\cos\left((\omega_{cav} - \omega_{LO})t\right)\\
+\label{mix_hetero_id}
 I_{total,d}(t) &= E_{cav}E_{LO}\cos\left((\omega_{cav} + \omega_{LO})t\right)
 \end{align}
-where $I_{total}(t) = I_{total,a}(t) + I_{total,b}(t) + I_{total,c}(t)$. In other words, the detected intensity, which is propotional to the total intensity, has four \textit{beat mode} as one would see on a spectrum analyzer: $\omega_{cav}$, $\omega_{LO}$, $\omega_{cav} - \omega_{LO}$ and $\omega_{cav} + \omega_{LO}$. As stated in the previous section, the cavity frequency is in order of THz, which is undetectable for a realistic detector. Now, if we set the frequency of the local oscillator of the same order of magnitude as $\omega_{cav}$ but \textit{slightly} shifted with $\omega_{LO} = \omega_{cav} + \delta\omega$ and $\delta\omega$ is a frequency belonging to the bandwidth of the detector, then we get again four beats:
+
+In other words, the detected intensity, which is propotional to the total intensity, has four \textit{beat mode} as one would see on a spectrum analyzer: $\omega_{cav}$, $\omega_{LO}$, $\omega_{cav} - \omega_{LO}$ and $\omega_{cav} + \omega_{LO}$. As stated in the previous section, the cavity frequency is in order of THz, which is undetectable for a realistic detector. Now, if we set the frequency of the local oscillator of the same order of magnitude as $\omega_{cav}$ but \textit{slightly} shifted with $\omega_{LO} = \omega_{cav} + \delta\omega$ and $\delta\omega$ is a frequency belonging to the bandwidth of the detector, then we get again four beats:
 \begin{equation}
+\label{list_comp_light_mix}
 \omega_{cav}, \quad\quad \omega_{cav} + \delta\omega, \quad\quad \delta\omega, \quad\quad 2\omega_{cav} + \delta\omega
 \end{equation}
 The only detected beat is $\delta\omega$ as all the others are of order of $\omega_{cav}$ (i.e in few hundreds of Thz). Thereby, the detector is sensitive to the frequency variations of $I_{total,c}(t)$ only. Moreover, this is not the only advantage of adding a local oscillator. Indeed, one may notice that the intensity term \eqref{mix_hetero_ic} is dependent to the amplitude of the cavity field \textit{and} the amplitude of the local oscillator. In that way, we are able to tune the total light intensity observed and face the problem of low power from the cavity field: the local oscillator is a well controlled laser and if, for example, the $E_{cav}$-field power is in order of picowatts (i.e well below the range of detected power), it is enough to power up the reference laser in order to detect the expected beat again.
@@ -1011,6 +1024,7 @@ Note that the whole procedure relies on the horizontale diplacement. Naively, on
 
 As we already mentioned in section 2.2 (Balanced heterodyne setup), the detection of light involves an amplification of the light's noise dependenging on the light's power. The photocurrent $i(t)$ produced by the diodes may \textit{always} be written with the sum of the mean photocurrent and a shift to the mean:
 \begin{equation}
+\label{i_split_delta_i}
 i(t) = \left\langle i \right\rangle + \Delta i(t)
 \end{equation}
 where the mean is obviously a constant over time. By definition of $\Delta i(t)$, its variance is not null. As the electrical power is given by the well known formula $P = U \times I$, applying \eqref{ueqri} gives naturally the noise power definition:
@@ -1027,9 +1041,10 @@ It can be shown\footnote{See Fox ??} that the variance of the photocurrent from 
 \end{equation}
 This relation explicitely says that the quantum noise of a classical light (i.e with a Poissonian distribution) is proportional to the mean photon number. Then, putting \eqref{delta_i_var_prop_i} into \eqref{def_p_noise} gives:
 \begin{equation}
+\label{p_noise_i_mean}
 P_{noise} \propto \left\langle i \right\rangle
 \end{equation}
-where $P_{noise}$ is not dependent on time anymore if we consider the mean current as constant over time\footnote{In reality, the noise power is now dependent on the frequency of the photocurrent.}. Then, we consider the photocurrent as proportional to the light intensity hitting the diodes (i.e no randomness into the photodiodes). Thus it comes\footnote{Formally we define the light intensity by its Poynting vector which is in watt per meter-squared. However, the measured power (i.e experimental) is in watts, thus normalized to the beam's cross section area.}:
+where $P_{noise}$ is not dependent on time anymore if we consider the mean current as constant over time\footnote{The noise power is not dependent on the frequency of the photocurrent either: that is why it is called \textit{white noise}.}. Then, we consider the photocurrent as proportional to the light intensity hitting the diodes (i.e no randomness into the photodiodes). Thus it comes\footnote{Formally we define the light intensity by its Poynting vector which is in watt per meter-squared. However, the measured power (i.e experimental) is in watts, thus normalized to the beam's cross section area.}:
 \begin{equation}
 \textrm{Noise power (in watts)} \propto \textrm{Light intensity (in watts)}
 \end{equation}
@@ -1043,14 +1058,66 @@ In order to check experimentally this behavior and evaluate the power to noise r
 	\begin{equation}
 	\vv{E}_{out} = \left( \vv{E}_{in} \cdot \vv{e}_{pol} \right) \vv{e}_{pol}
 	\end{equation}
-	\item A waveplate: its working principle is described in Annexe ??. Here we use a \textit{lambda-half} waveplate (abbreviated $\lambda/2$-waveplate): for a linearly polarized electric field, this device simply rotate the polarization's direction of the electric field.  
+	\item A waveplate: its working principle is described in Annexe ??. Here we use a \textit{lambda-half} waveplate (abbreviated $\lambda/2$-waveplate): for a linearly polarized electric field, this device simply rotates the polarization's direction of the electric field.  
 \end{itemize}
 
 Assuming that the input electric field is linearly polarized (which is the case experimentally), coupling those two devices makes a very precise power-tunable instrument. Fig ?? represents how they must be placed along the optical axis.
 
 Fig
 
-The waveplate rotate the electric field. The polarizer project the electric field. If the E-field is parallel to the polarizer axis, the output amplitude is the same as the input one. If the E-field is perpendicular to the polarizer axis, the ouput amplitude is null. Every E-field polarisation's direction in between shall give a reduced amplitude compared 
-to the maximum amplitude: because of the scalar operation, the amplitude relation is not linear but \textit{cosine} dependent, hence very sensitive for almost perpendicular E-fields.
+The waveplate rotate the electric field and the polarizer project the electric field: if the E-field is parallel to the polarizer axis after the waveplate, the output amplitude is the same as the input one. If the E-field is perpendicular to the polarizer axis after the waveplate, the ouput amplitude is null. Every polarisation's direction of the E-field in between shall give a reduced amplitude compared to the maximum amplitude: because of the scalar operation, the amplitude relation is not linear but \textit{cosine} dependent, hence very sensitive for almost perpendicular E-fields. The ensemble of Fig ?? is placed before the beam splitter along the local oscillator's optical axis as in Fig ??.
+
+Fig
+
+As stated in section 2.2 (Balanced heterodyne setup), the resulting amplitude of the overlapping of two linearly polarized E-field is maximized when they are parallels. In this way, we have to ensure that the field coming from the cavity (i.e the superadiant laser) is collinear to the local oscillator without involving the waveplate into the setup. In practice, the cavity field is maintained as vertically polarized\footnote{For other experiences in the lab, the polarization of the cavity field is considered as vertical, thus always checked as vertical before starting any experiment.} and we align the polarizer along the same axis. By looking at the spectrum analyzer, the peak at 43MHz shall vary between zero and a maximum while rotating the main axis of the polarizer: zero means perpendicular polarization whereas the maximum means parallel/collinear polarization. It is important to notice that when reaching perpendicular polarization, the measured total beam power is not null but only the terms \eqref{mix_hetero_ic} and \eqref{mix_hetero_id}, hence the 43Mhz beat (i.e the $\delta\omega$) vanishes.
+
+Once the fields are collinear, it suffices to put the waveplate into the setup and rotate it: this involves a rotation of the local oscillator's E-field, hence a power variation of the resulting beam (i.e after the polarizer).
+
+Now, the principle is to calculate the variance of the recorded output voltage, according to the incoming light power (tuned by the waveplate). However, as we transfer directly the detector's signal to the oscilloscope, we face two problems:
+\begin{itemize}
+	\item The variance (i.e the noise) is modulated by the 43MHz signal as depicted by Fig ??.
+	
+	Fig
+	
+	However, the variance of a sine wave times a white noise function is not simply the variance of a sine wave (which is simply $1/2$ if the amplitude is $1$) plus the variance of the white noise.
+	\item The received signal comprises also other frequencies than the interesting $\delta\omega/(2\pi) = 43$MHz. Hence, the rough computed variance of the output signal shall be a \textit{mix} of all the noisy signals generated by the electriccal noise, especially outside of the low-noise bandwidth of the detector. Indeed, we configured the detector to create less noise than the quantum noise only inside a narrow bandwidth around 43MHz. Everywhere else is susceptible to have high electrical noise level.
+\end{itemize}
+
+In order to rectify those issues, we shall add a \textit{demodulation} block between the output gate of the detector and the oscilloscope as represented on Fig ??.
+
+Fig
+
+The idea is to mix the ouput signal with a well behaved electric sine wave called \textit{reference}: this operation is called a \textit{modulation}. At first order\footnote{The mathematical description of a wave mixer is slightly more complex. However, all the other harmonics are far beyond the highest and lowest frequencies considered at \textit{first order}, hence negligeable for our purpose.}, the wave mixer essentially create the same components than \eqref{list_comp_light_mix} when one mixes two light beams. Namely, for an output frequency $\omega_1$ and a reference of $\omega_2$ we obtain:
+\begin{equation}
+\omega_1, \quad \omega_2, \quad \omega_1 + \omega_2, \quad \omega_1 - \omega_2
+\end{equation}
+Now if we set that $\omega_1$ corresponds to our 43MHz and $\omega_2$ of the same frequency, then we get four harmonics at the respective frequencies:
+\begin{equation}
+43\,\textrm{MHz}, \quad 43\,\textrm{MHz}, \quad 86\,\textrm{MHz}, \quad 0\,\textrm{MHz}
+\end{equation}
+In other words, the modulation process translates the spectrum with 43MHz to the left. Thus, a signal at 42MHz for example, will become a signal of -1MHz. By symmetry of the spectrum, this signal will superpose with a previous 44MHz signal also translated to 1MHz. 
+
+As sketched on previous Fig ??, we place a low pass filter after the wave mixer which removes all the harmonics higher than a certain frequency value. In practice, we set it to 100kHz and this selection allows us to only keep the DC signal with some slow-varying signals which corresponds to the envelop of a quasi-monochromatic field: the electric signal showed on the oscilloscope is somehow the transposed signal ensemble from $43\pm 0.1MHz$. This operation is called a \textit{demodulation} as we modulate the original signal in order to remove its main frequency.
+
+Finally, as equation \eqref{p_noise_i_mean} is not dependent on the frequency, we could send any light to the beam (but still \textit{classical}) and recover the linear power to noise ratio behavior. Thereby, we disable the cavity laser and just turn on the local oscillator for this test\footnote{In practice, both lasers are turned on for calibration when targeting the 43MHz beat.}. The reference laser is then overlapping with vacuum which has infinite harmonics: there is still a \textit{beat} generated at 43MHz after the beam splitter.
+
+On Fig ??, we present the variance of the output voltage from the oscilloscope (in volts)\footnote{As the impedance $Z_f$ is a constant, we should just multply it by the variance in order to obtain the power. However, the ouput voltage is also influenced by a second amplifier in the circuit and the mathematical formulation is not obvious. Anyway, the noise power is proportional to the voltage variance which allows us to highlight the linear behavior and other caracteristics.}, according to the light's input power (in milliwatts). 
+
+Fig
+
+Three sets are recorded:
+\begin{itemize}
+	\item Two unbalanced: either the left or right diode is blocked from the incmoming laser.
+	\item One balanced: both diodes receive light.
+\end{itemize}
+In the three cases, an affine fit is applied (i.e with a non-zero y-value at $x=0$), represented by the straight lines. The first thing we can notice is that the unbalanced detection fits are cut after 0.3mW. Fig ?? represent the mean voltage (the DC component) received for each experimental point of Fig ??
+
+Fig
+
+Between 0.3mW and 0.5mW, the variance hits very high values (not visible in the sketched window of ??). Beyond 0.5mW of input light (fot both diodes), the variance drops to approximately its initial value at null power (which is the electrical noise). It is clear that this behavior comes from the saturation of the electronic components: at a certain light intensity, the components \textit{ride out} very high photocurrent, and beyond, the components act as if there were no ligh at all. In the balanced case, both diodes receive high-intensity compared to the limitations of the circuit. However, the photocurrents are substracted \textit{before} reaching the components of the circuit. The op-amps and other electronics deal only with very small variation (i.e uncorrelation) of the photocurrent: those variations represent this highlighted white noise. Nevertheless, we observe a slight unfit for the balanced detection above 0.7mW: this probably comes from a saturation of the photodiodes which cannot handle this amount of light power indivually and limit the $\Delta i(t)$ in \eqref{i_split_delta_i}.
+
+At the end of the day, we caracterized the electrical noise as well as the light power to voltage noise ratio for the detector: the global noise (i.e electrical plus quantum noise) evolves between 35 and 70 nanovolts for incoming light power of "0"mW and 0.68mW.
+
+\section{Intensity calibration}
 
 \end{document}
