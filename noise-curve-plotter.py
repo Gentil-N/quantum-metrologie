@@ -206,7 +206,7 @@ ax2.plot(fit_unb_left[0], fit_unb_left[1], color="green", label="fit unbalanced 
 ax2.plot(fit_unb_right[0], fit_unb_right[1], color="purple", label="fit unbalanced detection (only right diode)")
 ax2.legend()
 ax2.set_xlabel('power (mW)')
-ax2.set_ylabel('Variance of the output tension (V)')
+ax2.set_ylabel('Variance of the output tension (V²)')
 
 #fit_mean_weak_balanced = get_curve_fit(power_weak_balanced, mean_weak_balanced, 1)
 #fit_mean_strong_balanced = get_curve_fit(power_strong_balanced, mean_strong_balanced, 1)
