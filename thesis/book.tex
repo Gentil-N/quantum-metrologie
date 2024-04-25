@@ -1131,9 +1131,32 @@ As previously stated, the cavity laser is mixed with the local oscillator to gen
 
 Fig
 
+The mathematical formulation of phase modulation is as follow. Considering the ampltide of an electric field $E(x, t)$ (or an analytic signal in general) as defined in \eqref{eq1}, we write $\overline{E}(x, t)$ as:
+\begin{equation}
+\overline{E}(x, t) \stackrel{\text{def}}{=} \overline{E}e^{i\omega t + \phi}
+\end{equation}
+where $\overline{E}$ is the complex ampltiude (constant), $\omega$ the frequency of this perfectly coherent field and $\phi$ the phase at the origin. The act of \textit{phase modulating} comes while adding $h\sin(\Omega t)$ to the phase $\phi$, where $h$ is the modulation index and $\Omega$ the modulation frequency. Thus:
+\begin{equation}
+\overline{E}(x, t) \rightarrow \overline{E}_{mod}(x, t) \stackrel{\text{def}}{=} \overline{E}e^{i\omega t + h\sin(\Omega t) + \phi}
+\end{equation}
+The same applies for $\overline{E}^*(x, t) \rightarrow \overline{E}^*_{mod}(x, t)$. Then, using two identities:
+\begin{align}
+e^{iz\sin\theta} &= \sum_{n=-\infty}^{+\infty} J_n(z)e^{in\theta} \quad \textrm{Jacobi-Anger identity}\\
+J_{-n}(z) &= (-1)^nJ_n(z)
+\end{align}
+we find:
+\begin{equation}
+\overline{E}(x, t) = \overline{E}e^{i\omega t + \phi} \left( J_0(h) + \sum_{n=1}^{+\infty} J_n(h)e^{in\Omega t} + \sum_{n=1}^{+\infty} (-1)^n J_n(h)e^{-in\Omega t} \right)
+\end{equation}
+As we are mainly interested by the first two sidebands and considering that higher orders of sidebands have negligeable ampltidues compared to the first two, we can write:
+\begin{equation}
+\overline{E}(x, t) \simeq \overline{E}e^{i\omega t + \phi} \left( J_0(h) + J_1(h)e^{i\Omega t} - J_1(h)e^{-i\Omega t} \right)
+\end{equation}
+where we identify the term involving $J_0$ as the carrier, $J_1(h)$ as the right sideband (with frequency $\omega + \Omega$) and $-J_1(h)$ as the left sideband (with frequency $\omega - \Omega$).
+
 Knowing that the frequency carrier has a lower frequency than the actual superadiant beam, this is the upper sideband (i.e the sideband on the right of the carrier on Fig ??) which create a 43Mhz beat by coupling with the reference laser. The carrier frequency and the lower sideband create respectively a beat at 824.14MHz and 1.60528GHz which are unvisible for the detector.
 
-Therefore, the intensity that we get from the fake laser is in reality much greater than the actual intensity of the sideband which couples to the local oscillator. Moreover, we know from other first experiments conducted in the lab that the superadiant laser power is in order of tens of picowatts. The principle of this intensity calibration test is to determine at which actual intensity we can still distinguish the 43MHz beat: if the intensity is too weak, the beat vanishes into the global noise level.
+Therefore, the intensity that we get from the fake laser is in reality much greater than the actual intensity of the sideband which couples to the local oscillator. Moreover, we know from other first experiments conducted in the lab that the superadiant laser power is in order of tens of picowatts. The principle of this intensity calibration test is to determine at which actual intensity we can still distinguish the 43MHz beat: if the intensity is too weak, the beat vanishes into the global noise level showed on the spectrum analyzer.
 
 The phase modulation of the carrier frequency is controlled through a parameter called \textit{Amplitude of modulation} and is measured in percentage of \textit{what the device managing the modulation is able to do}. At 100\%, the two sidebands reach their maximum of amplitude whereas the carrier's amplitude is slightly reduced: the total energy of the laser beam is kept as constant and \textit{redistributed} through multiple sidebands\footnote{We shall see later that a phase modulation induces an infinite creation of sidebands in theory but we only stay concerned by the closest and most powerfull ones (i.e the two direct neightboors).}. At 0\%, there is no modulation at all and the main frequency keeps its original amplitude.
 
@@ -1157,9 +1180,9 @@ By extending the cavity's length, the resonances shall \textit{move} to the left
 
 Fig
 
-As we can see, the intensity of the different frequencies is now dependent on the time (i.e the elapsed time given to the piezo to extend and contract). This method allows a good visualization of the amplitude distribution through the frequencies of the fake laser. Obviously, the second step of the test is done with no offset (i.e both sidebands on resonances): this implies to change the cavity from "modulation" mode to "normal" mode for each percentage of modulation.
+As we can see on previous Fig ??, the intensity of the different frequencies is now dependent on the time (i.e the elapsed time given to the piezo to extend and contract). This method allows a good visualization of the amplitude distribution through the frequencies of the fake laser. Obviously, the second step of the test is done with no offset (i.e both sidebands on resonances): this implies to change the cavity from "modulation" mode to "normal" mode for each percentage of modulation.
 
-The total inetensity $I_{tot}$ is the sum of the intensity of the carrier $I_c$ and twice the sideband's intensity $I_s$:
+The total intensity $I_{tot}$ is the sum of the intensity of the carrier $I_c$ and twice the sideband's intensity $I_s$:
 \begin{equation}
 \label{i_tot_r_def}
 I_{tot} = I_m + 2 I_s
@@ -1181,11 +1204,29 @@ applies in both equalities:
 I_{s} &= \alpha I_{tot}\\
 P_{s} &= \alpha P_{tot}
 \end{align}
-where $P_{s}$ is the power associated to one sideband and $P_{tot}$ the total power. That is why, we equivelently talk about \textit{intensity} or \textit{power} of a laser here.
+where $P_{s}$ is the power associated to one sideband and $P_{tot}$ the total power. That is why, we equivalently talk about \textit{intensity} or \textit{power} of a laser here.
 
-The measurement are taken from 100\% of modulation down to, ideally, 0\%, by step of 5\%: 100\%, 95\%, 90\%, etc. Until 35\% (included), the offset is of 6MHz which gives two sidebands far of 787.14MHz from the carrier. Below 35\%, the sideband's intensity is drastically reduced and not distinguishible anymore, mainly because the edges of the intensity peak from the carrier \textit{swallow/hide} the very weak intensity from the sidebands. The offset is thus increased to 14MHz, giving 795.14MHz for the frequency shift between the carrier and the sidebands and the curves from the oscilloscope are smoothed: the sideband intensities are visible for 30\%, 25\% and 20\% of modulation. Below 20\%, no additional \textit{tricks} can make the sidebands visible again.
+The measurement are taken from 100\% of modulation down to, ideally, 0\%, by step of 5\%: 100\%, 95\%, 90\%, etc. Until 35\% (included), the offset is of 6MHz which gives two sidebands far of 787.14MHz from the carrier. Below 35\%, the sideband's intensity is drastically reduced and not distinguishible anymore, mainly because the edges of the intensity peak from the carrier \textit{hides} the very weak intensity from the sidebands. The offset is thus increased to 14MHz, giving 795.14MHz for the frequency shift between the carrier and the sidebands. The curves from the oscilloscope are smoothed: the sideband intensities are visible for 30\%, 25\% and 20\% of modulation. Below 20\%, no additional \textit{tricks} can make the sidebands visible again.
 
-The $\alpha$ ratio is plotted on Fig ??
-(explain bessel)
+Fig
+
+The experimental ratio $r$ is plotted on Fig ?? for the set of amplitude described previously. An \textit{exponential} fit of third degrees is represented with the orange curve: a polyonmial fit is applied on the logarithme of the data set then exponentiated (i.e $e^{ax+bx^2+cx^3+d}$ where $a,b,c,d$ are determined numerically). The $\alpha$ ratio is plotted on Fig ?? from the $r$ values given by the exponential fit: the right side is the associated y-axis. At first glance, it is clear that $\alpha$ is null when the modulation amplitude is null and $\alpha$ reach a limit of approximately $0.4$ when the amplitude is 100\%. Moreover, a linear approximation can be done between 40\% and 60\% of amplitude.
+
+The red curve is a \textit{bessel} fit accross all the data points. Indeed, as the detector (not the balanced detector) receives separately the first sideband, the carrier and the second sideband, the intensities read as:
+\begin{align}
+I_m &\simeq \vert J_0(h)\overline{E}e^{i\omega t + \phi} \vert ^2\\
+I_{s,left} &\simeq \vert -J_1(h)\overline{E}e^{i\omega t + \phi - \Omega t} \vert ^2\\
+I_{s,right} &\simeq \vert J_1(h)\overline{E}e^{i\omega t + \phi + \Omega t} \vert ^2
+\end{align}
+and averaging over a couple of periods:
+\begin{align}
+\left\langle I_m \right\rangle &\simeq 2J_1(h)^2\\
+\left\langle I_{s,left} \right\rangle = \left\langle I_{s,right} \right\rangle &\simeq 2J_0(h)^2
+\end{align}
+By definition of the ratio $r$, we get:
+\begin{equation}
+r = \left\langle \frac{I_s}{I_m} \right\rangle = \left( \frac{J_1(h)}{J_0(h)} \right)^2
+\end{equation}
+The variable $h$ is then determined numerically. As we can see, the red curve including every experimental data point is not a good approximation: we suspect a saturation of the modulation device above a certain amplitude where this \textit{bessel formulation} is not valid anymore. Therefore, the green curve is a bessel fit over the first 55\% of amplitude which gives a better approximation. However, even without physical argument, it is easier to trust the exponenital fit and that is why the $\alpha$ ratio is calulated upon it.
 
 \end{document}
