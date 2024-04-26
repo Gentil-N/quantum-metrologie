@@ -6,6 +6,7 @@
 
 \usepackage{mathrsfs}
 \usepackage{amsmath}
+\usepackage{amsthm}
 \usepackage{amssymb}
 \usepackage{esvect}
 \usepackage{stmaryrd}
@@ -19,6 +20,10 @@
 \DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1\,\delimsize\vert\,\mathopen{}#2}
 \DeclareMathOperator{\Tr}{Tr}
 
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
 
 
 \begin{document}
@@ -31,7 +36,7 @@
 My very nice abstract
 \end{abstract}
 
-\chapter{Theoretical Development}
+\chapter{Superadiance simulation}
 \section{Optical Cavity}
 \paragraph{}
 We firstly introduce one of the most common object of quantum optic, namely, the \textit{optical cavity}. It is mainly constitued of two mirrors mounted perpendicularly to the optical axis at a certain distance from each other. The idea behind this simple setup is to select a discret range of wavelengths defined by the space between the mirrors. 
@@ -238,6 +243,7 @@ where $\ket{\psi}$ is a solution of the Schrödinger equation for the JC-hamilto
 
 In our case, we choose the unitary transformation as:
 \begin{equation}
+\label{unitary_trans_def}
 U \stackrel{\text{def}}{=} e^{\frac{i\omega_at}{\hbar}\hat{H}_0} = e^{i\omega_at(\hat{n} + \hat{\sigma}_z)}
 \end{equation}
 where we utilize the common photon number operator of the field, $\hat{n} = \hat{a}^{\dag}\hat{a}$. As the U(1) symmetry is essentially a rotation along the complex unitary circle, we explicitly choose here a rotation of $\omega_at$ which means that the transformed hamiltonian will be placed in the same frame as the atom: one calls this frame the \textit{rotating frame}.
@@ -1133,11 +1139,11 @@ Fig
 
 The mathematical formulation of phase modulation is as follow. Considering the ampltide of an electric field $E(x, t)$ (or an analytic signal in general) as defined in \eqref{eq1}, we write $\overline{E}(x, t)$ as:
 \begin{equation}
-\overline{E}(x, t) \stackrel{\text{def}}{=} \overline{E}e^{i\omega t + \phi}
+\overline{E}(x, t) \stackrel{\text{def}}{=} Ee^{i(\omega t + \phi)}
 \end{equation}
-where $\overline{E}$ is the complex ampltiude (constant), $\omega$ the frequency of this perfectly coherent field and $\phi$ the phase at the origin. The act of \textit{phase modulating} comes while adding $h\sin(\Omega t)$ to the phase $\phi$, where $h$ is the modulation index and $\Omega$ the modulation frequency. Thus:
+where $\overline{E}$ is the real ampltiude (constant), $\omega$ the frequency of this perfectly coherent field and $\phi$ the phase at the origin. The act of \textit{phase modulating} comes while adding $h\sin(\Omega t)$ to the phase $\phi$, where $h$ is the modulation index and $\Omega$ the modulation frequency. Thus:
 \begin{equation}
-\overline{E}(x, t) \rightarrow \overline{E}_{mod}(x, t) \stackrel{\text{def}}{=} \overline{E}e^{i\omega t + h\sin(\Omega t) + \phi}
+\overline{E}(x, t) \rightarrow \overline{E}_{mod}(x, t) \stackrel{\text{def}}{=} Ee^{i(\omega t + h\sin(\Omega t) + \phi)}
 \end{equation}
 The same applies for $\overline{E}^*(x, t) \rightarrow \overline{E}^*_{mod}(x, t)$. Then, using two identities:
 \begin{align}
@@ -1146,11 +1152,11 @@ J_{-n}(z) &= (-1)^nJ_n(z)
 \end{align}
 we find:
 \begin{equation}
-\overline{E}(x, t) = \overline{E}e^{i\omega t + \phi} \left( J_0(h) + \sum_{n=1}^{+\infty} J_n(h)e^{in\Omega t} + \sum_{n=1}^{+\infty} (-1)^n J_n(h)e^{-in\Omega t} \right)
+\overline{E}_{mod}(x, t) = Ee^{i(\omega t + \phi)} \left( J_0(h) + \sum_{n=1}^{+\infty} J_n(h)e^{in\Omega t} + \sum_{n=1}^{+\infty} (-1)^n J_n(h)e^{-in\Omega t} \right)
 \end{equation}
 As we are mainly interested by the first two sidebands and considering that higher orders of sidebands have negligeable ampltidues compared to the first two, we can write:
 \begin{equation}
-\overline{E}(x, t) \simeq \overline{E}e^{i\omega t + \phi} \left( J_0(h) + J_1(h)e^{i\Omega t} - J_1(h)e^{-i\Omega t} \right)
+\overline{E}_{mod}(x, t) \simeq Ee^{i(\omega t + \phi)} \left( J_0(h) + J_1(h)e^{i\Omega t} - J_1(h)e^{-i\Omega t} \right)
 \end{equation}
 where we identify the term involving $J_0$ as the carrier, $J_1(h)$ as the right sideband (with frequency $\omega + \Omega$) and $-J_1(h)$ as the left sideband (with frequency $\omega - \Omega$).
 
@@ -1212,21 +1218,121 @@ Fig
 
 The experimental ratio $r$ is plotted on Fig ?? for the set of amplitude described previously. An \textit{exponential} fit of third degrees is represented with the orange curve: a polyonmial fit is applied on the logarithme of the data set then exponentiated (i.e $e^{ax+bx^2+cx^3+d}$ where $a,b,c,d$ are determined numerically). The $\alpha$ ratio is plotted on Fig ?? from the $r$ values given by the exponential fit: the right side is the associated y-axis. At first glance, it is clear that $\alpha$ is null when the modulation amplitude is null and $\alpha$ reach a limit of approximately $0.4$ when the amplitude is 100\%. Moreover, a linear approximation can be done between 40\% and 60\% of amplitude.
 
-The red curve is a \textit{bessel} fit accross all the data points. Indeed, as the detector (not the balanced detector) receives separately the first sideband, the carrier and the second sideband, the intensities read as:
+The red curve is a \textit{bessel} fit accross all the data points. Indeed, as the detector (not the balanced detector) receives separately the first sideband, the carrier and the second sideband, we evaluate the intensities with the exact formula $I \simeq \overline{E}(x,t)^2$. For the main frequency (i.e the carrier), we calculate:
 \begin{align}
-I_m &\simeq \vert J_0(h)\overline{E}e^{i\omega t + \phi} \vert ^2\\
-I_{s,left} &\simeq \vert -J_1(h)\overline{E}e^{i\omega t + \phi - \Omega t} \vert ^2\\
-I_{s,right} &\simeq \vert J_1(h)\overline{E}e^{i\omega t + \phi + \Omega t} \vert ^2
+I_m &= \left( \overline{E}_{mod,J_0}(x, t) + \overline{E}_{mod,J_0}(x, t)^* \right)^2\\
+&= J_0(h)^2E^2\left(e^{i(\omega t + \phi)} + e^{-i(\omega t + \phi)}\right)^2\\
+&= J_0(h)^2E^2\left( 2 + e^{2i(\omega t + \phi)} + e^{-2i(\omega t + \phi)}\right)\\
+&= 4J_0(h)^2E^2\cos^2(\omega t + \phi)
 \end{align}
-and averaging over a couple of periods:
+Averaging over a couple of periods, we obtain:
+\begin{equation}
+\left\langle I_m \right\rangle \simeq 2J_0(h)^2E^2
+\end{equation}
+With an equivalent reasoning for the two sidebands, we calulate:
 \begin{align}
-\left\langle I_m \right\rangle &\simeq 2J_1(h)^2\\
-\left\langle I_{s,left} \right\rangle = \left\langle I_{s,right} \right\rangle &\simeq 2J_0(h)^2
+I_{s,left} = J_1(h)^2E^2\cos^2(( \omega - \Omega ) t + \phi )\\
+I_{s,right} = J_1(h)^2E^2\cos^2(( \omega + \Omega ) t + \phi )\\
 \end{align}
+which gives by averaging:
+\begin{equation}
+\left\langle I_{s,left} \right\rangle = \left\langle I_{s,right} \right\rangle \simeq 2J_1(h)^2E^2
+\end{equation}
 By definition of the ratio $r$, we get:
 \begin{equation}
-r = \left\langle \frac{I_s}{I_m} \right\rangle = \left( \frac{J_1(h)}{J_0(h)} \right)^2
+r = \frac{\left\langle I_{s,\, left \, or \, right} \right\rangle}{\left\langle I_m \right\rangle} \simeq \left( \frac{J_1(h)}{J_0(h)} \right)^2
 \end{equation}
-The variable $h$ is then determined numerically. As we can see, the red curve including every experimental data point is not a good approximation: we suspect a saturation of the modulation device above a certain amplitude where this \textit{bessel formulation} is not valid anymore. Therefore, the green curve is a bessel fit over the first 55\% of amplitude which gives a better approximation. However, even without physical argument, it is easier to trust the exponenital fit and that is why the $\alpha$ ratio is calulated upon it.
+The variable $h$ is then determined numerically. As we can see, the red curve including every experimental data point is not a good approximation: we suspect a saturation of the modulation device above a certain amplitude where this \textit{bessel formulation} is not valid anymore. Therefore, the green curve is a bessel fit over the first 55\% of amplitude which gives a better approximation for amplitudes below 55\%. However, even without physical argument, it is easier to trust the exponenital fit and that is why the $\alpha$ ratio is calulated upon it.
+
+Fig ?? represents the power difference between the peak at 43MHz and the global noise level on the spectrum analyzer, according to the sideband power: we select an amplitude of modulation with a null offset for the sidebands; we compute the associated sideband power (from a total power of 0.01µW which is constant over the data set); we measure the power difference on the spectrum analyzer. This time, the balanced detector is used instead of the previous \textit{intensity detector}: we are interested by the noise-to-beat ratio for the detector actually used in the final experiment for $g^1$. Therefore, one diode (equivalently left or right) is blocked in order to show the beat, otherwise canceled by substraction of the photocurrent.
+
+Fig
+
+In other words, this figure shows \textit{how visible} is the signal compared to the output power of the cavity creating the 43MHz beat. A logarithmic scale is used on the x-axis in order to clearly dissociate the data at low power. The y-axis is in dB: we substract the beat power (in dBm) to the noise power (in dBm),
+\begin{align}
+\textrm{Power difference} &= 10 \times \log_{10}\left( \frac{\textrm{Beat power}}{1mW} \right) - 10 \times \log_{10}\left( \frac{\textrm{Noise power}}{1mW} \right) \\
+&= 10 \times \log_{10}\left( \frac{\textrm{Beat power}}{\textrm{Noise power}} \right)
+\end{align}
+As we can see, between 20 and 50 picowatts, the 43MHz beat is clearly distinguishable from the global noise level. Therefore, we should be able to retrieve the signal from the detector output when the true superadiant laser shall be used.
+
+\chapter{Data analysis}
+\section{Light detection: classical development}
+
+\appendix
+\chapter{Mathematical complements}
+\section{Jaynes-Cummings model}
+\subsection{Unitary transformation}
+A special case of Baker–Campbell–Hausdorff (BCH) formula may be stated as follow:
+
+\begin{corollary}
+Let's $s \in \mathbb{C}$ then $\hat{A}$ and $\hat{B}$ two operators belonging to an Hilbert space $\mathscr{H}$ such that $\left[ \hat{A}, \hat{B} \right] = \hat{B}c$ with $c \in \mathbb{C}$. Thus: 
+\begin{equation}
+e^{s\hat{A}}\hat{B}e^{-s\hat{A}} = \hat{B}e^{cs}
+\end{equation}
+\end{corollary}
+\begin{proof}
+From BCH formula:
+\begin{align}
+\begin{split}
+e^{s\hat{A}}\hat{B}e^{-s\hat{A}} &= \hat{B} + \left[ \hat{A}, \hat{B} \right]s + \frac{1}{2} \left[ \hat{A}, \left[ \hat{A}, \hat{B} \right] \right] s^2 + ... \\
+&= \hat{B} + \hat{B}cs + \frac{1}{2} \left[ \hat{A}, \hat{B}c \right] s^2\\
+&= \hat{B}(1 + cs + \frac{1}{2}(cs)^2 + ...)\\
+&= \hat{B}e^{cs}
+\end{split}
+\end{align}
+\end{proof}
+
+Then, evaluating each term of the transformed $\hat{H}_{JC}$ with the unitary transformation \eqref{unitary_trans_def} is simply calculating the commutators:
+\begin{align}
+\label{commut_first}
+&\left[ \hat{n} + \hat{\sigma}_z, \hat{n} \right]\\
+&\left[ \hat{n} + \hat{\sigma}_z, \hat{\sigma}_z \right]\\
+\label{commut_sec}
+&\left[ \hat{n} + \hat{\sigma}_z, \hat{\sigma}_+ \hat{a} \right]\\
+&\left[ \hat{n} + \hat{\sigma}_z, \hat{\sigma}_- \hat{a}^\dag \right]\\
+\label{commut_third}
+&\left[ \hat{n} + \hat{\sigma}_z, \hat{\sigma}_+ \hat{a}^\dag \right]\\
+&\left[ \hat{n} + \hat{\sigma}_z, \hat{\sigma}_- \hat{a} \right]
+\end{align}
+For \eqref{commut_first}:
+\begin{equation}
+\left[ \hat{n} + \hat{\sigma}_z, \hat{n} \right] = \left[ \hat{n}, \hat{n} \right] + \left[ \hat{\sigma}_z, \mathbb{1} \right] = 0
+\end{equation}
+Thus:
+\begin{equation}
+U\hbar \omega_c\hat{n}U^\dag = e^{i\omega_a t(\hat{n} + \hat{\sigma}_z)}\hbar\omega_c\hat{n}e^{-i\omega_a t(\hat{n} + \hat{\sigma}_z)} = \hbar\omega_c\hat{n}
+\end{equation}
+For \eqref{commut_sec}:
+\begin{align}
+\left[ \hat{n} + \hat{\sigma}_z, \hat{\sigma}_+ \hat{a} \right] &= \left[ \hat{n}, \hat{\sigma}_+ \hat{a} \right] + \left[ \hat{\sigma}_z, \hat{\sigma}_+ \hat{a} \right]\\
+&= \hat{\sigma}_+ \left[ \hat{n}, \hat{a} \right] + \left[ \hat{\sigma}_z, \hat{\sigma}_+ \right] \hat{a}\\
+&= -\hat{\sigma}_+\hat{a} + \hat{\sigma}_+\hat{a}\\
+&= 0
+\end{align}
+thanks to:
+\begin{equation}
+\left[ \hat{n}, \hat{a} \right] = \hat{a}^\dag\hat{a}\hat{a} - \hat{a}\hat{a}^\dag\hat{a} = -\hat{a}
+\end{equation}
+and:
+\begin{equation}
+\left[ \hat{\sigma}_z, \hat{\sigma}_+ \right] = \frac{1}{2}\left(\left[ \hat{\sigma}_z, \hat{\sigma}_x \right] + i \left[ \hat{\sigma}_z, \hat{\sigma}_y \right] \right) = i\hat{\sigma}_y + \hat{\sigma}_x = \hat{\sigma}_+
+\end{equation}
+by using \eqref{sigma_commut}.
+Then, it comes:
+\begin{equation}
+U\hbar g\hat{\sigma}_+\hat{a}U^\dag = \hbar g\hat{\sigma}_+\hat{a}
+\end{equation}
+For \eqref{commut_third}:
+\begin{align}
+\left[ \hat{n} + \hat{\sigma}_z, \hat{\sigma}_+ \hat{a}^\dag \right] &= \left[ \hat{n}, \hat{\sigma}_+ \hat{a}^\dag \right] + \left[ \hat{\sigma}_z, \hat{\sigma}_+ \hat{a}^\dag \right]\\
+&= \hat{\sigma}_+ \left[ \hat{n}, \hat{a}^\dag \right] + \left[ \hat{\sigma}_z, \hat{\sigma}_+ \right] \hat{a}^\dag\\
+&= 2\hat{\sigma}_+\hat{a}
+\end{align}
+Thus:
+\begin{align}
+U\hbar g\hat{\sigma}_+\hat{a}^\dag U^\dag &= e^{i\omega_a t(\hat{n} + \hat{\sigma}_z)}\hbar g\hat{\sigma}_+\hat{a}^\dag e^{-i\omega_a t(\hat{n} + \hat{\sigma}_z)}\\
+&= e^{2i\omega_a t}\hbar g\hat{\sigma}_+\hat{a}^\dag
+\end{align}
+The same applies for the remaining terms.
 
 \end{document}
