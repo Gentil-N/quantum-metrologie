@@ -1021,7 +1021,7 @@ Fig ?? shows the results for two different powers involved in the local oscillat
 
 Fig
 
-As we can see, the yellow curves (low power) may be considered not saturating the diodes as those curves doesn't reach the same maximum than the red curves (high power).\footnote{Note than this argument, alone, does not allow to decide if the red curves means the saturation of the diodes or not}. We can measure the beam's diameter as roughly 0.6mm for the red curves and 1mm for the yellow curves. Thus, the laser beam is well encompassed into the photodiodes. Secondly, those measurements mean that the power associated to the read curves are saturating the diodes: before the beam hits entirely the photosensitive area, the detector reaches its maximum/minimum of output voltage which is now determined to be $\pm11$ volts.
+As we can see, the yellow curves (low power) may be considered not saturating the diodes as those curves doesn't reach the same maximum than the red curves (high power).\footnote{Note than this argument, alone, does not allow to decide if the red curves means the saturation of the diodes or not.}. We can measure the beam's diameter as roughly 0.6mm for the red curves and 1mm for the yellow curves. Thus, the laser beam is well encompassed into the photodiodes. Secondly, those measurements mean that the power associated to the read curves are saturating the diodes: before the beam hits entirely the photosensitive area, the detector reaches its maximum/minimum of output voltage which is now determined to be $\pm11$ volts.
 
 Note that the whole procedure relies on the horizontale diplacement. Naively, one could repeat the process accross different vertical positions: one should obtain a 2D map of the output voltage according to the relative beam to diode position. Nevertheless, we only check in practice that the ouput voltage cannot be maximized while moving the dectector up or down when the beam reaches the plateau region (This is done with the yellow curves power, knowing that we are not already saturating the diodes).
 
@@ -1093,7 +1093,7 @@ In order to rectify those issues, we shall add a \textit{demodulation} block bet
 
 Fig
 
-The idea is to mix the ouput signal with a well behaved electric sine wave called \textit{reference}: this operation is called a \textit{modulation}. At first order\footnote{The mathematical description of a wave mixer is slightly more complex. However, all the other harmonics are far beyond the highest and lowest frequencies considered at \textit{first order}, hence negligeable for our purpose.}, the wave mixer essentially create the same components than \eqref{list_comp_light_mix} when one mixes two light beams. Namely, for an output frequency $\omega_1$ and a reference of $\omega_2$ we obtain:
+The idea is to mix the ouput signal with a well behaved electric sine wave called \textit{reference}: this operation is called a \textit{modulation}. At first order\footnote{The mathematical description of a wave mixer is slightly more complex. However, all the other harmonics are far beyond the highest and lowest frequencies considered at \textit{first order}, hence negligeable for our purpose.}, the wave mixer essentially creates the same components than \eqref{list_comp_light_mix} when one mixes two light beams. Namely, for an output frequency $\omega_1$ and a reference of $\omega_2$ we obtain:
 \begin{equation}
 \omega_1, \quad \omega_2, \quad \omega_1 + \omega_2, \quad \omega_1 - \omega_2
 \end{equation}
@@ -1137,26 +1137,26 @@ As previously stated, the cavity laser is mixed with the local oscillator to gen
 
 Fig
 
-The mathematical formulation of phase modulation is as follow. Considering the ampltide of an electric field $E(x, t)$ (or an analytic signal in general) as defined in \eqref{eq1}, we write $\overline{E}(x, t)$ as:
+The mathematical formulation of phase modulation is as follow. Considering the ampltide of an electric field $E(t)$ (or an analytic signal in general) as defined in \eqref{eq1}, we write $\overline{E}(t)$ as:
 \begin{equation}
-\overline{E}(x, t) \stackrel{\text{def}}{=} Ee^{i(\omega t + \phi)}
+\overline{E}(x=0, t) \stackrel{\text{def}}{=} Ee^{i(\omega t + \phi)}
 \end{equation}
 where $\overline{E}$ is the real ampltiude (constant), $\omega$ the frequency of this perfectly coherent field and $\phi$ the phase at the origin. The act of \textit{phase modulating} comes while adding $h\sin(\Omega t)$ to the phase $\phi$, where $h$ is the modulation index and $\Omega$ the modulation frequency. Thus:
 \begin{equation}
-\overline{E}(x, t) \rightarrow \overline{E}_{mod}(x, t) \stackrel{\text{def}}{=} Ee^{i(\omega t + h\sin(\Omega t) + \phi)}
+\overline{E}(t) \rightarrow \overline{E}_{mod}(t) \stackrel{\text{def}}{=} Ee^{i(\omega t + h\sin(\Omega t) + \phi)}
 \end{equation}
-The same applies for $\overline{E}^*(x, t) \rightarrow \overline{E}^*_{mod}(x, t)$. Then, using two identities:
+The same applies for $\overline{E}^*(t) \rightarrow \overline{E}^*_{mod}(t)$. Then, using two identities:
 \begin{align}
 e^{iz\sin\theta} &= \sum_{n=-\infty}^{+\infty} J_n(z)e^{in\theta} \quad \textrm{Jacobi-Anger identity}\\
 J_{-n}(z) &= (-1)^nJ_n(z)
 \end{align}
 we find:
 \begin{equation}
-\overline{E}_{mod}(x, t) = Ee^{i(\omega t + \phi)} \left( J_0(h) + \sum_{n=1}^{+\infty} J_n(h)e^{in\Omega t} + \sum_{n=1}^{+\infty} (-1)^n J_n(h)e^{-in\Omega t} \right)
+\overline{E}_{mod}(t) = Ee^{i(\omega t + \phi)} \left( J_0(h) + \sum_{n=1}^{+\infty} J_n(h)e^{in\Omega t} + \sum_{n=1}^{+\infty} (-1)^n J_n(h)e^{-in\Omega t} \right)
 \end{equation}
 As we are mainly interested by the first two sidebands and considering that higher orders of sidebands have negligeable ampltidues compared to the first two, we can write:
 \begin{equation}
-\overline{E}_{mod}(x, t) \simeq Ee^{i(\omega t + \phi)} \left( J_0(h) + J_1(h)e^{i\Omega t} - J_1(h)e^{-i\Omega t} \right)
+\overline{E}_{mod}(t) \simeq Ee^{i(\omega t + \phi)} \left( J_0(h) + J_1(h)e^{i\Omega t} - J_1(h)e^{-i\Omega t} \right)
 \end{equation}
 where we identify the term involving $J_0$ as the carrier, $J_1(h)$ as the right sideband (with frequency $\omega + \Omega$) and $-J_1(h)$ as the left sideband (with frequency $\omega - \Omega$).
 
@@ -1201,7 +1201,7 @@ Rewriting \eqref{i_tot_r_def} gives:
 \begin{equation}
 I_{tot} = I_s (1+2r) \Leftrightarrow I_s = I_{tot} \left( \frac{r}{1+2r} \right)
 \end{equation}
-where $I_{tot}$ is proportional to the measured power of 0.01$\mu$W\footnote{We consider the surface associated to the cross section of laser beam as constant.}. In other words, the factor:
+where $I_{tot}$ is proportional to the measured power of 0.01$\mu$W\footnote{We consider the surface associated to the cross section of laser beams as constant.}. In other words, the factor:
 \begin{equation}
 \alpha \stackrel{\text{def}}{=} \frac{r}{1+2r}
 \end{equation}
@@ -1220,7 +1220,7 @@ The experimental ratio $r$ is plotted on Fig ?? for the set of amplitude describ
 
 The red curve is a \textit{bessel} fit accross all the data points. Indeed, as the detector (not the balanced detector) receives separately the first sideband, the carrier and the second sideband, we evaluate the intensities with the exact formula $I \simeq \overline{E}(x,t)^2$. For the main frequency (i.e the carrier), we calculate:
 \begin{align}
-I_m &= \left( \overline{E}_{mod,J_0}(x, t) + \overline{E}_{mod,J_0}(x, t)^* \right)^2\\
+I_m &= \left( \overline{E}_{mod,J_0}(t) + \overline{E}_{mod,J_0}(t)^* \right)^2\\
 &= J_0(h)^2E^2\left(e^{i(\omega t + \phi)} + e^{-i(\omega t + \phi)}\right)^2\\
 &= J_0(h)^2E^2\left( 2 + e^{2i(\omega t + \phi)} + e^{-2i(\omega t + \phi)}\right)\\
 &= 4J_0(h)^2E^2\cos^2(\omega t + \phi)
@@ -1257,6 +1257,163 @@ As we can see, between 20 and 50 picowatts, the 43MHz beat is clearly distinguis
 
 \chapter{Data analysis}
 \section{Light detection: classical development}
+\paragraph{}
+
+In this section, we shall make a theoretical development of the detection process from a classical point of view, in order to evaluate the frist order correlation function $g^1$. In fact, we shall demonstrate that the ouput signal from the heterodyne detector is not directly $g^1$ but a composition of the cavity's \textit{signal}\footnote{Note that we use here the term "signal" instead of "electric field" because we are going to analyse somehow equivalently the light, current and voltage fields.} and the local oscillator's \textit{signal}. Therefore, we must numerically transform the ouput signal to compute the norm of $g^1$.
+
+We firstly introduce the conecpt of analytic signal. We assume a function $x$ as follow:
+\begin{equation}
+\label{x_r_in_r}
+x(t): \mathbb{R} \rightarrow \mathbb{R}
+\end{equation}
+where $x(t)$ is square-integrable:
+\begin{equation}
+\label{square_integrable}
+\exists \, A \in \mathbb{R} \quad \textrm{s.t} \quad \lim_{T\to\infty} \int_{-T}^{T} x(t)^2\,dt < A
+\end{equation}
+Then \eqref{x_r_in_r} and \eqref{square_integrable} define a real valued analytic signal. For example, the cosine function does not fulfill the square-integrable condition. However, making a restriction as follow:
+\begin{align}
+\begin{split}
+\cos(t)_{restrained}& = \cos(t) \quad \textrm{if} \quad t \in \left[ -T, T \right] \quad \textrm{s.t} \quad T \in \mathbb{R}\\
+&= 0 \quad \quad \quad \textrm{else}
+\end{split}
+\end{align}
+allows this new function to be square-integrable. Then it becomes obvious that any signal can be transformed into an analytic signal thanks to an interval restriction, in the event that the original function does not diverge to infinity in this interval.
+
+Thanks to the Fourier transform, it is possible to show that $x(t)$ may be expressed as\footnote{See Mandel and Wolf p.93}:
+\begin{equation}
+x(t) = \int_0^\infty a(\nu)\cos(\phi(\nu)-2\pi\nu t)\,d\nu \quad \textrm{s.t} \quad a(\nu),\phi(\nu) \quad \textrm{real functions}
+\end{equation}
+then expanding the cosine with the Euler's formula:
+\begin{align}
+x(t) &= \frac{1}{2}\int_0^\infty a(\nu)e^{i(\phi(\nu)-2\pi\nu t)}\,d\nu + \frac{1}{2}\int_0^\infty a(\nu)e^{-i(\phi(\nu)-2\pi\nu t)}\,d\nu\\
+\label{x_def_z_zstar}
+&\stackrel{\text{def}}{=} z(t) + z(t)^*
+\end{align}
+where we defined $z(t)$ as the equivalent of $x(t)$ without the negative frequency components. In other words:
+\begin{equation}
+z(t) = \mathscr{F}^{-1} \left[ t \right]\left\lbrace \,\, \Theta(\nu) \mathscr{F}\left[ \nu \right] \left\lbrace x(t) \right\rbrace \,\, \right\rbrace
+\end{equation}
+where $\Theta(\nu)$ is the Heaviside step function. Thus, $z(t)$ is called the \textit{associated complex analytic signal of $x(t)$}. Therefore, \textit{any real valued signal which does not diverge may be transformed into an analytic signal, hence, expressed in the form \eqref{x_def_z_zstar}}.
+
+The actual electric fields hitting the diodes is \textit{a priori} an unknown signal, which, by essence, is not analytical. However, because the cavity's beam power is limited to a few tens of picowatts and the local oscillator beam is manually adjusted to not saturate the diodes\footnote{See section 2.4, 2.5 and 2.6}, we are certain that the electric fields do not diverge\footnote{In practice, even an extremely high amplitude of a signal can meet the square-integrable requirement (i.e no actual signal may reach \textit{infinity}).}. Also, because the recording time is finite, it becomes clear that the \textit{collected} electric field is an analytic signal. Of course, as we assumed the fields to be lineary and parallely polarized, the signal in question is the amplitude of the given fields impiging on the diodes. Moreover we replace the field amplitude $E(t)$ by the analytic equivalent $x(t)$ where it may represent the cavity signal, the local oscillator or a linear combination of both. We define:
+\begin{align}
+\label{x_eq_zc_zcstar}
+x_c(t) &= z_c(t) + z_c^*(t) \quad \textrm{Cavity's field}\\
+\label{x_eq_zr_zrstar}
+x_r(t) &= z_r(t) + z_r^*(t) \quad \textrm{Local oscillator's field (reference laser)}
+\end{align}
+It is important to notice that \eqref{x_eq_zc_zcstar} and \eqref{x_eq_zr_zrstar} are similar to the phasor representation given in \eqref{eq1}: the associated electric field amplitudes are $E_c(t)$ and $E_r(t)$ respectively. In practice, we use a 50:50 beam splitter which can be formulated as:
+\begin{equation}
+\label{beam_splitter_relation}
+\begin{pmatrix}
+E_{out,a}(t)\\E_{out,b}(t)
+\end{pmatrix}
+=
+\frac{1}{\sqrt{2}}\begin{bmatrix}
+1 & 1\\
+1 & -1
+\end{bmatrix}
+\cdot
+\begin{pmatrix}
+E_c(t)\\E_r(t)
+\end{pmatrix}
+\end{equation}
+where $E_{out,a}(t)$ and $E_{out_b}(t)$ are the first and second output fields of the beam splitter respectively\footnote{Note that equation \eqref{beam_splitter_relation} is  also valid in the quantum case.}. It follows:
+\begin{align}
+\label{x_out_a_def}
+x_{out,a} &= z_{out,a}(t) + z^*_{out,a}(t) = \frac{1}{\sqrt{2}}(x_r(t) + x_c(t))\\
+\label{x_out_b_def}
+x_{out,b} &= z_{out,b}(t) + z^*_{out,b}(t) = \frac{1}{\sqrt{2}}(x_r(t) - x_c(t))
+\end{align}
+
+The physical quantity recorded by the photodiodes is the intensity (or irradiance) which is the power flux of the field, hence, the magnitude of the Poynting vector defined by:
+\begin{equation}
+\vv{S}(t) \stackrel{\text{def}}{=} \frac{1}{\mu_0}\vv{E}_{out}(t) \times \vv{B}_{out}(t)
+\end{equation}
+where $\mu_0$ is the vacuum permeability, $\vv{E}_{out}$ is the vector representation of the electric field from the beam splitter's ouput $a$ or $b$ (i.e we drop the $a,b$ indices) and $\vv{B}_{out}$ its associated magnitic field\footnote{We name it $\vv{B}$ instead of $\vv{H}$ as we consider a vacuum environment, hence, a formulation in terms of microscopic fields.}. Thus, the instantaneous intensities on the diodes read:
+\begin{equation}
+I(t) \stackrel{\text{def}}{=} \vert \vv{S}(t) \vert
+\end{equation}
+In our case, fields are electromagnetic waves which implies that $\vv{E}_{out}$, $\vv{B}_{out}$ and the unit vector $\vv{k}$ in direction of propagation, are orthogonals. In particular:
+\begin{equation}
+\vv{B}_{out} = \frac{1}{c} \vv{k} \times \vv{E}_{out}
+\end{equation}
+where $c$ is the speed of light (in the vacuum). As the fields are linearly polarized, we may artificially choose a frame where the axis are aligned along the vector fields:
+\begin{equation}
+\vv{E}_{out}(t) \stackrel{\text{def}}{=} \begin{pmatrix}
+E_{out}(t)\\0\\0
+\end{pmatrix}
+\quad\quad
+\vv{B}_{out}(t) \stackrel{\text{def}}{=} \begin{pmatrix}
+0\\B_{out}(t)\\0
+\end{pmatrix}
+\quad\quad
+\vv{k} \stackrel{\text{def}}{=} \begin{pmatrix}
+0\\0\\1
+\end{pmatrix}
+\quad\quad
+\end{equation}
+Thus:
+\begin{equation}
+\vv{B}_{out}(t) = \frac{1}{c}\begin{pmatrix}
+0\\E_{out}(t)\\0
+\end{pmatrix}
+\Rightarrow
+\vv{S} = \frac{1}{\mu_0 c}\begin{pmatrix}
+0\\0\\E_{out}(t)^2
+\end{pmatrix}
+\end{equation}
+Finally, the intensities on the photodiodes read:
+\begin{align}
+I(t) &= \left( c\epsilon_0 E_{out}(t) \right)^2\\
+I(t) &= \left( c\epsilon_0 E_{out}(t) \right)^2\\
+\end{align}
+where $\epsilon_0$ is the vacuum permittivity and we used the relation $c=1/\sqrt{\mu_0\epsilon_0}$. The unit of the irradiance is in watt per squared meter (W/m² i.e a power per unit of surface). Then it comes:
+\begin{equation}
+I(t) \propto x_{out}(t)^2
+\end{equation}
+Moreover, it is possible to approximate the intensity as\footnote{Here, the constants $c\epsilon_0$ is swallowed into the unit of the E-field, that is to say, we write $I(t) = E_{out}(t)^2$.}:
+\begin{equation}
+I(t) \simeq \overline{E}_{out}^*(t)\overline{E}_{out}(t) \Rightarrow I(t) \simeq z_{out}^*(t)z_{out}(t)
+\end{equation}
+where, from \eqref{x_out_a_def} and \eqref{x_out_b_def}, $z_{out}(t)$ are expressed by:
+\begin{align}
+z_{out,a}(t) &= \frac{1}{\sqrt{2}}(z_r(t) + z_c(t))\\
+z_{out,a}(t) &= \frac{1}{\sqrt{2}}(z_r(t) - z_c(t))
+\end{align}
+This approximation is valid only if we consider the intensity as a mean over a certain time interval. For a quasi-monochromatic signal with frequency $\omega$ and linewidth $\Delta\omega$, it does not remove the slow variations of period $1/\Delta\omega$ created by the envelop. However, this approximation \textit{hides} the fast variations of period $1/\omega$.\footnote{See Mandel and Wolf p.100.} In other words, in the frequency domains, it is the equivalent of applying a rectangular window of a certain width over the Fourier transform.
+
+Firstly we consider the exact approach:
+\begin{align}
+I_a(t) &\propto x_{out,a}(t) = \frac{1}{2} (x_c(t)^2 + x_r(t)^2 + 2x_c(t)x_r(t))\\
+I_b(t) &\propto x_{out,b}(t) = \frac{1}{2} (x_c(t)^2 + x_r(t)^2 - 2x_c(t)x_r(t))
+\end{align}
+Now, as stated in Chapter 2, the role of a photodiode is to convert the intensity signal into a current signal with a certain efficiency\footnote{Namely the quantum efficiency $\eta$.}. Then, the photocurrents $i_{a,b}(t)$ are directly proportional to the intensities $I_{a,b}(t)$. By the principle of the balanced detection, the photocurrents are substracted:
+\begin{equation}
+\label{i_a_minus_i_b}
+i_a(t) - i_b(t) \propto 2x_c(t)x_r(t)
+\end{equation}
+Without further development, we can already see that the current's signal obtained is the cavity's signal \textit{modulated} by twice the signal of the local oscillator, which allows us to tune the amplitude of the signal read on the oscilloscope, by adjusting the power of the reference laser.
+
+The transformation \textit{current to voltage} does not alter the relation \eqref{i_a_minus_i_b} as the transimpedance amplifier does not modify the variations of the signal but only its amplitude: this operation adds a factor in front of $2x_c(t)x_r(t)$ which vanishes into the proportional sign of \eqref{i_a_minus_i_b}. In short, the output voltage is actually dependent on $2x_c(t)x_r(t)$.
+
+Now, we make two hypothesis on the reference and cavity beams which, after all, are naturals:
+\begin{itemize}
+	\item The local oscillator exhibit a perfectly monochromatic/coherent light of frequency $\omega_{r}$.\footnote{Here, $\omega_{r}$ is equivalent to $\omega_{LO}$ in Chapter 2: it is renamed by the sake of consistency in the indices.}
+	\item The cavity's beam is quasi-monochromatic with a centered frequency $\omega_{c}$.
+\end{itemize}
+Hence, we can redefine $x_r(t)$ as:
+\begin{equation}
+x_r(t) = z_r(t) + z^*_r(t) = \beta e^{i\omega_{r}t} + \beta^* e^{-i\omega_{r}t}
+\end{equation}
+where $\beta$ is the complex ampltiude (i.e including a phase). Similarly for $x_c(t)$:
+\begin{equation}
+x_c(t) = z_c(t) + z^*_c(t) = \alpha(t) e^{i\omega_{c}t} + \alpha(t)^* e^{-i\omega_{c}t}
+\end{equation}
+
+talk about removing freq omega from fourier transform, slow varying envelop
+
 
 \appendix
 \chapter{Mathematical complements}

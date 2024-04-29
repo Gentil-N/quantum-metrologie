@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2024.3.28)  26 APR 2024 17:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2024.3.28)  29 APR 2024 20:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -348,16 +348,16 @@ n the in-ter-est-ing $\OML/cmm/m/it/12 ^^N!=\OT1/cmr/m/n/12 (2\OML/cmm/m/it/12
 Chapter 3.
 [43
 
-]
+] [44] [45] [46]
 Appendix A.
-[44
+[47
 
-] [45] (./book.aux) ) 
+] [48] (./book.aux) ) 
 Here is how much of TeX's memory you used:
- 4476 strings out of 476091
- 69385 string characters out of 5794081
+ 4486 strings out of 476091
+ 69545 string characters out of 5794081
  1881330 words of memory out of 5000000
- 24778 multiletter control sequences out of 15000+600000
+ 24788 multiletter control sequences out of 15000+600000
  529504 words of font info for 110 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,27n,62p,1655b,245s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -389,10 +389,10 @@ ols/msbm7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb
 /texmf-dist/fonts/type1/public/stmaryrd/stmary10.pfb></usr/share/texlive/texmf-
 dist/fonts/type1/public/esvect/vect10.pfb></usr/share/texlive/texmf-dist/fonts/
 type1/public/esvect/vect8.pfb>
-Output written on book.pdf (47 pages, 472233 bytes).
+Output written on book.pdf (50 pages, 489785 bytes).
 PDF statistics:
- 306 PDF objects out of 1000 (max. 8388607)
- 196 compressed objects within 2 object streams
+ 317 PDF objects out of 1000 (max. 8388607)
+ 203 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
