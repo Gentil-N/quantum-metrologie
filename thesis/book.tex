@@ -804,8 +804,8 @@ I_{total}(t) = \vv{E}_{total}(t)^2 = \left(\vv{E}_{cav}(t) + \vv{E}_{LO}(t)\righ
 \end{equation} 
 one gets four different terms\footnote{See annexe ??}:
 \begin{align}
-I_{total,a}(t) &= \vert\vv{E}_{cav}\vert^2\cos^2(\omega_{cav}t)\\
-I_{total,b}(t) &= \vert\vv{E}_{LO}\vert^2\cos^2(\omega_{LO}t)\\
+I_{total,a}(t) &= \vert\vv{E}_{cav}\vert^2\left(1 + \cos(2\omega_{cav}t)\right)\\
+I_{total,b}(t) &= \vert\vv{E}_{LO}\vert^2\left(1 + \cos(2\omega_{LO}t)\right)\\
 I_{total,c}(t) &= \vv{E}_{cav}\cdot\vv{E}_{LO}\cos\left((\omega_{cav} - \omega_{LO})t\right)\\
 I_{total,d}(t) &= \vv{E}_{cav}\cdot\vv{E}_{LO}\cos\left((\omega_{cav} + \omega_{LO})t\right)
 \end{align}
@@ -813,20 +813,20 @@ where $I_{total}(t) = I_{total,a}(t) + I_{total,b}(t) + I_{total,c}(t) + + I_{to
 
 The experiement is configured as the input electric fields being linearly and parallely polarized: so we consider $\vv{E}_{cav}$ and $\vv{E}_{LO}$ as such. This simplifies the equation by only taking into account the amplitude of the fields instead of their vector components. Also, as the intensity calculation involve a scalar product of the electric vector fields, the collinear polarization allows to maximise the light power when mixing two E-fields. We obtain:
 \begin{align}
-I_{total,a}(t) &= E_{cav}^2\cos^2(\omega_{cav}t)\\
-I_{total,b}(t) &= E_{LO}^2\cos^2(\omega_{LO}t)\\
+I_{total,a}(t) &= E_{cav}^2\left(1 + \cos(2\omega_{cav}t)\right)\\
+I_{total,b}(t) &= E_{LO}^2\left(1 + \cos(2\omega_{LO}t)\right)\\
 \label{mix_hetero_ic}
 I_{total,c}(t) &= E_{cav}E_{LO}\cos\left((\omega_{cav} - \omega_{LO})t\right)\\
 \label{mix_hetero_id}
 I_{total,d}(t) &= E_{cav}E_{LO}\cos\left((\omega_{cav} + \omega_{LO})t\right)
 \end{align}
 
-In other words, the detected intensity, which is propotional to the total intensity, has four \textit{beat mode} as one would see on a spectrum analyzer: $\omega_{cav}$, $\omega_{LO}$, $\omega_{cav} - \omega_{LO}$ and $\omega_{cav} + \omega_{LO}$. As stated in the previous section, the cavity frequency is in order of THz, which is undetectable for a realistic detector. Now, if we set the frequency of the local oscillator of the same order of magnitude as $\omega_{cav}$ but \textit{slightly} shifted with $\omega_{LO} = \omega_{cav} + \delta\omega$ and $\delta\omega$ is a frequency belonging to the bandwidth of the detector, then we get again four beats:
+In other words, the detected intensity, which is propotional to the total intensity, has four \textit{beat mode} as one would see on a spectrum analyzer: $2\omega_{cav}$, $2\omega_{LO}$, $\omega_{cav} - \omega_{LO}$ and $\omega_{cav} + \omega_{LO}$. As stated in the previous section, the cavity frequency is in order of THz, which is undetectable for a realistic detector. Now, if we set the frequency of the local oscillator of the same order of magnitude as $\omega_{cav}$ but \textit{slightly} shifted with $\omega_{LO} = \omega_{cav} + \delta\omega$ and $\delta\omega$ is a frequency belonging to the bandwidth of the detector, then we get again four beats:
 \begin{equation}
 \label{list_comp_light_mix}
-\omega_{cav}, \quad\quad \omega_{cav} + \delta\omega, \quad\quad \delta\omega, \quad\quad 2\omega_{cav} + \delta\omega
+2\omega_{cav}, \quad\quad 2\omega_{cav} + 2\delta\omega, \quad\quad \delta\omega, \quad\quad 2\omega_{cav} + \delta\omega
 \end{equation}
-The only detected beat is $\delta\omega$ as all the others are of order of $\omega_{cav}$ (i.e in few hundreds of Thz). Thereby, the detector is sensitive to the frequency variations of $I_{total,c}(t)$ only. Moreover, this is not the only advantage of adding a local oscillator. Indeed, one may notice that the intensity term \eqref{mix_hetero_ic} is dependent to the amplitude of the cavity field \textit{and} the amplitude of the local oscillator. In that way, we are able to tune the total light intensity observed and face the problem of low power from the cavity field: the local oscillator is a well controlled laser and if, for example, the $E_{cav}$-field power is in order of picowatts (i.e well below the range of detected power), it is enough to power up the reference laser in order to detect the expected beat again.
+The only detected beat is $\delta\omega$ as all the others are of order of $2\omega_{cav}$ (i.e in few hundreds of Thz). Thereby, the detector is sensitive to the frequency variations of $I_{total,c}(t)$ only. Moreover, this is not the only advantage of adding a local oscillator. Indeed, one may notice that the intensity term \eqref{mix_hetero_ic} is dependent to the amplitude of the cavity field \textit{and} the amplitude of the local oscillator. In that way, we are able to tune the total light intensity observed and face the problem of low power from the cavity field: the local oscillator is a well controlled laser and if, for example, the $E_{cav}$-field power is in order of picowatts (i.e well below the range of detected power), it is enough to power up the reference laser in order to detect the expected beat again.
 
 Finally, the principle of photocurrent substraction is called a balanced detection. As we substract the two photocurrent, the resulting electric signal should be null in the case where both fields are equal. In that way, a very samll variation in one arm should give a non-null signal: this setup is extremely sensitive to small variations. However, even with the exact same field hitting both diodes of the dectector, some noise still resides. We distinguish two types of noise:
 \begin{itemize}
@@ -1095,13 +1095,13 @@ Fig
 
 The idea is to mix the ouput signal with a well behaved electric sine wave called \textit{reference}: this operation is called a \textit{modulation}. At first order\footnote{The mathematical description of a wave mixer is slightly more complex. However, all the other harmonics are far beyond the highest and lowest frequencies considered at \textit{first order}, hence negligeable for our purpose.}, the wave mixer essentially creates the same components than \eqref{list_comp_light_mix} when one mixes two light beams. Namely, for an output frequency $\omega_1$ and a reference of $\omega_2$ we obtain:
 \begin{equation}
-\omega_1, \quad \omega_2, \quad \omega_1 + \omega_2, \quad \omega_1 - \omega_2
+2\omega_1, \quad 2\omega_2, \quad \omega_1 + \omega_2, \quad \omega_1 - \omega_2
 \end{equation}
 Now if we set that $\omega_1$ corresponds to our 43MHz and $\omega_2$ of the same frequency, then we get four harmonics at the respective frequencies:
 \begin{equation}
-43\,\textrm{MHz}, \quad 43\,\textrm{MHz}, \quad 86\,\textrm{MHz}, \quad 0\,\textrm{MHz}
+86\,\textrm{MHz}, \quad 86\,\textrm{MHz}, \quad 86\,\textrm{MHz}, \quad 0\,\textrm{MHz}
 \end{equation}
-In other words, the modulation process translates the spectrum with 43MHz to the left. Thus, a signal at 42MHz for example, will become a signal of -1MHz. By symmetry of the spectrum, this signal will superpose with a previous 44MHz signal also translated to 1MHz. 
+In other words, the modulation process translates the spectrum with 43MHz to the left (if we only take into account the term $\omega_1 -\omega_2$. Thus, a signal at 42MHz for example, will become a signal of -1MHz. By symmetry of the spectrum, this signal will superpose with a previous 44MHz signal also translated to 1MHz. 
 
 As sketched on previous Fig ??, we place a low pass filter after the wave mixer which removes all the harmonics higher than a certain frequency value. In practice, we set it to 100kHz and this selection allows us to only keep the DC signal with some slow-varying signals which corresponds to the envelop of a quasi-monochromatic field: the electric signal showed on the oscilloscope is somehow the transposed signal ensemble from $43\pm 0.1MHz$. This operation is called a \textit{demodulation} as we modulate the original signal in order to remove its main frequency.
 
@@ -1380,16 +1380,16 @@ I(t) \simeq \overline{E}_{out}^*(t)\overline{E}_{out}(t) \Rightarrow I(t) \simeq
 where, from \eqref{x_out_a_def} and \eqref{x_out_b_def}, $z_{out}(t)$ are expressed by:
 \begin{align}
 z_{out,a}(t) &= \frac{1}{\sqrt{2}}(z_r(t) + z_c(t))\\
-z_{out,a}(t) &= \frac{1}{\sqrt{2}}(z_r(t) - z_c(t))
+z_{out,b}(t) &= \frac{1}{\sqrt{2}}(z_r(t) - z_c(t))
 \end{align}
-This approximation is valid only if we consider the intensity as a mean over a certain time interval. For a quasi-monochromatic signal with frequency $\omega$ and linewidth $\Delta\omega$, it does not remove the slow variations of period $1/\Delta\omega$ created by the envelop. However, this approximation \textit{hides} the fast variations of period $1/\omega$.\footnote{See Mandel and Wolf p.100.} In other words, in the frequency domains, it is the equivalent of applying a rectangular window of a certain width over the Fourier transform.
+This approximation is valid only if we consider the intensity as a mean over a certain time interval. For a quasi-monochromatic signal with frequency $\omega$ and linewidth $\Delta\omega$, it does not remove the slow variations of period $1/\Delta\omega$ created by the envelop. However, this approximation \textit{hides} the fast variations of period $1/\omega$.\footnote{See Mandel and Wolf p.100.}
 
 Firstly we consider the exact approach:
 \begin{align}
 I_a(t) &\propto x_{out,a}(t) = \frac{1}{2} (x_c(t)^2 + x_r(t)^2 + 2x_c(t)x_r(t))\\
 I_b(t) &\propto x_{out,b}(t) = \frac{1}{2} (x_c(t)^2 + x_r(t)^2 - 2x_c(t)x_r(t))
 \end{align}
-Now, as stated in Chapter 2, the role of a photodiode is to convert the intensity signal into a current signal with a certain efficiency\footnote{Namely the quantum efficiency $\eta$.}. Then, the photocurrents $i_{a,b}(t)$ are directly proportional to the intensities $I_{a,b}(t)$. By the principle of the balanced detection, the photocurrents are substracted:
+Now, as stated in Chapter 2, the role of a photodiode is to convert the intensity signal into a current signal with a certain efficiency\footnote{Namely, the quantum efficiency $\eta$.}. Then, the photocurrents $i_{a,b}(t)$ are directly proportional to the intensities $I_{a,b}(t)$. By the principle of the balanced detection, the photocurrents are substracted:
 \begin{equation}
 \label{i_a_minus_i_b}
 i_a(t) - i_b(t) \propto 2x_c(t)x_r(t)

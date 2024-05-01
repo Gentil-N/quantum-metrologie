@@ -2,6 +2,7 @@ from scipy.fft import fft, ifft, fftfreq
 import random
 import numpy as np
 from scipy import integrate
+from matplotlib import pyplot as plt
 
 def import_signal(filename: str):
     file = open(filename)
@@ -62,6 +63,25 @@ def bandpass_filter(signal, start_time, stop_time, low_freq_limit, high_freq_lim
     indices = np.where(((freq_list <= low_freq_limit) & (freq_list >= -low_freq_limit)) | (freq_list >= high_freq_limit) | (freq_list <= -high_freq_limit))
     fsignal[indices] = 0
     return np.real(ifft(fsignal))
+
+def plot_signal(signal, start_time, stop_time):
+    sample_count = len(signal)
+    time = np.linspace(start_time, stop_time, sample_count)
+    fig1, ax1 = plt.subplots(1, 1)
+    fig1.set_size_inches(18.5, 10.5)
+    ax1.plot(time, signal, label="freq")
+    ax1.legend()
+    plt.show()
+
+def plot_freq(signal, start_time, stop_time):
+    sample_count = len(signal)
+    freq_list = fftfreq(sample_count, (stop_time - start_time) / sample_count)
+    fsignal = fft(signal)
+    fig1, ax1 = plt.subplots(1, 1)
+    fig1.set_size_inches(18.5, 10.5)
+    ax1.plot(freq_list, np.real(fsignal), label="freq")
+    ax1.legend()
+    plt.show()
 
 def create_hilbert_pair_for_list(f_list, start_time, stop_time):
     g_list = []
