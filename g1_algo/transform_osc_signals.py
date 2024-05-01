@@ -25,9 +25,9 @@ for i in range(START_SIGNAL, STOP_SIGNAL + 1):
     g = algo.get_hilbert_pair(f, START_TIME, STOP_TIME)
     #f_list.append(f)
     print("Exporting f...")
-    algo.export_signal("./f" + str(i), f)
+    algo.export_signal("./temp_fg/f" + str(i), f)
     print("Exporting g...")
-    algo.export_signal("./g" + str(i), g)
+    algo.export_signal("./temp_fg/g" + str(i), g)
 
 #for f in f_list[:-4]:
 #    fig0, ax0 = plt.subplots(1, 1)

@@ -58,7 +58,7 @@ void write_file_darray(const char *filename, arr2<float> &array)
 /**
  * Set cutoff to zero in order to remove the cutoff behavior
  */
-std::vector<float> read_file(const char *filename, size_t cutoff)
+std::vector<float> read_file(const char *filename, size_t cutoff_start, size_t cutoff_stop)
 {
     std::cout << "Start reading file...";
     std::string line;
@@ -69,10 +69,18 @@ std::vector<float> read_file(const char *filename, size_t cutoff)
         size_t i = 0;
         while (getline(file, line))
         {
-            if (i >= cutoff && cutoff != 0)
+            if (i < cutoff_start && cutoff_start != 0)
+            {
+                ++i;
+                continue;
+            }
+            else if (i >= cutoff_stop && cutoff_stop != 0)
                 break;
-            array.push_back(std::stof(line));
-            ++i;
+            else
+            {
+                array.push_back(std::stof(line));
+                ++i;
+            }
         }
         file.close();
     }
@@ -80,6 +88,7 @@ std::vector<float> read_file(const char *filename, size_t cutoff)
     {
         std::cerr << "Error opening the file " << filename << std::endl;
     }
+    std::cout << array.size() << std::endl;
     std::cout << "done" << std::endl;
     return array;
 }
@@ -420,16 +429,17 @@ int main()
     write_file(filename.c_str(), array);
     std::vector<float> new_array = read_file(filename.c_str());*/
 
-    const size_t START_SIGNAL = 0, STOP_SIGNAL = 10;
-    const size_t CUTOFF = 50000;
+    const size_t START_SIGNAL = 0, STOP_SIGNAL = 9;
+    const size_t CUTOFF_START = 500000;
+    const size_t CUTOFF_STOP = 550000;
     arr2<float> f_list, g_list;
     for (size_t i = START_SIGNAL; i < STOP_SIGNAL + 1; ++i)
     {
-        f_list.push_back(read_file((std::string("./f") + std::to_string(i)).c_str(), CUTOFF));
+        f_list.push_back(read_file((std::string("./temp_fg/f") + std::to_string(i)).c_str(), CUTOFF_START, CUTOFF_STOP));
     }
     for (size_t i = START_SIGNAL; i < STOP_SIGNAL + 1; ++i)
     {
-        g_list.push_back(read_file((std::string("./g") + std::to_string(i)).c_str(), CUTOFF));
+        g_list.push_back(read_file((std::string("./temp_fg/g") + std::to_string(i)).c_str(), CUTOFF_START, CUTOFF_STOP));
     }
     //arr2<float> g1_norm = compute_g1_norm(f_list, g_list);
     //std::cout << "Downscaling..." << std::endl;

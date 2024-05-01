@@ -31,7 +31,7 @@ def process(root_path, name, add, low_pass, high_pass):
         time = fileh5[key_time][()].tolist()
         start_time = time[0]
         stop_time = time[-1]
-        print(start_time, " ", stop_time)
+        print(time[500000], " ", time[550000])
         f = fileh5[key_channels][()][0].tolist()
         #algo.plot_freq(f, start_time, stop_time)
         #exit()
@@ -42,9 +42,9 @@ def process(root_path, name, add, low_pass, high_pass):
         g = algo.get_hilbert_pair(f, start_time, stop_time)
         #f_list.append(f)
         print("Exporting f...")
-        algo.export_signal("./f" + str(i), f)
+        algo.export_signal("./temp_fg/f" + str(i), f)
         print("Exporting g...")
-        algo.export_signal("./g" + str(i), g)
+        algo.export_signal("./temp_fg/g" + str(i), g)
         print(" done")
 
 process(PATH_1, NAME, ADD_1_0, LOW_FREQ_BAND_PASS_1, HIGH_FREQ_BAND_PASS_1)
