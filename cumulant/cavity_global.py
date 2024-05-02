@@ -8,7 +8,7 @@ SPIN_NUM = ATOM_COUNT / 2.0
 SPIN_DIM = ATOM_COUNT + 1 # 2 * N / 2 + 1
 FOCK_DIM = PHOTON_CAPACITY + 1
 
-hbar = 1.05457182e-34 # hbar canceled inside the matrix definition in qtip (i.e S-matix doesn't implement hbar)
+hbar = 1.0 #1.05457182e-34 # hbar canceled inside the matrix definition in qtip (i.e S-matix doesn't implement hbar)
 delta = 0.0
 true_g = 0.0#10.0
 g = 802#true_g / np.sqrt(ATOM_COUNT)

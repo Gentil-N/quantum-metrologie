@@ -512,6 +512,7 @@ Firstly, even if we go into more details in chapter ?? about their signification
 
 Thereby, in the case of a non-stationary electric field, one can define the first order correlation function as:
 \begin{equation}
+\label{g1_classic_def}
 {\displaystyle g ^{1}(t_{1},t_{2})\stackrel{\text{def}}{=}{\frac {\left\langle E^{*}(t_{1})E(t_{2})\right\rangle }{\sqrt{\left\langle \left|E(t_{1})\right|^{2}\right\rangle \left\langle \left|E(t_{2})\right|^{2}\right\rangle }}}}
 \end{equation}
 where $E(t) \in \mathbb{C}$ is the phasor representation of the electric field and the mean symbol $\left\langle \cdot \right\rangle$ is an ensemble average over a set of electric signal. Note that we also make the assumption that the correlation measurement is done at $r_1 = r_2 = 0$ for both detectors of the electric field.
@@ -1288,7 +1289,7 @@ then expanding the cosine with the Euler's formula:
 \begin{align}
 x(t) &= \frac{1}{2}\int_0^\infty a(\nu)e^{i(\phi(\nu)-2\pi\nu t)}\,d\nu + \frac{1}{2}\int_0^\infty a(\nu)e^{-i(\phi(\nu)-2\pi\nu t)}\,d\nu\\
 \label{x_def_z_zstar}
-&\stackrel{\text{def}}{=} z(t) + z(t)^*
+&\stackrel{\text{def}}{=} z(t) + z(t)^* = 2\Re\left\lbrace z(t) \right\rbrace
 \end{align}
 where we defined $z(t)$ as the equivalent of $x(t)$ without the negative frequency components. In other words:
 \begin{equation}
@@ -1409,17 +1410,96 @@ x_r(t) = z_r(t) + z^*_r(t) = \beta e^{i\omega_{r}t} + \beta^* e^{-i\omega_{r}t}
 \end{equation}
 where $\beta$ is the complex ampltiude (i.e including a phase). Similarly for $x_c(t)$:
 \begin{equation}
-x_c(t) = z_c(t) + z^*_c(t) = \alpha(t) e^{i\omega_{c}t} + \alpha(t)^* e^{-i\omega_{c}t}
+x_c(t) = z_c(t) + z^*_c(t) = \alpha(t) e^{i\omega_{c}t} + \alpha^*(t) e^{-i\omega_{c}t}
 \end{equation}
+where, now, the complex amplitude $\alpha(t)$ is time dependent. In other words, $\alpha(t)$ involves all the frequencies of the spectrum of $x_c(t)$ except the main frequency $\omega_{c}$ which has been removed: $\alpha(t)$ is the slow varying envelop of the cavity's signal representing the linewidth of the quasi-monochromatic cavity's beam\footnote{See Mandel and Wolf p.98.}.
 
-talk about removing freq omega from fourier transform, slow varying envelop
+Therefore, from \eqref{i_a_minus_i_b}, we obtain:
+\begin{align}
+\begin{split}
+\label{iaib_temp}
+i_a(t) - i_b(t) \propto 2 ( &\alpha(t)\beta e^{i(\omega_c + \omega_r)t} + \alpha^*(t)\beta^* e^{-i(\omega_c + \omega_r)t} + \\
+&\alpha(t)\beta^* e^{i(\omega_c - \omega_r)t} + \alpha^*(t)\beta e^{-i(\omega_c - \omega_r)t} )
+\end{split}
+\end{align}
+which clearly gives, on a fourier spectrum, the two beats $\omega_c + \omega_r$ and $\omega_c - \omega_r$, associted to their opposite $-(\omega_c + \omega_r)$ and $\omega_r - \omega_c$. As we already argued in Chapter 2, the photodiodes of the heterodyne detector are unable to collect the frequencies higher than, roughly, 100MHz. Thereby, the frist two terms of \eqref{iaib_temp} may be neglected:
+\begin{equation}
+i_a(t) - i_b(t) \propto 2 \left(\alpha(t)\beta^* e^{i(\omega_c - \omega_r)t} + \alpha^*(t)\beta e^{-i(\omega_c - \omega_r)t} \right) \stackrel{\text{def}}{=} f(t)
+\end{equation}
+We can rewrite:
+\begin{equation}
+f(t) = 2(z_c(t) z_r^*(t) + z_c^*(t) z_r(t)) = 4 \Re \left\lbrace z_c^*(t)z_r(t) \right\rbrace
+\end{equation}
+It is evident that the product $z_c^*(t)z_r(t)$ generates a new associated complex analytic signal of $f(t)$:
+\begin{equation}
+f(t) = 2\Re \left\lbrace z_f(t) \right\rbrace \quad \textrm{s.t} \quad z_f(t) \stackrel{\text{def}}{=} 2z_c^*(t)z_r(t)
+\end{equation}
+Thus $f(t)$ is by construction an analytic signal thanks to \eqref{x_def_z_zstar}. It is possible to show that $f(t)$ is the Hilbert transform of another analytic signal, that we name $g(t)$, such that\footnote{See Mandel and Wolf 3.1-12.}
+\begin{equation}
+z_f(t) = \frac{1}{2} \left( f(t) + i g(t) \right)
+\end{equation}
+In other words, because $f(t)$ is analytic, we can reconstruct the imaginary part of $z_f(t)$. For example, if $f(t)$ is a simple cosine function, then $g(t)$ is a sine function, which clearly shows that $z_f(t)$ is a complex exponential rotating with the same frequency and dephased as $f(t)$ and $g(t)$. $f(t)$ and $g(t)$ form an Hilbert pair. It can be proven that one way to retreive $g(t)$, which is the simplest in terms of time/power computation, is as follow:
+\begin{equation}
+g(t) = \Im \left\lbrace \mathscr{F}^{-1}[t]\left\lbrace sign(\nu) \cdot \mathscr{F}[\nu]\left\lbrace f(t) \right\rbrace \right\rbrace \right\rbrace
+\end{equation}
+which corresponds to:
+\begin{itemize}
+	\item Computing the Fourier transform of $f(t)$.
+	\item Replacing the spectrum, only for the negative frequencies, by its opposite.
+	\item Computing the inverse Fourier transform.
+	\item Taking the imaginary part.
+\end{itemize}
+It is now possible to isolate $z_c^*(t)$:
+\begin{equation}
+z_f(t) = 2z_c^*(t)z_r(t) = \frac{1}{2} (f(t) + ig(t)) \Rightarrow z_c^*(t) = \frac{1}{4z_r(t)} (f(t) + ig(t))
+\end{equation}
+From that, we may compute $g^1$ in the classical way. Indeed, considering a non-stationary process generating the cavity's beam, \eqref{g1_classic_def} gives in that case:
+\begin{equation}
+\label{g1_in_our_case}
+g^1(t_1,t_2) = \frac{\left\langle z_c^*(t_1)z_c(t_2) \right\rangle}{\sqrt{\left\langle \vert z_c(t_1) \vert ^2 \right\rangle \left\langle \vert z_c(t_2) \vert ^2 \right\rangle}}
+\end{equation}
+For the unknows in the denominator, we calculate:
+\begin{equation}
+\vert z_c(t) \vert ^2 = z_c^*(t)z_c(t) = \frac{f(t)^2 + g(t)^2}{16\vert z_r(t) \vert^2}
+\end{equation}
+For the numerator:
+\begin{equation}
+z_c^*(t_1)z_c(t_2) = \frac{f(t_1)f(t_2) + g(t_1)g(t_2) + i (g(t_1)f(t_2) - f(t_1)g(t_2))}{16z_r^*(t_2)z_r(t_1)}
+\end{equation}
+Replacing those terms into \eqref{g1_in_our_case} gives:
+\begin{equation}
+g^1(t_1,t_2) = \frac{\left\langle f(t_1)f(t_2) + g(t_1)g(t_2) + i \left]g(t_1)f(t_2) - f(t_1)g(t_2)\right] \right\rangle e^{i\omega_r(t_1 - t_2)}}{\sqrt{\left\langle f(t_1)^2 + g(t_1)^2 \right\rangle \left\langle f(t_2)^2 + g(t_2)^2 \right\rangle}}
+\end{equation}
+where we used the relations:
+\begin{align}
+z_r^*(t_2)z_r(t_1) &= \vert \beta \vert^2 e^{i\omega_r(t_1 - t_2)}\\
+\vert z_r(t_1) \vert^2 = \vert z_c(t_1) \vert^2 &= \vert \beta \vert^2
+\end{align}
+Note that the proportionality sign in \eqref{i_a_minus_i_b} vanishes thanks to the normalization factor of $g^1$ (i.e the denominator): the quantum efficiency is not involved in the signal processing treatment. Then, as the interesting quantity is the norm of $g^1$, we compute:
+\begin{equation}
+\label{g1_comput_form}
+\vert g^1(t_1, t_2) \vert = \sqrt{\frac{\left\langle f^n(t_1)f^n(t_2) + g^n(t_1)g^n(t_2) \right\rangle^2_N + \left\langle g^n(t_1)f^n(t_2) - f^n(t_1)g^n(t_2) \right\rangle^2_N}{\left\langle f^n(t_1) + g^n(t_1) \right\rangle_N \left\langle f^n(t_2) + g^n(t_2) \right\rangle_N}}
+\end{equation}
+where we recall that $\left\langle \cdot \right\rangle_N$ is an ensemble average over a set of signals: we record $N$ signals $f(t)$, that we rename individually $f^n(t)$ (i.e $f^n(t)$ is the nth signal from $1$ to $N$) and generate the Hilbert pairs $g^n(t)$.
+
+It is important to note that, in the non-stationary case, the norm of $g^1$ is due to the convergence of the ensemble average. In theory, $\left\langle \cdot \right\rangle_N$ is an average over an infinite set of signals. A finite set gives only an approximation of the theoretical first order correlation function. In particular, if we compute \eqref{g1_comput_form} with only one signal $f(t)$, we drop the average operation and get:
+\begin{align}
+\begin{split}
+\vert g^1(t_1, t_2) \vert &= \sqrt{\frac{\left[f(t_1)f(t_2) + g(t_1)g(t_2) \right]^2 + \left[g(t_1)f(t_2) - f(t_1)g(t_2) \right]^2}{\left[f(t_1) + g(t_1) \right] \left[ f(t_2) + g(t_2) \right]}}\\
+&= \sqrt{\frac{f(t_1)^2f(t_2)^2 + g(t_1)^2g(t_2)^2 + g(t_1)^2f(t_2)^2 + f(t_1)^2g(t_2)^2}{f(t_1)^2f(t_2)^2 + g(t_1)^2g(t_2)^2 + g(t_1)^2f(t_2)^2 + f(t_1)^2g(t_2)^2}}\\
+&= 1
+\end{split}
+\end{align}
+with any value of time $t_1$ and $t_2$.
+
+Finally, \eqref{g1_comput_form} is the final form used for the numerical implementation in order to process the recorded signals of the superadiant beam. Nevertheless, Annex ?? gives some examples of numerical verification before actual use in the experiment as well as more description of the porgram and its optimizations.
 
 
 \appendix
 \chapter{Mathematical complements}
 \section{Jaynes-Cummings model}
 \subsection{Unitary transformation}
-A special case of Baker–Campbell–Hausdorff (BCH) formula may be stated as follow:
+A special case of the Baker–Campbell–Hausdorff (BCH) formula may be stated as follow:
 
 \begin{corollary}
 Let's $s \in \mathbb{C}$ then $\hat{A}$ and $\hat{B}$ two operators belonging to an Hilbert space $\mathscr{H}$ such that $\left[ \hat{A}, \hat{B} \right] = \hat{B}c$ with $c \in \mathbb{C}$. Thus: 
@@ -1432,7 +1512,7 @@ From BCH formula:
 \begin{align}
 \begin{split}
 e^{s\hat{A}}\hat{B}e^{-s\hat{A}} &= \hat{B} + \left[ \hat{A}, \hat{B} \right]s + \frac{1}{2} \left[ \hat{A}, \left[ \hat{A}, \hat{B} \right] \right] s^2 + ... \\
-&= \hat{B} + \hat{B}cs + \frac{1}{2} \left[ \hat{A}, \hat{B}c \right] s^2\\
+&= \hat{B} + \hat{B}cs + \frac{1}{2} \left[ \hat{A}, \hat{B}c \right] s^2 + ...\\
 &= \hat{B}(1 + cs + \frac{1}{2}(cs)^2 + ...)\\
 &= \hat{B}e^{cs}
 \end{split}
@@ -1491,5 +1571,21 @@ U\hbar g\hat{\sigma}_+\hat{a}^\dag U^\dag &= e^{i\omega_a t(\hat{n} + \hat{\sigm
 &= e^{2i\omega_a t}\hbar g\hat{\sigma}_+\hat{a}^\dag
 \end{align}
 The same applies for the remaining terms.
+
+\chapter{Program implementations}
+\section{First order correlation}
+
+\subsection{Stationary case}
+
+In order to verify its behavior before actual utilization of equation \eqref{g1_comput_form}, we need to artificially generate (i.e simulate) real cases of light: perfectly coherent light, lorentzian phase decoherence of light, gaussian phase decoherence of light... Here, we shall limit our test to the perfectly coherent and lorentzian cases. However, those two cases are stationary processes, thus it is more relevant to transform the equation \eqref{g1_comput_form} into its stationary form\footnote{Verifying the stationary form involves the verification of the non-stationary form as the sensible parts are the Hilbert transformation and the isolation of the $z_c^*(t)$ component. Then, doing an integration for the stationary case or an ensemble average for the non-stationary case are more or less the same procedures and should not involve any additional \textit{bugs} or mistakes from the theoretical development. Anyway, a real test is done for the non-stationary case with a nearly perfectly coherent standard laser in section ??}.
+
+To understand the differences between a stationary and a non-stationary process, we can use the comparison with a dice. Rolling the dice once gives certain probabilities, namely $1/6$, to obtain any face. We distinct two cases:
+\begin{itemize}
+	\item The dice is \textit{unbreakable}. The second and any other time we roll the dice, we have the same probabilities of obtaining any face. We say that the probabilities are independent other the time: this is a stationary process (in term of statistics).
+	\item The dice is \textit{damageable}. As the dice get slightly damaged on the first roll, the probability of obtaining a given face is different the second time we roll the dice. The dice gets more damages after every roll and the probabilities are continously changed over the time: this is a non-stationary process.
+\end{itemize}
+However, in both cases, the face obtained after a roll is \textit{always} different from the previous roll, in the stationary or non-stationary case: this is the variation of the probabilities which charaterize the process, not the result of the process itself. In term of signal, we deal with continous probabilities or formally, \textit{distributions}. Thereby, for a stationary process involving a signal, we say that the statistical distribution is independent of time. This is the opposite for the non-stationary case.
+
+talk about: here the distribution is on the phase / f(t+T)
 
 \end{document}
