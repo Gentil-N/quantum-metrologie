@@ -606,7 +606,7 @@ int main()
         std::stringstream ss;
         ss << i;
         std::string add_name = ss.str();
-        run(0, 49, cutoff_init, cutoff_init + sample_count, 10, add_name);
+        run(0, 49, cutoff_init, cutoff_init + sample_count, 200, add_name);
         cutoff_init += sample_count / 2;
     }
 
