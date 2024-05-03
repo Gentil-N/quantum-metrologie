@@ -1094,13 +1094,13 @@ In order to rectify those issues, we shall add a \textit{demodulation} block bet
 
 Fig
 
-The idea is to mix the ouput signal with a well behaved electric sine wave called \textit{reference}: this operation is called a \textit{modulation}. At first order\footnote{The mathematical description of a wave mixer is slightly more complex. However, all the other harmonics are far beyond the highest and lowest frequencies considered at \textit{first order}, hence negligeable for our purpose.}, the wave mixer essentially creates the same components than \eqref{list_comp_light_mix} when one mixes two light beams. Namely, for an output frequency $\omega_1$ and a reference of $\omega_2$ we obtain:
+The idea is to mix the ouput signal with a well behaved electric sine wave called \textit{reference}: this operation is called a \textit{modulation}. At first order\footnote{The mathematical description of a wave mixer is slightly more complex. However, all the other harmonics are far beyond the highest and lowest frequencies considered at \textit{first order}, hence negligeable for our purpose.}, the wave mixer essentially creates the same components than \eqref{list_comp_light_mix} when one mixes two light beams, except the single frequencies. Namely, for an output frequency $\omega_1$ and a reference of $\omega_2$ we obtain:
 \begin{equation}
-2\omega_1, \quad 2\omega_2, \quad \omega_1 + \omega_2, \quad \omega_1 - \omega_2
+\omega_1 + \omega_2, \quad \omega_1 - \omega_2
 \end{equation}
 Now if we set that $\omega_1$ corresponds to our 43MHz and $\omega_2$ of the same frequency, then we get four harmonics at the respective frequencies:
 \begin{equation}
-86\,\textrm{MHz}, \quad 86\,\textrm{MHz}, \quad 86\,\textrm{MHz}, \quad 0\,\textrm{MHz}
+43\,\textrm{MHz}, \quad 0\,\textrm{MHz}
 \end{equation}
 In other words, the modulation process translates the spectrum with 43MHz to the left (if we only take into account the term $\omega_1 -\omega_2$. Thus, a signal at 42MHz for example, will become a signal of -1MHz. By symmetry of the spectrum, this signal will superpose with a previous 44MHz signal also translated to 1MHz. 
 
@@ -1440,14 +1440,13 @@ z_f(t) = \frac{1}{2} \left( f(t) + i g(t) \right)
 \end{equation}
 In other words, because $f(t)$ is analytic, we can reconstruct the imaginary part of $z_f(t)$. For example, if $f(t)$ is a simple cosine function, then $g(t)$ is a sine function, which clearly shows that $z_f(t)$ is a complex exponential rotating with the same frequency and dephased as $f(t)$ and $g(t)$. $f(t)$ and $g(t)$ form an Hilbert pair. It can be proven that one way to retreive $g(t)$, which is the simplest in terms of time/power computation, is as follow:
 \begin{equation}
-g(t) = \Im \left\lbrace \mathscr{F}^{-1}[t]\left\lbrace sign(\nu) \cdot \mathscr{F}[\nu]\left\lbrace f(t) \right\rbrace \right\rbrace \right\rbrace
+g(t) = \mathscr{F}^{-1}[t]\left\lbrace sign(\nu) \cdot \mathscr{F}[\nu]\left\lbrace f(t) \right\rbrace \right\rbrace
 \end{equation}
 which corresponds to:
 \begin{itemize}
 	\item Computing the Fourier transform of $f(t)$.
 	\item Replacing the spectrum, only for the negative frequencies, by its opposite.
 	\item Computing the inverse Fourier transform.
-	\item Taking the imaginary part.
 \end{itemize}
 It is now possible to isolate $z_c^*(t)$:
 \begin{equation}

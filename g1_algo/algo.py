@@ -3,6 +3,8 @@ import random
 import numpy as np
 from scipy import integrate
 from matplotlib import pyplot as plt
+from matplotlib.cm import ScalarMappable
+from matplotlib.colors import *
 
 def import_signal(filename: str):
     file = open(filename)
@@ -64,6 +66,62 @@ def bandpass_filter(signal, start_time, stop_time, low_freq_limit, high_freq_lim
     fsignal[indices] = 0
     return np.real(ifft(fsignal))
 
+def get_fft(signal, start_time, stop_time):
+    sample_count = len(signal)
+    return [fftfreq(sample_count, (stop_time - start_time) / sample_count), fft(signal)]
+
+def cut_signal(signal, sample_start, sample_stop):
+    return signal[sample_start:sample_stop].copy()
+
+def get_spectrogram(signal, start_time, stop_time, amount, low_freq_limit, high_freq_limit):
+    assert(len(signal) % amount == 0)
+    sample_count_per_spec = int(len(signal) / amount)
+    freqs = fftfreq(sample_count_per_spec, (stop_time - start_time) / amount / sample_count_per_spec)
+    indices = np.where(((freqs >= low_freq_limit) & (freqs <= high_freq_limit)))
+    freqs = freqs[indices]
+    spec_list = []
+    for i in range(amount):
+        spec_list.append(np.abs(fft(signal[int(i*sample_count_per_spec):int((i+1)*sample_count_per_spec)]))[indices]**2)
+        #fig1, ax1 = plt.subplots(1, 1)
+        #fig1.set_size_inches(18.5, 10.5)
+        #x1.plot(freqs, spec_list[-1], label="freq")
+        #ax1.set_yscale('log')
+        #ax1.legend()
+        #plt.show()
+    return [freqs, spec_list]
+
+def plot_spectrogram(spectrogram, start_time, stop_time, name):
+    fig0, ax0 = plt.subplots(1, 1)
+    fig0.set_size_inches(18.5, 10.5)
+    time_list = np.linspace(start_time, stop_time, len(spectrogram[1]))
+    print(len(time_list), " ", len(spectrogram[0]), " ", len(spectrogram[1]), " ", len(spectrogram[1][0]))
+    cs = ax0.contourf(spectrogram[0] / 1E6, time_list * 1000, spectrogram[1], cmap='inferno')
+    ax0.set_xlabel('frequencies (MHZ)')
+    ax0.set_ylabel('time (ms)')
+    fig0.colorbar(cs)
+    plt.savefig("./g1-2-analysis/spectrograms/spec-"+name+".png")
+    plt.show()
+
+def plot_power_spectrum(signal, time, cut_start, cut_stop, freq_cut_start, freq_cut_stop, name):
+    time_indices = np.where((np.array(time) >= cut_start) & (np.array(time) <= cut_stop))
+    time = np.array(time)[time_indices]
+    signal = signal[time_indices]
+    print(len(time), " ", len(signal))
+    freqs = fftfreq(len(time), (cut_stop - cut_start) / len(time))
+    fft_signal = fft(signal)
+    freq_indices = np.where((freqs > freq_cut_start) & (freqs < freq_cut_stop))
+    freqs = freqs[freq_indices]
+    fft_signal = fft_signal[freq_indices]
+    power_spectrum = np.abs(fft_signal)**2
+    fig1, ax1 = plt.subplots(1, 1)
+    fig1.set_size_inches(18.5, 10.5)
+    ax1.plot(freqs / 1E6, power_spectrum, label="freq")
+    ax1.set_xlabel("frequency (MHz)")
+    ax1.legend()
+    plt.savefig("./g1-2-analysis/power-spectrums-continous/ps-cut(" + str(cut_start) + "-" + str(cut_stop) + ")-" + name + ".png")
+    plt.show()
+
+
 def plot_signal(signal, start_time, stop_time):
     sample_count = len(signal)
     time = np.linspace(start_time, stop_time, sample_count)
@@ -79,7 +137,8 @@ def plot_freq(signal, start_time, stop_time):
     fsignal = fft(signal)
     fig1, ax1 = plt.subplots(1, 1)
     fig1.set_size_inches(18.5, 10.5)
-    ax1.plot(freq_list, np.real(fsignal), label="freq")
+    index = int(len(freq_list)/2)
+    ax1.plot(freq_list[:index], np.real(fsignal[:index]), label="freq")
     ax1.legend()
     plt.show()
 
