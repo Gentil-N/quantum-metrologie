@@ -342,7 +342,7 @@ Thereby, this extended system is composed of $N+1$ independent sub-system with d
 
 Therefore, as the spins are assumed to be identical in \eqref{dist_sig_2}, one uses instead the collective spin operator:
 \begin{equation}
-\sum_{j=1}^{N} \hat{\sigma}_i^j \rightarrow \frac{\hbar}{2} \hat{S}_j
+\sum_{j=1}^{N} \hat{\sigma}_i^j \rightarrow \frac{2}{\hbar} \hat{S}_j ATTENTION !!! PEUT ETRE PAS BON
 \end{equation}
 where $\hat{S}_j$ follows the spin algebra similar to the Pauli matrices with, among other relations, the commutator:
 \begin{equation}
@@ -432,7 +432,7 @@ At the end of the day, one obtains the open quantum system equation, often calle
 \dot{\rho} = -\frac{i}{\hbar} \left[ \hat{H}, \rho \right] + \sum_j \gamma_j \left( \hat{L}_j \rho \hat{L}_j^\dagger - \frac{1}{2} \left\lbrace \hat{L}_j^\dagger \hat{L}_j, \rho \right\rbrace \right)
 \end{equation}
 where $j$ indexes the different \textit{leak} operators $\hat{L}_j$, often called \textit{jump} operators or more simply \textit{lindblad} operators. Also, $\gamma_j$ are the associated \textit{damping} rate (even if the operator's purpose may be to add energy) and the curly brackets are the anti-commutator relation.
-Equivalently for the Heisenberg picture, on finds:
+Equivalently for the Heisenberg picture, we find:
 \begin{equation}
 \label{master_eq_heis}
 \dot{\hat{X}} = \frac{i}{\hbar} \left[ \hat{H}, \hat{X} \right] + \sum_j \gamma_j \left( \hat{L}_j^\dagger \hat{X} \hat{L}_j - \frac{1}{2} \left\lbrace \hat{L}_j^\dagger \hat{L}_j, \hat{X} \right\rbrace \right)
@@ -457,9 +457,9 @@ To summarize, the density matrix evolution responds to the following first order
 \end{align}
 where with have taken $\hat{H}_{TC}$ as the hamiltonian. There is a similar equation (close to a sign and dagger operators) for any operator $\hat{X}$. This differential equation is a system of linear differential equation in a sense that each time derivated term of the density matrix is dependent of linear terms of the density matrix. In other words:
 \begin{equation}
-\dot{\rho_{i,j}} = \sum_{k,l} \alpha_{k,l} \rho_{k,l}
+\dot{\rho_{i,j}} = \sum_{k,l} \alpha_{k,l}^{i,j} \rho_{k,l}
 \end{equation}
-where $\rho_{i,j}$ are the density matrix components with indices $(i,j)$ $\alpha_{k,l}$ are fixed complex coefficent dependent on operator values and constants. 
+where $\rho_{i,j}$ are the density matrix components with indices $(i,j)$ $\alpha_{k,l}^{i,j}$ are fixed complex coefficent dependent on operator values and constants. 
 
 Thereby, this system is numerically solvable with standard integration methods as the Runge-Kutta approach.\footnote{Note that the Runge-Kutta method is not restricted to linear systems as, by definition, this approach treats any function $f$ where $\dot{y} = f(y, t)$ and $y$ can be any variable of any vector space: $y \in \mathbb{R}, \mathbb{R}^2, \mathbb{R}^3, ..., \mathbb{C}, \mathbb{C}^2, \mathbb{C}^3, ...$ for examples.} As one could think, if the system is linear, it should be diagonalizable hence exactly solvable by exponentiation. However, this approach is not possible in the form of \eqref{rho_master_eq} as the equation is treating the density operator as, obsviously, a matrix. 
 
@@ -737,7 +737,7 @@ We introduce the correlation variable:
 \end{equation}
 This previous definition transforms $I_{detected}$ as:
 \begin{equation}
-I_{detected} = I_1 + I_2 + 2\sqrt{I_1 I_2} \Re \left\lbrace \gamma_{1,2} \right\rbrace
+I_{detected}(\tau) = I_1 + I_2 + 2\sqrt{I_1 I_2} \Re \left\lbrace \gamma_{1,2}(\tau) \right\rbrace
 \end{equation}
 where we interchanged $\Re \left\lbrace \cdot \right\rbrace$ with $\left\langle \cdot \right \rangle$ \footnote{In other words, the mean value of the real part is equivalent to the real part of the mean value, by linearity.} and where we dropped the time dependences of the intensity terms (from integration, those terms becomes constant according to the time $t$).
 By its normalization factor (i.e the denominator in \eqref{gamma_corr_def}), one may say that the norm of gamma is included between $0$ and $1$ where $0$ holds for complete incoherence whereas $1$ holds for full coherence. This means that we can write two extrema:
@@ -1165,7 +1165,7 @@ Knowing that the frequency carrier has a lower frequency than the actual superad
 
 Therefore, the intensity that we get from the fake laser is in reality much greater than the actual intensity of the sideband which couples to the local oscillator. Moreover, we know from other first experiments conducted in the lab that the superadiant laser power is in order of tens of picowatts. The principle of this intensity calibration test is to determine at which actual intensity we can still distinguish the 43MHz beat: if the intensity is too weak, the beat vanishes into the global noise level showed on the spectrum analyzer.
 
-The phase modulation of the carrier frequency is controlled through a parameter called \textit{Amplitude of modulation} and is measured in percentage of \textit{what the device managing the modulation is able to do}. At 100\%, the two sidebands reach their maximum of amplitude whereas the carrier's amplitude is slightly reduced: the total energy of the laser beam is kept as constant and \textit{redistributed} through multiple sidebands\footnote{We shall see later that a phase modulation induces an infinite creation of sidebands in theory but we only stay concerned by the closest and most powerfull ones (i.e the two direct neightboors).}. At 0\%, there is no modulation at all and the main frequency keeps its original amplitude.
+The phase modulation of the carrier frequency is controlled through a parameter called \textit{Amplitude of modulation} and is measured in percentage of \textit{what the device managing the modulation is able to do}. At 100\%, the two sidebands reach their maximum of amplitude whereas the carrier's amplitude is slightly reduced: the total energy of the laser beam is kept as constant and \textit{redistributed} through multiple sidebands\footnote{We saw earlier that a phase modulation induces an infinite creation of sidebands in theory but we only stay concerned by the closest and most powerfull ones (i.e the two direct neightboors).}. At 0\%, there is no modulation at all and the main frequency keeps its original amplitude.
 
 Firstly, we reduce the power of the fake laser (with sidebands or not) to a minimum thanks to a couple $\frac{\lambda}{2}$-waveplate/polarizer before the cavity: we measure 0.01$\mu$W before the beam splitter of the heterodyne experiment which is almost the amount of error (i.e the sensitivity) of the powermeter used. Then, the test is reduced in two simple steps:
 \begin{enumerate}
@@ -1436,21 +1436,22 @@ f(t) = 2\Re \left\lbrace z_f(t) \right\rbrace \quad \textrm{s.t} \quad z_f(t) \s
 \end{equation}
 Thus $f(t)$ is by construction an analytic signal thanks to \eqref{x_def_z_zstar}. It is possible to show that $f(t)$ is the Hilbert transform of another analytic signal, that we name $g(t)$, such that\footnote{See Mandel and Wolf 3.1-12.}
 \begin{equation}
+\label{zf_eq_f_p_g}
 z_f(t) = \frac{1}{2} \left( f(t) + i g(t) \right)
 \end{equation}
 In other words, because $f(t)$ is analytic, we can reconstruct the imaginary part of $z_f(t)$. For example, if $f(t)$ is a simple cosine function, then $g(t)$ is a sine function, which clearly shows that $z_f(t)$ is a complex exponential rotating with the same frequency and dephased as $f(t)$ and $g(t)$. $f(t)$ and $g(t)$ form an Hilbert pair. It can be proven that one way to retreive $g(t)$, which is the simplest in terms of time/power computation, is as follow:
 \begin{equation}
-g(t) = \Im \left\lbrace \mathscr{F}^{-1}[t]\left\lbrace sign(\nu) \cdot \mathscr{F}[\nu]\left\lbrace f(t) \right\rbrace \right\rbrace \right\rbrace
+g(t) = \mathscr{F}^{-1}[t]\left\lbrace sign(\nu) \cdot \mathscr{F}[\nu]\left\lbrace f(t) \right\rbrace \right\rbrace
 \end{equation}
 which corresponds to:
 \begin{itemize}
 	\item Computing the Fourier transform of $f(t)$.
 	\item Replacing the spectrum, only for the negative frequencies, by its opposite.
-	\item Computing the inverse Fourier transform.
-	\item Taking the imaginary part.
+	\item Computing the inverse Fourier transform
 \end{itemize}
 It is now possible to isolate $z_c^*(t)$:
 \begin{equation}
+\label{zf_def}
 z_f(t) = 2z_c^*(t)z_r(t) = \frac{1}{2} (f(t) + ig(t)) \Rightarrow z_c^*(t) = \frac{1}{4z_r(t)} (f(t) + ig(t))
 \end{equation}
 From that, we may compute $g^1$ in the classical way. Indeed, considering a non-stationary process generating the cavity's beam, \eqref{g1_classic_def} gives in that case:
@@ -1575,17 +1576,135 @@ The same applies for the remaining terms.
 \chapter{Program implementations}
 \section{First order correlation}
 
-\subsection{Stationary case}
+\subsection{$g^1$ for stationary processes}
 
-In order to verify its behavior before actual utilization of equation \eqref{g1_comput_form}, we need to artificially generate (i.e simulate) real cases of light: perfectly coherent light, lorentzian phase decoherence of light, gaussian phase decoherence of light... Here, we shall limit our test to the perfectly coherent and lorentzian cases. However, those two cases are stationary processes, thus it is more relevant to transform the equation \eqref{g1_comput_form} into its stationary form\footnote{Verifying the stationary form involves the verification of the non-stationary form as the sensible parts are the Hilbert transformation and the isolation of the $z_c^*(t)$ component. Then, doing an integration for the stationary case or an ensemble average for the non-stationary case are more or less the same procedures and should not involve any additional \textit{bugs} or mistakes from the theoretical development. Anyway, a real test is done for the non-stationary case with a nearly perfectly coherent standard laser in section ??}.
+In order to verify the behavior of equation \eqref{g1_comput_form} before its actual utilization, we need to artificially generate (i.e simulate) real cases of light like, among others, perfectly coherent light and \textit{exponential phase decoherence} of light:
 
-To understand the differences between a stationary and a non-stationary process, we can use the comparison with a dice. Rolling the dice once gives certain probabilities, namely $1/6$, to obtain any face. We distinct two cases:
+\begin{itemize}
+	\item A perfectly coherent light source has, by definition, a unique beat mode: the frequency is well defined and the source is said to be monochromatic. In simple words, the electric field is a sine/cosine wave with a given amplitude and a given phase at the origin.
+	\item A chaotic light source gets random phase jumps at random time intervals. The "mean" delay between phase jumps is \textit{somewhat}\footnote{The actual definition of the coherence time depends on the statistical distribution used for the model. See R.Loudon The Quantum Theory of Light, section 3.1} the coherence time $\tau_c$ of the given source. By Fourier transform logic, if we consider a chaotic light of a given frequency carrier; longer is the coherence time, thinner gets the linewidth around the main frequency, and reciprocally: the extrem case of a chaotic light with infinite coherence time is a monochromatic source. The mathematical object defining the \textit{type} of chaotic light source is the statistical distribution involved into the delay between each phase jump. In the case of exponential distribution of the phase jump, which is very common for atoms in a gaz emitting light for example, the frequency spectrum is \textit{Lorentzian}\footnote{It exists many other types of distribution, namely gaussian distribution where the spectrum is also a gaussian.}.
+\end{itemize}
+
+To understand the differences between a stationary and a non-stationary process, we can use the comparison with a dice. Rolling the dice once has a probability  of $1/6$ to obtain any face. We distinct two cases:
 \begin{itemize}
 	\item The dice is \textit{unbreakable}. The second and any other time we roll the dice, we have the same probabilities of obtaining any face. We say that the probabilities are independent other the time: this is a stationary process (in term of statistics).
-	\item The dice is \textit{damageable}. As the dice get slightly damaged on the first roll, the probability of obtaining a given face is different the second time we roll the dice. The dice gets more damages after every roll and the probabilities are continously changed over the time: this is a non-stationary process.
+	\item The dice is \textit{damageable}. As one corner of the dice gets slightly damaged on the first roll, the probability of obtaining a given face is different the second time we roll the dice. The dice gets more damages after every roll and the probabilities are continously changed over the time: this is a non-stationary process.
 \end{itemize}
-However, in both cases, the face obtained after a roll is \textit{always} different from the previous roll, in the stationary or non-stationary case: this is the variation of the probabilities which charaterize the process, not the result of the process itself. In term of signal, we deal with continous probabilities or formally, \textit{distributions}. Thereby, for a stationary process involving a signal, we say that the statistical distribution is independent of time. This is the opposite for the non-stationary case.
+However, in both cases, the face obtained after a roll can be different from the previous roll, in the stationary or non-stationary case: this is the variation of the probabilities which charaterize the process, not the result of the process itself. In term of signal, we deal with continous probabilities hence, \textit{distributions}. Thereby, for a stationary process involving a signal, we say that the statistical distribution is independent of time. This is the opposite for the non-stationary case.
 
-talk about: here the distribution is on the phase / f(t+T)
+Those two cases are stationary processes, thus, we firstly use the stationary formulation of $g^1$ in order to verify that the generated signals behave as wanted. Then, we apply those generated signals into \eqref{g1_comput_form}: as the signals are stationary process, a symmetric pattern should appear along the diagonal.
+
+Assuming that the signal recorded is a stationary process, we use the same transformation for $g^1$ as in section 1.5:
+\begin{equation}
+g^1(\tau) = \frac{\left\langle z^*(t)z(t) \right\rangle}{\left\langle \vert z(t) \vert ^2 \right\rangle} = \frac{\int_{-\infty}^{+\infty} z^*(t)z(t + \tau)\, dt}{\int_{-\infty}^{+\infty} z^*(t)z(t) \, dt}
+\end{equation}
+where $z$ is the associated complex analytic signal of the generated real signal. From \eqref{zf_eq_f_p_g}, we find:
+\begin{equation}
+\label{g1_stattionary_computer}
+g^1(\tau) = \frac{\int_{-\infty}^{+\infty} f(t)f(t + \tau)\, dt  + i \int_{-\infty}^{+\infty} g(t)g(t + \tau)\, dt}{\int_{-\infty}^{+\infty} f(t)^2 + g(t)^2 \, dt}
+\end{equation}
+Note that, compared to \eqref{g1_comput_form}, we drop the index $n$: recording multiple instances is unnecessary as the signal is a stationary process and, instead of an ensemble average, a time average is applied over the full signal $f$ and its Hilbert pair $g$. In practice, the time interval of integration is limited as we record a finite time interval of the signal. Indeed, longer is the time interval, more precision we get as for the non-stationary case where, increasing the amount of record $n$, makes $g^1$ converging to the theoretical result. Then, as $f$ is defined from $t_{start}$ to $t_{stop}$, we choose a maximal $\tau$ called $\tau_{max}$ and only integrate from $t_{start}$ to $t_{stop} - \tau_{max}$: when computing $g^1(\tau_{max})$, the term $f(t+\tau_{max})$ is still included into the interval of definition of $f$.
+
+\subsection{Random number generation}
+
+For a chaotic light including atoms in a gaz, the probability that a phase jump occurs at time $\tau$ is given by the cumulative distribution function $P(\tau)$, defined as:
+\begin{equation}
+P(\tau) = \left\{
+                \begin{array}{ll}
+                1-e^{-\tau/\tau_c} \quad \textrm{if} \quad \tau \geqslant 0\\
+                0 \quad \textrm{else}
+                \end{array}
+              \right.
+\end{equation}
+following an exponential distribution with a rate param $\lambda \stackrel{\text{def}}{=} 1 / \tau_c$ where $\tau_c$ is the coherence time\footnote{ See R.Loudon The Quantum Theory of Light, section 2.9}. The associated probability density function $\rho(\tau)$ is\footnote{From a mathematical point of view, $\tau$ is a random variable.}:
+\begin{equation}
+\rho(\tau) \stackrel{\text{def}}{=} \frac{1}{\tau_c} e^{\tau / \tau_c}
+\end{equation}
+
+Unfortunately, a computer is only able to generate random numbers $u$ following a uniform distribution $U(0,1)$: we get real numbers between 0 and 1 with equal probabilities. As $P(\tau) = p$ is bijective by definition (with $p$ a probability), we note the inverse $P^{-1}(p) = \tau$. Thus we can write:
+\begin{equation}
+P(P^{-1}(p)) = p \Rightarrow ^P(P^{-1}(u)) = u
+\end{equation}
+where $u$ is a probability as $p$, but $u$ comes from the uniform distribution $U(0,1)$ (it is just a change of variable). Then:
+\begin{equation}
+\label{dist_exp_gene}
+1-e^{-P^{-1}(u)/\tau_c} = u \Leftrightarrow P^{-1}(u) = -\tau_c \ln(1-u) = \tau
+\end{equation}
+In other words, from a probability $u$ given by the computer, $P^{-1}(u)$ get a random time $\tau$ for the next phase jump, following an exponential distribution. This approach is a specific case of the \textit{inverse transform sampling method}.
+
+\subsection{Signal generation and $g^1$ verification}
+
+As we can see in \eqref{g1_comput_form} and \eqref{g1_stattionary_computer}, the normalization factor allows to neglect the modulation signal $z_r(t)$ in \eqref{zf_def}: the formulation of $g^1$ (stationary or not) would be exactly the same considering $z_f(t) \propto z_c^*(t)$ or $z_f(t) \propto z_c^*(t)z_r(t)$. Thus, we do not have to modulate the generated signal with a local oscillator in order to test the algorithme.
+
+With an amplitude of $1$ (i.e unit), we generate a cosine wave (or equivalently a sine wave as the phase offset at the origin is not involved in $g^1$):
+\begin{itemize}
+	\item Perfectly coherent light: no phase jump over the interval of generation $\left[ t_{start}, t_{stop} \right]$. We use a pure cosine wave.
+	\item Chaotic light with a lorentzian frequency spectrum (exponential distribution): We generate a random number from the computer $u \in U(0,1)$. Thanks to \eqref{dist_exp_gene}, we get a time delay. For the interval defined by this delay, we generate a pure cosine wave. At the end of this interval, we generate another random number $u$ defining a phase for the next "pure cosine wave". We repeat the process until we reach $t_{stop}$.
+\end{itemize}
+
+Theoretical curve for the chaotic light:
+\begin{equation}
+\vert g^1(\tau) \vert = e^{-\tau/\tau_c}
+\end{equation}
+
+\subsection{Downsampling}
+
+The recorded signal from the experiment is of 43MHz. For a good presicion, we must have approximately 10 samples per period: an optimal sampling rate would be around 430MHz\footnote{In practice, the sampling rate may be as low as 200MHz which reprensent a bit less than five samples per period.}. As the superadiant lasing time can be as long as four milliseconds, the amount of samples for one record of the signal may easily exceed one million. For the non-stationary case of $g^1$, the output data is a 2D map: from the previous case, a map of 1M x 1M samples! A common size/presicion for a float number in a computer is of 32bits (i.e 4 bytes). Then, for recorded signals of 10k, 50k, 100k and 500k samples, we get:
+\begin{itemize}
+	\item 10k x 10k $\rightarrow$ 400 MB
+	\item 50k x 50k $\rightarrow$ 10 GB
+	\item 100k x 100k $\rightarrow$ 40 GB
+	\item 500k x 500k $\rightarrow$ greater than 1 TB
+\end{itemize}
+Firstly, \textit{matplotlib} (the plotting library for python) struggles to show images larger than 5k x 5k \footnote{This quantity depends on the hardware, of course.}. Secondly, even with a direct save on the hard-drive (i.e without showing the image on the screen), we cannot reach sizes of 500k x 500k \footnote{Even if hard-drives with capacities of 1 TB are very common, it is not straigthforward (in clear, impossible) to save this amount of data for an image on standard computers. Only supercomputers and fancy \textit{NASA-home-computers} can do that.}. For standard computers, the RAM is limited to approximately 16 or 32 GB, which means that not only the program cannot save it but cannot handle it in real time! From the previous examples, we are limited to sizes of about 50k x 50k.
+
+The first idea is to split the 2D map into squares/chunks of smaller size like a chess plate: for the 100k x 100k, we reduce it to one hundred chunks of 10k x 10k. This is relatively doable except that we shall deal with signals of 1M x 1M, which means several tera-bytes of data, thus several hard-drives only to store one 2D map of $g^1$! \footnote{I am not paid enough for that. Anyway, I am not paid at all...}
+
+A clever solution is to downsample. Of course, we cannot reduce the amount of samples directly from the signal which would mean a loss of phase information, even worse, an aliasing of the signal. However, once the 2D map is generated, we may reduce (i.e average) the samples to a regular size of image, say 1k x 1k or even 3k x 3k: a standard screen size is about 2k (width) x 1k (height) which means that even storing a 1M x 1M map, the computer is not able to show more than 2k x 2k in the best cases. This fix the problem of the hard-drive. For the RAM problem, we apply the downsampling technique in parallel of the "chess plate" method: once we have computed a chunk of 10k x 10k for example, we downsample it to a size of 100 x 100 pixels. At the end, the RAM never exceed the size of one chunk at a time!\footnote{In practice, we shall see that the method used for downsampling is overlapping the neighboor chunks for better accuracy, which force the program to save more data in memory.}
+
+Image processing techniques is a very wide subject and deserve a full thesis (and beyond). The most important thing in image scaling in general is the aliasing problem: in short, the frequencies involved in the image are biased when the size is upscaled or downscaled. The first (and very common) technique is the bilinear filter: we simply average a \textit{chunk of pixel} which produce \textit{one pixel} of the new image. The aliasing limit is reached when we divide the size of the image by two: more reduction and we get aliasing. As we shall reduce the image by, at least, a factor of 100, we would need to apply the downsample algoritme at least seven times (i.e $2^7 > 100$): this is time and power consumming. To reduce the chunk in one pass, we use a gaussian filter: instead of averaging equally the neighboors (i.e with same weights), we apply a very strong weight on direct neighboors and a very weak weight on far neighboors (the distribution of the weight follow a gaussian distribution). The gaussian technique is proven to be somehow optimal: nice features, mathematically tractable, little noticeable artefacts...
+
+Technically, a chunk of the 2D map is computed, then gaussian filter is applied on it and transformed into a unique pixel. The question is: how wide/large must be the square/chunk where we apply a gaussian filter? The following description is in 1D in order to simplify the explications: by symmetry, it extends to the 2D case.
+
+The size of the chunk in time space correspond to a bandwidth $B$ in frequency space a shown on Fig ??
+
+Fig
+
+Here the time space corresponds to the pixel space, i.e $t=0$ is pixel number zero, $t=1$ is pixel number one and so on. Therefore, the sampling space $T$ is one (but we keep it as $T$ for the moment). As we can see on previous figure, the numerical Fourier transform gives repetition of the main feature every $1/T$. When the amount of pixel is reduced by a factor of $M$ (i.e $M=2$ is the equivalent of converting two pixels into one pixel), the period of the feature's repetition becomes $1/(MT)$ instead of $1/T$ as on Fig ??
+
+Fig
+
+Thereby, we want the bandwidth set by the filtered chunk as:
+\begin{equation}
+B < \frac{0.5}{MT}
+\end{equation}
+otherwise, the features will overlapp (i.e creating aliasing). The gaussiant filter's cutoff (i.e where we consider the frequency of the function as negligeable) is defined by $f_c \stackrel{\text{def}}{=} 1/(2\pi \sigma$ where $\sigma$ is the variance (from the fact that the Fourier transform of a gaussian is a also gaussian). Thus:
+\begin{equation}
+f_c < \frac{1}{2MT} \Leftrightarrow \sigma > \frac{MT}{\pi}
+\end{equation}
+Now we set $T=1$ and approximate $\pi$ as 3:
+\begin{equation}
+\sigma > \frac{M}{6}
+\end{equation}
+To be sure of the inequality, we set:
+\begin{equation}
+\label{sigma_def}
+\sigma \stackrel{\text{def}}{=} 2\times\frac{M}{6} = \frac{M}{3}
+\end{equation}
+In other words, the variance of the gaussian filter must be three times smaller than the reduction factor $M$. Then we can calculate the size of the gaussian filter, which corresponds to point $x$ where the amplitude of the gaussian defined by the variance \eqref{sigma_def} is negligeable:
+\begin{equation}
+\textrm{gaussian:} \quad f(x) \stackrel{\text{def}}{=} \frac{e^{-\frac{x^2}{2\sigma^2}}}{\sigma\sqrt{2\pi}} \quad < \quad 1\% \quad \textrm{of} \quad f(0)
+\end{equation}
+which gives:
+\begin{equation}
+x = \pm 2\sigma\sqrt{\ln(10)}
+\end{equation}
+Using \eqref{sigma_def}:
+\begin{equation}
+x = \pm M \times \frac{2\sqrt{\ln(10)}}{3} \sim \pm M
+\end{equation}
+Therefore, if we want to downsample 10k samples into 100 pixels (i.e $M = 100$), we must apply the filter on regions of $-M$ to $+M$ samples, which corresponds to a length of $200$ samples (where the center of the filter is on the 100th sample of this region). Obviously, this involves an overlap of the regions where the filter is applied as depicted on Fig ??
+
+Fig
 
 \end{document}
