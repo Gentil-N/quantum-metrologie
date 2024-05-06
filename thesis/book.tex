@@ -1711,4 +1711,6 @@ Therefore, if we want to downsample 10k samples into 100 pixels (i.e $M = 100$),
 
 Fig
 
+Finally, the guaussian filter is normalized: from the previous example, the filter is a map of 200 x 200 and each point is divided by the sum of each weight of the map. In that way, the sum of the filter weights is equal to one.\footnote{Otherwise, there is some leak of the total intensity stored in the image: if the sum is lower than unit, the rescaled image gets darker.}
+
 \end{document}
