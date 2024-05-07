@@ -26,9 +26,9 @@ for i in range(50):
     stop_time = time[-1]
     f = fileh5[key_channels][()][0]
     f = algo.bandpass_filter(f, start_time, stop_time, LOW_FREQ_BAND_PASS, HIGH_FREQ_BAND_PASS)
-    #algo.plot_spectrogram(algo.get_spectrogram(f, start_time, stop_time, 100, 4.325E7, 4.35E7), start_time, stop_time, str(i))
+    algo.plot_spectrogram(algo.get_spectrogram(f, start_time, stop_time, 100, 4.325E7, 4.35E7), start_time, stop_time, str(i))
     cut_f = algo.cut_signal(f, CUT_START, CUT_STOP)
-    algo.plot_power_spectrum(f, time, 0.0009, 0.0025, 4.33E7, 4.345E7, str(i))
+    #algo.plot_power_spectrum(f, time, 0.0009, 0.0025, 4.33E7, 4.345E7, str(i))
     #algo.plot_freq(f, start_time, stop_time)
     #sample_delay = (stop_time - start_time) / len(time)
     #algo.plot_freq(cut_f, start_time + CUT_START * sample_delay, start_time + CUT_STOP * sample_delay)
