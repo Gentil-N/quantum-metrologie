@@ -76,14 +76,16 @@ def cut_signal(signal, sample_start, sample_stop):
 def get_spectrogram(signal, start_time, stop_time, amount, low_freq_limit, high_freq_limit):
     assert(len(signal) % amount == 0)
     sample_count_per_spec = int(len(signal) / amount)
-    freqs = fftfreq(sample_count_per_spec, (stop_time - start_time) / amount / sample_count_per_spec)
+    zero_padding_length = 10 * sample_count_per_spec
+    freqs = fftfreq(sample_count_per_spec + zero_padding_length, (stop_time - start_time) / amount / sample_count_per_spec)
     indices = np.where(((freqs >= low_freq_limit) & (freqs <= high_freq_limit)))
     freqs = freqs[indices]
     spec_list = []
     for i in range(amount):
         first_index = int(i*sample_count_per_spec)
         sec_index = first_index + sample_count_per_spec
-        spec_list.append(np.abs(fft(signal[first_index:sec_index]))[indices]**2)
+        padded_signal = np.append(np.array(signal[first_index:sec_index]), np.zeros(zero_padding_length))
+        spec_list.append(np.abs(fft(padded_signal))[indices]**2)
         #fig1, ax1 = plt.subplots(1, 1)
         #fig1.set_size_inches(18.5, 10.5)
         #x1.plot(freqs, spec_list[-1], label="freq")
@@ -101,7 +103,7 @@ def plot_spectrogram(spectrogram, start_time, stop_time, name):
     ax0.set_ylabel('frequencies (MHZ)')
     ax0.set_xlabel('time (ms)')
     fig0.colorbar(cs)
-    plt.savefig("./g1-2-analysis/spectrograms/spec2-"+name+".png")
+    plt.savefig("./g1-2-analysis/spectrograms/spec3-"+name+".png")
     plt.show()
 
 def plot_power_spectrum(signal, time, cut_start, cut_stop, freq_cut_start, freq_cut_stop, name):

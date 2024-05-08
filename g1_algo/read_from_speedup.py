@@ -4,9 +4,9 @@ import numpy as np
 from matplotlib.cm import ScalarMappable
 from matplotlib.colors import *
 
-COUNT = 17
+COUNT = 3
 START_TIME = -0.0005150016 + (COUNT) * 0.00032
-STOP_TIME = START_TIME + (COUNT + 2) * 0.00032
+STOP_TIME = START_TIME + 2 * 0.00032
 SAMPLE_COUNT = 200000
 SAMPLE_SPACING = (STOP_TIME - START_TIME) / SAMPLE_COUNT
 FREQ = 43

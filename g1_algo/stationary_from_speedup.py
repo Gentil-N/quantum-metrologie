@@ -5,17 +5,15 @@ from matplotlib.cm import ScalarMappable
 from matplotlib.colors import *
 import math
 
-START_TIME = -0.0005150016
-HALF_OFFSET_TIME = 0.00032
+OFFSET_TIME = 0.00064
 SAMPLE_COUNT = 200000
 DOWNSCALE_FACTOR = 200
-TRUE_SAMPLE_COUNT = int(SAMPLE_COUNT / DOWNSCALE_FACTOR)
+TRUE_SAMPLE_COUNT = int(SAMPLE_COUNT / DOWNSCALE_FACTOR) #nb of row/col pixels in the image
 
 def compute_stationary_g1_chunk(g1_norm):
     N = len(g1_norm)
     assert(N == len(g1_norm[0]))
     g1_stationary_chunk = [0.0] * int(N/2 + 1) # +1 to be sure to include every pixel
-    print(len(g1_stationary_chunk))
     for i in range(N):
         for j in range(N):
             pos = abs(i - j)
@@ -27,7 +25,7 @@ def compute_stationary_g1_chunk(g1_norm):
 
 
 index_start = 2
-index_count = 10
+index_count = 1
 g1_norm = algo.import_g1_norm_darray("./g1_norm_speedup" + str(index_start), TRUE_SAMPLE_COUNT)
 g1_stationary = np.array(compute_stationary_g1_chunk(g1_norm)) / (index_count + 1)
 for i in range(index_count):
@@ -44,11 +42,14 @@ for i in range(index_count):
 #plt.show()
 #g1_stationary = compute_stationary_g1_chunk(g1_norm)
 
-tau_max = len(g1_stationary) * HALF_OFFSET_TIME * 2 / SAMPLE_COUNT
-tau_list = np.linspace(0, tau_max, len(g1_stationary))
+#tau_max = len(g1_stationary) * HALF_OFFSET_TIME * 2 / SAMPLE_COUNT
+print(len(g1_stationary))
+tau_list = np.linspace(0, 0.00016, len(g1_stationary))
 
 fig1, ax1 = plt.subplots(1, 1)
 fig1.set_size_inches(18.5, 10.5)
-ax1.plot(tau_list, g1_stationary)
+ax1.plot(tau_list * 1000, g1_stationary**2)
+ax1.set_xlabel("τ (ms)")
+ax1.set_ylabel("|g¹(τ)|")
 ax1.legend()
 plt.show()

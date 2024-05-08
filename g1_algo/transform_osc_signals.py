@@ -18,8 +18,6 @@ for i in range(START_SIGNAL, STOP_SIGNAL + 1):
     print("Processing ", i)
     print("Importing original signal...")
     f = algo.import_signal_csv_oscilloscope(PATH + "SC2CAL" + str(f'{i:02d}') + ".CSV")
-    algo.plot_freq(f, START_TIME, STOP_TIME)
-    exit()
     f = algo.bandpass_filter(f, START_TIME, STOP_TIME, LOW_FREQ_BAND_PASS, HIGH_FREQ_BAND_PASS)
     print("Creating hilbert pair...")
     g = algo.get_hilbert_pair(f, START_TIME, STOP_TIME)

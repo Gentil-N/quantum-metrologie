@@ -36,7 +36,15 @@
 My very nice abstract
 \end{abstract}
 
-\chapter{Superadiance simulation}
+\chapter{Introduction}
+
+Nowadays, technologies, industries and modernity in a global perspective, force the humanity to produce more and more advanced instruments in order to get a better understanding of his surrounding as well as, like the snake biting his queue, to create more advanced technologies. One instrument of measure, which is also an elementary quantity, crucial in the mind of a human, is the concept of time. Naturally, \textit{yesterday}, \textit{today} and \textit{tomorrow} introduced the dictionary of the civilisation. More recently, as soon as the principle of evolution of a system comes up in science, the variable $t$ appears in the equations governing the aforementioned system. Even measuring a distance sometimes corresponds to measuring time and for that, a great precision may be required: for the satellites involved into the \textit{global positioning system} (GPS), with atomic clocks aboard, a tiny error of 100ns in the time interval \textit{"orbit to earth"} generates a physical displacement of 30 meters. This amount of precision involves more tiny errors which involves more tiny physics: quantum physics. Therefore, \textit{Quantum metrology} is a field of science that deals with precision measurements based on quantum physics. The main \textit{products} from quantum metrology are, among others, atomic clocks and lasers with ultra-stable frequencies. Those new tools allows, except the GPS, the detection of gravitational waves, geodesy, quantum simulation, etc. 
+
+In the far past\footnote{More or less two centuries: everything is relative.}, the most precise time measurement was done simply by the \textit{back-and-forth} movement of a pendula where the precision is defined to the mechanical limit of the structure. Today, the range of the swing for a pendula's arm is replaced by the transition frequency of an atom and the precision is now limited by the linewidth of this transition\footnote{In simple terms, the linewidth of a monochromatic light is the randomness of the associated frequency.} the microwave transition of a caesium atoms at 9.2GHz is equivalent to a pendula swinging periodically every 110 picoseconds. As an atomic clock, or laser in general, is built around an optical cavity, the precision of the emitted frequency and phase\footnote{Phase and frequency are very closely related as the last one is the derivative over time of the first.} is limited by the mechanical surrounding effects which is primarily due to, among others, the mirror fluctuations.
+
+Introduce superradiant
+
+\chapter{superradiance simulation}
 \section{Optical Cavity}
 \paragraph{}
 We firstly introduce a very common object of quantum optics, namely, the \textit{optical cavity}. It consists of two mirrors mounted in parallel of each other: the angle formed by one mirror and the optical axis is a right angle. The idea behind this simple setup is to select a discret range of wavelengths defined by the space between the mirrors. 
@@ -774,7 +782,7 @@ Then, when defining the visbility in \eqref{def_visibility}, the quantum efficie
 However, although the Michelson interferometer is a simple setup which gives nicely $g^1$, this method suffer from three major incovenients:
 \begin{itemize}
 	\item The detector must follow the frequency of the input field: as we are overlapping the same field (i.e the same frequency), the resulting field gives only component of null, same or twice the original frequency. In other words, as the actual experiment works with lasers involving a few hundreds of THz, our detector must follow those frequencies. No real dectector can achieve it in those days.\footnote{Actually, the detector is able to show the mean intensity value, that is to say a DC signal, in the presence of \textit{any} light (depending on the specification). However, because of the \textit{dead time} and other technical reasons, modern detectors are not able to follow the high frequency variations of orders of THz.}
-	\item As the theory is facing experiment, it is worth to notice that the detector \textit{always} has a specific range of possible power inputs. In other words, for to low or to high laser power, the detector does not send any electric signal, which is critical for the first case as the cavity output gives superadiant lasing of a few nano watts.
+	\item As the theory is facing experiment, it is worth to notice that the detector \textit{always} has a specific range of possible power inputs. In other words, for to low or to high laser power, the detector does not send any electric signal, which is critical for the first case as the cavity output gives superradiant lasing of a few nano watts.
 	\item This configuration is highly sensitive to the noise. Indeed, any variation in the detected intensity is concidered as a variation from the electric field, thus, a variation for $g^1$. However, those variations are not necessarily only representative of the output field generated by the quantum system but also by other external perturbations called \textit{noise} which can be classical (electric current noise for example) or quantum\footnote{The quantum noise is not directly related to the quantum system in itlsef but by the fundamental photon statistics generated from the system.}.
 \end{itemize}
 
@@ -1076,7 +1084,7 @@ The waveplate rotate the electric field and the polarizer project the electric f
 
 Fig
 
-As stated in section 2.2 (Balanced heterodyne setup), the resulting amplitude of the overlapping of two linearly polarized E-field is maximized when they are parallels. In this way, we have to ensure that the field coming from the cavity (i.e the superadiant laser) is collinear to the local oscillator without involving the waveplate into the setup. In practice, the cavity field is maintained as vertically polarized\footnote{For other experiences in the lab, the polarization of the cavity field is considered as vertical, thus always checked as vertical before starting any experiment.} and we align the polarizer along the same axis. By looking at the spectrum analyzer, the peak at 43MHz shall vary between zero and a maximum while rotating the main axis of the polarizer: zero means perpendicular polarization whereas the maximum means parallel/collinear polarization. It is important to notice that when reaching perpendicular polarization, the measured total beam power is not null but only the terms \eqref{mix_hetero_ic} and \eqref{mix_hetero_id}, hence the 43Mhz beat (i.e the $\delta\omega$) vanishes.
+As stated in section 2.2 (Balanced heterodyne setup), the resulting amplitude of the overlapping of two linearly polarized E-field is maximized when they are parallels. In this way, we have to ensure that the field coming from the cavity (i.e the superradiant laser) is collinear to the local oscillator without involving the waveplate into the setup. In practice, the cavity field is maintained as vertically polarized\footnote{For other experiences in the lab, the polarization of the cavity field is considered as vertical, thus always checked as vertical before starting any experiment.} and we align the polarizer along the same axis. By looking at the spectrum analyzer, the peak at 43MHz shall vary between zero and a maximum while rotating the main axis of the polarizer: zero means perpendicular polarization whereas the maximum means parallel/collinear polarization. It is important to notice that when reaching perpendicular polarization, the measured total beam power is not null but only the terms \eqref{mix_hetero_ic} and \eqref{mix_hetero_id}, hence the 43Mhz beat (i.e the $\delta\omega$) vanishes.
 
 Once the fields are collinear, it suffices to put the waveplate into the setup and rotate it: this involves a rotation of the local oscillator's E-field, hence a power variation of the resulting beam (i.e after the polarizer).
 
@@ -1132,7 +1140,7 @@ At the end of the day, we caracterized the electrical noise as well as the light
 \section{Intensity calibration}
 \paragraph{}
 
-For all the previous tests, the supposed superadiant laser generated from the cavity and used in sections 2.4 and 2.5 was in reality replaced by a \textit{fake} laser: we used a standard laser reproducing the same frequency of the emited light in case of superadiance.
+For all the previous tests, the supposed superradiant laser generated from the cavity and used in sections 2.4 and 2.5 was in reality replaced by a \textit{fake} laser: we used a standard laser reproducing the same frequency of the emited light in case of superradiance.
 
 As previously stated, the cavity laser is mixed with the local oscillator to generate a 43MHz beat. In other words, the reference laser is configured to be 43MHz away from the cavity laser. However, the experiment is made in a way that it is hard to change all the optics in order to generate the desired frequency for the fake laser. Thereby, we create two sidebands by phase modulation, 781.14MHz away from the main frequency as depicted in Fig ??.
 
@@ -1161,9 +1169,9 @@ As we are mainly interested by the first two sidebands and considering that high
 \end{equation}
 where we identify the term involving $J_0$ as the carrier, $J_1(h)$ as the right sideband (with frequency $\omega + \Omega$) and $-J_1(h)$ as the left sideband (with frequency $\omega - \Omega$).
 
-Knowing that the frequency carrier has a lower frequency than the actual superadiant beam, this is the upper sideband (i.e the sideband on the right of the carrier on Fig ??) which create a 43Mhz beat by coupling with the reference laser. The carrier frequency and the lower sideband create respectively a beat at 824.14MHz and 1.60528GHz which are unvisible for the detector.
+Knowing that the frequency carrier has a lower frequency than the actual superradiant beam, this is the upper sideband (i.e the sideband on the right of the carrier on Fig ??) which create a 43Mhz beat by coupling with the reference laser. The carrier frequency and the lower sideband create respectively a beat at 824.14MHz and 1.60528GHz which are unvisible for the detector.
 
-Therefore, the intensity that we get from the fake laser is in reality much greater than the actual intensity of the sideband which couples to the local oscillator. Moreover, we know from other first experiments conducted in the lab that the superadiant laser power is in order of tens of picowatts. The principle of this intensity calibration test is to determine at which actual intensity we can still distinguish the 43MHz beat: if the intensity is too weak, the beat vanishes into the global noise level showed on the spectrum analyzer.
+Therefore, the intensity that we get from the fake laser is in reality much greater than the actual intensity of the sideband which couples to the local oscillator. Moreover, we know from other first experiments conducted in the lab that the superradiant laser power is in order of tens of picowatts. The principle of this intensity calibration test is to determine at which actual intensity we can still distinguish the 43MHz beat: if the intensity is too weak, the beat vanishes into the global noise level showed on the spectrum analyzer.
 
 The phase modulation of the carrier frequency is controlled through a parameter called \textit{Amplitude of modulation} and is measured in percentage of \textit{what the device managing the modulation is able to do}. At 100\%, the two sidebands reach their maximum of amplitude whereas the carrier's amplitude is slightly reduced: the total energy of the laser beam is kept as constant and \textit{redistributed} through multiple sidebands\footnote{We saw earlier that a phase modulation induces an infinite creation of sidebands in theory but we only stay concerned by the closest and most powerfull ones (i.e the two direct neightboors).}. At 0\%, there is no modulation at all and the main frequency keeps its original amplitude.
 
@@ -1173,7 +1181,7 @@ Firstly, we reduce the power of the fake laser (with sidebands or not) to a mini
 	\item Measure the power difference between the top of the 43MHz beat and the global noise level.
 \end{enumerate}
 
-In order to visualize the carrier and its sidebands as on previous Fig ??, we change the cavity configuration into \textit{modulation mode}. Thanks to a piezo element fixed at one side of the cavity, we can actually tune precisely the cavity's length. The goal of this modulation mode is thus to periodically extend and contract the length of the cavity. By placing an intensity detector at the ouput of the cavity, it gives an effect of scanning the cavity back and forth through the different modes. Indeed, the wavelength of superadiant and fake laser are around 689nm, that is to say, a frequency of 434THz, represents roughly the fifty thousandth cavity's mode for our setup. Then, varying the length of the cavity changes the amount of modes before the resonance of 434THz, but also moves the position of each resonance on the spectrum. At first order (i.e with very small variations), we can consider the FSR (i.e the \textit{frequency distance} between each mode) as constant: for example, if we configure the piezo to contract progressively, in order to move the carrier frequency progressively (which lies around 434THz) from the 50,000th resonance to the 50,001th resonance\footnote{In reality, on a spectrum graph, the cavity resonances move while the carrier frequency stands at 434THz.}, the FSR difference is negligeable.
+In order to visualize the carrier and its sidebands as on previous Fig ??, we change the cavity configuration into \textit{modulation mode}. Thanks to a piezo element fixed at one side of the cavity, we can actually tune precisely the cavity's length. The goal of this modulation mode is thus to periodically extend and contract the length of the cavity. By placing an intensity detector at the ouput of the cavity, it gives an effect of scanning the cavity back and forth through the different modes. Indeed, the wavelength of superradiant and fake laser are around 689nm, that is to say, a frequency of 434THz, represents roughly the fifty thousandth cavity's mode for our setup. Then, varying the length of the cavity changes the amount of modes before the resonance of 434THz, but also moves the position of each resonance on the spectrum. At first order (i.e with very small variations), we can consider the FSR (i.e the \textit{frequency distance} between each mode) as constant: for example, if we configure the piezo to contract progressively, in order to move the carrier frequency progressively (which lies around 434THz) from the 50,000th resonance to the 50,001th resonance\footnote{In reality, on a spectrum graph, the cavity resonances move while the carrier frequency stands at 434THz.}, the FSR difference is negligeable.
 
 Nevertheless, as both the sidebands and the carrier are on resonance, applying this modulation mode directly on the fake laser ownning the two sidebands shall give a single intensity peak (Fig ??)
 
@@ -1254,7 +1262,7 @@ In other words, this figure shows \textit{how visible} is the signal compared to
 \textrm{Power difference} &= 10 \times \log_{10}\left( \frac{\textrm{Beat power}}{1mW} \right) - 10 \times \log_{10}\left( \frac{\textrm{Noise power}}{1mW} \right) \\
 &= 10 \times \log_{10}\left( \frac{\textrm{Beat power}}{\textrm{Noise power}} \right)
 \end{align}
-As we can see, between 20 and 50 picowatts, the 43MHz beat is clearly distinguishable from the global noise level. Therefore, we should be able to retrieve the signal from the detector output when the true superadiant laser shall be used.
+As we can see, between 20 and 50 picowatts, the 43MHz beat is clearly distinguishable from the global noise level. Therefore, we should be able to retrieve the signal from the detector output when the true superradiant laser shall be used.
 
 \chapter{Data analysis}
 \section{Light detection: classical development}
@@ -1368,7 +1376,7 @@ Thus:
 Finally, the intensities on the photodiodes read:
 \begin{align}
 I(t) &= \left( c\epsilon_0 E_{out}(t) \right)^2\\
-I(t) &= \left( c\epsilon_0 E_{out}(t) \right)^2\\
+I(t) &= \left( c\epsilon_0 E_{out}(t) \right)^2
 \end{align}
 where $\epsilon_0$ is the vacuum permittivity and we used the relation $c=1/\sqrt{\mu_0\epsilon_0}$. The unit of the irradiance is in watt per squared meter (W/m² i.e a power per unit of surface). Then it comes:
 \begin{equation}
@@ -1493,7 +1501,7 @@ It is important to note that, in the non-stationary case, the norm of $g^1$ is d
 \end{align}
 with any value of time $t_1$ and $t_2$.
 
-Finally, \eqref{g1_comput_form} is the final form used for the numerical implementation in order to process the recorded signals of the superadiant beam. Nevertheless, Annex ?? gives some examples of numerical verification before actual use in the experiment as well as more description of the porgram and its optimizations.
+Finally, \eqref{g1_comput_form} is the final form used for the numerical implementation in order to process the recorded signals of the superradiant beam. Nevertheless, Annex ?? gives some examples of numerical verification before actual use in the experiment as well as more description of the porgram and its optimizations.
 
 
 \appendix
@@ -1649,7 +1657,7 @@ Theoretical curve for the chaotic light:
 
 \subsection{Downsampling}
 
-The recorded signal from the experiment is of 43MHz. For a good presicion, we must have approximately 10 samples per period: an optimal sampling rate would be around 430MHz\footnote{In practice, the sampling rate may be as low as 200MHz which reprensent a bit less than five samples per period.}. As the superadiant lasing time can be as long as four milliseconds, the amount of samples for one record of the signal may easily exceed one million. For the non-stationary case of $g^1$, the output data is a 2D map: from the previous case, a map of 1M x 1M samples! A common size/presicion for a float number in a computer is of 32bits (i.e 4 bytes). Then, for recorded signals of 10k, 50k, 100k and 500k samples, we get:
+The recorded signal from the experiment is of 43MHz. For a good presicion, we must have approximately 10 samples per period: an optimal sampling rate would be around 430MHz\footnote{In practice, the sampling rate may be as low as 200MHz which reprensent a bit less than five samples per period.}. As the superradiant lasing time can be as long as four milliseconds, the amount of samples for one record of the signal may easily exceed one million. For the non-stationary case of $g^1$, the output data is a 2D map: from the previous case, a map of 1M x 1M samples! A common size/presicion for a float number in a computer is of 32bits (i.e 4 bytes). Then, for recorded signals of 10k, 50k, 100k and 500k samples, we get:
 \begin{itemize}
 	\item 10k x 10k $\rightarrow$ 400 MB
 	\item 50k x 50k $\rightarrow$ 10 GB
