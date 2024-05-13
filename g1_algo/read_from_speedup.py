@@ -4,7 +4,7 @@ import numpy as np
 from matplotlib.cm import ScalarMappable
 from matplotlib.colors import *
 
-COUNT = 3
+COUNT = 10
 START_TIME = -0.0005150016 + (COUNT) * 0.00032
 STOP_TIME = START_TIME + 2 * 0.00032
 SAMPLE_COUNT = 200000
@@ -27,7 +27,7 @@ cs = ax0.contourf(t1_list * 1000, t2_list * 1000, g1_norm, cmap='inferno')
 ax0.set_xlabel('time t1 (ms)')
 ax0.set_ylabel('time t2 (ms)')
 fig0.colorbar(cs)
-title = "Start stop times = " + str(START_TIME) + " to " + str(STOP_TIME) + " with " + str(DOWNSCALE_FACTOR) + " - Sample count = " + str(SAMPLE_COUNT) + " - Coh time = " + str(COHERENCE_TIME) + " - Frequency = " + str(round(FREQ, 2)) + " - Signal count = " + str(SIGNAL_COUNT) + " - BPF 5MHz"
+title = "Start stop times = " + str(START_TIME) + " to " + str(STOP_TIME) + " with " + str(DOWNSCALE_FACTOR) + " - Sample count = " + str(SAMPLE_COUNT) + " - Frequency = " + str(round(FREQ, 2)) + " - Signal count = " + str(SIGNAL_COUNT) + " - BPF 5MHz"
 ax0.set_title(title)
 plt.savefig("./g1-2-analysis/" + title + ".png") ####### THINK TO ENABLE IT WHEN NECESSARY!!!
 plt.show()

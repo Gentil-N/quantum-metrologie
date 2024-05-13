@@ -46,7 +46,7 @@ if ENABLE_REPUMP:
 
 op_hamiltonian = HBAR * OMEGA_ATOM * tens_from_spin(op_sz) + HBAR * OMEGA_ATOM * tens_from_fock(op_ad * op_a) + HBAR * G * (qx.tensor(op_s_pos, op_a) + qx.tensor(op_s_neg, op_ad))
 
-#psi_init = qx.tensor(spin_up, qx.fock(HILBERT_DIM_PHOTON, 0)) # = |e,0>
+psi_init = qx.tensor(spin_up, qx.fock(HILBERT_DIM_PHOTON, 0)) # = |e,0>
 
 psi_init = qx.tensor(spin_up, qx.coherent(HILBERT_DIM_PHOTON, COHERENT_ALPHA))
 #psi_init = qx.tensor(spin_down, create_coherent_state(HILBERT_DIM_PHOTON, COHERENT_ALPHA))

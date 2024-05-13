@@ -2,7 +2,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage[a4paper,width=155mm,top=20mm,bottom=20mm]{geometry}
-\graphicspath{ {images/} }
+\graphicspath{ {pictures/} }
 
 \usepackage{mathrsfs}
 \usepackage{amsmath}
@@ -57,20 +57,20 @@ With a more pragmatic point of view, one can think of this wavelength selection 
   \item  For all the other frequencies, the phase difference is not random but actually well behaved. Nevertheless, After a couple of round-trip, the set of generated phase difference is unformly distributed among $ \left[ -\pi, \pi \right] $.
 \end{itemize}
 
-Thereby, that is why the device created by C.Fabry and A.Pérot in 1899 is called an \textit{interferometer} as, in their case, the light hit the mirrors with an angle, creating the famous pattern of fringes. Equivalently, this category of instrument is often named \textit{resonator} as the amplitude of the electric field is enhanced in the case of resonance with the cavity or decreases in other cases: by conception, it can be modeled as a classical harmonic oscillator or with the quantum equivalent. \footnote{As we will see later, each resonant frequency has a linewidth as a classical oscillator, in contrary to the quantum equivalent where the energy ladders (i.e the frequencies, in virtue of the relation $ \hbar \omega$) are well defined.}
+Thereby, that is why the device created by C.Fabry and A.Pérot in 1899 is called an \textit{interferometer} as, in their case, the light hit the mirrors with an angle, creating the famous pattern of fringes. Equivalently, this category of instrument is often named \textit{resonator} as the amplitude of the electric field is enhanced in the case of resonance with the cavity or decreases in other cases: by conception, it can be modeled as a classical harmonic oscillator or with the quantum equivalent.\footnote{As we will see later, each resonant frequency has a linewidth as a classical oscillator, in contrary to the quantum equivalent where the energy ladders (i.e the frequencies, in virtue of the relation $ \hbar \omega$) are well defined.}
 
 In real experiments, the device is static and one prefers to let the light enter partially, to feed the cavity, and exit partially to collect the selected waves: only a part of the light is reflected into the cavity. In that way, we use \textit{partially reflective} mirrors parametrized by an electric field reflection coefficient $r$ and an electric field transmission coefficient $t$ obeying the relation $r^2 + t^2 = 1$ (the squared terms are the respective coefficient for the intensityof the field), meaning that all the absorbed energy must be re-emitted by the mirror, which is of course not fully true as some amount of the energy is scattered due to surface roughness. However, current manufacturers creates mirros with less than $0.01\%$ of loss and the above formula is sufficient for most of the applications.
 
-One common approach to express the cavity response (and meets the purpose of this section) is the Airy distribution which represents the intensity ratio between the internal electric field and the \textit{launching} electric field (i.e the amount of \textit{feeding}-field succeding to transmit through the first mirror and penetrate the cavity), in function of the phase accumulated for each round-trip:
+One common approach to express the cavity response (and meets the purpose of this section) is the Airy distribution which represents the intensity ratio between the internal electric field and the \textit{launching} electric field (i.e the amount of \textit{feeding}-field succeding to transmit through the first mirror and penetrate the cavity), in function of the phase accumulated for each round-trip\footnote{Of course, this is not the mathematical definition of the Airy distribution. However, we will see that this \textit{physical} distribution gives an actual Airy distribution.}:
 \begin{equation}
 \label{eqairy}
 \textrm{Airy distribution} : A(\phi) = \frac{I_{circ}}{I_{launch}}(\phi)
-\end{equation} In other words, it just makes the link between the enhancment factor of the cavity field and the constructive-destructive interference phase pattern. In order to derive it, we shall use the circulating field approach \footnote{A. E. Siegman, section 11.3, \textit{Lasers}}, represented in Fig (add figure!):
+\end{equation} 
+In other words, it just makes the link between the enhancment factor of the cavity field and the constructive-destructive interference phase pattern. In order to derive it, we shall use the circulating field approach \footnote{A. E. Siegman, section 11.3, \textit{Lasers}}, represented in Fig (add figure!):
 \begin{itemize}
 	\item A launching field: $ E_{launch} $
 	\item A round-trip electric field which is the field after one complete round-trip: one reflection on the back mirror plus another on the front mirror. We call it $ E_{RT}$
 	\item A circulating electric field which is the sum of the launched field and the round-trip one: $ E_{circ} =  E_{launch} + E_{RT}$. It is by definition the internal electric field.
-	
 \end{itemize}
 
 Here, we use the phasor representation where the electric field (a real analytic signal) is splitted into two conjugate complex numbers:
@@ -99,12 +99,12 @@ Then, after a complete round-trip, one obtains for the "RT" field a total angula
 \begin{equation}
 2\phi \stackrel{\text{def}}{=} \frac{2L}{c}\omega + 2\pi
 \end{equation} 
-Thereby:
+where $\phi$ is the same phase as in \eqref{eqairy}. Thereby:
 \begin{equation}
 \label{eqrt}
 \overline{E}_{RT} = r_1 r_2 e^{-i2\phi} \overline{E}_{circ}
 \end{equation}
-where $r_{1,2}$ are the reflection coefficients of front and back mirror respectively. In other words, instead of propagating the field from its original value $ \overline{E}_{circ}$ through time or space to get a phase, we compute the relative phase $\phi$ from the length of the cavity $L$ with the field's frequency $\omega$.
+where $r_{1,2}$ are the reflection coefficients of the front and back mirror respectively. In other words, instead of propagating the field from its original value $ \overline{E}_{circ}$ through time or space to get a phase, we compute the relative phase $\phi$ from the length of the cavity $L$ with the field's frequency $\omega$.
 
 One can highlight that for a caracteristic space-frequency of the cavity $k=\frac{n\pi}{L}$, we have:
 \begin{equation}
@@ -127,14 +127,19 @@ Moreover, to get the actual distribution that we observe through the cavity, tha
 \label{airyformulasec}
 A'(\phi) = (1-r_1^2)(1-r_2^2)\times A(\phi)
 \end{equation}
-where one uses the intensity transmission coeffcients $t_{1,2}^2 = 1-r_{1,2}^2$.Now, in order to sketch the function, independent of the size of the cavity $L$, we shall use the third term of the equality \eqref{phimodif} to reparametrize the round-trip dephasing variable $\phi$:
+where one uses the intensity transmission coeffcients $t_{1,2}^2 = 1-r_{1,2}^2$. Now, in order to sketch the function, independent of the size of the cavity $L$, we shall use the third term of the equality \eqref{phimodif} to reparametrize the round-trip dephasing variable $\phi$:
 \begin{equation}
 \label{phidef}
 \phi = \pi(x+1) \quad \equiv \quad \pi x \quad [\pi]
 \end{equation}
-where the integer variable $n$ has been replaced by the continuous one $x \in \mathbb{R}$ so that one can also investigate the behavior of the enhancment factor $A'(\phi) \sim A'(x)$ away from the resonant frequencies. Fig (??) is a normalized drawing\footnote{One divides the whole graph by $A'(0)$} of the airy distribution for a short amount of negative and positive resonant frequencies through a couple of reflexion coefficient $r_{1,2}$. 
+where the integer variable $n$ has been replaced by the continuous one $x \in \mathbb{R}$ so that one can also investigate the behavior of the enhancment factor $A'(\phi) \sim A'(x)$ away from the resonant frequencies. Figure \ref{fig:airy-dist} is a normalized drawing\footnote{One divides the whole graph by $A'(0)$} of the airy distribution for a short amount of negative and positive resonant frequencies through a couple of reflexion coefficient $r_{1,2}$. 
 
-(add figure!)
+\begin{figure}[h]
+\caption{Normalized Airy distribution plot from -5 to 5 rads for three different sets of mirrors.}
+\centering
+\includegraphics[width=\textwidth]{airy-dist}
+\label{fig:airy-dist}
+\end{figure}
 
 To clarify, the abscisse coordinate is the factor quantity between two caracteristic frequencies $\frac{n\pi}{L}$, which can be equivalently spatial or temporal as we get ride of the constant $c$ in our calculation: then $x$ is a frequency divided by the free spectral range (FSR) In other words, for $x=\frac{1}{2}$, one gets the enhancment factor $A'$ for exactly a frequency halfway between two resonances, whereas $x=1$ gives the $A'$ factor for the first resonant frequency of the cavity.\footnote{One could say that the first resonant frequency is $x=0$ according to the figure or even the formula \eqref{airyformula} itslef. However, $x=0$ also means $n=0$: the launched field would have null frequency, which is not a physical solution.}
 
@@ -150,11 +155,16 @@ where $\textrm{FWHM} \stackrel{\text{def}}{=} \Delta\nu$.
 
 Finally, one can sketch the FWHM in fonction of the mirror reflectivities $r_{1,2}$ and obtains Fig ??
 
-(add figure)
+\begin{figure}[h]
+\caption{FMWH plot according to the mirror reflectivities $r_{12} = r_1 = r_2$}
+\centering
+\includegraphics[width=\textwidth]{airy-fmwh}
+\label{fig:airy-fmwh}
+\end{figure}
 
 Two important points are noticeable:
 \begin{itemize}
-	\item The linewidth of a cavity is inversly dependent on the mirrors reflectivity. In other words, bigger is the transmission factor of the mirrors, broader is the frequency range around resonances, giving a \textit{less selective} cavity, and reciprocally. Then, two perfeclty reflective mirrors allow the FWHM to tend to zero: the cavity selects only and exactly the resonant frequencies $\frac{n\pi}{L}$. Formally, the \textit{selectivity} of a cavity is defined by its \textit{finesse} which reads $F \stackrel{\text{def}}{=} \frac{\textrm{FSR}}{\Delta\nu}$: one normalizes the distance (in term of frequency) separating two resonances by the linewidth. On Fig ??, as FSR is unity then the ordinate axis is the inverse of the finesse by definition.
+	\item The linewidth of a cavity is inversly dependent on the mirrors reflectivity. In other words, bigger is the transmission factor of the mirrors, broader is the frequency range around resonances, giving a \textit{less selective} cavity, and reciprocally. Then, two perfeclty reflective mirrors allow the FWHM to tend to zero: the cavity selects only and exactly the resonant frequencies $\frac{n\pi}{L}$. Formally, the \textit{selectivity} of a cavity is defined by its \textit{finesse} which reads $F \stackrel{\text{def}}{=} \frac{\textrm{FSR}}{\Delta\nu}$: one normalizes the distance (in term of frequency) separating two resonances by the linewidth. On figure \ref{fig:airy-fmwh}, as FSR is unity then the ordinate axis is the inverse of the finesse by definition.
 	\item The function modeling the FWHM tends to infinity below a certain value which can be evaluated to approximately $r_1r_2 \approx 0.17$. That is due to the behavior of the $\arcsin$ which is not defined beyond $x=1$ for $x \in \mathbb{R}^+$. 
 \end{itemize}
 
@@ -166,7 +176,7 @@ Finally, the next step for an optical cavity is, as many of physical systems, to
 
 \section{Jaynes-Cummings model}
 \paragraph{}
-As an introduction, it is important to remind that the Jaynes-Cummings (JC) approach is no more no less than a model, which means that it is based on some hypothesis and has limitations which leads to refinements for more complex physical systems. In the current section, we shall present as wide as possible the principles of this model which will be the foundments of all the next derivated/evoluted models\footnote{As written, the JC-model may seem to be a pre-model or even a \textit{toy tool} in view of introducing other legitimate models. Nevertheless, the JC-model is an actual physical approach, currently used for real use-cases in Quantum Optics, especially whith single atom interactions.}, even if the section is not supposed to be exhaustive but only a reference-like for further theoretical developments.
+As an introduction, it is important to remind that the Jaynes-Cummings (JC) approach is no more, no less than a model, which means that it is based on some hypothesis and has limitations which leads to refinements for more complex physical systems. In the current section, we shall present as wide as possible the principles of this model which will be the foundments of all the next derivated/evoluted models\footnote{As written, the JC-model may seem to be a pre-model or even a \textit{toy tool} in view of introducing other legitimate models. Nevertheless, the JC-model is an actual physical approach, currently used for real use-cases in Quantum Optics, especially whith single atom interactions.}, even if the section is not supposed to be exhaustive but only a reference-like for further theoretical developments.
 
 First of all, our system is composed of:
 \begin{itemize}
@@ -174,7 +184,7 @@ First of all, our system is composed of:
 	\item A single two-level system: this system has a structure of ground-excited state and can represent a transition of an atom for example.
 \end{itemize}
 
-When quantizing the the E-field inside of a box of volume $V = L^3$ (i.e the cavity in three dimensions), one finds that the corresponding hamiltonian operator is [??Loudon p143]:
+When quantizing the E-field inside of a box of volume $V = L^3$ (i.e the cavity in three dimensions), one finds that the corresponding hamiltonian operator is [??Loudon p143]:
 \begin{align}
 \hat{H}_{cav} &= \int_{cavity} \left[\epsilon_0 \hat{E}(\vv{r}, t) \cdot \hat{E}(\vv{r}, t) + \mu_0^{-1} \hat{B}(\vv{r}, t) \cdot \hat{B}(\vv{r}, t)\right] \quad dV\\
 &= \sum_{\vv{k}} \sum_{\lambda} \hbar \omega_{c,\vv{k}} \left( \hat{a}_{\lambda \vv{k}}^\dag \hat{a}_{\lambda \vv{k}} + \frac{1}{2} \right)
@@ -307,6 +317,7 @@ E_{n, \pm} &\stackrel{\text{def}}{=} \hbar\Delta\omega\,(n-\frac{1}{2}) \pm \fra
 \end{align}
 with:
 \begin{equation}
+\label{tan_theta_n}
 \tan\left(\theta_n\right) = -\frac{4\sqrt{n}g}{\Delta\omega}
 \end{equation}
 
@@ -321,13 +332,25 @@ Then, applying the spatial evolution operator, one finds (see Annexe ??)
 \ket{\psi(t)} &= e^{-\frac{i}{\hbar}E_{1,+}t} \cos\left(\frac{\theta_{1}}{2}\right) \ket{1, +} - e^{-\frac{i}{\hbar}E_{1,-}t} \sin\left(\frac{\theta_{1}}{2}\right) \ket{1, -}\\
 &= \cos\left(\Omega t\right) \ket{\uparrow, 0} - i \sin\left(\Omega t\right) \ket{\downarrow, 1}
 \end{align}
-where we defined the Rabi frequency $\Omega = 2g$. Making the projection (i.e a measurment) along $\ket{\uparrow, 0}$ or $\ket{\downarrow, 1}$ and one ends up with the Rabi oscillations sketched on Fig ??.
+where we defined the Rabi frequency $\Omega = 2g$. Making the projection (i.e a measurement) along $\ket{\uparrow, 0}$ or $\ket{\downarrow, 1}$ and one ends up with the Rabi oscillations sketched on figure  \ref{fig:rabi-no-delta} where we set $g=1$:
 
-(add figure!!)
+\begin{figure}[h]
+\caption{Rabi oscillations for the simple initial state $\ket{\uparrow, 0}$.}
+\centering
+\includegraphics[width=\textwidth]{rabi-no-delta}
+\label{fig:rabi-no-delta}
+\end{figure}
 
-As we can see on Fig ??, the probabilities of finding one photon with the atom in its ground state, while no photon with the atom in the excited state, oscillate in opposite phase.
+As we can see on figure \ref{fig:rabi-no-delta}, the probabilities of finding one photon with the atom in its ground state, while no photon with the atom in the excited state, oscillate in opposite phase.
 
-Numerically, if one puts a small detuning (i.e $\omega_a$ is still about the same order of magnitude of $\omega_c$), one can numerically sketch Fig ?? where we see that the energy transfer is progressively discarded as we increase the detuning: the probabilities of inversing the intial state decreases.\footnote{Of course, it depends on the initial state. Here we choosed to work with the pair $\ket{\uparrow, 0}$ and $\ket{\downarrow, 1}$ but similar behaviors happen for other states.}
+\begin{figure}[h!]
+\caption{Rabi oscillations for the initial state $\ket{\uparrow, 0}$ with different detunings.}
+\centering
+\includegraphics[width=\textwidth]{rabi-prog-delta}
+\label{fig:rabi-prog-delta}
+\end{figure}
+
+Numerically, if one puts progressively a small detuning (i.e $\omega_a$ is still about the same order of magnitude of $\omega_c$), one can numerically sketch figure \ref{fig:rabi-prog-delta} where we see that the energy transfer is progressively discarded as we increase the detuning: the probabilities of inverting the intial state decreases.\footnote{Of course, it depends on the initial state. Here we choosed to work with the pair $\ket{\uparrow, 0}$ and $\ket{\downarrow, 1}$ but similar behaviors happen for other states.} However, the \textit{rate}, at which the energy \textit{may} be transfered, increases: this behavior follows from \eqref{tan_theta_n}.
 
 As we can notice, this model is mainly limited by its atomic level capability which is of number of two. Thereby, one would probably like to theoretically predict the behavior for many two-level systems (or equivalently several spins). Then, we shall introduce an extension of this model in the next section.
 
@@ -350,13 +373,14 @@ Thereby, this extended system is composed of $N+1$ independent sub-system with d
 
 Therefore, as the spins are assumed to be identical in \eqref{dist_sig_2}, one uses instead the collective spin operator:
 \begin{equation}
-\sum_{j=1}^{N} \hat{\sigma}_i^j \rightarrow \frac{2}{\hbar} \hat{S}_j ATTENTION !!! PEUT ETRE PAS BON
+\label{sig_change_s}
+\sum_{i=1}^{N} \hat{\sigma}_j^i \rightarrow \frac{2}{\hbar} \hat{S}_j
 \end{equation}
 where $\hat{S}_j$ follows the spin algebra similar to the Pauli matrices with, among other relations, the commutator:
 \begin{equation}
 {\displaystyle [\hat{S} _{j},\hat{S} _{k}]=i\hbar\varepsilon _{jkl}\,\hat{S} _{l}}
 \end{equation}
-Then, one obtains the following hamiltoninan for indistinguishable N two-level systems:
+The change of variable \eqref{sig_change_s} allows to write, in the case of spin-$1/2$, $\hat{\sigma}_j = \frac{2}{\hbar}\hat{S}_j$ Then, one obtains the following hamiltoninan for indistinguishable N two-level systems:
 \begin{equation}
 H_{TC} \stackrel{\text{def}}{=} \hbar\Delta\omega\,\hat{n} + g \left(\hat{S}_+ \hat{a} + \hat{S}_-\hat{a}^{\dag} \right)
 \end{equation}
@@ -1191,7 +1215,7 @@ To rectify the problem, we give a small offset to the 781.14MHz frequency and, a
 
 Fig
 
-By extending the cavity's length, the resonances shall \textit{move} to the left of the spectrum and the transmitted frequency hitting the detector (the "intensity" detector, not the banlanced detector), shall be in the following order: the carrier, the lower sideband, then the upper sideband. Note that if the offset is negative (i.e the sidebands are closer to carrier) we shall see the carrier, then the upper and lower sideband in this order. An example of graph obtained through the oescilloscope is depicted on Fig ??
+By extending the cavity's length, the resonances shall \textit{move} to the left of the spectrum and the transmitted frequency hitting the detector (the "intensity" detector, not the banlanced detector), shall be in the following order: the carrier, the lower sideband, then the upper sideband. Note that if the offset is negative (i.e the sidebands are closer to carrier) we shall see the carrier, then the upper and lower sideband in this order. An example of graph obtained through the oscilloscope is depicted on Fig ??
 
 Fig
 

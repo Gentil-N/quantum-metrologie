@@ -25,7 +25,7 @@ def compute_stationary_g1_chunk(g1_norm):
 
 
 index_start = 2
-index_count = 1
+index_count = 8
 g1_norm = algo.import_g1_norm_darray("./g1_norm_speedup" + str(index_start), TRUE_SAMPLE_COUNT)
 g1_stationary = np.array(compute_stationary_g1_chunk(g1_norm)) / (index_count + 1)
 for i in range(index_count):
@@ -50,6 +50,6 @@ fig1, ax1 = plt.subplots(1, 1)
 fig1.set_size_inches(18.5, 10.5)
 ax1.plot(tau_list * 1000, g1_stationary**2)
 ax1.set_xlabel("τ (ms)")
-ax1.set_ylabel("|g¹(τ)|")
+ax1.set_ylabel("|g¹(τ)|²")
 ax1.legend()
 plt.show()

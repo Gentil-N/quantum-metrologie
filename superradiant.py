@@ -8,7 +8,7 @@ from scipy.fft import fft, ifft, fftfreq
 def rabi_test():
     FOCK_DIM = 100
     HBAR = 1.0
-    DELTA_OMEGA = 0.0
+    DELTA_OMEGA = 1.0
     G = 1.0
     MEAN_N = 25
 
@@ -30,14 +30,16 @@ def rabi_test():
     spin_up = qp.spin_state(1/2, 1/2)
     spin_down = qp.spin_state(1/2, -1/2)
 
-    op_hamiltonian = HBAR * DELTA_OMEGA * qp.tensor(qp.qeye(2), op_n) + HBAR * G * (qp.tensor(op_s_pos, op_a) + qp.tensor(op_s_neg, op_ad))
+    op_hamiltonian_1 = HBAR * DELTA_OMEGA * qp.tensor(qp.qeye(2), op_n) + HBAR * G * (qp.tensor(op_s_pos, op_a) + qp.tensor(op_s_neg, op_ad))
+    op_hamiltonian_2 = HBAR * (DELTA_OMEGA + 2.0) * qp.tensor(qp.qeye(2), op_n) + HBAR * G * (qp.tensor(op_s_pos, op_a) + qp.tensor(op_s_neg, op_ad))
 
     #psi_init = qp.tensor(spin_down, qp.coherent(FOCK_DIM, math.sqrt(MEAN_N)))
     psi_init = qp.tensor(spin_up, qp.fock(FOCK_DIM, 0))
 
-    time_range = np.linspace(0, 100, 10000)
+    time_range = np.linspace(0, 4*np.pi, 10000)
 
-    result = qp.mesolve(op_hamiltonian, psi_init, time_range, [], [])
+    result_1 = qp.mesolve(op_hamiltonian_1, psi_init, time_range, [], [])
+    result_2 = qp.mesolve(op_hamiltonian_2, psi_init, time_range, [], [])
 
     ket_spin_up_fock_0 = qp.tensor(spin_up, qp.fock(FOCK_DIM, 0))
     rho_spin_up_fock_0 = ket_spin_up_fock_0 * ket_spin_up_fock_0.dag()
@@ -48,13 +50,19 @@ def rabi_test():
 
     fig1, ax1 = plt.subplots(1, 1)
     fig1.set_size_inches(18.5, 10.5)
-    ax1.plot(time_range, qp.expect(rho_spin_up_fock_0, result.states), label="spin up")
-    ax1.plot(time_range, qp.expect(rho_spin_down_fock_1, result.states), label="spin down")
-    ax1.plot(time_range, qp.expect(ket_fock_1 * ket_fock_1.dag(), result.states), label="coherent revival")
+    ax1.plot(time_range, qp.expect(rho_spin_up_fock_0, result_1.states), label="|<↑, 0|ψ|↑, 0>|² with Δω = 1 rad", color="orange")
+    ax1.plot(time_range, qp.expect(rho_spin_down_fock_1, result_1.states), label="|<↓, 1|ψ|↓, 1>|² with Δω = 1 rad", color="orange", linestyle="--")
+    ax1.plot(time_range, qp.expect(rho_spin_up_fock_0, result_2.states), label="|<↑, 0|ψ|↑, 0>|² with Δω = 3 rads", color="red")
+    ax1.plot(time_range, qp.expect(rho_spin_down_fock_1, result_2.states), label="|<↓, 1|ψ|↓, 1>|² with Δω = 3 rads", color="red", linestyle="--")
+    ax1.set_xlabel("Time [s]")
+    ax1.set_ylabel("Probabilities [no unit]")
+    #ax1.plot(time_range, qp.expect(ket_fock_1 * ket_fock_1.dag(), result.states), label="coherent revival")
     ax1.legend()
     ax1.grid()
     plt.show()
 
+rabi_test()
+exit()
 
 N_fock = 10
 N_atoms = 6

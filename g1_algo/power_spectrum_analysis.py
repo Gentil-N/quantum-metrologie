@@ -24,6 +24,8 @@ for i in range(50):
     time = fileh5[key_time][()].tolist()
     start_time = time[0]
     stop_time = time[-1]
+    print(start_time, " ", stop_time)
+    exit()
     f = fileh5[key_channels][()][0]
     f = algo.bandpass_filter(f, start_time, stop_time, LOW_FREQ_BAND_PASS, HIGH_FREQ_BAND_PASS)
     algo.plot_spectrogram(algo.get_spectrogram(f, start_time, stop_time, 100, 4.325E7, 4.35E7), start_time, stop_time, str(i))
