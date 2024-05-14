@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2024.3.28)  13 MAY 2024 17:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2024.3.28)  14 MAY 2024 17:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -184,74 +184,98 @@ LaTeX Font Info:    Overwriting symbol font `stmry' in version `bold'
 Package: bbold 1994/04/06 Bbold symbol package
 LaTeX Font Info:    Redeclaring math alphabet \mathbb on input line 42.
 )
+(/usr/share/texlive/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2022/01/07 v1.5 Sub-captions (AR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2022/03/01 v3.6b Customizing captions (AR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2022/03/17 v2.3b caption3 kernel (AR)
+\caption@tempdima=\dimen160
+\captionmargin=\dimen161
+\caption@leftmargin=\dimen162
+\caption@rightmargin=\dimen163
+\caption@width=\dimen164
+\caption@indent=\dimen165
+\caption@parindent=\dimen166
+\caption@hangindent=\dimen167
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count275
+\c@continuedfloat=\count276
+)
+\c@subfigure=\count277
+\c@subtable=\count278
+)
 (/usr/share/texlive/texmf-dist/tex/latex/mathtools/mathtools.sty
 Package: mathtools 2022/06/29 v1.29 mathematical typesetting tools
 
 (/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count275
-\calc@Bcount=\count276
-\calc@Adimen=\dimen160
-\calc@Bdimen=\dimen161
+\calc@Acount=\count279
+\calc@Bcount=\count280
+\calc@Adimen=\dimen168
+\calc@Bdimen=\dimen169
 \calc@Askip=\skip56
 \calc@Bskip=\skip57
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count277
+\calc@Ccount=\count281
 \calc@Cskip=\skip58
 )
 (/usr/share/texlive/texmf-dist/tex/latex/mathtools/mhsetup.sty
 Package: mhsetup 2021/03/18 v1.4 programming setup (MH)
 )
-\g_MT_multlinerow_int=\count278
-\l_MT_multwidth_dim=\dimen162
+\g_MT_multlinerow_int=\count282
+\l_MT_multwidth_dim=\dimen170
 \origjot=\skip59
-\l_MT_shortvdotswithinadjustabove_dim=\dimen163
-\l_MT_shortvdotswithinadjustbelow_dim=\dimen164
-\l_MT_above_intertext_sep=\dimen165
-\l_MT_below_intertext_sep=\dimen166
-\l_MT_above_shortintertext_sep=\dimen167
-\l_MT_below_shortintertext_sep=\dimen168
+\l_MT_shortvdotswithinadjustabove_dim=\dimen171
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen172
+\l_MT_above_intertext_sep=\dimen173
+\l_MT_below_intertext_sep=\dimen174
+\l_MT_above_shortintertext_sep=\dimen175
+\l_MT_below_shortintertext_sep=\dimen176
 \xmathstrut@box=\box53
-\xmathstrut@dim=\dimen169
+\xmathstrut@dim=\dimen177
 )
-\c@theorem=\count279
-\c@corollary=\count280
+\c@theorem=\count283
+\c@corollary=\count284
 
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count281
+\l__color_backend_stack_int=\count285
 \l__pdf_internal_box=\box54
 )
 (./book.aux)
 \openout1 = `book.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
  (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count282
-\scratchdimen=\dimen170
+\scratchcounter=\count286
+\scratchdimen=\dimen178
 \scratchbox=\box55
-\nofMPsegments=\count283
-\nofMParguments=\count284
+\nofMPsegments=\count287
+\nofMParguments=\count288
 \everyMPshowfont=\toks31
-\MPscratchCnt=\count285
-\MPscratchDim=\dimen171
-\MPnumerator=\count286
-\makeMPintoPDFobject=\count287
+\MPscratchCnt=\count289
+\MPscratchDim=\dimen179
+\MPnumerator=\count290
+\makeMPintoPDFobject=\count291
 \everyMPtoPDFconversion=\toks32
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -296,31 +320,33 @@ e
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 33
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 34
 .
 (/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 33.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 34.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 33.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 34.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Trying to load font information for U+esvect on input line 
-33.
+34.
 
 (/usr/share/texlive/texmf-dist/tex/latex/esvect/uesvect.fd
 File: uesvect.fd 
 )
 LaTeX Font Info:    Trying to load font information for U+stmry on input line 3
-3.
+4.
 
 (/usr/share/texlive/texmf-dist/tex/latex/stmaryrd/Ustmry.fd) [1
 
@@ -334,30 +360,30 @@ Chapter 2.
 
 ]
 LaTeX Font Info:    Trying to load font information for U+bbold on input line 8
-1.
+2.
  (/usr/share/texlive/texmf-dist/tex/latex/bbold/Ubbold.fd) [3] [4]
 <pictures//airy-dist.png, id=40, 987.2082pt x 476.982pt>
 File: pictures//airy-dist.png Graphic file (type png)
 <use pictures//airy-dist.png>
-Package pdftex.def Info: pictures//airy-dist.png  used on input line 140.
+Package pdftex.def Info: pictures//airy-dist.png  used on input line 141.
 (pdftex.def)             Requested size: 441.01772pt x 213.08238pt.
  [5 <./pictures//airy-dist.png>]
 <pictures//airy-fmwh.png, id=49, 987.2082pt x 476.982pt>
 File: pictures//airy-fmwh.png Graphic file (type png)
 <use pictures//airy-fmwh.png>
-Package pdftex.def Info: pictures//airy-fmwh.png  used on input line 161.
+Package pdftex.def Info: pictures//airy-fmwh.png  used on input line 162.
 (pdftex.def)             Requested size: 441.01772pt x 213.08238pt.
  [6 <./pictures//airy-fmwh.png>] [7] [8] [9] [10]
 [11]
 <pictures//rabi-no-delta.png, id=75, 984.3174pt x 474.0912pt>
 File: pictures//rabi-no-delta.png Graphic file (type png)
 <use pictures//rabi-no-delta.png>
-Package pdftex.def Info: pictures//rabi-no-delta.png  used on input line 340.
+Package pdftex.def Info: pictures//rabi-no-delta.png  used on input line 341.
 (pdftex.def)             Requested size: 441.01772pt x 212.4131pt.
 <pictures//rabi-prog-delta.png, id=76, 984.3174pt x 474.0912pt>
 File: pictures//rabi-prog-delta.png Graphic file (type png)
 <use pictures//rabi-prog-delta.png>
-Package pdftex.def Info: pictures//rabi-prog-delta.png  used on input line 349.
+Package pdftex.def Info: pictures//rabi-prog-delta.png  used on input line 350.
 
 (pdftex.def)             Requested size: 441.01772pt x 212.4131pt.
  [12 <./pictures//rabi-no-delta.png> <./pictures//rabi-prog-delta.png>]
@@ -365,34 +391,68 @@ Package pdftex.def Info: pictures//rabi-prog-delta.png  used on input line 349.
 Chapter 3.
 [26
 
-] [27] [28] [29] [30] [31] [32] [33] [34] [35] [36] [37] [38]
-Overfull \hbox (5.22066pt too wide) in paragraph at lines 1122--1123
+] [27] [28]
+<pictures//heterodyne-fst.png, id=136, 340.53926pt x 166.10748pt>
+File: pictures//heterodyne-fst.png Graphic file (type png)
+<use pictures//heterodyne-fst.png>
+Package pdftex.def Info: pictures//heterodyne-fst.png  used on input line 826.
+(pdftex.def)             Requested size: 441.01772pt x 215.121pt.
+ [29 <./pictures//heterodyne-fst.png>] [30]
+<pictures//detector-fst.png, id=145, 419.31656pt x 383.93437pt>
+File: pictures//detector-fst.png Graphic file (type png)
+<use pictures//detector-fst.png>
+Package pdftex.def Info: pictures//detector-fst.png  used on input line 892.
+(pdftex.def)             Requested size: 308.71104pt x 282.65996pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<pictures//photodiode-vi.png, id=146, 278.4804pt x 160.9212pt>
+File: pictures//photodiode-vi.png Graphic file (type png)
+<use pictures//photodiode-vi.png>
+Package pdftex.def Info: pictures//photodiode-vi.png  used on input line 901.
+(pdftex.def)             Requested size: 308.71104pt x 178.39629pt.
+[31] [32 <./pictures//detector-fst.png> <./pictures//photodiode-vi.png>]
+[33]
+<pictures//filter.png, id=158, 146.79843pt x 207.77625pt>
+File: pictures//filter.png Graphic file (type png)
+<use pictures//filter.png>
+Package pdftex.def Info: pictures//filter.png  used on input line 942.
+(pdftex.def)             Requested size: 92.61424pt x 131.0836pt.
+<pictures//notch-resp.png, id=159, 507.3354pt x 367.8543pt>
+File: pictures//notch-resp.png Graphic file (type png)
+<use pictures//notch-resp.png>
+Package pdftex.def Info: pictures//notch-resp.png  used on input line 949.
+(pdftex.def)             Requested size: 264.61331pt x 191.86908pt.
+ [34 <./pictures//filter.png> <./pictures//notch-resp.png>] [35] [36]
+[37] [38] [39] [40]
+Overfull \hbox (5.22066pt too wide) in paragraph at lines 1154--1155
 []\OT1/cmr/m/n/12 The re-ceived sig-nal com-prises also other fre-quen-cies tha
 n the in-ter-est-ing $\OML/cmm/m/it/12 ^^N!=\OT1/cmr/m/n/12 (2\OML/cmm/m/it/12 
 ^^Y\OT1/cmr/m/n/12 ) =
  []
 
-[39] [40] [41] [42] [43] [44] [45]
+[41] [42] [43] [44] [45] [46] [47]
 Chapter 4.
-[46
+[48
 
-] [47] [48] [49] [50] [51]
+] [49] [50] [51] [52] [53]
 Appendix A.
-[52
-
-] [53]
-Appendix B.
 [54
 
-] [55] [56] [57] [58] (./book.aux) ) 
+] [55]
+Appendix B.
+[56
+
+] [57] [58] [59] [60] (./book.aux) ) 
 Here is how much of TeX's memory you used:
- 4549 strings out of 476091
- 70986 string characters out of 5794081
- 1881330 words of memory out of 5000000
- 24848 multiletter control sequences out of 15000+600000
- 529688 words of font info for 111 fonts, out of 8000000 for 9000
+ 6057 strings out of 476091
+ 100593 string characters out of 5794081
+ 1872330 words of memory out of 5000000
+ 26347 multiletter control sequences out of 15000+600000
+ 532225 words of font info for 122 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,27n,62p,1655b,249s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 67i,27n,77p,1655b,558s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/
 cm-super-ts1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/bbold-type1/
 bbold10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx1
@@ -421,10 +481,10 @@ rsfs/rsfs10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/stmaryrd/stmary10.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/public/esvect/vect10.pfb></usr/share/texlive/te
 xmf-dist/fonts/type1/public/esvect/vect8.pfb>
-Output written on book.pdf (60 pages, 924417 bytes).
+Output written on book.pdf (62 pages, 1173673 bytes).
 PDF statistics:
- 357 PDF objects out of 1000 (max. 8388607)
- 225 compressed objects within 3 object streams
+ 374 PDF objects out of 1000 (max. 8388607)
+ 230 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 46 words of extra memory for PDF output out of 10000 (max. 10000000)
 
