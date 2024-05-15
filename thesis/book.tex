@@ -889,7 +889,7 @@ Firstly, we introduce a basic diagram on the working principle of the detector i
 \begin{figure}[h!]
 \caption{Basic electric circuit showing the working principle of the detector.}
 \centering
-\includegraphics[width=0.7\textwidth]{detector-fst}
+\includegraphics[width=0.6\textwidth]{detector-fst}
 \label{fig:detector-fst}
 \end{figure}
 
@@ -904,8 +904,8 @@ The photodiodes are placed in the so called \textit{photoconductive mode} where 
 
 Thereby, if we isolate the block (1), the current flow through the positive voltage (+) above the first diode (D1) to the negative voltage (-) under the second diode (D2) when both photodiodes are illuminated. In that case, by Kirchhoff's current law, no current can flow through (A) to (B). Otherwise, we can distinguish two cases:
 \begin{itemize}
- \item D1 is illuminated but not D2: as A is considered grounded, D1 is in reverse bias with a relative voltage of -5V (from cathode to anode) and the current flow from (+) to (A) and (B).
- \item D2 is illuminated but not D1: as A is considered grounded, D1 is in reverse bias with a relative voltage of -5V (from cathode to anode) and the current flow from (B) to (A) and (-).
+ \item D1 is illuminated but not D2: as A is considered to be 0V, D1 is in reverse bias with a relative voltage of -5V (from cathode to anode) and the current flow from (+5V) to (A) and (B).
+ \item D2 is illuminated but not D1: as A is considered to be 0V, D1 is in reverse bias with a relative voltage of -5V (from cathode to anode) and the current flow from (B) to (A) and (-5V).
 \end{itemize}
 Therefore, both photodiodes makes the current flow in opposite direction. As the current quantity $I$ is proportional to the illumination, the direction of the current flux is leaded by the diode being the most illuminated. When the illumination is balanced, no current flows. In that way, we reproduce electronically a substraction over the photocurrent.
 
@@ -947,10 +947,10 @@ In that configuration, one considers the electonical components as perfect or \t
 \begin{subfigure}{.6\textwidth}
   \centering
   \includegraphics[width=\linewidth]{notch-resp}
-  \caption{Typical Notch filter's response with $R = 10\Omega$, $C = 1 \quad\textrm{Farad}(F)$ and $L = 1 \quad\textrm{Henry}(H)$.}
+  \caption{Typical Notch filter's response with $R = 10\Omega$, $C = 1 \,\textrm{Farad}(F)$ and $L = 1 \,\textrm{Henry}(H)$.}
   \label{fig:notch-resp}
 \end{subfigure}
-\caption{Notch filter and its eletrical response.}
+\caption{Notch filter design and its electrical response.}
 \label{fig:test}
 \end{figure}
 
@@ -965,27 +965,54 @@ where the figure \ref{fig:notch-resp} sketch a typical response of this RLC circ
 \end{equation}
 which is called the \textit{resonance} of the circuit caracterizing a null impedance of the LC component\footnote{Of course, it does not mean that L and C are null but \eqref{rlc_resonance} is an equivalent of removing the inductor and the capacitor from the Notch filter.}.
 
-Moreover, the whole circuit, as depicted on diagram ?? (previous diag) has a hidden filter. Indeed, the photodiodes, when enabled and receiving light, may be theoretically replaced by an equivalent circuit as represented on diagram ??: one current source in parallele of a capacitor and a resistance.
+Moreover, the whole circuit, as depicted in figure \ref{fig:detector-fst} plus the Notch filter, has a hidden filter. Indeed, the photodiodes, when enabled and receiving light, may be theoretically replaced by an equivalent circuit between as represented in figure \ref{fig:equiv-diode}: one current source in parallele of a capacitor and a resistance.
 
-Diag
+\begin{figure}[h!]
+\caption{Equivalent circuit for a photodiode.}
+\centering
+\includegraphics[width=0.2\textwidth]{equiv-diode}
+\label{fig:equiv-diode}
+\end{figure}
 
-Those two capacitors add with an internal capacitance of the op-amp for which the value may be found in its associated data sheet. Here, we deal with a THS4021 from Texas Instrument for the op-amp and two S5971 photodiodes from Hamamatsu\footnote{Those two diodes have a high speed response of 100MHz: far more than the expected frequency of 43MHz.}. In this configuration, those three capacitors are in parallele and the total capacitance reads:
+The two capacitors associated to those two photodiodes add with an internal capacitance of the op-amp for which the value may be found in its associated data sheet. Here, we deal with a THS4021 from Texas Instrument for the op-amp and two S5971 photodiodes from Hamamatsu\footnote{Those two diodes have a high speed response of 100MHz: far more than the expected frequency of 43MHz.}. In this configuration, those three capacitors are in parallele and the total capacitance reads:
 \begin{equation}
 C_{total} = C_{photodiode,1} + C_{photodiode,2} + C_{op-amp}
 \end{equation}
-In theory (i.e from the data sheets) we have a total capacitance of $9pF$ (pico-Farads) but in practice, and with further analyses of the dectector, it turns out that $C_{total}$ is around $14pF$ Note that this formula is clearly the same for resistors in series. Now, the diagram ?? shows the simplified circuit of the dectector with the Notch filter.
+In theory (i.e from the data sheets) we have a total capacitance of $9pF$ (pico-Farads) but in practice, and with further analyses of the dectector, it turns out that $C_{total}$ is around $14pF$. Note that this formula is clearly the same for resistors in series. Now, the figure \ref{fig:detector-sec} shows the simplified circuit of the dectector with the Notch filter and the \textit{hidden} filter, where we replaced the resistor .
 
-Diag
+\begin{figure}[h!]
+\caption{Dectetector's circuit design with the additional filters.}
+\centering
+\includegraphics[width=0.7\textwidth]{detector-sec}
+\label{fig:detector-sec}
+\end{figure}
 
-Indeed, this additional capacity $C_1$ is in parallele with the inductor $L$ of the Notch filter. This new LC component is called a \textit{tank filter} and, in contrary to its counter part LC in serie, the tank filter allows only a certain range of frequency to go through the circuit:
+As we can see, this additional capacity $C_{total}$ is in parallele with the inductor $L$ of the Notch filter. This new LC component is called a \textit{tank filter} and, in contrary to its counter part LC in serie, the tank filter allows only a certain range of frequency to go through the circuit:
 \begin{equation}
 \left\lvert \frac{V_{out}}{V_{in}} (\omega) \right\rvert = \frac{1}{\sqrt{1 + R^2\left(\frac{1}{\omega L} - \omega C\right)^2}}
 \end{equation}
-where the diagram ?? (b) sketch a typical response of this RLC circuit (a). 
+where figure \ref{fig:tank} sketch a typical response of this LC circuit \ref{fig:tank}. 
 
-Diag
+\begin{figure}
+\centering
+\begin{subfigure}{.3\textwidth}
+  \centering
+  \includegraphics[width=0.7\linewidth]{tank}
+  \caption{Electric circuit of the hidden tank filter: in parallel of the circuit, a capacity and an inductor in series.}
+  \label{fig:tank}
+\end{subfigure}%
+\hspace{2em}%
+\begin{subfigure}{.6\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{tank-response}
+  \caption{Typical Notch filter's response with $R = 10\Omega$, $C = 1 \,\textrm{Farad}(F)$ and $L = 1 \,\textrm{Henry}(H)$.}
+  \label{fig:tank-response}
+\end{subfigure}
+\caption{Tank filter design and its electrical response.}
+\label{fig:test}
+\end{figure}
 
-(Note on the image) $R = 10\Omega$, $C = 1 \quad\textrm{Farad}(F)$ and $L = 1 \quad\textrm{Henry}(H)$. As we can see, the gain is set to 1 only for a very narrow frequency range (parametrized by the R, L and C values) which can be found to be the exact same as \eqref{rlc_resonance} which means that the impedance of LC component is null.
+As we can see, the gain is set to 1 only for a very narrow frequency range (parametrized by the R, L and C values) which can be found to be the exact same as \eqref{rlc_resonance} which means that the impedance of LC component is null.
 
 Finally, we sketch in diagram ?? the actual (but simplified) version of the dectector with the two filters.
 

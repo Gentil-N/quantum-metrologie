@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2024.3.28)  14 MAY 2024 17:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2024.3.28)  15 MAY 2024 11:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -247,7 +247,11 @@ File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count285
 \l__pdf_internal_box=\box54
 )
-(./book.aux)
+(./book.aux
+
+LaTeX Warning: Label `fig:test' multiply defined.
+
+)
 \openout1 = `book.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 30.
@@ -402,7 +406,7 @@ Package pdftex.def Info: pictures//heterodyne-fst.png  used on input line 826.
 File: pictures//detector-fst.png Graphic file (type png)
 <use pictures//detector-fst.png>
 Package pdftex.def Info: pictures//detector-fst.png  used on input line 892.
-(pdftex.def)             Requested size: 308.71104pt x 282.65996pt.
+(pdftex.def)             Requested size: 264.61331pt x 242.28415pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -424,15 +428,46 @@ File: pictures//notch-resp.png Graphic file (type png)
 <use pictures//notch-resp.png>
 Package pdftex.def Info: pictures//notch-resp.png  used on input line 949.
 (pdftex.def)             Requested size: 264.61331pt x 191.86908pt.
- [34 <./pictures//filter.png> <./pictures//notch-resp.png>] [35] [36]
-[37] [38] [39] [40]
-Overfull \hbox (5.22066pt too wide) in paragraph at lines 1154--1155
+<pictures//equiv-diode.png, id=160, 128.73094pt x 130.98938pt>
+File: pictures//equiv-diode.png Graphic file (type png)
+<use pictures//equiv-diode.png>
+Package pdftex.def Info: pictures//equiv-diode.png  used on input line 973.
+(pdftex.def)             Requested size: 88.2022pt x 89.75116pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[34 <./pictures//filter.png> <./pictures//notch-resp.png>]
+<pictures//detector-sec.png, id=166, 485.56406pt x 341.02406pt>
+File: pictures//detector-sec.png Graphic file (type png)
+<use pictures//detector-sec.png>
+Package pdftex.def Info: pictures//detector-sec.png  used on input line 986.
+(pdftex.def)             Requested size: 308.71104pt x 216.81325pt.
+<pictures//tank.png, id=167, 158.09062pt x 137.7647pt>
+File: pictures//tank.png Graphic file (type png)
+<use pictures//tank.png>
+Package pdftex.def Info: pictures//tank.png  used on input line 1000.
+(pdftex.def)             Requested size: 92.61424pt x 80.70868pt.
+<pictures//tank-response.png, id=168, 497.2176pt x 338.9463pt>
+File: pictures//tank-response.png Graphic file (type png)
+<use pictures//tank-response.png>
+Package pdftex.def Info: pictures//tank-response.png  used on input line 1007.
+(pdftex.def)             Requested size: 264.61331pt x 180.39061pt.
+
+Overfull \hbox (8.93317pt too wide) in paragraph at lines 1015--1016
+[]\OT1/cmr/m/n/12 As we can see, the gain is set to 1 only for a very nar-row f
+re-quency range (parametrized
+ []
+
+[35 <./pictures//equiv-diode.png> <./pictures//detector-sec.png>] [36 <./pictur
+es//tank.png> <./pictures//tank-response.png>] [37] [38] [39] [40] [41]
+Overfull \hbox (5.22066pt too wide) in paragraph at lines 1181--1182
 []\OT1/cmr/m/n/12 The re-ceived sig-nal com-prises also other fre-quen-cies tha
 n the in-ter-est-ing $\OML/cmm/m/it/12 ^^N!=\OT1/cmr/m/n/12 (2\OML/cmm/m/it/12 
 ^^Y\OT1/cmr/m/n/12 ) =
  []
 
-[41] [42] [43] [44] [45] [46] [47]
+[42] [43] [44] [45] [46] [47]
 Chapter 4.
 [48
 
@@ -444,47 +479,51 @@ Appendix A.
 Appendix B.
 [56
 
-] [57] [58] [59] [60] (./book.aux) ) 
+] [57] [58] [59] [60] (./book.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
 Here is how much of TeX's memory you used:
- 6057 strings out of 476091
- 100593 string characters out of 5794081
+ 6107 strings out of 476091
+ 101802 string characters out of 5794081
  1872330 words of memory out of 5000000
- 26347 multiletter control sequences out of 15000+600000
+ 26397 multiletter control sequences out of 15000+600000
  532225 words of font info for 122 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  67i,27n,77p,1655b,558s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{/usr/share/texmf/fonts/enc/dvips/cm-super/
-cm-super-ts1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/bbold-type1/
-bbold10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx1
-2.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb>
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb
-></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/t
-exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
-c/amsfonts/symbols/msbm7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-rsfs/rsfs10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/stmaryrd/stmary10.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/esvect/vect10.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/public/esvect/vect8.pfb>
-Output written on book.pdf (62 pages, 1173673 bytes).
+{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texli
+ve/texmf-dist/fonts/type1/public/bbold-type1/bbold10.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/share/texmf/
+fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/stmaryrd/stmary10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/esvect/vect10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/esvect
+/vect8.pfb>
+Output written on book.pdf (62 pages, 1208953 bytes).
 PDF statistics:
- 374 PDF objects out of 1000 (max. 8388607)
+ 382 PDF objects out of 1000 (max. 8388607)
  230 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
- 46 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 66 words of extra memory for PDF output out of 10000 (max. 10000000)
 
