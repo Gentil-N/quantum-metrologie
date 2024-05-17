@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2024.3.28)  16 MAY 2024 16:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2024.3.28)  17 MAY 2024 17:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -383,14 +383,18 @@ File: pictures//rabi-no-delta.png Graphic file (type png)
 <use pictures//rabi-no-delta.png>
 Package pdftex.def Info: pictures//rabi-no-delta.png  used on input line 342.
 (pdftex.def)             Requested size: 441.01772pt x 212.4131pt.
-<pictures//rabi-prog-delta.png, id=76, 984.3174pt x 474.0912pt>
+<pictures//rabi-prog-delta.png, id=76, 658.3797pt x 395.3169pt>
 File: pictures//rabi-prog-delta.png Graphic file (type png)
 <use pictures//rabi-prog-delta.png>
 Package pdftex.def Info: pictures//rabi-prog-delta.png  used on input line 351.
 
-(pdftex.def)             Requested size: 441.01772pt x 212.4131pt.
- [12 <./pictures//rabi-no-delta.png> <./pictures//rabi-prog-delta.png>]
-[13] [14] [15] [16] [17] [18] [19] [20] [21] [22] [23] [24] [25]
+(pdftex.def)             Requested size: 441.01772pt x 264.80061pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[12 <./pictures//rabi-no-delta.png>] [13 <./pictures//rabi-prog-delta.png>]
+[14] [15] [16] [17] [18] [19] [20] [21] [22] [23] [24] [25]
 Chapter 3.
 [26
 
@@ -542,72 +546,187 @@ Package pdftex.def Info: pictures//total_gain_new.jpg  used on input line 1136.
 (pdftex.def)             Requested size: 441.01772pt x 245.00003pt.
  [40 <./pictures//mpick.png> <./pictures//mdeep.png> <./pictures//total_gain_ne
 w.jpg>]
-<pictures//heterodyne-lens.png, id=208, 317.83665pt x 188.43173pt>
+<pictures//heterodyne-lens.png, id=208, 317.83665pt x 225.51266pt>
 File: pictures//heterodyne-lens.png Graphic file (type png)
 <use pictures//heterodyne-lens.png>
 Package pdftex.def Info: pictures//heterodyne-lens.png  used on input line 1149
 .
-(pdftex.def)             Requested size: 441.01772pt x 261.47942pt.
- [41 <./pictures//heterodyne-lens.png>] [42] [43]
-Overfull \hbox (5.22066pt too wide) in paragraph at lines 1244--1245
+(pdftex.def)             Requested size: 441.01772pt x 312.9352pt.
+<pictures//diode-size-sm.png, id=209, 538.26094pt x 93.34875pt>
+File: pictures//diode-size-sm.png Graphic file (type png)
+<use pictures//diode-size-sm.png>
+Package pdftex.def Info: pictures//diode-size-sm.png  used on input line 1167.
+(pdftex.def)             Requested size: 396.91324pt x 68.83626pt.
+ [41 <./pictures//heterodyne-lens.png>]
+<pictures//diode-size-eq.png, id=215, 435.12563pt x 79.04532pt>
+File: pictures//diode-size-eq.png Graphic file (type png)
+<use pictures//diode-size-eq.png>
+Package pdftex.def Info: pictures//diode-size-eq.png  used on input line 1173.
+(pdftex.def)             Requested size: 308.71104pt x 56.08395pt.
+<pictures//diode-size-big.png, id=216, 589.4522pt x 97.11281pt>
+File: pictures//diode-size-big.png Graphic file (type png)
+<use pictures//diode-size-big.png>
+Package pdftex.def Info: pictures//diode-size-big.png  used on input line 1179.
+
+(pdftex.def)             Requested size: 441.01772pt x 72.65956pt.
+
+
+LaTeX Warning: Reference `diode-size-plot' on page 42 undefined on input line 1
+185.
+
+<diode-size-plot.png, id=217, 654.0435pt x 321.6015pt>
+File: diode-size-plot.png Graphic file (type png)
+<use diode-size-plot.png>
+Package pdftex.def Info: diode-size-plot.png  used on input line 1190.
+(pdftex.def)             Requested size: 441.01772pt x 216.85571pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[42 <./pictures//diode-size-sm.png> <./pictures//diode-size-eq.png> <./pictures
+//diode-size-big.png>] [43 <./diode-size-plot.png>] [44]
+<pictures//wp-pol-setup.png, id=231, 513.41812pt x 161.85469pt>
+File: pictures//wp-pol-setup.png Graphic file (type png)
+<use pictures//wp-pol-setup.png>
+Package pdftex.def Info: pictures//wp-pol-setup.png  used on input line 1245.
+(pdftex.def)             Requested size: 396.91324pt x 125.12737pt.
+<pictures//heterodyne-wp.png, id=232, 317.83665pt x 193.35063pt>
+File: pictures//heterodyne-wp.png Graphic file (type png)
+<use pictures//heterodyne-wp.png>
+Package pdftex.def Info: pictures//heterodyne-wp.png  used on input line 1254.
+(pdftex.def)             Requested size: 352.8155pt x 214.6424pt.
+ [45 <./pictures//wp-pol-setup.png> <./pictures//heterodyne-wp.png>]
+
+LaTeX Warning: Reference `beatnoise' on page 46 undefined on input line 1264.
+
+<pictures//beatnoise.png, id=238, 501.37312pt x 107.65219pt>
+File: pictures//beatnoise.png Graphic file (type png)
+<use pictures//beatnoise.png>
+Package pdftex.def Info: pictures//beatnoise.png  used on input line 1269.
+(pdftex.def)             Requested size: 352.8155pt x 75.75845pt.
+
+Overfull \hbox (5.22066pt too wide) in paragraph at lines 1274--1275
 []\OT1/cmr/m/n/12 The re-ceived sig-nal com-prises also other fre-quen-cies tha
 n the in-ter-est-ing $\OML/cmm/m/it/12 ^^N!=\OT1/cmr/m/n/12 (2\OML/cmm/m/it/12 
 ^^Y\OT1/cmr/m/n/12 ) =
  []
 
-[44] [45] [46] [47] [48] [49] [50]
+[46 <./pictures//beatnoise.png>]
+<pictures//wavemixer.png, id=243, 429.10312pt x 407.27156pt>
+File: pictures//wavemixer.png Graphic file (type png)
+<use pictures//wavemixer.png>
+Package pdftex.def Info: pictures//wavemixer.png  used on input line 1290.
+(pdftex.def)             Requested size: 220.50885pt x 209.29042pt.
+<pictures//power2noise.png, id=244, 780.516pt x 412.6617pt>
+File: pictures//power2noise.png Graphic file (type png)
+<use pictures//power2noise.png>
+Package pdftex.def Info: pictures//power2noise.png  used on input line 1307.
+(pdftex.def)             Requested size: 352.8155pt x 186.5335pt.
+ [47 <./pictures//wavemixer.png>]
+<pictures//power2tension.png, id=250, 661.9932pt x 403.2666pt>
+File: pictures//power2tension.png Graphic file (type png)
+<use pictures//power2tension.png>
+Package pdftex.def Info: pictures//power2tension.png  used on input line 1321.
+(pdftex.def)             Requested size: 352.8155pt x 214.93018pt.
+ [48 <./pictures//power2noise.png> <./pictures//power2tension.png>]
+<pictures//sb-def.png, id=257, 190.1842pt x 113.02376pt>
+File: pictures//sb-def.png Graphic file (type png)
+<use pictures//sb-def.png>
+Package pdftex.def Info: pictures//sb-def.png  used on input line 1339.
+(pdftex.def)             Requested size: 264.61331pt x 157.27846pt.
+ [49 <./pictures//sb-def.png>] [50]
+<pictures//sb-fsr.png, id=265, 295.8421pt x 269.63895pt>
+File: pictures//sb-fsr.png Graphic file (type png)
+<use pictures//sb-fsr.png>
+Package pdftex.def Info: pictures//sb-fsr.png  used on input line 1385.
+(pdftex.def)             Requested size: 352.8155pt x 321.59433pt.
+ [51 <./pictures//sb-fsr.png>]
+<pictures//sb-off.png, id=270, 295.8421pt x 298.3779pt>
+File: pictures//sb-off.png Graphic file (type png)
+<use pictures//sb-off.png>
+Package pdftex.def Info: pictures//sb-off.png  used on input line 1394.
+(pdftex.def)             Requested size: 352.8155pt x 355.87085pt.
+ [52 <./pictures//sb-off.png>]
+<pictures//sb-r-fit.png, id=275, 1235.817pt x 669.9429pt>
+File: pictures//sb-r-fit.png Graphic file (type png)
+<use pictures//sb-r-fit.png>
+Package pdftex.def Info: pictures//sb-r-fit.png  used on input line 1428.
+(pdftex.def)             Requested size: 551.27214pt x 298.84433pt.
+
+Overfull \hbox (53.34892pt too wide) in paragraph at lines 1428--1430
+[]| []
+ []
+
+[53 <./pictures//sb-r-fit.png>]
+<pictures//sb-power-visibility.png, id=281, 688.0104pt x 375.0813pt>
+File: pictures//sb-power-visibility.png Graphic file (type png)
+<use pictures//sb-power-visibility.png>
+Package pdftex.def Info: pictures//sb-power-visibility.png  used on input line 
+1465.
+(pdftex.def)             Requested size: 352.8155pt x 192.34201pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[54] [55 <./pictures//sb-power-visibility.png>]
 Chapter 4.
-[51
+[56
 
-] [52] [53] [54] [55] [56]
+] [57] [58] [59] [60] [61]
 Appendix A.
-[57
+[62
 
-] [58]
+] [63]
 Appendix B.
-[59
+[64
 
-] [60] [61] [62] [63] (./book.aux) ) 
+] [65] [66] [67] [68] (./book.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
 Here is how much of TeX's memory you used:
- 6283 strings out of 476091
- 106324 string characters out of 5794081
- 1872330 words of memory out of 5000000
- 26569 multiletter control sequences out of 15000+600000
+ 6464 strings out of 476091
+ 110860 string characters out of 5794081
+ 1873330 words of memory out of 5000000
+ 26750 multiletter control sequences out of 15000+600000
  532225 words of font info for 122 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  67i,27n,77p,1655b,558s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{/usr/share/texmf/fonts/enc/dvips/cm-super/
-cm-super-ts1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/bbold-type1/
-bbold10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx1
-2.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb>
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb
-></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/t
-exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
-c/amsfonts/symbols/msbm7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-rsfs/rsfs10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/stmaryrd/stmary10.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/esvect/vect10.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/public/esvect/vect8.pfb>
-Output written on book.pdf (65 pages, 1846622 bytes).
+{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texli
+ve/texmf-dist/fonts/type1/public/bbold-type1/bbold10.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/share/texmf/
+fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/stmaryrd/stmary10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/esvect/vect10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/esvect
+/vect8.pfb>
+Output written on book.pdf (70 pages, 2232026 bytes).
 PDF statistics:
- 409 PDF objects out of 1000 (max. 8388607)
- 236 compressed objects within 3 object streams
+ 455 PDF objects out of 1000 (max. 8388607)
+ 247 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
- 121 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 196 words of extra memory for PDF output out of 10000 (max. 10000000)
 

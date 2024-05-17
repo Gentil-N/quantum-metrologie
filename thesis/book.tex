@@ -46,7 +46,7 @@ In the far past\footnote{More or less two centuries: everything is relative.}, t
 
 Introduce superradiant
 
-\chapter{superradiance simulation}
+\chapter{Superradiance simulation}
 \section{Optical Cavity}
 \paragraph{}
 We firstly introduce a very common object of quantum optics, namely, the \textit{optical cavity}. It consists of two mirrors mounted in parallel of each other: the angle formed by one mirror and the optical axis is a right angle. The idea behind this simple setup is to select a discret range of wavelengths defined by the space between the mirrors. 
@@ -1137,7 +1137,7 @@ The next sections will focus on the parametrization/configuration of the detecto
 \label{fig:total_gain_new}
 \end{figure}
 
-\section{Diodes size versus laser's cross section area}
+\section{Diode's size versus laser's cross section area}
 
 Firstly, we start to simply verify if the \textit{final} laser beam, which is composed of the cavity beam plus the optical oscillator laser, is not oversized compared to the diode area. Inddeed, the specification sheet for those diodes (S5971) gives an explicit photosensitive diameter size of 1.2mm (the sheet specifies it as the \textit{area size}). In other words, the laser beam after the overlap of the beam splitter must have a diameter of less than 1.2mm. Otherwise, we would \textit{spatially saturate} the diodes and lose some part of the laser's cross section area.
 
@@ -1157,24 +1157,39 @@ As the focal point to diode distance is lower than the focal length, the resulti
 \end{equation}
 where $d$ is the the focal point to diode distance whereas $f$ is the focal length. Note the absolute value which avoid the ratio \eqref{lens_cross_section_ratio} to become negative if $d$ is smaller than $f$ (i.e the diodes reside in the \textit{convergent} part of the lens). Thus, we obtain in our case a $r_{cs} = 0.3$. In other words, the beams hitting the diodes after crossing the lenses are apprxoimately three times smaller in area than the original beam.
 
-In order to check if the amount $r_{cs} = 0.3$ of cross section area reduction is sufficient, we shall move progressively the dectector perperdicularly to the optical axis. As represented on Fig ??, we block one diode while transposing lateraly the detector and recording the DC output voltage\footnote{The DC component of the electric signal, when only one diode is enabled, is proportional to the intensity received (until saturation) independently of the frequencies of the light. }. 
-
-Fig 
+In order to check if the amount $r_{cs} = 0.3$ of cross section area reduction is sufficient, we shall move progressively the dectector perperdicularly to the optical axis. As represented in figure \ref{fig:heterodyne-lens}, we block one diode while transposing lateraly the detector and recording the DC output voltage\footnote{The DC component of the electric signal, when only one diode is enabled, is proportional to the intensity received (until saturation) independently of the frequencies of the light. }.
 
 According to the laser beal size compared to the photosensitive area, two cases are distinguishable:
 \begin{itemize}
-	\item The laser beam size is smaller than the photodiodes: Fig ??. The voltage output increases, reach a plateau of constant voltage ouput, then decreases.
-	Fig
+	\item The laser beam size is smaller than the photodiodes. The voltage output increases, reach a plateau of constant voltage ouput, then decreases.
+	\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.9\textwidth]{diode-size-sm}
+	\label{fig:diode-size-sm}
+	\end{figure}
 	\item The laser beam size is equivalent to the photodiodes: Fig ??. The voltage output increases, reach a maximal peak of voltage, then decreases.
-	Fig 
+	\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.7\textwidth]{diode-size-eq}
+	\label{fig:diode-size-eq}
+	\end{figure}
 	\item The laser beam size is bigger than the photodiodes: Fig ??. The voltage output increases, reach a plateau of constant voltage ouput, then decreases.
-	Fig
+	\begin{figure}[h!]
+	\centering
+	\includegraphics[width=\textwidth]{diode-size-big}
+	\label{fig:diode-size-big}
+	\end{figure}
 \end{itemize}
-As we can notice, this technic shows the same behavior for bigger or smaller beam sizes. However, it is possible to evaluate the beam's diameter by measuring the distance between the beginning and the end of the slope. Indeed, this measure is literraly the position when the laser's beam starts hitting the photosensitive area (i.e this is the beginning of the slope) whereas when the laser's beam is fully included into the photodiode (i.e this is the \textit{plateau} and the end of the slope). Moreover, if the beam is bigger than the photosensitive area, the plateau (hence the end of the slope) will be reached when the beam covers entirely the photodiode: the \textit{slope distance} is the photodiode's diameter, not the beam diameter. In other worlds, if we measure less than 1.2mm for the \textit{slope distance} then the laser's beam is encompassed into the photosensitive area.
+As we can notice, this technic shows the same behavior for bigger or smaller beam sizes. However, it is possible to evaluate the beam's diameter by measuring the distance between the beginning and the end of the slope. Indeed, this measure is literraly the position when the laser's beam starts hitting the photosensitive area (i.e this is the beginning of the slope) whereas when the laser's beam is fully included into the photodiode (i.e this is the \textit{plateau} and the end of the slope). Moreover, if the beam is bigger than the photosensitive area, the plateau (thus the end of the slope) will be reached when the beam covers entirely the photodiode: the \textit{slope distance} is the photodiode's diameter, not the beam's diameter. In other worlds, if we measure less than 1.2mm for the \textit{slope distance} then the laser's beam is encompassed into the photosensitive area.
 
-Fig ?? shows the results for two different powers involved in the local oscillator: using two powers ensure that we are not saturating the photodiodes in term of intensity when measuring the beam's size. As we consider the cavity laser very weak (in order of picowatts), the main power come out of the reference laser\footnote{In that case, we use two very distinct powers which are tuned mechanically, with a button on the \textit{laser box}. This is not a \textit{clean} method because it is not very precise and we shall use a different method in the next section.}.
+Figure \ref{diode-size-plot} shows the results for two different powers involved in the local oscillator: using two powers ensure that we are not saturating the photodiodes in term of intensity when measuring the beam's size. As we consider the cavity laser very weak (in order of picowatts), the main power come out of the reference laser\footnote{In that case, we use two very distinct powers which are tuned mechanically, with a button on the \textit{laser box}. This is not a \textit{clean} method because it is not very precise and we shall use a different method in the next section.}.
 
-Fig
+\begin{figure}[h!]
+\caption{Average voltage ouput of the detector according to the relative position of one of the diode (The other diode is blocked from light), for two different power of the local oscillator.}
+\centering
+\includegraphics[width=\textwidth]{diode-size-plot}
+\label{fig:diode-size-plot}
+\end{figure}
 
 As we can see, the yellow curves (low power) may be considered not saturating the diodes as those curves doesn't reach the same maximum than the red curves (high power).\footnote{Note than this argument, alone, does not allow to decide if the red curves means the saturation of the diodes or not.}. We can measure the beam's diameter as roughly 0.6mm for the red curves and 1mm for the yellow curves. Thus, the laser beam is well encompassed into the photodiodes. Secondly, those measurements mean that the power associated to the read curves are saturating the diodes: before the beam hits entirely the photosensitive area, the detector reaches its maximum/minimum of output voltage which is now determined to be $\pm11$ volts.
 
@@ -1222,13 +1237,23 @@ In order to check experimentally this behavior and evaluate the power to noise r
 	\item A waveplate: its working principle is described in Annexe ??. Here we use a \textit{lambda-half} waveplate (abbreviated $\lambda/2$-waveplate): for a linearly polarized electric field, this device simply rotates the polarization's direction of the electric field.  
 \end{itemize}
 
-Assuming that the input electric field is linearly polarized (which is the case experimentally), coupling those two devices makes a very precise power-tunable instrument. Fig ?? represents how they must be placed along the optical axis.
+Assuming that the input electric field is linearly polarized (which is the case experimentally), coupling those two devices makes a very precise power-tunable instrument. Figure \ref{fig:wp-pol-setup} represents how they must be placed along the optical axis.
 
-Fig
+\begin{figure}[h!]
+\caption{Waveplate and polarizer setup as a power-tunable instrument. Note that the incoming beam doesn't to be necessary vertically polarized. Only the relative angle between the waveplate and polarizer is relevant for amplitude reduction}
+\centering
+\includegraphics[width=0.9\textwidth]{wp-pol-setup}
+\label{fig:wp-pol-setup}
+\end{figure}
 
-The waveplate rotate the electric field and the polarizer project the electric field: if the E-field is parallel to the polarizer axis after the waveplate, the output amplitude is the same as the input one. If the E-field is perpendicular to the polarizer axis after the waveplate, the ouput amplitude is null. Every polarisation's direction of the E-field in between shall give a reduced amplitude compared to the maximum amplitude: because of the scalar operation, the amplitude relation is not linear but \textit{cosine} dependent, hence very sensitive for almost perpendicular E-fields. The ensemble of Fig ?? is placed before the beam splitter along the local oscillator's optical axis as in Fig ??.
+The waveplate rotate the electric field and the polarizer project the electric field: if the E-field is parallel to the polarizer axis after the waveplate, the output amplitude is the same as the input one. If the E-field is perpendicular to the polarizer axis after the waveplate, the ouput amplitude is null. Every polarisation's direction of the E-field in between shall give a reduced amplitude compared to the maximum amplitude: because of the scalar operation, the amplitude relation is not linear but \textit{cosine} dependent, hence very sensitive for almost perpendicular E-fields. The ensemble of Fig \ref{fig:wp-pol-setup} is placed before the beam splitter along the local oscillator's optical axis as in Fig \ref{fig:heterodyne-wp}.
 
-Fig
+\begin{figure}[h!]
+\caption{Complete setup with the group Waveplate\&Polarizer added.}
+\centering
+\includegraphics[width=0.8\textwidth]{heterodyne-wp}
+\label{fig:heterodyne-wp}
+\end{figure}
 
 As stated in section 2.2 (Balanced heterodyne setup), the resulting amplitude of the overlapping of two linearly polarized E-field is maximized when they are parallels. In this way, we have to ensure that the field coming from the cavity (i.e the superradiant laser) is collinear to the local oscillator without involving the waveplate into the setup. In practice, the cavity field is maintained as vertically polarized\footnote{For other experiences in the lab, the polarization of the cavity field is considered as vertical, thus always checked as vertical before starting any experiment.} and we align the polarizer along the same axis. By looking at the spectrum analyzer, the peak at 43MHz shall vary between zero and a maximum while rotating the main axis of the polarizer: zero means perpendicular polarization whereas the maximum means parallel/collinear polarization. It is important to notice that when reaching perpendicular polarization, the measured total beam power is not null but only the terms \eqref{mix_hetero_ic} and \eqref{mix_hetero_id}, hence the 43Mhz beat (i.e the $\delta\omega$) vanishes.
 
@@ -1236,19 +1261,20 @@ Once the fields are collinear, it suffices to put the waveplate into the setup a
 
 Now, the principle is to calculate the variance of the recorded output voltage, according to the incoming light power (tuned by the waveplate). However, as we transfer directly the detector's signal to the oscilloscope, we face two problems:
 \begin{itemize}
-	\item The variance (i.e the noise) is modulated by the 43MHz signal as depicted by Fig ??.
+	\item The variance (i.e the noise) is modulated by the 43MHz signal as depicted by figure \ref{beatnoise}.
 	
-	Fig
+	\begin{figure}[h!]
+	\caption{Complete setup with the group Waveplate\&Polarizer added.}
+	\centering
+	\includegraphics[width=0.8\textwidth]{beatnoise}
+	\label{fig:beatnoise}
+	\end{figure}
 	
-	However, the variance of a sine wave times a white noise function is not simply the variance of a sine wave (which is simply $1/2$ if the amplitude is $1$) plus the variance of the white noise.
+	However, the variance of a sine wave times a white noise function is not simply the variance of a sine wave (which is simply $1/2$ if the amplitude is $1$) plus/multiplied by the variance of the white noise.
 	\item The received signal comprises also other frequencies than the interesting $\delta\omega/(2\pi) = 43$MHz. Hence, the rough computed variance of the output signal shall be a \textit{mix} of all the noisy signals generated by the electriccal noise, especially outside of the low-noise bandwidth of the detector. Indeed, we configured the detector to create less noise than the quantum noise only inside a narrow bandwidth around 43MHz. Everywhere else is susceptible to have high electrical noise level.
 \end{itemize}
 
-In order to rectify those issues, we shall add a \textit{demodulation} block between the output gate of the detector and the oscilloscope as represented on Fig ??.
-
-Fig
-
-The idea is to mix the ouput signal with a well behaved electric sine wave called \textit{reference}: this operation is called a \textit{modulation}. At first order\footnote{The mathematical description of a wave mixer is slightly more complex. However, all the other harmonics are far beyond the highest and lowest frequencies considered at \textit{first order}, hence negligeable for our purpose.}, the wave mixer essentially creates the same components than \eqref{list_comp_light_mix} when one mixes two light beams, except the single frequencies. Namely, for an output frequency $\omega_1$ and a reference of $\omega_2$ we obtain:
+In order to rectify those issues, we shall add a \textit{demodulation} block between the output gate of the detector and the oscilloscope as represented in figure \ref{fig:wavemixer}. The idea is to mix the ouput signal with a well behaved electric sine wave called \textit{reference}: this operation is called a \textit{modulation}. At first order\footnote{The mathematical description of a wave mixer is slightly more complex. However, all the other harmonics are far beyond the highest and lowest frequencies considered at \textit{first order}, hence negligeable for our purpose.}, the wave mixer essentially creates the same components than \eqref{list_comp_light_mix} when one mixes two light beams, except the \textit{single} frequencies. Namely, for an output frequency $\omega_1$ and a reference of $\omega_2$ we obtain:
 \begin{equation}
 \omega_1 + \omega_2, \quad \omega_1 - \omega_2
 \end{equation}
@@ -1258,28 +1284,45 @@ Now if we set that $\omega_1$ corresponds to our 43MHz and $\omega_2$ of the sam
 \end{equation}
 In other words, the modulation process translates the spectrum with 43MHz to the left (if we only take into account the term $\omega_1 -\omega_2$. Thus, a signal at 42MHz for example, will become a signal of -1MHz. By symmetry of the spectrum, this signal will superpose with a previous 44MHz signal also translated to 1MHz. 
 
-As sketched on previous Fig ??, we place a low pass filter after the wave mixer which removes all the harmonics higher than a certain frequency value. In practice, we set it to 100kHz and this selection allows us to only keep the DC signal with some slow-varying signals which corresponds to the envelop of a quasi-monochromatic field: the electric signal showed on the oscilloscope is somehow the transposed signal ensemble from $43\pm 0.1MHz$. This operation is called a \textit{demodulation} as we modulate the original signal in order to remove its main frequency.
+\begin{figure}[h!]
+\caption{Diagram showing the demodulation setup at the output of the detector.}
+\centering
+\includegraphics[width=0.5\textwidth]{wavemixer}
+\label{fig:wavemixer}
+\end{figure}
 
-Finally, as equation \eqref{p_noise_i_mean} is not dependent on the frequency, we could send any light to the beam (but still \textit{classical}) and recover the linear power to noise ratio behavior. Thereby, we disable the cavity laser and just turn on the local oscillator for this test\footnote{In practice, both lasers are turned on for calibration when targeting the 43MHz beat.}. The reference laser is then overlapping with vacuum which has infinite harmonics: there is still a \textit{beat} generated at 43MHz after the beam splitter.
+As sketched in previous figure \ref{fig:wavemixer}, we place a low pass filter after the wave mixer which removes all the harmonics higher than a certain frequency value. In practice, we set it to 100kHz and this selection allows us to only keep the DC signal with some slow-varying signals which corresponds to the envelop of a quasi-monochromatic field: the electric signal showed on the oscilloscope is somehow the transposed signal ensemble from $43\pm 0.1MHz$. This operation is called a \textit{demodulation} as we modulate the original signal in order to remove its main frequency.
 
-On Fig ??, we present the variance of the output voltage from the oscilloscope (in volts-squared)\footnote{As the impedance $Z_f$ is a constant, we should just multply it by the variance in order to obtain the power. However, the ouput voltage is also influenced by a second amplifier in the circuit and the mathematical formulation is not obvious. Anyway, the noise power is proportional to the variance of the voltage, which allows us to highlight the linear behavior and other caracteristics.}, according to the light's input power (in milliwatts). The variance is computed as follow for a discrete set of data:
+Finally, as equation \eqref{p_noise_i_mean} is not dependent on the frequency, we could send any light to the diodes (but still \textit{classical}) and recover the linear power to noise ratio behavior. Thereby, we disable the cavity laser and just turn on the local oscillator for this test\footnote{In practice, both lasers are turned on for calibration when targeting the 43MHz beat. After calibration, the cavity's laser is turned off.}. The reference laser is then overlapping with vacuum which has infinite harmonics: there is still a \textit{beat} generated at 43MHz after the beam splitter.
+
+In figure \ref{fig:power2noise}, we present the variance of the output voltage from the oscilloscope (in volts-squared)\footnote{As the impedance $Z_f$ is a constant, we should just multply it by the variance in order to obtain the power. However, the ouput voltage is also influenced by a second amplifier in the circuit and the mathematical formulation is not obvious. Anyway, the noise power is proportional to the variance of the voltage, which allows us to highlight the linear behavior and other caracteristics.}, according to the light's input power (in milliwatts). The variance is computed as follow for a discrete set of data:
 \begin{equation}
 \textrm{variance} = \frac{1}{N}\sum_{i} (x_i - \overline{x})^2
 \end{equation}
-where $N$ is the amount of samples recorded, $x_i$ denotes one sample (in volts) and $\overline{x}$ the mean voltage of the set. As a typical is set is not too large, computationally speaking, we can apply the rough formula\footnote{For very large sets of data, one may use other approaches involving approximative but efficient algorithms.}
+where $N$ is the amount of samples recorded, $x_i$ denotes one sample (in volts) and $\overline{x}$ the mean voltage of the set. As a typical is set is not too large, computationally speaking, we can apply the rough formula\footnote{For very large sets of data, one may use other approaches involving approximative but efficient algorithms.}.
 
-Fig
+\begin{figure}[h!]
+\caption{Power to noise ratio plot for three different configurations.}
+\centering
+\includegraphics[width=0.8\textwidth]{power2noise}
+\label{fig:power2noise}
+\end{figure}
 
 Three sets are recorded:
 \begin{itemize}
 	\item Two unbalanced: either the left or right diode is blocked from the incoming laser.
 	\item One balanced: both diodes receive light.
 \end{itemize}
-In the three cases, an affine fit is applied (i.e with a non-zero y-value at $x=0$), represented by the straight lines. The first thing we can notice is that the unbalanced detection fits are cut after 0.3mW. Fig ?? represent the mean voltage (the DC component) received for each experimental point of Fig ??
+In the three cases, an affine fit is applied (i.e with a non-zero y-value at $x=0$), represented by the straight lines. The first thing we can notice is that the unbalanced detection fits are cut after 0.3mW. Figure \ref{fig:power2tension} represent the mean voltage (the DC component) received for each experimental point of figure \ref{fig:power2noise}.
 
-Fig
+\begin{figure}[h!]
+\caption{Mean tension from the data sets of figure \ref{fig:power2noise}}
+\centering
+\includegraphics[width=0.8\textwidth]{power2tension}
+\label{fig:power2tension}
+\end{figure}
 
-Between 0.3mW and 0.5mW, the variance for unbalanced detection hits very high values (not visible in the sketched window of ??). Beyond 0.5mW of input light (for both diodes), the variance drops to approximately its initial value at null power (which is the electrical noise). It is clear that this behavior comes from the saturation of the electronic components: at a certain light intensity, the components \textit{ride out} very high photocurrent, and beyond, the components act as if there were no ligh at all. In the balanced case, both diodes receive high-intensity compared to the limitations of the circuit. However, the photocurrents are substracted \textit{before} reaching the components of the circuit. The op-amps and other electronics deal only with very small variation (i.e uncorrelation) of the photocurrent: those variations represent this highlighted white noise. Nevertheless, we observe a slight unfit for the balanced detection above 0.7mW: this probably comes from a saturation of the photodiodes which cannot handle this amount of light power indivually and limit the $\Delta i(t)$ in \eqref{i_split_delta_i}.
+Between 0.3mW and 0.5mW, the variance for unbalanced detection hits very high values (not visible in the sketched window of \ref{fig:power2noise}). Beyond 0.5mW of input light (for both diodes), the variance drops to approximately its initial value at null power (which is the electrical noise). It is clear that this behavior comes from the saturation of the electronic components: at a certain light intensity, the components \textit{ride out} very high photocurrent, and beyond, the components act as if there were no light at all. In the balanced case, both diodes receive high-intensity compared to the limitations of the circuit. However, the photocurrents are substracted \textit{before} reaching the components of the circuit. The op-amps and other electronics deal only with very small variation (i.e uncorrelation) of the photocurrent: those variations represent this highlighted white noise. Nevertheless, we observe a slight unfit for the balanced detection above 0.7mW: this probably comes from a saturation of the photodiodes which cannot handle this amount of light power indivually and limit the $\Delta i(t)$ in \eqref{i_split_delta_i}.
 
 At the end of the day, we caracterized the electrical noise as well as the light power to \textit{voltage-squared} noise ratio for the detector: the global noise (i.e electrical plus quantum noise) evolves between 35 and 70 nano \textit{volts-squared} for incoming light power of "0"mW\footnote{We never reach experimentally a null input light power. The "zero" value is assumed by convergence.} and 0.68mW.
 
@@ -1288,9 +1331,14 @@ At the end of the day, we caracterized the electrical noise as well as the light
 
 For all the previous tests, the supposed superradiant laser generated from the cavity and used in sections 2.4 and 2.5 was in reality replaced by a \textit{fake} laser: we used a standard laser reproducing the same frequency of the emited light in case of superradiance.
 
-As previously stated, the cavity laser is mixed with the local oscillator to generate a 43MHz beat. In other words, the reference laser is configured to be 43MHz away from the cavity laser. However, the experiment is made in a way that it is hard to change all the optics in order to generate the desired frequency for the fake laser. Thereby, we create two sidebands by phase modulation, 781.14MHz away from the main frequency as depicted in Fig ??.
+As previously stated, the cavity laser is mixed with the local oscillator to generate a 43MHz beat. In other words, the reference laser is configured to be 43MHz away from the cavity laser. However, the experiment is made in a way that it is hard to change all the optics in order to generate the desired frequency for the fake laser. Thereby, we create two sidebands by phase modulation, 781.14MHz away from the main frequency as depicted in figure \ref{fig:sb-def}.
 
-Fig
+\begin{figure}[h!]
+\caption{Spectrum of the generated fake laser.}
+\centering
+\includegraphics[width=0.6\textwidth]{sb-def}
+\label{fig:sb-def}
+\end{figure}
 
 The mathematical formulation of phase modulation is as follow. Considering the ampltide of an electric field $E(t)$ (or an analytic signal in general) as defined in \eqref{eq1}, we write $\overline{E}(t)$ as:
 \begin{equation}
@@ -1315,7 +1363,7 @@ As we are mainly interested by the first two sidebands and considering that high
 \end{equation}
 where we identify the term involving $J_0$ as the carrier, $J_1(h)$ as the right sideband (with frequency $\omega + \Omega$) and $-J_1(h)$ as the left sideband (with frequency $\omega - \Omega$).
 
-Knowing that the frequency carrier has a lower frequency than the actual superradiant beam, this is the upper sideband (i.e the sideband on the right of the carrier on Fig ??) which create a 43Mhz beat by coupling with the reference laser. The carrier frequency and the lower sideband create respectively a beat at 824.14MHz and 1.60528GHz which are unvisible for the detector.
+Knowing that the frequency carrier has a lower frequency than the actual superradiant beam, this is the upper sideband (i.e the sideband on the right of the carrier in figure \ref{fig:sb-def}) which create a 43Mhz beat by coupling with the reference laser. The carrier frequency and the lower sideband create respectively a beat at 824.14MHz and 1.60528GHz which are unvisible for the detector.
 
 Therefore, the intensity that we get from the fake laser is in reality much greater than the actual intensity of the sideband which couples to the local oscillator. Moreover, we know from other first experiments conducted in the lab that the superradiant laser power is in order of tens of picowatts. The principle of this intensity calibration test is to determine at which actual intensity we can still distinguish the 43MHz beat: if the intensity is too weak, the beat vanishes into the global noise level showed on the spectrum analyzer.
 
@@ -1327,21 +1375,27 @@ Firstly, we reduce the power of the fake laser (with sidebands or not) to a mini
 	\item Measure the power difference between the top of the 43MHz beat and the global noise level.
 \end{enumerate}
 
-In order to visualize the carrier and its sidebands as on previous Fig ??, we change the cavity configuration into \textit{modulation mode}. Thanks to a piezo element fixed at one side of the cavity, we can actually tune precisely the cavity's length. The goal of this modulation mode is thus to periodically extend and contract the length of the cavity. By placing an intensity detector at the ouput of the cavity, it gives an effect of scanning the cavity back and forth through the different modes. Indeed, the wavelength of superradiant and fake laser are around 689nm, that is to say, a frequency of 434THz, represents roughly the fifty thousandth cavity's mode for our setup. Then, varying the length of the cavity changes the amount of modes before the resonance of 434THz, but also moves the position of each resonance on the spectrum. At first order (i.e with very small variations), we can consider the FSR (i.e the \textit{frequency distance} between each mode) as constant: for example, if we configure the piezo to contract progressively, in order to move the carrier frequency progressively (which lies around 434THz) from the 50,000th resonance to the 50,001th resonance\footnote{In reality, on a spectrum graph, the cavity resonances move while the carrier frequency stands at 434THz.}, the FSR difference is negligeable.
+In order to visualize the carrier and its sidebands as on previous figure \ref{fig:sb-def}, we change the cavity configuration into \textit{modulation mode}. Thanks to a piezo element fixed at one side of the cavity, we can actually tune precisely the cavity's length. The goal of this modulation mode is thus to periodically extend and contract the length of the cavity. By placing an intensity detector at the ouput of the cavity, it gives an effect of scanning the cavity back and forth through the different modes. Indeed, the wavelength of superradiant and fake laser are around 689nm, that is to say, a frequency of 434THz, represents roughly the fifty thousandth cavity's mode for our setup. Then, varying the length of the cavity changes the amount of modes before the resonance of 434THz, but also moves the position of each resonance on the spectrum. At first order (i.e with very small variations), we can consider the FSR (i.e the \textit{frequency distance} between each mode) as constant: for example, if we configure the piezo to contract progressively, in order to move the carrier frequency progressively (which lies around 434THz) from the 50,000th resonance to the 50,001th resonance\footnote{In reality, on a spectrum graph, the cavity resonances move while the carrier frequency stands at 434THz.}, the FSR difference is negligeable.
 
-Nevertheless, as both the sidebands and the carrier are on resonance, applying this modulation mode directly on the fake laser ownning the two sidebands shall give a single intensity peak (Fig ??)
+Nevertheless, as both the sidebands and the carrier are on resonance, applying this modulation mode directly on the fake laser ownning the two sidebands shall give a single intensity peak (Figure \ref{fig:sb-fsr})
 
-Fig
+\begin{figure}[h!]
+\caption{Spectrum of the fake laser without offset on the sidebands giving a unique peak for the intensity output the time axis represent the extension/contraction of the piezo according to the time.}
+\centering
+\includegraphics[width=0.8\textwidth]{sb-fsr}
+\label{fig:sb-fsr}
+\end{figure}
 
-To rectify the problem, we give a small offset to the 781.14MHz frequency and, as represented on Fig ??, the sidebands are now off resonance. Note that the offset may be equivalently positive or negative.
+To rectify the problem, we give a small offset to the 781.14MHz frequency and, as represented in figure \ref{fig:sb-off}, the sidebands are now off resonance. Note that the offset may be equivalently positive or negative.
 
-Fig
+\begin{figure}[h!]
+\caption{Spectrum of the fake laser with an offset on the sidebands giving three peaks for the intensity output.}
+\centering
+\includegraphics[width=0.8\textwidth]{sb-off}
+\label{fig:sb-off}
+\end{figure}
 
-By extending the cavity's length, the resonances shall \textit{move} to the left of the spectrum and the transmitted frequency hitting the detector (the "intensity" detector, not the banlanced detector), shall be in the following order: the carrier, the lower sideband, then the upper sideband. Note that if the offset is negative (i.e the sidebands are closer to carrier) we shall see the carrier, then the upper and lower sideband in this order. An example of graph obtained through the oscilloscope is depicted on Fig ??
-
-Fig
-
-As we can see on previous Fig ??, the intensity of the different frequencies is now dependent on the time (i.e the elapsed time given to the piezo to extend and contract). This method allows a good visualization of the amplitude distribution through the frequencies of the fake laser. Obviously, the second step of the test is done with no offset (i.e both sidebands on resonances): this implies to change the cavity from "modulation" mode to "normal" mode for each percentage of modulation.
+By extending the cavity's length, the resonances shall \textit{move} to the left of the spectrum and the transmitted frequency hitting the detector (the "intensity" detector, not the balanced detector), shall be in the following order: the carrier, the lower sideband, then the upper sideband. Note that if the offset is negative (i.e the sidebands are closer to carrier) we shall see the carrier, then the upper and lower sideband in this order. As we can see on previous figure \ref{fig:sb-off}, the intensity of the different frequencies is now dependent on the time (i.e the elapsed time given to the piezo to extend and contract). This method allows a good visualization of the amplitude distribution through the frequencies of the fake laser. Obviously, the second step of the test is done with no offset (i.e both sidebands on resonances): this implies to change the cavity from "modulation" mode to "normal" mode for each percentage of modulation.
 
 The total intensity $I_{tot}$ is the sum of the intensity of the carrier $I_c$ and twice the sideband's intensity $I_s$:
 \begin{equation}
@@ -1369,9 +1423,13 @@ where $P_{s}$ is the power associated to one sideband and $P_{tot}$ the total po
 
 The measurement are taken from 100\% of modulation down to, ideally, 0\%, by step of 5\%: 100\%, 95\%, 90\%, etc. Until 35\% (included), the offset is of 6MHz which gives two sidebands far of 787.14MHz from the carrier. Below 35\%, the sideband's intensity is drastically reduced and not distinguishible anymore, mainly because the edges of the intensity peak from the carrier \textit{hides} the very weak intensity from the sidebands. The offset is thus increased to 14MHz, giving 795.14MHz for the frequency shift between the carrier and the sidebands. The curves from the oscilloscope are smoothed: the sideband intensities are visible for 30\%, 25\% and 20\% of modulation. Below 20\%, no additional \textit{tricks} can make the sidebands visible again.
 
-Fig
+\begin{figure}[h!]
+\caption{Plot of the ratio $r$ and $\alpha$ with two different fits.}
+\hspace*{-2cm}\includegraphics[width=1.25\textwidth]{sb-r-fit}
+\label{fig:sb-r-fit}
+\end{figure}
 
-The experimental ratio $r$ is plotted on Fig ?? for the set of amplitude described previously. An \textit{exponential} fit of third degrees is represented with the orange curve: a polyonmial fit is applied on the logarithme of the data set then exponentiated (i.e $e^{ax+bx^2+cx^3+d}$ where $a,b,c,d$ are determined numerically). The $\alpha$ ratio is plotted on Fig ?? from the $r$ values given by the exponential fit: the right side is the associated y-axis. At first glance, it is clear that $\alpha$ is null when the modulation amplitude is null and $\alpha$ reach a limit of approximately $0.4$ when the amplitude is 100\%. Moreover, a linear approximation can be done between 40\% and 60\% of amplitude.
+The experimental ratio $r$ is plotted in figure \ref{fig:sb-r-fit} for the set of amplitude described previously. An \textit{exponential} fit of third degrees is represented with the orange curve: a polyonmial fit is applied on the logarithme of the data set then exponentiated (i.e $e^{ax+bx^2+cx^3+d}$ where $a,b,c,d$ are determined numerically). The $\alpha$ ratio is plotted on Fig ?? from the $r$ values given by the exponential fit: the right side is the associated y-axis. At first glance, it is clear that $\alpha$ is null when the modulation amplitude is null and $\alpha$ reach a limit of approximately $0.4$ when the amplitude is 100\%. Moreover, a linear approximation can be done between 40\% and 60\% of amplitude.
 
 The red curve is a \textit{bessel} fit accross all the data points. Indeed, as the detector (not the balanced detector) receives separately the first sideband, the carrier and the second sideband, we evaluate the intensities with the exact formula $I \simeq \overline{E}(x,t)^2$. For the main frequency (i.e the carrier), we calculate:
 \begin{align}
@@ -1399,9 +1457,14 @@ r = \frac{\left\langle I_{s,\, left \, or \, right} \right\rangle}{\left\langle 
 \end{equation}
 The variable $h$ is then determined numerically. As we can see, the red curve including every experimental data point is not a good approximation: we suspect a saturation of the modulation device above a certain amplitude where this \textit{bessel formulation} is not valid anymore. Therefore, the green curve is a bessel fit over the first 55\% of amplitude which gives a better approximation for amplitudes below 55\%. However, even without physical argument, it is easier to trust the exponenital fit and that is why the $\alpha$ ratio is calulated upon it.
 
-Fig ?? represents the power difference between the peak at 43MHz and the global noise level on the spectrum analyzer, according to the sideband power: we select an amplitude of modulation with a null offset for the sidebands; we compute the associated sideband power (from a total power of 0.01µW which is constant over the data set); we measure the power difference on the spectrum analyzer. This time, the balanced detector is used instead of the previous \textit{intensity detector}: we are interested by the noise-to-beat ratio for the detector actually used in the final experiment for $g^1$. Therefore, one diode (equivalently left or right) is blocked in order to show the beat, otherwise canceled by substraction of the photocurrent.
+Figure \ref{fig:sb-power-visibility} represents the power difference between the peak at 43MHz and the global noise level on the spectrum analyzer, according to the sideband power: we select an amplitude of modulation with a null offset for the sidebands; we compute the associated sideband power (from a total power of 0.01µW which is constant over the data set); we measure the power difference on the spectrum analyzer. This time, the balanced detector is used instead of the previous \textit{intensity detector}: we are interested by the noise-to-beat ratio for the detector actually used in the final experiment for $g^1$. Therefore, one diode (equivalently left or right) is blocked in order to show the beat, otherwise canceled by substraction of the photocurrent.
 
-Fig
+\begin{figure}[h!]
+\caption{Beat power visibility according to the light power of the sideband.}
+\centering
+\includegraphics[width=0.8\textwidth]{sb-power-visibility}
+\label{fig:sb-power-visibility}
+\end{figure}
 
 In other words, this figure shows \textit{how visible} is the signal compared to the output power of the cavity creating the 43MHz beat. A logarithmic scale is used on the x-axis in order to clearly dissociate the data at low power. The y-axis is in dB: we substract the beat power (in dBm) to the noise power (in dBm),
 \begin{align}

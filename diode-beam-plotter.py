@@ -22,7 +22,7 @@ ax.plot(position_list, left_diode_sec, color = 'orange', label = "left diode (1.
 ax.plot(position_list, right_diode_sec, linestyle='dashed', color = 'orange', label = "right diode (1.25 mW for LO)")
 ax.legend()
 ax.grid()
-ax.set_xlabel('relative position diode/beam (mm)')
-ax.set_ylabel('average volt output signal (V)')
+ax.set_xlabel('Relative position diode/beam (mm)')
+ax.set_ylabel('Average volt output signal (V)')
 
 plt.show()

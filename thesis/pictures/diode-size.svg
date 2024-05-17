@@ -1,0 +1,464 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg5593"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   sodipodi:docname="diode-size.svg"
+   inkscape:export-filename="diode-size-big.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview5595"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="true"
+     inkscape:zoom="1.4059997"
+     inkscape:cx="424.60891"
+     inkscape:cy="515.29172"
+     inkscape:window-width="2560"
+     inkscape:window-height="1410"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid5714" />
+  </sodipodi:namedview>
+  <defs
+     id="defs5590">
+    <marker
+       style="overflow:visible"
+       id="TriangleStart"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="TriangleStart"
+       markerWidth="2"
+       markerHeight="2"
+       viewBox="0 0 5.3244081 6.1553851"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path135" />
+    </marker>
+    <rect
+       x="586.51953"
+       y="435.76884"
+       width="105.02694"
+       height="52.729413"
+       id="rect12734" />
+    <rect
+       x="407.80926"
+       y="441.10464"
+       width="84.710449"
+       height="37.958074"
+       id="rect12728" />
+    <rect
+       x="334.15848"
+       y="433.78848"
+       width="162.15161"
+       height="43.311919"
+       id="rect12710" />
+    <rect
+       x="133.76022"
+       y="435.88032"
+       width="113.6915"
+       height="51.909817"
+       id="rect11926" />
+    <rect
+       x="133.76022"
+       y="435.88032"
+       width="113.6915"
+       height="51.909817"
+       id="rect12774" />
+    <rect
+       x="407.80926"
+       y="441.10464"
+       width="84.710449"
+       height="37.958074"
+       id="rect12776" />
+    <rect
+       x="133.76022"
+       y="435.88032"
+       width="113.6915"
+       height="51.909817"
+       id="rect12863" />
+    <rect
+       x="407.80926"
+       y="441.10464"
+       width="84.710449"
+       height="37.958074"
+       id="rect12865" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <circle
+       style="fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:0.311002;stroke-dasharray:2.48802, 0.311002;stroke-dashoffset:0;stroke-opacity:1"
+       id="path6126"
+       cx="34.0415"
+       cy="102.37746"
+       r="8.509553" />
+    <circle
+       style="fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:0.311002;stroke-dasharray:2.48802, 0.311002;stroke-dashoffset:0;stroke-opacity:1"
+       id="circle8624"
+       cx="83.9646"
+       cy="102.37746"
+       r="8.509553" />
+    <circle
+       style="fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:0.311002;stroke-dasharray:2.48802, 0.311002;stroke-dashoffset:0;stroke-opacity:1"
+       id="circle8626"
+       cx="176.87094"
+       cy="102.37746"
+       r="8.509553" />
+    <circle
+       style="fill:#f40000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path8628"
+       cx="21.87528"
+       cy="102.62712"
+       r="4.0217032" />
+    <circle
+       style="fill:#f40000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="circle11438"
+       cx="79.677109"
+       cy="102.62712"
+       r="4.0217032" />
+    <circle
+       style="fill:#f40000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="circle11440"
+       cx="189.53912"
+       cy="102.62712"
+       r="4.0217032" />
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,-10.47784,0)"
+       id="text11924"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.33333px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;shape-inside:url(#rect11926);display:inline;fill:#010101;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"><tspan
+         x="133.75977"
+         y="444.37302"
+         id="tspan14441">Beginning of the </tspan><tspan
+         x="133.75977"
+         y="456.03968"
+         id="tspan14443">&quot;positive&quot; slope</tspan></text>
+    <text
+       xml:space="preserve"
+       transform="scale(0.26458333)"
+       id="text12708"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.33333px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;shape-inside:url(#rect12710);display:inline;fill:#010101;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.46944px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;inline-size:25.1729;display:inline;fill:#010101;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       x="72.939148"
+       y="117.91003"
+       id="text12716"
+       transform="translate(-1.3306131,-0.26530063)"><tspan
+         x="72.939148"
+         y="117.91003"
+         id="tspan14445">End of the &quot;positive&quot; </tspan><tspan
+         x="72.939148"
+         y="120.99683"
+         id="tspan14447">slope: Plateau region</tspan></text>
+    <circle
+       style="fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:0.311002;stroke-dasharray:2.48802, 0.311002;stroke-dashoffset:0;stroke-opacity:1"
+       id="circle12718"
+       cx="130.45221"
+       cy="102.37746"
+       r="8.509553" />
+    <circle
+       style="fill:#f40000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="circle12720"
+       cx="134.7272"
+       cy="102.62712"
+       r="4.0217032" />
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,11.691306,-1.2588582)"
+       id="text12726"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.33333px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;shape-inside:url(#rect12728);display:inline;fill:#010101;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"><tspan
+         x="407.80859"
+         y="449.59763"
+         id="tspan14449">End of the plateau:
+</tspan><tspan
+         x="407.80859"
+         y="461.26429"
+         id="tspan14451">Beginning of the </tspan><tspan
+         x="407.80859"
+         y="472.93095"
+         id="tspan14453">&quot;negative&quot; slope</tspan></text>
+    <text
+       xml:space="preserve"
+       transform="scale(0.26458333)"
+       id="text12732"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.33333px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;shape-inside:url(#rect12734);display:inline;fill:#010101;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.46944px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;inline-size:32.272;display:inline;fill:#010101;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       x="154.81712"
+       y="117.05853"
+       id="text12740"
+       transform="translate(7.8381368,0.52785615)"><tspan
+         x="154.81712"
+         y="117.05853"
+         id="tspan14455">End of the &quot;negative&quot; slope</tspan></text>
+    <circle
+       style="fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:0.311002;stroke-dasharray:2.48802, 0.311002;stroke-dashoffset:0;stroke-opacity:1"
+       id="circle12742"
+       cx="54.945927"
+       cy="146.02138"
+       r="8.509553" />
+    <circle
+       style="fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:0.311002;stroke-dasharray:2.48802, 0.311002;stroke-dashoffset:0;stroke-opacity:1"
+       id="circle12746"
+       cx="154.25641"
+       cy="146.02138"
+       r="8.509553" />
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,10.426588,43.643919)"
+       id="text12756"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.33333px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;shape-inside:url(#rect12774);display:inline;fill:#010101;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"><tspan
+         x="133.75977"
+         y="444.37302"
+         id="tspan14457">Beginning of the </tspan><tspan
+         x="133.75977"
+         y="456.03968"
+         id="tspan14459">&quot;positive&quot; slope</tspan></text>
+    <circle
+       style="fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:0.311002;stroke-dasharray:2.48802, 0.311002;stroke-dashoffset:0;stroke-opacity:1"
+       id="circle12762"
+       cx="108.3422"
+       cy="146.02138"
+       r="8.509553" />
+    <circle
+       style="fill:#f40000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="circle12764"
+       cx="108.34919"
+       cy="146.02896"
+       r="8.2807674" />
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,-8.6902051,42.385061)"
+       id="text12768"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.33333px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;shape-inside:url(#rect12776);display:inline;fill:#010101;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"><tspan
+         x="407.80859"
+         y="449.59763"
+         id="tspan14461">Beginning of the </tspan><tspan
+         x="407.80859"
+         y="461.26429"
+         id="tspan14463">&quot;negative&quot; slope</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.46944px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;inline-size:32.272;display:inline;fill:#010101;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       x="154.81712"
+       y="117.05853"
+       id="text12772"
+       transform="translate(-14.776399,44.171775)"><tspan
+         x="154.81712"
+         y="117.05853"
+         id="tspan14465">End of the &quot;negative&quot; slope</tspan></text>
+    <circle
+       style="fill:#f40000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="circle12837"
+       cx="14.151389"
+       cy="185.80269"
+       r="11.593401" />
+    <circle
+       style="fill:#f40000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="circle12994"
+       cx="197.01724"
+       cy="185.43567"
+       r="11.593401" />
+    <circle
+       style="fill:#f40000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="circle12992"
+       cx="133.63049"
+       cy="185.80269"
+       r="11.593401" />
+    <circle
+       style="fill:#f40000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="circle12989"
+       cx="80.759087"
+       cy="185.80269"
+       r="11.593401" />
+    <circle
+       style="fill:#f40000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="circle12778"
+       cx="38.132622"
+       cy="145.99611"
+       r="8.2807674" />
+    <circle
+       style="fill:#f40000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="circle12780"
+       cx="170.97745"
+       cy="145.99611"
+       r="8.2807674" />
+    <circle
+       style="fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:0.311002;stroke-dasharray:2.48802, 0.311002;stroke-dashoffset:0;stroke-opacity:1"
+       id="circle12831"
+       cx="34.0415"
+       cy="185.93173"
+       r="8.509553" />
+    <circle
+       style="fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:0.311002;stroke-dasharray:2.48802, 0.311002;stroke-dashoffset:0;stroke-opacity:1"
+       id="circle12835"
+       cx="176.87094"
+       cy="185.93173"
+       r="8.509553" />
+    <circle
+       style="fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:0.311002;stroke-dasharray:2.48802, 0.311002;stroke-dashoffset:0;stroke-opacity:1"
+       id="circle12833"
+       cx="83.9646"
+       cy="185.93173"
+       r="8.509553" />
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,-10.47784,83.554283)"
+       id="text12845"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.33333px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;shape-inside:url(#rect12863);display:inline;fill:#010101;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"><tspan
+         x="133.75977"
+         y="444.37302"
+         id="tspan14467">Beginning of the </tspan><tspan
+         x="133.75977"
+         y="456.03968"
+         id="tspan14469">&quot;positive&quot; slope</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.46944px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;inline-size:25.1729;display:inline;fill:#010101;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       x="72.939148"
+       y="117.91003"
+       id="text12849"
+       transform="translate(-1.3306131,83.288982)"><tspan
+         x="72.939148"
+         y="117.91003"
+         id="tspan14471">End of the &quot;positive&quot; </tspan><tspan
+         x="72.939148"
+         y="120.99683"
+         id="tspan14473">slope: Plateau region</tspan></text>
+    <circle
+       style="fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:0.311002;stroke-dasharray:2.48802, 0.311002;stroke-dashoffset:0;stroke-opacity:1"
+       id="circle12851"
+       cx="130.45221"
+       cy="185.93173"
+       r="8.509553" />
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,11.691306,82.295425)"
+       id="text12857"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.33333px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;shape-inside:url(#rect12865);display:inline;fill:#010101;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"><tspan
+         x="407.80859"
+         y="449.59763"
+         id="tspan14475">End of the plateau:
+</tspan><tspan
+         x="407.80859"
+         y="461.26429"
+         id="tspan14477">Beginning of the </tspan><tspan
+         x="407.80859"
+         y="472.93095"
+         id="tspan14479">&quot;negative&quot; slope</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.46944px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;inline-size:32.272;display:inline;fill:#010101;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       x="154.81712"
+       y="117.05853"
+       id="text12861"
+       transform="translate(7.8381368,84.082139)"><tspan
+         x="154.81712"
+         y="117.05853"
+         id="tspan14481">End of the &quot;negative&quot; slope</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:1.76389px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#010101;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       x="41.561684"
+       y="92.964638"
+       id="text13001"><tspan
+         sodipodi:role="line"
+         id="tspan12999"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:1.76389px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0"
+         x="41.561684"
+         y="92.964638">Photosensitive area</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:1.76389px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#010101;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       x="8.1133337"
+       y="97.492081"
+       id="text13005"><tspan
+         sodipodi:role="line"
+         id="tspan13003"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:1.76389px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0"
+         x="8.1133337"
+         y="97.492081">Laser beam</tspan></text>
+    <path
+       style="fill:#010101;fill-opacity:1;stroke:#000000;stroke-width:0.253312;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 17.917204,97.706291 1.279007,1.801551"
+       id="path13070" />
+    <path
+       style="fill:#010101;fill-opacity:1;stroke:#000000;stroke-width:0.202957;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 39.882116,95.473204 1.64767,-2.206754"
+       id="path13072" />
+    <path
+       style="fill:#000000;fill-opacity:0.99271798;stroke:#000000;stroke-width:0.702145;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#TriangleStart)"
+       d="m 24.054256,102.61315 h 3.791208"
+       id="path13183" />
+    <path
+       style="fill:#000000;fill-opacity:0.992718;stroke:#000000;stroke-width:0.702145;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#TriangleStart)"
+       d="m 82.718474,102.61315 h 3.791208"
+       id="path13553" />
+    <path
+       style="fill:#000000;fill-opacity:0.992718;stroke:#000000;stroke-width:0.702145;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#TriangleStart)"
+       d="m 137.74564,102.61315 h 3.79121"
+       id="path13559" />
+    <path
+       style="fill:#000000;fill-opacity:0.992718;stroke:#000000;stroke-width:0.702145;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#TriangleStart)"
+       d="m 192.80159,102.61315 h 3.79121"
+       id="path13563" />
+    <path
+       style="fill:#000000;fill-opacity:0.992718;stroke:#000000;stroke-width:0.702145;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#TriangleStart)"
+       d="m 178.04854,145.58505 h 3.79121"
+       id="path13567" />
+    <path
+       style="fill:#000000;fill-opacity:0.992718;stroke:#000000;stroke-width:0.702145;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#TriangleStart)"
+       d="m 115.67907,145.58505 h 3.79121"
+       id="path13571" />
+    <path
+       style="fill:#000000;fill-opacity:0.992718;stroke:#000000;stroke-width:0.702145;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#TriangleStart)"
+       d="m 44.884502,145.58505 h 3.79121"
+       id="path13575" />
+    <path
+       style="fill:#000000;fill-opacity:0.992718;stroke:#000000;stroke-width:0.702145;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#TriangleStart)"
+       d="m 24.467276,186.12091 h 3.79121"
+       id="path13579" />
+    <path
+       style="fill:#000000;fill-opacity:0.992718;stroke:#000000;stroke-width:0.702145;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#TriangleStart)"
+       d="m 91.161761,186.12091 h 3.79121"
+       id="path13583" />
+    <path
+       style="fill:#000000;fill-opacity:0.992718;stroke:#000000;stroke-width:0.702145;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#TriangleStart)"
+       d="m 144.39122,186.12091 h 3.79121"
+       id="path13587" />
+    <path
+       style="fill:#000000;fill-opacity:0.992718;stroke:#000000;stroke-width:0.702145;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#TriangleStart)"
+       d="m 205.15225,186.12091 h 3.79121"
+       id="path13591" />
+  </g>
+</svg>
