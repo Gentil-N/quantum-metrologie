@@ -38,7 +38,7 @@ def corr_cumulant_printer(op, order):
     comp_corr_equ_list = get_equ_sys(op, order)
     print("File creation...", end="", flush=True)
     python_func = convert_corr_equ_list_to_python_function(comp_corr_equ_list, order, op, "corr", False)
-    python_vec = get_corr_python_vec_init(comp_corr_equ_list, order, op, "corr")
+    python_vec = get_corr_python_vec_init_no_matrix(comp_corr_equ_list, order, op, "corr")
     file = open("corr_sys_" + op.get_simple_str() + "_order_" + str(order) + ".py", 'w')
     file.write(python_func + "\n\n" + python_vec)
     file.close()
@@ -81,7 +81,7 @@ def gn_cumulant_printer(op_init, op, order, g_name):
 
     print("File creation...", end="", flush=True)
     python_func = convert_corr_equ_list_to_python_function(comp_init_corr_equ_list, order, op_init, "corr", False)
-    python_vec = get_corr_python_vec_init(comp_init_corr_equ_list, order, op_init, "corr")
+    python_vec = get_corr_python_vec_init_no_matrix(comp_init_corr_equ_list, order, op_init, "corr")
     file = open("corr_sys_" + op_init.get_simple_str() + "_order_" + str(order) + ".py", 'w')
     file.write(python_func + "\n\n" + python_vec)
     file.close()
@@ -91,11 +91,11 @@ def gn_cumulant_printer(op_init, op, order, g_name):
 
 
 ### PRINT PYTHON
-corr_cumulant_printer(OP_Ad * OP_A, 2)
+#corr_cumulant_printer(OP_Ad * OP_A, 2)
 #corr_cumulant_printer(OP_Ad * OP_A, 3)
 #corr_cumulant_printer(OP_Ad * OP_A, 4)
 #gn_cumulant_printer(OP_Ad, OP_Ad * OP_Ac, 2, "g1")
-#gn_cumulant_printer(OP_Ad, OP_Ad * OP_Ac, 3, "g1")
+gn_cumulant_printer(OP_Ad, OP_Ad * OP_Ac, 3, "g1")
 #gn_cumulant_printer(OP_Ad, OP_Ad * OP_Ac, 4, "g1")
 #gn_cumulant_printer(OP_Ad * OP_A, OP_Adc * OP_Ad * OP_A * OP_Ac, 5, "g2")
 

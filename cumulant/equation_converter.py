@@ -90,6 +90,27 @@ def get_op_mul_from_cumu(cumu: Cumulant):
             res += " * "
     return res
 
+def get_op_init_from_cumu(cumu: Cumulant):
+    res = "["
+    qop_a_list = cumu.qop_atomic_list.copy()
+    qop_c_list = cumu.qop_cavity_list.copy()
+    if cumu.is_dag:
+        qop_a_list.reverse()
+        qop_c_list.reverse()
+    for i in range(len(qop_a_list)):
+        res += "QOpInit."
+        res += get_qop_op_equ_str(qop_dag(qop_a_list[i])) if cumu.is_dag else get_qop_op_equ_str(qop_a_list[i])
+        if i != len(qop_a_list) - 1:
+            res += ", "
+    if len(qop_a_list) != 0 and len(qop_c_list) != 0:
+        res += ", "
+    for i in range(len(qop_c_list)):
+        res += "QOpInit."
+        res += get_qop_op_equ_str(qop_dag(qop_c_list[i])) if cumu.is_dag else get_qop_op_equ_str(qop_c_list[i])
+        if i != len(qop_c_list) - 1:
+            res += ", "
+    return res + "]"
+
 def get_op_from_cumu(cumu: Cumulant):
     if len(cumu.qop_cavity_list) == 0 and len(cumu.qop_atomic_list) == 0:
         return 0
@@ -185,6 +206,13 @@ def get_corr_python_vec_init(corr_equ_list, order, op, sys_name):
     py_vec_init = "def " + str(sys_name) + "_get_init_vec_" + op.get_simple_str() + "_order_" + str(order) + "(init_state):\n\treturn [\n"
     for i in range(len(corr_equ_list)):
         py_vec_init += "(1.0 + 0.0j) * mean_value(init_state, " + get_op_mul_from_cumu(corr_equ_list[i][0].cumulant_list[0]) + "), # " + str(i) + "\n"
+    py_vec_init += "]"
+    return py_vec_init
+
+def get_corr_python_vec_init_no_matrix(corr_equ_list, order, op, sys_name):
+    py_vec_init = "def " + str(sys_name) + "_get_init_vec_" + op.get_simple_str() + "_order_" + str(order) + "(state):\n\treturn [\n"
+    for i in range(len(corr_equ_list)):
+        py_vec_init += "(1.0 + 0.0j) * get_projection(state, " + get_op_init_from_cumu(corr_equ_list[i][0].cumulant_list[0]) + "), # " + str(i) + "\n"
     py_vec_init += "]"
     return py_vec_init
 
