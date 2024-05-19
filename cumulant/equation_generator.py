@@ -1018,26 +1018,26 @@ def complete_equations_one_pass(corr_equ_list, order):
 #    print(equ[0])
 
 
-op = OP_Ad
-order = 1
-my_op_equ_list = develop_all_equations(op, CAVITY_H_OP_LIST, [(KAPPA, OP_A), (GAMMA, OP_SP), (NU, OP_SM)], order, [])
-#print_equ_list(my_op_equ_list)
-#print("\n######################################\n")
-comp_corr_equ_list = transform_equ_set_to_corr(my_op_equ_list)
-print_equ_list(comp_corr_equ_list)
-#print("\n######################################\n")
-apply_cumulant_expansion(comp_corr_equ_list, order + 1)
+#op = OP_Ad
+#order = 1
+#my_op_equ_list = develop_all_equations(op, CAVITY_H_OP_LIST, [(KAPPA, OP_A), (GAMMA, OP_SP), (NU, OP_SM)], order, [])
+##print_equ_list(my_op_equ_list)
+##print("\n######################################\n")
+#comp_corr_equ_list = transform_equ_set_to_corr(my_op_equ_list)
 #print_equ_list(comp_corr_equ_list)
-#print("\n######################################\n")
-for i in range(10):
-    new_list = complete_equations_one_pass(comp_corr_equ_list, order) # not "order + ..." because we process the case of Ac/Adc in the function itself
-    print(len(new_list))
-    #print_equ_list(new_list)
-    print("\n######################################\n")
-    if len(new_list) == 0:
-        break
-    else:
-        comp_corr_equ_list = new_list
-
-comp_corr_equ_list = remove_dag_corr_equ(comp_corr_equ_list, op_to_corr(op).cumulant_list[0])
-print_equ_list(comp_corr_equ_list)
+##print("\n######################################\n")
+#apply_cumulant_expansion(comp_corr_equ_list, order + 1)
+##print_equ_list(comp_corr_equ_list)
+##print("\n######################################\n")
+#for i in range(10):
+#    new_list = complete_equations_one_pass(comp_corr_equ_list, order) # not "order + ..." because we process the case of Ac/Adc in the function itself
+#    print(len(new_list))
+#    #print_equ_list(new_list)
+#    print("\n######################################\n")
+#    if len(new_list) == 0:
+#        break
+#    else:
+#        comp_corr_equ_list = new_list
+#
+#comp_corr_equ_list = remove_dag_corr_equ(comp_corr_equ_list, op_to_corr(op).cumulant_list[0])
+#print_equ_list(comp_corr_equ_list)

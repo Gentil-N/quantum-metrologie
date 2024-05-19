@@ -2,6 +2,7 @@ import numpy as np
 from cavity_global import *
 
 def corr_system_ad_order_3(t, x):
+	print(t)
 	return [ (1j)*delta*x[0] + (1j)*g*x[1] + (-0.5)*kappa*x[0], 
 (-2j)*g*hbar*x[2] + (-1.0)*gamma*hbar*x[3] + (1.0)*nu*hbar*x[3] + (-1.0)*nu*hbar*hbar*x[1], 
 (1j)*delta*x[2] + (1j)*g*x[3] + (-0.5)*kappa*x[2] + ((-0-1j))*g*hbar*x[4] + (1j)*g*hbar*x[5] + (1.0)*gamma*hbar*x[6] + (-1.0)*nu*hbar*x[6] + (-2.0)*nu*hbar*hbar*x[2] + ((-0-1j))*g*hbar*x[1], 
@@ -39,42 +40,42 @@ def corr_system_ad_order_3(t, x):
 (-1j)*delta*x[34] + (-1j)*g*x[35] + (-0.5)*kappa*x[34] + (-1j)*g*hbar*np.conj(x[6])*np.conj(x[0]) + (-1j)*g*hbar*np.conj(x[6])*np.conj(x[0]) + (-1j)*g*hbar*x[24]*np.conj(x[28]) + (2j)*g*hbar*x[24]*np.conj(x[0])*np.conj(x[0]) + (-1j)*g*hbar*np.conj(x[30])*x[1] + (-1j)*g*hbar*np.conj(x[13])*x[21] + (2j)*g*hbar*np.conj(x[13])*x[1]*np.conj(x[0]) + (-1j)*g*hbar*np.conj(x[13])*x[21] + (-1j)*g*hbar*np.conj(x[1])*np.conj(x[5]) + (2j)*g*hbar*np.conj(x[1])*x[21]*np.conj(x[0]) + (2j)*g*hbar*np.conj(x[13])*x[1]*np.conj(x[0]) + (2j)*g*hbar*np.conj(x[1])*x[21]*np.conj(x[0]) + (2j)*g*hbar*np.conj(x[1])*x[1]*np.conj(x[28]) + (-6j)*g*hbar*np.conj(x[1])*x[1]*np.conj(x[0])*np.conj(x[0]) + (-2j)*g*hbar*hbar*np.conj(x[11]) + (2j)*g*hbar*np.conj(x[8])*np.conj(x[0]) + (2j)*g*hbar*np.conj(x[8])*np.conj(x[0]) + (2j)*g*hbar*x[23]*np.conj(x[28]) + ((-0-4j))*g*hbar*x[23]*np.conj(x[0])*np.conj(x[0]) + (2j)*g*hbar*np.conj(x[11])*x[25] + (2j)*g*hbar*np.conj(x[2])*np.conj(x[2]) + ((-0-4j))*g*hbar*np.conj(x[2])*x[25]*np.conj(x[0]) + (2j)*g*hbar*np.conj(x[2])*np.conj(x[2]) + (2j)*g*hbar*x[25]*np.conj(x[11]) + ((-0-4j))*g*hbar*x[25]*np.conj(x[2])*np.conj(x[0]) + ((-0-4j))*g*hbar*np.conj(x[2])*x[25]*np.conj(x[0]) + ((-0-4j))*g*hbar*x[25]*np.conj(x[2])*np.conj(x[0]) + ((-0-4j))*g*hbar*x[25]*x[25]*np.conj(x[28]) + (12j)*g*hbar*x[25]*x[25]*np.conj(x[0])*np.conj(x[0]) + (1j)*g*hbar*np.conj(x[7])*np.conj(x[0]) + (1j)*g*hbar*np.conj(x[31])*x[0] + (1j)*g*hbar*np.conj(x[15])*x[27] + ((-0-2j))*g*hbar*np.conj(x[15])*x[0]*np.conj(x[0]) + (1j)*g*hbar*np.conj(x[4])*np.conj(x[1]) + (1j)*g*hbar*np.conj(x[21])*np.conj(x[13]) + ((-0-2j))*g*hbar*np.conj(x[21])*np.conj(x[1])*np.conj(x[0]) + (1j)*g*hbar*np.conj(x[13])*np.conj(x[21]) + (1j)*g*hbar*np.conj(x[1])*np.conj(x[4]) + ((-0-2j))*g*hbar*np.conj(x[1])*np.conj(x[21])*np.conj(x[0]) + ((-0-2j))*g*hbar*np.conj(x[13])*np.conj(x[1])*x[0] + ((-0-2j))*g*hbar*np.conj(x[1])*np.conj(x[13])*x[0] + ((-0-2j))*g*hbar*np.conj(x[1])*np.conj(x[1])*x[27] + (6j)*g*hbar*np.conj(x[1])*np.conj(x[1])*x[0]*np.conj(x[0]) + (1.0)*gamma*hbar*np.conj(x[9])*np.conj(x[0]) + (1.0)*gamma*hbar*np.conj(x[31])*x[1] + (1.0)*gamma*hbar*np.conj(x[15])*x[21] + (-2.0)*gamma*hbar*np.conj(x[15])*x[1]*np.conj(x[0]) + (1.0)*gamma*hbar*np.conj(x[6])*np.conj(x[1]) + (1.0)*gamma*hbar*x[24]*np.conj(x[13]) + (-2.0)*gamma*hbar*x[24]*np.conj(x[1])*np.conj(x[0]) + (1.0)*gamma*hbar*np.conj(x[13])*x[24] + (1.0)*gamma*hbar*np.conj(x[1])*np.conj(x[6]) + (-2.0)*gamma*hbar*np.conj(x[1])*x[24]*np.conj(x[0]) + (-2.0)*gamma*hbar*np.conj(x[13])*np.conj(x[1])*x[1] + (-2.0)*gamma*hbar*np.conj(x[1])*np.conj(x[13])*x[1] + (-2.0)*gamma*hbar*np.conj(x[1])*np.conj(x[1])*x[21] + (6.0)*gamma*hbar*np.conj(x[1])*np.conj(x[1])*x[1]*np.conj(x[0]) + (-1.0)*gamma*hbar*hbar*x[34] + (-1.0)*gamma*hbar*x[17]*np.conj(x[0]) + (-1.0)*gamma*hbar*np.conj(x[8])*np.conj(x[1]) + (-1.0)*gamma*hbar*x[23]*np.conj(x[13]) + (2.0)*gamma*hbar*x[23]*np.conj(x[1])*np.conj(x[0]) + (-1.0)*gamma*hbar*x[34]*x[25] + (-1.0)*gamma*hbar*x[16]*np.conj(x[2]) + (2.0)*gamma*hbar*x[16]*x[25]*np.conj(x[0]) + (-1.0)*gamma*hbar*np.conj(x[2])*x[16] + (-1.0)*gamma*hbar*x[25]*x[34] + (2.0)*gamma*hbar*x[25]*x[16]*np.conj(x[0]) + (2.0)*gamma*hbar*np.conj(x[2])*x[25]*np.conj(x[1]) + (2.0)*gamma*hbar*x[25]*np.conj(x[2])*np.conj(x[1]) + (2.0)*gamma*hbar*x[25]*x[25]*np.conj(x[13]) + (-6.0)*gamma*hbar*x[25]*x[25]*np.conj(x[1])*np.conj(x[0]) + (-1.0)*nu*hbar*np.conj(x[9])*np.conj(x[0]) + (-1.0)*nu*hbar*np.conj(x[31])*x[1] + (-1.0)*nu*hbar*np.conj(x[15])*x[21] + (2.0)*nu*hbar*np.conj(x[15])*x[1]*np.conj(x[0]) + (-1.0)*nu*hbar*np.conj(x[6])*np.conj(x[1]) + (-1.0)*nu*hbar*x[24]*np.conj(x[13]) + (2.0)*nu*hbar*x[24]*np.conj(x[1])*np.conj(x[0]) + (-1.0)*nu*hbar*np.conj(x[13])*x[24] + (-1.0)*nu*hbar*np.conj(x[1])*np.conj(x[6]) + (2.0)*nu*hbar*np.conj(x[1])*x[24]*np.conj(x[0]) + (2.0)*nu*hbar*np.conj(x[13])*np.conj(x[1])*x[1] + (2.0)*nu*hbar*np.conj(x[1])*np.conj(x[13])*x[1] + (2.0)*nu*hbar*np.conj(x[1])*np.conj(x[1])*x[21] + (-6.0)*nu*hbar*np.conj(x[1])*np.conj(x[1])*x[1]*np.conj(x[0]) + (-4.0)*nu*hbar*hbar*x[34] + (-2.0)*nu*hbar*hbar*hbar*np.conj(x[13]) + (1.0)*nu*hbar*x[17]*np.conj(x[0]) + (1.0)*nu*hbar*np.conj(x[8])*np.conj(x[1]) + (1.0)*nu*hbar*x[23]*np.conj(x[13]) + (-2.0)*nu*hbar*x[23]*np.conj(x[1])*np.conj(x[0]) + (1.0)*nu*hbar*x[34]*x[25] + (1.0)*nu*hbar*x[16]*np.conj(x[2]) + (-2.0)*nu*hbar*x[16]*x[25]*np.conj(x[0]) + (1.0)*nu*hbar*np.conj(x[2])*x[16] + (1.0)*nu*hbar*x[25]*x[34] + (-2.0)*nu*hbar*x[25]*x[16]*np.conj(x[0]) + (-2.0)*nu*hbar*np.conj(x[2])*x[25]*np.conj(x[1]) + (-2.0)*nu*hbar*x[25]*np.conj(x[2])*np.conj(x[1]) + (-2.0)*nu*hbar*x[25]*x[25]*np.conj(x[13]) + (6.0)*nu*hbar*x[25]*x[25]*np.conj(x[1])*np.conj(x[0]), 
 (-1j)*g*hbar*np.conj(x[9])*np.conj(x[0]) + (-1j)*g*hbar*np.conj(x[31])*x[1] + (-1j)*g*hbar*np.conj(x[15])*x[21] + (2j)*g*hbar*np.conj(x[15])*x[1]*np.conj(x[0]) + (-1j)*g*hbar*np.conj(x[6])*np.conj(x[1]) + (-1j)*g*hbar*x[24]*np.conj(x[13]) + (2j)*g*hbar*x[24]*np.conj(x[1])*np.conj(x[0]) + (-1j)*g*hbar*np.conj(x[13])*x[24] + (-1j)*g*hbar*np.conj(x[1])*np.conj(x[6]) + (2j)*g*hbar*np.conj(x[1])*x[24]*np.conj(x[0]) + (2j)*g*hbar*np.conj(x[13])*np.conj(x[1])*x[1] + (2j)*g*hbar*np.conj(x[1])*np.conj(x[13])*x[1] + (2j)*g*hbar*np.conj(x[1])*np.conj(x[1])*x[21] + (-6j)*g*hbar*np.conj(x[1])*np.conj(x[1])*x[1]*np.conj(x[0]) + (-2j)*g*hbar*hbar*x[34] + (-2j)*g*hbar*hbar*hbar*np.conj(x[13]) + (4j)*g*hbar*x[17]*np.conj(x[0]) + (4j)*g*hbar*np.conj(x[8])*np.conj(x[1]) + (4j)*g*hbar*x[23]*np.conj(x[13]) + ((-0-8j))*g*hbar*x[23]*np.conj(x[1])*np.conj(x[0]) + (4j)*g*hbar*x[34]*x[25] + (4j)*g*hbar*x[16]*np.conj(x[2]) + ((-0-8j))*g*hbar*x[16]*x[25]*np.conj(x[0]) + (4j)*g*hbar*np.conj(x[2])*x[16] + (4j)*g*hbar*x[25]*x[34] + ((-0-8j))*g*hbar*x[25]*x[16]*np.conj(x[0]) + ((-0-8j))*g*hbar*np.conj(x[2])*x[25]*np.conj(x[1]) + ((-0-8j))*g*hbar*x[25]*np.conj(x[2])*np.conj(x[1]) + ((-0-8j))*g*hbar*x[25]*x[25]*np.conj(x[13]) + (24j)*g*hbar*x[25]*x[25]*np.conj(x[1])*np.conj(x[0]) + (1j)*g*hbar*np.conj(x[32])*x[0] + (1j)*g*hbar*np.conj(x[7])*np.conj(x[1]) + (1j)*g*hbar*np.conj(x[15])*np.conj(x[21]) + ((-0-2j))*g*hbar*np.conj(x[15])*np.conj(x[1])*x[0] + (1j)*g*hbar*np.conj(x[7])*np.conj(x[1]) + (1j)*g*hbar*np.conj(x[15])*np.conj(x[21]) + ((-0-2j))*g*hbar*np.conj(x[15])*np.conj(x[1])*x[0] + (1j)*g*hbar*np.conj(x[21])*np.conj(x[15]) + (1j)*g*hbar*np.conj(x[1])*np.conj(x[7]) + ((-0-2j))*g*hbar*np.conj(x[1])*np.conj(x[15])*x[0] + ((-0-2j))*g*hbar*np.conj(x[21])*np.conj(x[1])*np.conj(x[1]) + ((-0-2j))*g*hbar*np.conj(x[1])*np.conj(x[21])*np.conj(x[1]) + ((-0-2j))*g*hbar*np.conj(x[1])*np.conj(x[1])*np.conj(x[21]) + (6j)*g*hbar*np.conj(x[1])*np.conj(x[1])*np.conj(x[1])*x[0] + (1.0)*gamma*hbar*np.conj(x[32])*x[1] + (1.0)*gamma*hbar*np.conj(x[9])*np.conj(x[1]) + (1.0)*gamma*hbar*np.conj(x[15])*x[24] + (-2.0)*gamma*hbar*np.conj(x[15])*np.conj(x[1])*x[1] + (1.0)*gamma*hbar*np.conj(x[9])*np.conj(x[1]) + (1.0)*gamma*hbar*np.conj(x[15])*x[24] + (-2.0)*gamma*hbar*np.conj(x[15])*np.conj(x[1])*x[1] + (1.0)*gamma*hbar*x[24]*np.conj(x[15]) + (1.0)*gamma*hbar*np.conj(x[1])*np.conj(x[9]) + (-2.0)*gamma*hbar*np.conj(x[1])*np.conj(x[15])*x[1] + (-2.0)*gamma*hbar*x[24]*np.conj(x[1])*np.conj(x[1]) + (-2.0)*gamma*hbar*np.conj(x[1])*x[24]*np.conj(x[1]) + (-2.0)*gamma*hbar*np.conj(x[1])*np.conj(x[1])*x[24] + (6.0)*gamma*hbar*np.conj(x[1])*np.conj(x[1])*np.conj(x[1])*x[1] + (-3.0)*gamma*hbar*hbar*x[35] + (-2.0)*gamma*hbar*x[17]*np.conj(x[1]) + (-2.0)*gamma*hbar*x[17]*np.conj(x[1]) + (-2.0)*gamma*hbar*x[23]*np.conj(x[15]) + (4.0)*gamma*hbar*x[23]*np.conj(x[1])*np.conj(x[1]) + (-2.0)*gamma*hbar*x[35]*x[25] + (-2.0)*gamma*hbar*x[16]*x[16] + (4.0)*gamma*hbar*x[16]*x[25]*np.conj(x[1]) + (-2.0)*gamma*hbar*x[16]*x[16] + (-2.0)*gamma*hbar*x[25]*x[35] + (4.0)*gamma*hbar*x[25]*x[16]*np.conj(x[1]) + (4.0)*gamma*hbar*x[16]*x[25]*np.conj(x[1]) + (4.0)*gamma*hbar*x[25]*x[16]*np.conj(x[1]) + (4.0)*gamma*hbar*x[25]*x[25]*np.conj(x[15]) + (-12.0)*gamma*hbar*x[25]*x[25]*np.conj(x[1])*np.conj(x[1]) + (-1.0)*nu*hbar*np.conj(x[32])*x[1] + (-1.0)*nu*hbar*np.conj(x[9])*np.conj(x[1]) + (-1.0)*nu*hbar*np.conj(x[15])*x[24] + (2.0)*nu*hbar*np.conj(x[15])*np.conj(x[1])*x[1] + (-1.0)*nu*hbar*np.conj(x[9])*np.conj(x[1]) + (-1.0)*nu*hbar*np.conj(x[15])*x[24] + (2.0)*nu*hbar*np.conj(x[15])*np.conj(x[1])*x[1] + (-1.0)*nu*hbar*x[24]*np.conj(x[15]) + (-1.0)*nu*hbar*np.conj(x[1])*np.conj(x[9]) + (2.0)*nu*hbar*np.conj(x[1])*np.conj(x[15])*x[1] + (2.0)*nu*hbar*x[24]*np.conj(x[1])*np.conj(x[1]) + (2.0)*nu*hbar*np.conj(x[1])*x[24]*np.conj(x[1]) + (2.0)*nu*hbar*np.conj(x[1])*np.conj(x[1])*x[24] + (-6.0)*nu*hbar*np.conj(x[1])*np.conj(x[1])*np.conj(x[1])*x[1] + (-5.0)*nu*hbar*hbar*x[35] + (-6.0)*nu*hbar*hbar*hbar*np.conj(x[15]) + (2.0)*nu*hbar*x[17]*np.conj(x[1]) + (2.0)*nu*hbar*x[17]*np.conj(x[1]) + (2.0)*nu*hbar*x[23]*np.conj(x[15]) + (-4.0)*nu*hbar*x[23]*np.conj(x[1])*np.conj(x[1]) + (2.0)*nu*hbar*x[35]*x[25] + (2.0)*nu*hbar*x[16]*x[16] + (-4.0)*nu*hbar*x[16]*x[25]*np.conj(x[1]) + (2.0)*nu*hbar*x[16]*x[16] + (2.0)*nu*hbar*x[25]*x[35] + (-4.0)*nu*hbar*x[25]*x[16]*np.conj(x[1]) + (-4.0)*nu*hbar*x[16]*x[25]*np.conj(x[1]) + (-4.0)*nu*hbar*x[25]*x[16]*np.conj(x[1]) + (-4.0)*nu*hbar*x[25]*x[25]*np.conj(x[15]) + (12.0)*nu*hbar*x[25]*x[25]*np.conj(x[1])*np.conj(x[1]) ]
 
-def corr_get_init_vec_ad_order_3(init_state):
+def corr_get_init_vec_ad_order_3(state):
 	return [
-(1.0 + 0.0j) * mean_value(init_state, op_ad), # 0
-(1.0 + 0.0j) * mean_value(init_state, op_sp), # 1
-(1.0 + 0.0j) * mean_value(init_state, op_sz * op_ad), # 2
-(1.0 + 0.0j) * mean_value(init_state, op_sz * op_sp), # 3
-(1.0 + 0.0j) * mean_value(init_state, op_sp * op_ad * op_a), # 4
-(1.0 + 0.0j) * mean_value(init_state, op_sm * op_ad * op_ad), # 5
-(1.0 + 0.0j) * mean_value(init_state, op_sm * op_sp * op_ad), # 6
-(1.0 + 0.0j) * mean_value(init_state, op_sp * op_sp * op_a), # 7
-(1.0 + 0.0j) * mean_value(init_state, op_sz * op_sz * op_ad), # 8
-(1.0 + 0.0j) * mean_value(init_state, op_sm * op_sp * op_sp), # 9
-(1.0 + 0.0j) * mean_value(init_state, op_sz * op_sz * op_sp), # 10
-(1.0 + 0.0j) * mean_value(init_state, op_sz * op_ad * op_ad), # 11
-(1.0 + 0.0j) * mean_value(init_state, op_sz * op_sp * op_ad), # 12
-(1.0 + 0.0j) * mean_value(init_state, op_sp * op_ad), # 13
-(1.0 + 0.0j) * mean_value(init_state, op_sz * op_sp * op_sp), # 14
-(1.0 + 0.0j) * mean_value(init_state, op_sp * op_sp), # 15
-(1.0 + 0.0j) * mean_value(init_state, op_sz * op_sm), # 16
-(1.0 + 0.0j) * mean_value(init_state, op_sz * op_sz * op_sm), # 17
-(1.0 + 0.0j) * mean_value(init_state, op_sz * op_ad * op_a), # 18
-(1.0 + 0.0j) * mean_value(init_state, op_sz * op_sp * op_a), # 19
-(1.0 + 0.0j) * mean_value(init_state, op_sz * op_sm * op_ad), # 20
-(1.0 + 0.0j) * mean_value(init_state, op_sp * op_a), # 21
-(1.0 + 0.0j) * mean_value(init_state, op_sz * op_sm * op_sp), # 22
-(1.0 + 0.0j) * mean_value(init_state, op_sz * op_sz), # 23
-(1.0 + 0.0j) * mean_value(init_state, op_sm * op_sp), # 24
-(1.0 + 0.0j) * mean_value(init_state, op_sz), # 25
-(1.0 + 0.0j) * mean_value(init_state, op_sz * op_sz * op_sz), # 26
-(1.0 + 0.0j) * mean_value(init_state, op_ad * op_a), # 27
-(1.0 + 0.0j) * mean_value(init_state, op_ad * op_ad), # 28
-(1.0 + 0.0j) * mean_value(init_state, op_ad * op_ad * op_a), # 29
-(1.0 + 0.0j) * mean_value(init_state, op_sp * op_ad * op_ad), # 30
-(1.0 + 0.0j) * mean_value(init_state, op_sp * op_sp * op_ad), # 31
-(1.0 + 0.0j) * mean_value(init_state, op_sp * op_sp * op_sp), # 32
-(1.0 + 0.0j) * mean_value(init_state, op_ad * op_ad * op_ad), # 33
-(1.0 + 0.0j) * mean_value(init_state, op_sz * op_sm * op_a), # 34
-(1.0 + 0.0j) * mean_value(init_state, op_sz * op_sm * op_sm), # 35
+(1.0 + 0.0j) * get_projection(state, [QOpInit.op_ad]), # 0
+(1.0 + 0.0j) * get_projection(state, [QOpInit.op_sp]), # 1
+(1.0 + 0.0j) * get_projection(state, [QOpInit.op_sz, QOpInit.op_ad]), # 2
+(1.0 + 0.0j) * get_projection(state, [QOpInit.op_sz, QOpInit.op_sp]), # 3
+(1.0 + 0.0j) * get_projection(state, [QOpInit.op_sp, QOpInit.op_ad, QOpInit.op_a]), # 4
+(1.0 + 0.0j) * get_projection(state, [QOpInit.op_sm, QOpInit.op_ad, QOpInit.op_ad]), # 5
+(1.0 + 0.0j) * get_projection(state, [QOpInit.op_sm, QOpInit.op_sp, QOpInit.op_ad]), # 6
+(1.0 + 0.0j) * get_projection(state, [QOpInit.op_sp, QOpInit.op_sp, QOpInit.op_a]), # 7
+(1.0 + 0.0j) * get_projection(state, [QOpInit.op_sz, QOpInit.op_sz, QOpInit.op_ad]), # 8
+(1.0 + 0.0j) * get_projection(state, [QOpInit.op_sm, QOpInit.op_sp, QOpInit.op_sp]), # 9
+(1.0 + 0.0j) * get_projection(state, [QOpInit.op_sz, QOpInit.op_sz, QOpInit.op_sp]), # 10
+(1.0 + 0.0j) * get_projection(state, [QOpInit.op_sz, QOpInit.op_ad, QOpInit.op_ad]), # 11
+(1.0 + 0.0j) * get_projection(state, [QOpInit.op_sz, QOpInit.op_sp, QOpInit.op_ad]), # 12
+(1.0 + 0.0j) * get_projection(state, [QOpInit.op_sp, QOpInit.op_ad]), # 13
+(1.0 + 0.0j) * get_projection(state, [QOpInit.op_sz, QOpInit.op_sp, QOpInit.op_sp]), # 14
+(1.0 + 0.0j) * get_projection(state, [QOpInit.op_sp, QOpInit.op_sp]), # 15
+(1.0 + 0.0j) * get_projection(state, [QOpInit.op_sz, QOpInit.op_sm]), # 16
+(1.0 + 0.0j) * get_projection(state, [QOpInit.op_sz, QOpInit.op_sz, QOpInit.op_sm]), # 17
+(1.0 + 0.0j) * get_projection(state, [QOpInit.op_sz, QOpInit.op_ad, QOpInit.op_a]), # 18
+(1.0 + 0.0j) * get_projection(state, [QOpInit.op_sz, QOpInit.op_sp, QOpInit.op_a]), # 19
+(1.0 + 0.0j) * get_projection(state, [QOpInit.op_sz, QOpInit.op_sm, QOpInit.op_ad]), # 20
+(1.0 + 0.0j) * get_projection(state, [QOpInit.op_sp, QOpInit.op_a]), # 21
+(1.0 + 0.0j) * get_projection(state, [QOpInit.op_sz, QOpInit.op_sm, QOpInit.op_sp]), # 22
+(1.0 + 0.0j) * get_projection(state, [QOpInit.op_sz, QOpInit.op_sz]), # 23
+(1.0 + 0.0j) * get_projection(state, [QOpInit.op_sm, QOpInit.op_sp]), # 24
+(1.0 + 0.0j) * get_projection(state, [QOpInit.op_sz]), # 25
+(1.0 + 0.0j) * get_projection(state, [QOpInit.op_sz, QOpInit.op_sz, QOpInit.op_sz]), # 26
+(1.0 + 0.0j) * get_projection(state, [QOpInit.op_ad, QOpInit.op_a]), # 27
+(1.0 + 0.0j) * get_projection(state, [QOpInit.op_ad, QOpInit.op_ad]), # 28
+(1.0 + 0.0j) * get_projection(state, [QOpInit.op_ad, QOpInit.op_ad, QOpInit.op_a]), # 29
+(1.0 + 0.0j) * get_projection(state, [QOpInit.op_sp, QOpInit.op_ad, QOpInit.op_ad]), # 30
+(1.0 + 0.0j) * get_projection(state, [QOpInit.op_sp, QOpInit.op_sp, QOpInit.op_ad]), # 31
+(1.0 + 0.0j) * get_projection(state, [QOpInit.op_sp, QOpInit.op_sp, QOpInit.op_sp]), # 32
+(1.0 + 0.0j) * get_projection(state, [QOpInit.op_ad, QOpInit.op_ad, QOpInit.op_ad]), # 33
+(1.0 + 0.0j) * get_projection(state, [QOpInit.op_sz, QOpInit.op_sm, QOpInit.op_a]), # 34
+(1.0 + 0.0j) * get_projection(state, [QOpInit.op_sz, QOpInit.op_sm, QOpInit.op_sm]), # 35
 ]
