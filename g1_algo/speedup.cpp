@@ -580,9 +580,9 @@ int main()
     write_file(filename.c_str(), array);
     std::vector<float> new_array = read_file(filename.c_str());*/
 
-    /*const size_t START_SIGNAL = 0, STOP_SIGNAL = 49;
+    const size_t START_SIGNAL = 1, STOP_SIGNAL = 10;
     const size_t CUTOFF_START = 0;
-    const size_t CUTOFF_STOP = 200000;
+    const size_t CUTOFF_STOP = 0;
     arr2<float> f_list, g_list;
     for (size_t i = START_SIGNAL; i < STOP_SIGNAL + 1; ++i)
     {
@@ -595,11 +595,11 @@ int main()
     // arr2<float> g1_norm = compute_g1_norm(f_list, g_list);
     // std::cout << "Downscaling..." << std::endl;
     // arr2<float> g1_norm_downscaled = downscale(g1_norm, 10, 10);
-    arr2<float> g1_norm_downscaled = compute_g1_norm_downscaled_multithread(f_list, g_list, 200);
+    arr2<float> g1_norm_downscaled = compute_g1_norm_downscaled_multithread(f_list, g_list, 500);
     std::string output_filename("./g1_norm_speedup");
-    write_file_darray(output_filename.c_str(), g1_norm_downscaled);*/
+    write_file_darray(output_filename.c_str(), g1_norm_downscaled);
 
-    size_t cutoff_init = 0;
+    /*size_t cutoff_init = 0;
     size_t sample_count = 200000;
     for (size_t i = 0; i < 18; ++i)
     {
@@ -608,7 +608,7 @@ int main()
         std::string add_name = ss.str();
         run(0, 49, cutoff_init, cutoff_init + sample_count, 200, add_name);
         cutoff_init += sample_count / 2;
-    }
+    }*/
 
     return 0;
 }
