@@ -1,7 +1,7 @@
-\documentclass[12pt]{report}
+\documentclass[10pt]{report}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
-\usepackage[a4paper,width=155mm,top=20mm,bottom=20mm]{geometry}
+\usepackage[a4paper,width=170mm,top=20mm,bottom=20mm]{geometry}
 \graphicspath{ {pictures/} }
 
 \usepackage{mathrsfs}
@@ -49,7 +49,7 @@ In order to override those mechanical uncertainties, we parametrize the cavity i
 \begin{figure}[h!]
 \caption{On top: some of the many transitions used in $^{88}$Sr for pumping, cooling and lasing. The levels refer to the electrons in the outermost shell in the \textit{Russel-Saunders} notation $^{2S+1}L_J$ in addition of the standard electronical notation. Here $S$ is the total spin quantum number of the two electrons (as they are spin 1/2 particles, $S$ can be either 0 or 1). $L$ represents the orbital angular momentum quantum numbers by letters from spectroscopic notation ($S$ means 0, $P$ means 1 and $D$ means 2). $J$ denotes the total angular momentum quantum number from the spin-orbit coupling. Below: a simplified diagram refering to a three-level structure where the lasing transition is filled thanks to the decay of the \textit{multilevel} transition, itself filled from the pumping of the base level.}
 \centering
-\includegraphics[width=0.8\textwidth]{sr88}
+\includegraphics[width=\textwidth]{sr88}
 \label{fig:sr88}
 \end{figure}
 
@@ -59,7 +59,7 @@ In the quantum metrology group at Niels Bohr's institute, the atom used as the g
 	\item $^{88}$Sr has no nuclear spin, which gives it a simpler level structure
 compared to other isotopes and makes it easier to work with, especially for the many transitions involved in the repumping/cooling scheme.
 	\item Strontium atoms have two electrons in their outermost shell, which gives them a structure of electronic transitions that is particularly useful in quantum metrology.
-	\item The transition  $^1S_0$-$^3P_1$ of $^{88}$Sr has a linewidth of 7.5kHz. Note that the transition $^1S_0$-$^3P_0$ has a nearly null linewidth but demands much more technicity to control it. Therefore, the transition $^1S_0$-$^3P_1$ is useful for exploring the physics of metrological systems and developing systems where simplicity is also important
+	\item The transition  $^1S_0$-$^3P_1$ of $^{88}$Sr has a linewidth of 7.5kHz. Note that the transition $^1S_0$-$^3P_0$ has a nearly null linewidth with 0.2 Telsa of magnetic field applied on it, but demands much more technicity to control. Therefore, the transition $^1S_0$-$^3P_1$ is useful for exploring the physics of metrological systems and developing systems where simplicity is also important
 \end{itemize}
 
 Finally, the transition $^1S_0$-$^3P_1$ corresponds to the two-level structure modeled in the next chapter.
@@ -1344,7 +1344,7 @@ In the three cases, an affine fit is applied (i.e with a non-zero y-value at $x=
 
 Between 0.3mW and 0.5mW, the variance for unbalanced detection hits very high values (not visible in the sketched window of \ref{fig:power2noise}). Beyond 0.5mW of input light (for both diodes), the variance drops to approximately its initial value at null power (which is the electrical noise). It is clear that this behavior comes from the saturation of the electronic components: at a certain light intensity, the components \textit{ride out} very high photocurrent, and beyond, the components act as if there were no light at all. In the balanced case, both diodes receive high-intensity compared to the limitations of the circuit. However, the photocurrents are substracted \textit{before} reaching the components of the circuit. The op-amps and other electronics deal only with very small variation (i.e uncorrelation) of the photocurrent: those variations represent this highlighted white noise. Nevertheless, we observe a slight unfit for the balanced detection above 0.7mW: this probably comes from a saturation of the photodiodes which cannot handle this amount of light power indivually and limit the $\Delta i(t)$ in \eqref{i_split_delta_i}.
 
-At the end of the day, we caracterized the electrical noise as well as the light power to \textit{voltage-squared} noise ratio for the detector: the global noise (i.e electrical plus quantum noise) evolves between 35 and 70 nano \textit{volts-squared} for incoming light power of "0"mW\footnote{We never reach experimentally a null input light power. The "zero" value is assumed by convergence.} and 0.68mW.
+At the end of the day, we characterized the electrical noise as well as the light power to \textit{voltage-squared} noise ratio for the detector: the global noise (i.e electrical plus quantum noise) evolves between 35 and 70 nano \textit{volts-squared} for incoming light power of "0"mW\footnote{We never reach experimentally a null input light power. The "zero" value is assumed by convergence.} and 0.68mW.
 
 \section{Intensity calibration}
 \paragraph{}
@@ -1716,7 +1716,7 @@ z_r^*(t_2)z_r(t_1) &= \vert \beta \vert^2 e^{i\omega_r(t_1 - t_2)}\\
 Note that the proportionality sign in \eqref{i_a_minus_i_b} vanishes thanks to the normalization factor of $g^1$ (i.e the denominator): the quantum efficiency is not involved in the signal processing treatment. Then, as the interesting quantity is the norm of $g^1$, we compute:
 \begin{equation}
 \label{g1_comput_form}
-\vert g^1(t_1, t_2) \vert = \sqrt{\frac{\left\langle f^n(t_1)f^n(t_2) + g^n(t_1)g^n(t_2) \right\rangle^2_N + \left\langle g^n(t_1)f^n(t_2) - f^n(t_1)g^n(t_2) \right\rangle^2_N}{\left\langle f^n(t_1) + g^n(t_1) \right\rangle_N \left\langle f^n(t_2) + g^n(t_2) \right\rangle_N}}
+\vert g^1(t_1, t_2) \vert = \sqrt{\frac{\left\langle f^n(t_1)f^n(t_2) + g^n(t_1)g^n(t_2) \right\rangle^2_N + \left\langle g^n(t_1)f^n(t_2) - f^n(t_1)g^n(t_2) \right\rangle^2_N}{\left\langle f^n(t_1)^2 + g^n(t_1)^2 \right\rangle_N \left\langle f^n(t_2)^2 + g^n(t_2)^2 \right\rangle_N}}
 \end{equation}
 where we recall that $\left\langle \cdot \right\rangle_N$ is an ensemble average over a set of signals: we record $N$ signals $f(t)$, that we rename individually $f^n(t)$ (i.e $f^n(t)$ is the nth signal from $1$ to $N$) and generate the Hilbert pairs $g^n(t)$.
 
@@ -1730,7 +1730,215 @@ It is important to note that, in the non-stationary case, the norm of $g^1$ is d
 \end{align}
 with any value of time $t_1$ and $t_2$.
 
+Also, for the diagonal elements where $t_1=t_2\stackrel{\text{def}}{=}t$ (which is the equivalent of $\tau = 0$ in the stationary case), $\vert g^1(t_1, t_2) \vert$ is set to unit by \textit{definition}:
+\begin{align}
+\begin{split}
+\vert g^1(t, t) \vert &= \sqrt{\frac{\left\langle f^n(t)f^n(t) + g^n(t)g^n(t) \right\rangle^2_N + \left\langle g^n(t)f^n(t) - f^n(t)g^n(t) \right\rangle^2_N}{\left\langle f^n(t)^2 + g^n(t)^2 \right\rangle_N \left\langle f^n(t)^2 + g^n(t)^2 \right\rangle_N}}\\
+&= \sqrt{\frac{\left\langle f^n(t)^2 + g^n(t)^2 \right\rangle^2_N}{\left\langle f^n(t)^2 + g^n(t)^2 \right\rangle_N^2}}\\
+&= 1
+\end{split}
+\end{align}
+This means that \textit{any} analytical signal is totally phase coherent for zero delay: this statement is obvious and confirm the realism aspect of the formula \ref{g1_comput_form}.
+
+
 Finally, \eqref{g1_comput_form} is the final form used for the numerical implementation in order to process the recorded signals of the superradiant beam. Nevertheless, Annex ?? gives some examples of numerical verification before actual use in the experiment as well as more description of the porgram and its optimizations.
+
+\section{$g^1$ measurement for a standard laser}
+
+In order, to compare the behavior of the superradiant laser, we start by characterizing the behavior of a laser considered as standard (i.e from a cavity in the \textit{good} regime and nearly perfectly coherent). In that way, the analysed laser is the "fake" laser used in Chapter 3.
+
+The local oscillator is tuned at approximately 0.1mW for each branch after the beam splitter.The cavity laser is considered as \textit{weak} with a couple of microwatts: the main power is produced by the local oscillator. The sidebands of the cavity laser are slightly ahead compared to the superradiant laser which gives a beat frequency of 44.4MHz instead of 43MHz: this is not a problem as this frequency is still in the \textit{acceptable} low noise region of the detector (see figure \ref{fig:noise_gain_opamp_new}). Ten signals are recorded for a time delay of 1.6ms each. There are 500,000 samples per signal: the sampling rate is of 312.5MHz, therefore there are approximately seven samples per period of 44MHz.
+
+\begin{figure}[h!]
+\centering
+\begin{subfigure}{.48\textwidth}
+  \centering
+  \includegraphics[width=1.1\linewidth]{st-f-rough}
+  \caption{One of the ten signals: raw data.}
+  \label{fig:st-f-rough}
+\end{subfigure}%
+\hspace{1em}%
+\begin{subfigure}{.48\textwidth}
+  \centering
+  \includegraphics[width=1.1\linewidth]{st-fft-rough}
+  \caption{One of the ten signals: power spectrum of the raw data.}
+  \label{fig:st-fft-rough}
+\end{subfigure}
+\caption{}
+\end{figure}
+
+Figure \ref{fig:st-f-rough} is a plot of one recorded signal without modification (i.e what the oscilloscope shows). Figure \ref{fig:st-fft-rough} is the \textit{power spectrum} (i.e the absolute value squared of the fourier transform) sketched only for the positive frequencies\footnote{As the processed signal is real-valued, the FFT is symmetric along the y-axis.} and cut at approximately 60MHz\footnote{From the Nyquist theorem, the maximum frequency possibly analysed is of (312.5MHz / 2)$\sim$ 156MHz}. We can see that the signal is slightly shifted from zero in terms of volt in \ref{fig:st-f-rough} and that the detector generates a lot of noise at low frequency in \ref{fig:st-fft-rough}. Thereby, we apply a numerical band-pass filter between 43MHz and 45MHz: everything outside of $\left[-45\cdot 10^6, -43\cdot 10^6 \right] \cup \left[43\cdot 10^6, 45\cdot 10^6 \right]$ is set to zero.
+
+\begin{figure}[h!]
+\centering
+\begin{subfigure}{.48\textwidth}
+  \centering
+  \includegraphics[width=1.1\linewidth]{st-f-bpf}
+  \caption{One of the ten signals: data after the band-pass filter.}
+  \label{fig:st-f-bpf}
+\end{subfigure}%
+\hspace{1em}%
+\begin{subfigure}{.48\textwidth}
+  \centering
+  \includegraphics[width=1.1\linewidth]{st-fft-bpf}
+  \caption{One of the ten signals: power spectrum of the data after the band-pass filter.}
+  \label{fig:st-fft-bpf}
+\end{subfigure}
+\caption{}
+\end{figure}
+
+Clearly, the signal obtained after the band-pass filter is \textit{weaker} and not shifted anymore: the previous shift in \ref{fig:st-f-rough} was generated by the noise signal. Also, the width of the band-pass filter is wide enough to encompass the main features of the beat signal at 44.4MHz, as sketched in figure \ref{fig:st-fft-bpf}.
+
+\begin{figure}[h!]
+\caption{Non-stationary plot of $g^1$ for a standard laser.}
+\centering
+\includegraphics[width=0.9\textwidth]{st-g12}
+\label{fig:st-g12}
+\end{figure}
+After numerically processing the signal, we obtain figure \ref{fig:st-g12}: a 2D map for $g^1$. The downsampled factor is set to 500: the 2D map is actually a picture of 1000 pixels by 1000 pixels. As we can see, the diagonal doesn't reach unity: that is due to the downsampling process which \textit{average} the surroundings pixels which are below unity.
+
+It is clear that the map \ref{fig:st-g12} exhibits a nearly perfect symmetry along the diagonal $t_1=t_2$. In other words: $\vert g^1(t_1, t_2) \vert = \vert g^1(t_1 + T, t_2 + T) \vert$ with $T$ a constant. It allows us to average the blue diagonal elements as described in figure \ref{fig:to-st}.
+
+\begin{figure}[h!]
+\caption{Diagram of the method to transform the map $\vert g^1(t_1, t_2) \vert$ to $\vert g^1(\tau) \vert$.}
+\centering
+\includegraphics[width=0.5\textwidth]{to-st}
+\label{fig:to-st}
+\end{figure}
+
+The red square delimitation is used in order to not \textit{overweight} or \textit{underweight} the samples of $\vert g^1(\tau) \vert$. Here, the Manhattan distance is used: making a displacement of one sample for $t_1$ and one sample for $t_2$ results in $\tau = t_1 - t_2 \rightarrow \tau = t_1 + 1 - (t_2 + 1) = t_1 - t_2 + 2$. In other words, the blue diagonals are half the length of one side of the 2D map, namely 0.8 milliseconds. Thus, we get figure \ref{fig:st-stat}.
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.7\linewidth]{st-stat}
+\caption{Approximation of $\vert g^1(\tau) \vert$ for the cavity laser.}
+\label{fig:st-stat}
+\end{figure}
+
+To summarize, the cavity laser is continuously phase coherent (between 0.675 and 0.750 for the norm of $g^1$) during the first 800 microseconds. The first brutal drop from 0.850 to 0.750 is due to the downsampling effect as stated earlier. The uniform drop from a theoretical $\vert g^1(\tau) \vert = 1 \,\, \forall \,\, \tau $ to $\vert g^1(\tau) \vert \simeq 0.7 \,\, \forall \,\, \tau $ is certainly due to a residual white noise from the electronical circuit or the light itself.
+
+\section{$g^1$ measurement for the superradiant laser}
+
+The procedure is repeated with, this time, the quasi-continous superradiant laser instead of the "fake" laser. The local oscillator is set at 0.74mW\footnote{the difference with 0.1mW makes no incidence}. The sampling rate is kept at 312.5MHz. Fifty signals are recorded.
+
+\begin{figure}[h!]
+\centering
+\begin{subfigure}{.48\textwidth}
+  \centering
+  \includegraphics[width=1.1\linewidth]{sp-f-rough}
+  \caption{One of the fifty signals: raw data.}
+  \label{fig:sp-f-rough}
+\end{subfigure}%
+\hspace{1em}%
+\begin{subfigure}{.48\textwidth}
+  \centering
+  \includegraphics[width=1.1\linewidth]{sp-fft-rough}
+  \caption{One of the fifty signals: power spectrum of the raw data.}
+  \label{fig:sp-fft-rough}
+\end{subfigure}
+\caption{}
+\end{figure}
+
+Figure \ref{fig:sp-f-rough} is one example over the fifty signals: no filter is applied. Figure \ref{fig:sp-fft-rough} is the associated power spectrum windowed between approximately 0 and 60MHz.
+
+\begin{figure}[h!]
+\centering
+\begin{subfigure}{.48\textwidth}
+  \centering
+  \includegraphics[width=1.1\linewidth]{sp-f-bpf}
+  \caption{One of the fifty signals: data after the band-pass filter.}
+  \label{fig:sp-f-bpf}
+\end{subfigure}%
+\hspace{1em}%
+\begin{subfigure}{.48\textwidth}
+  \centering
+  \includegraphics[width=1.1\linewidth]{sp-fft-bpf}
+  \caption{One of the fifty signals: power spectrum of the data after the band-pass filter.}
+  \label{fig:sp-fft-bpf}
+\end{subfigure}
+\caption{}
+\end{figure}
+
+In order to encompass the majority of the features, we apply a band-pass filter of 5MHz (between 41MHz and 46MHz) as shown in figure \ref{fig:sp-fft-bpf}. The resulting signal (with a inverse Fourier transform) is sketched in figure \ref{fig:sp-f-bpf}: this follows the same behavior as the intensity detected directly at the ouput of the the cavity (i.e before the heterodyne experiment). The recording process is triggered from the signal initiating the pump of the atoms: that is why we get a negative recording time interval as well as an extension after 4.5ms in figure \ref{fig:sp-f-bpf}.
+
+\begin{figure}[h!]
+\centering
+\begin{subfigure}{.48\textwidth}
+  \centering
+  \includegraphics[width=1.1\linewidth]{spec3-42}
+\end{subfigure}%
+\hspace{1em}%
+\begin{subfigure}{.48\textwidth}
+  \centering
+  \includegraphics[width=1.1\linewidth]{spec3-43}
+\end{subfigure}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\begin{subfigure}{.48\textwidth}
+  \centering
+  \includegraphics[width=1.1\linewidth]{spec3-44}
+\end{subfigure}%
+\hspace{1em}%
+\begin{subfigure}{.48\textwidth}
+  \centering
+  \includegraphics[width=1.1\linewidth]{spec3-45}
+\end{subfigure}
+\caption{Spectrograms of four different recorded signals for the quasi-continuous superradiant laser}
+\label{fig:spectrograms}
+\end{figure}
+
+Figure \ref{fig:spectrograms} are the spectrograms for four different signals: we clearly see an initial drift of the frequency for the four signals followed by unstabilities of less than 100kHz. As we shall see, the initial drift makes no incidence on the result: otehrwise, the generated map $\vert g^1(t_1, t_2) \vert$ would be very different (i.e we would expect less phase coherence) at the same time interval of the drift.
+
+\begin{figure}[h!]
+\centering
+\begin{subfigure}{.48\textwidth}
+  \centering
+  \includegraphics[width=1.1\linewidth]{sp-g12-1}
+\end{subfigure}%
+\hspace{1em}%
+\begin{subfigure}{.48\textwidth}
+  \centering
+  \includegraphics[width=1.1\linewidth]{sp-g12-3}
+\end{subfigure}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\begin{subfigure}{.48\textwidth}
+  \centering
+  \includegraphics[width=1.1\linewidth]{sp-g12-4}
+\end{subfigure}%
+\hspace{1em}%
+\begin{subfigure}{.48\textwidth}
+  \centering
+  \includegraphics[width=1.1\linewidth]{sp-g12-2}
+\end{subfigure}
+\caption{Four different \textit{chunks} of the map $\vert g^1(t_1, t_2) \vert$}
+\label{fig:sp-g12}
+\end{figure}
+
+\begin{figure}[h!]
+\caption{Non-stationary plot of $g^1$ for the superradiant laser.}
+\centering
+\includegraphics[width=0.9\textwidth]{medley}
+\label{fig:medley}
+\end{figure}
+
+\begin{figure}[h!]
+\caption{Approximation of $\vert g^1(\tau) \vert$ for the superradiant laser.}
+\centering
+\includegraphics[width=0.7\textwidth]{sp-stat}
+\label{fig:sp-stat}
+\end{figure}
+
+\begin{figure}[h!]
+\caption{Approximation of $\vert g^1(\tau) \vert^2$ for the superradiant laser.}
+\centering
+\includegraphics[width=0.7\textwidth]{sp-stat-sq}
+\label{fig:sp-stat-sq}
+\end{figure}
+
 
 
 \appendix

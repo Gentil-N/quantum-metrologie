@@ -5,9 +5,9 @@ from matplotlib.cm import ScalarMappable
 from matplotlib.colors import *
 import math
 
-OFFSET_TIME = 0.00064
-SAMPLE_COUNT = 200000
-DOWNSCALE_FACTOR = 200
+OFFSET_TIME = 0.0016
+SAMPLE_COUNT = 500000
+DOWNSCALE_FACTOR = 500
 TRUE_SAMPLE_COUNT = int(SAMPLE_COUNT / DOWNSCALE_FACTOR) #nb of row/col pixels in the image
 
 def compute_stationary_g1_chunk(g1_norm):
@@ -24,16 +24,16 @@ def compute_stationary_g1_chunk(g1_norm):
     return g1_stationary_chunk
 
 
-index_start = 2
-index_count = 8
-g1_norm = algo.import_g1_norm_darray("./g1_norm_speedup" + str(index_start), TRUE_SAMPLE_COUNT)
-g1_stationary = np.array(compute_stationary_g1_chunk(g1_norm)) / (index_count + 1)
-for i in range(index_count):
-    print("Processing:", i)
-    g1_norm = algo.import_g1_norm_darray("./g1_norm_speedup" + str(index_start + i + 1), TRUE_SAMPLE_COUNT)
-    g1_stationary += np.array(compute_stationary_g1_chunk(g1_norm)) / (index_count + 1)
-
-
+#index_start = 2
+#index_count = 8
+#g1_norm = algo.import_g1_norm_darray("./g1_norm_speedup" + str(index_start), TRUE_SAMPLE_COUNT)
+#g1_stationary = np.array(compute_stationary_g1_chunk(g1_norm)) / (index_count + 1)
+#for i in range(index_count):
+#    print("Processing:", i)
+#    g1_norm = algo.import_g1_norm_darray("./g1_norm_speedup" + str(index_start + i + 1), TRUE_SAMPLE_COUNT)
+#    g1_stationary += np.array(compute_stationary_g1_chunk(g1_norm)) / (index_count + 1)
+#
+g1_stationary = np.array(compute_stationary_g1_chunk(algo.import_g1_norm_darray("./g1_norm_speedup", TRUE_SAMPLE_COUNT)))
 #g1_norm = algo.import_g1_norm_darray("./g1_norm_speedup" + str(INDEX), TRUE_SAMPLE_COUNT)
 #fig1, ax1 = plt.subplots(1, 1)
 #fig1.set_size_inches(18.5, 10.5)
@@ -44,7 +44,7 @@ for i in range(index_count):
 
 #tau_max = len(g1_stationary) * HALF_OFFSET_TIME * 2 / SAMPLE_COUNT
 print(len(g1_stationary))
-tau_list = np.linspace(0, 0.00016, len(g1_stationary))
+tau_list = np.linspace(0, 0.0008, len(g1_stationary))
 
 fig1, ax1 = plt.subplots(1, 1)
 fig1.set_size_inches(18.5, 10.5)

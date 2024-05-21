@@ -103,7 +103,7 @@ def plot_spectrogram(spectrogram, start_time, stop_time, name):
     ax0.set_ylabel('frequencies (MHZ)')
     ax0.set_xlabel('time (ms)')
     fig0.colorbar(cs)
-    plt.savefig("./g1-2-analysis/spectrograms/spec3-"+name+".png")
+    #plt.savefig("./g1-2-analysis/spectrograms/spec3-"+name+".png")
     plt.show()
 
 def plot_power_spectrum(signal, time, cut_start, cut_stop, freq_cut_start, freq_cut_stop, name):
@@ -131,8 +131,9 @@ def plot_signal(signal, start_time, stop_time):
     time = np.linspace(start_time, stop_time, sample_count)
     fig1, ax1 = plt.subplots(1, 1)
     fig1.set_size_inches(18.5, 10.5)
-    ax1.plot(time, signal, label="freq")
-    ax1.legend()
+    ax1.plot(time * 1000, signal)
+    ax1.set_xlabel("time [ms]")
+    ax1.set_ylabel("Voltage ouptput [V]")
     plt.show()
 
 def plot_freq(signal, start_time, stop_time):
@@ -142,8 +143,9 @@ def plot_freq(signal, start_time, stop_time):
     fig1, ax1 = plt.subplots(1, 1)
     fig1.set_size_inches(18.5, 10.5)
     index = int(len(freq_list)/2)
-    ax1.plot(freq_list[:index], np.real(fsignal[:index]), label="freq")
-    ax1.legend()
+    ax1.plot(freq_list[:index] / 1000000, np.abs(fsignal[:index]))
+    ax1.set_xlabel("Frequency [MHz]")
+    ax1.set_ylabel("| Fourier Transform |² [V²]")
     plt.show()
 
 def create_hilbert_pair_for_list(f_list, start_time, stop_time):

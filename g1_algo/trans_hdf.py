@@ -24,7 +24,7 @@ def get_complete_path(root_path, name, add, num):
     return [root_path + name + add + str(num) + ".h5", root_path + name + add + str(num) + ".csv"]
 
 def process(root_path, name, add, low_pass, high_pass):
-    for i in range(50):
+    for i in range(30, 50):
         print("Processing ", i)
         names = get_complete_path(root_path, name, add, i)
         fileh5 = h5py.File(names[0], "r")
@@ -36,12 +36,14 @@ def process(root_path, name, add, low_pass, high_pass):
         stop_time = time[-1]
         print(time[0] - time[100000], time[100000] - time[200000])
         f = fileh5[key_channels][()][0].tolist()
-        algo.plot_signal(f, start_time, stop_time)
-        algo.plot_freq(f, start_time, stop_time)
+        #algo.plot_signal(f, start_time, stop_time)
+        #algo.plot_freq(f, start_time, stop_time)
         #exit()
         f = algo.bandpass_filter(f, start_time, stop_time, low_pass, high_pass)
-        algo.plot_freq(f, start_time, stop_time)
-        algo.plot_signal(f, start_time, stop_time)
+        #algo.plot_freq(f, start_time, stop_time)
+        #algo.plot_signal(f, start_time, stop_time)
+        #exit()
+        algo.plot_spectrogram(algo.get_spectrogram(f, time[0], time[-1], 100, 43.2E6, 43.5E6), time[0], time[-1], " ")
         exit()
         print("Creating hilbert pair...")
         g = algo.get_hilbert_pair(f, start_time, stop_time)
