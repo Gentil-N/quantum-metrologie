@@ -1806,7 +1806,7 @@ It is clear that the map \ref{fig:st-g12} exhibits a nearly perfect symmetry alo
 \label{fig:to-st}
 \end{figure}
 
-The red square delimitation is used in order to not \textit{overweight} or \textit{underweight} the samples of $\vert g^1(\tau) \vert$. Here, the Manhattan distance is used: making a displacement of one sample for $t_1$ and one sample for $t_2$ results in $\tau = t_1 - t_2 \rightarrow \tau = t_1 + 1 - (t_2 + 1) = t_1 - t_2 + 2$. In other words, the blue diagonals are half the length of one side of the 2D map, namely 0.8 milliseconds. Thus, we get figure \ref{fig:st-stat}.
+The red square delimitation is used in order to not \textit{overweight} or \textit{underweight} the samples of $\vert g^1(\tau) \vert$ caused by the residual \textit{triangles} in figure \ref{fig:to-st}. Here, the Manhattan distance is used: making a displacement of one sample for $t_1$ and one sample for $t_2$ results in $\tau = t_1 - t_2 \rightarrow \tau = t_1 + 1 - (t_2 + 1) = t_1 - t_2 + 2$. In other words, the blue diagonals are half the length of one side of the 2D map, namely 0.8 milliseconds. Thus, we get figure \ref{fig:st-stat}.
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.7\linewidth]{st-stat}
@@ -1818,7 +1818,7 @@ To summarize, the cavity laser is continuously phase coherent (between 0.675 and
 
 \section{$g^1$ measurement for the superradiant laser}
 
-The procedure is repeated with, this time, the quasi-continous superradiant laser instead of the "fake" laser. The local oscillator is set at 0.74mW\footnote{the difference with 0.1mW makes no incidence}. The sampling rate is kept at 312.5MHz. Fifty signals are recorded.
+The procedure is repeated with, this time, the quasi-continous superradiant laser instead of the "fake" laser. The local oscillator is set at 0.74mW\footnote{The difference with 0.1mW makes no incidence}. The sampling rate is kept at 312.5MHz. Fifty signals encompasing the full quasi-continous lasing are recorded over, approximately, six milliseconds each: we get nearly two million samples per signal.ze
 
 \begin{figure}[h!]
 \centering
@@ -1858,7 +1858,7 @@ Figure \ref{fig:sp-f-rough} is one example over the fifty signals: no filter is 
 \caption{}
 \end{figure}
 
-In order to encompass the majority of the features, we apply a band-pass filter of 5MHz (between 41MHz and 46MHz) as shown in figure \ref{fig:sp-fft-bpf}. The resulting signal (with a inverse Fourier transform) is sketched in figure \ref{fig:sp-f-bpf}: this follows the same behavior as the intensity detected directly at the ouput of the the cavity (i.e before the heterodyne experiment). The recording process is triggered from the signal initiating the pump of the atoms: that is why we get a negative recording time interval as well as an extension after 4.5ms in figure \ref{fig:sp-f-bpf}.
+In order to encompass the majority of the features, we apply a band-pass filter of 5MHz (between 41MHz and 46MHz) as shown in figure \ref{fig:sp-fft-bpf}. The resulting signal (with an inverse Fourier transform) is sketched in figure \ref{fig:sp-f-bpf}: this follows the same behavior as the intensity detected directly at the ouput of the the cavity (i.e before the heterodyne experiment). The recording process is triggered from the signal initiating the pump of the atoms: that is why we get a negative part on the time interval as well as an extension after 4.5ms in figure \ref{fig:sp-f-bpf}.
 
 \begin{figure}[h!]
 \centering
@@ -1888,7 +1888,7 @@ In order to encompass the majority of the features, we apply a band-pass filter 
 \label{fig:spectrograms}
 \end{figure}
 
-Figure \ref{fig:spectrograms} are the spectrograms for four different signals: we clearly see an initial drift of the frequency for the four signals followed by unstabilities of less than 100kHz. As we shall see, the initial drift makes no incidence on the result: otehrwise, the generated map $\vert g^1(t_1, t_2) \vert$ would be very different (i.e we would expect less phase coherence) at the same time interval of the drift.
+Figure \ref{fig:spectrograms} are the spectrograms for four different signals: we clearly see an initial drift of the frequency for the four signals followed by unstabilities of less than 100kHz. However, the initial drift makes no incidence on the result. Otherwise, the generated map $\vert g^1(t_1, t_2) \vert$ would be very different (i.e we would expect less phase coherence) at the same time interval of the drift: it is clear that the width of the \textit{yellow diagonal} on the top-left subfigure in \ref{fig:sp-g12} (which corresponds to the majority part of the drift between 0 and 1ms) is not significantly reduced compared to the other plots.
 
 \begin{figure}[h!]
 \centering
@@ -1918,26 +1918,35 @@ Figure \ref{fig:spectrograms} are the spectrograms for four different signals: w
 \label{fig:sp-g12}
 \end{figure}
 
+In order to lighten the computation process, each signal is divied in blocks of 200 000 samples which allow us only to generate the $\vert g^1(t_1, t_2) \vert$ over a small region (that we call \textit{chunk}) along the diagonal. The chunk are overlapped in order to show a not reduce to zero the anti-diagonal width\footnote{Without the overlap, }. On a recent computer, with the multithreading feature enabled (i.e parallel computation over six cores), the total computation took a bit more than four hours. Figure \ref{fig:sp-g12} represents four different chunks of the 2D map. Figure \ref{fig:medley} is familiarly called \textit{medley} as every chunk is pasted on the same figure at its respective position.
+
 \begin{figure}[h!]
-\caption{Non-stationary plot of $g^1$ for the superradiant laser.}
+\caption{Non-stationary plot of $g^1$ for the superradiant laser. The width (i.e $t_{1, max}$) and the height (i.e $t_{2, max}$) of this 2D map are naturally valued to 6ms.}
 \centering
 \includegraphics[width=0.9\textwidth]{medley}
 \label{fig:medley}
 \end{figure}
 
+Once again, we apply the technique described by figure \ref{fig:to-st} over the chunk n°3 to n°11 (where we get the maximum width of the \textit{yellow diagonal}. The red borders are applied on each chunk and, thanks to the overlap of the chunks, all the samples composing the resulting $\vert g^1(\tau) \vert$ are equivalently weighted during the average process: we get figure \ref{fig:sp-stat}.
+
 \begin{figure}[h!]
 \caption{Approximation of $\vert g^1(\tau) \vert$ for the superradiant laser.}
 \centering
-\includegraphics[width=0.7\textwidth]{sp-stat}
+\includegraphics[width=0.9\textwidth]{sp-stat}
 \label{fig:sp-stat}
 \end{figure}
 
-\begin{figure}[h!]
-\caption{Approximation of $\vert g^1(\tau) \vert^2$ for the superradiant laser.}
-\centering
-\includegraphics[width=0.7\textwidth]{sp-stat-sq}
-\label{fig:sp-stat-sq}
-\end{figure}
+The first sample, as stated previously, does not reach unity due to the downsampling and neighbors average. The plateau region of $g^1$ does not reach zero as it would do in theory because of the finite amount of signal recorded and the average operation which has a tendancy to lift the full graph. Then, the following gaussian fit is applied:
+\begin{equation}
+\textrm{Gaussian fit}(x, A, \sigma) = \frac{A}{2\pi\sigma} e^{-\frac{x^2}{2\sigma^2}} + 0.1
+\end{equation}
+where the amplitude $A$ and variance $\sigma^2$ are the paramater numerically determined. As we can see, $\sigma$ is valued to $4\cdot10^{-5}$ which means that, by definition, 95.45\% of the area under the gaussian is covered for $x=2\sigma\simeq 80$µs. In other words, for the time interval where the superradiant laser exhibits a stationary process (i.e between 0.5ms and 3ms on the time interval), the frequency emitted is \textit{fairly} coherent for 40µs ($\vert g^1(\tau) \vert > 0.6$) and mostly incoherent after 80µs.
+
+As I write these lines, the team and myself are not able to understand why the behavior is \textit{Gaussian}. Obivously, it means that the probability distribution of the phase jumps is Gaussian\footnote{See Loudon ??} which may be encountered with thermal light for example. Moreover, we can extend the question by applying the \textit{Wiener-Khintchine theorem} stating that "the autocorrelation function of a stationary random process (i.e $G^1(\tau)$) and the power spectrum of the process form a Fourier transform pair"\footnote{See Mandel and Wolf ??}:
+\begin{equation}
+G^1(\tau) = \int_{-\infty}^{+\infty} S(\omega) e^{-i\omega\tau} \,d\omega
+\end{equation}
+where $G^1(\tau)$ is the non-normalized equivalent of $g^1(\tau)$ and $S(\omega)$ the power spectrum. This equation means that the power spectrum in the time interval where the laser exhibits a stationary process, the power spectrum has a gaussian shape\footnote{The Fourier transform of a gaussian function in time space results in a gaussian function in frequency space.} with a width of $1/(2\sigma) = 12.5\cdot 10^{3}$*: the linewidth (that we define by the FMWH here) of the emitted light is approximately $2.355/\sigma \simeq 59$kHz. Therefore, among the characterization of the superradiant laser, the question remaining is: \textit{"Why cold atoms of strontium 88 in the bad cavity regime exhibits a gaussian noise around the carrier frequency?"}
 
 
 

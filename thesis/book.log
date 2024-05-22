@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2024.3.28)  21 MAY 2024 19:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2024.3.28)  22 MAY 2024 18:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -250,14 +250,7 @@ File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count285
 \l__pdf_internal_box=\box54
 )
-(./book.aux
-
-LaTeX Warning: Label `fig:sp-f-bpf' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:sp-f-bpf' multiply defined.
-
-)
+(./book.aux)
 \openout1 = `book.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
@@ -769,7 +762,8 @@ File: pictures//st-stat.png Graphic file (type png)
 <use pictures//st-stat.png>
 Package pdftex.def Info: pictures//st-stat.png  used on input line 1812.
 (pdftex.def)             Requested size: 338.5863pt x 200.11967pt.
-<pictures//sp-f-rough.png, id=301, 572.3784pt x 348.3414pt>
+ [53 <./pictures//to-st.png> <./pictures//st-stat.png>]
+<pictures//sp-f-rough.png, id=307, 572.3784pt x 348.3414pt>
 File: pictures//sp-f-rough.png Graphic file (type png)
 <use pictures//sp-f-rough.png>
 Package pdftex.def Info: pictures//sp-f-rough.png  used on input line 1827.
@@ -779,7 +773,7 @@ Overfull \hbox (23.21864pt too wide) in paragraph at lines 1827--1828
  [][] 
  []
 
-<pictures//sp-fft-rough.png, id=302, 543.4704pt x 323.7696pt>
+<pictures//sp-fft-rough.png, id=308, 543.4704pt x 323.7696pt>
 File: pictures//sp-fft-rough.png Graphic file (type png)
 <use pictures//sp-fft-rough.png>
 Package pdftex.def Info: pictures//sp-fft-rough.png  used on input line 1834.
@@ -789,7 +783,6 @@ Overfull \hbox (23.21864pt too wide) in paragraph at lines 1834--1835
  [][] 
  []
 
-[53 <./pictures//to-st.png> <./pictures//st-stat.png>]
 <pictures//sp-f-bpf.png, id=309, 535.5207pt x 313.6518pt>
 File: pictures//sp-f-bpf.png Graphic file (type png)
 <use pictures//sp-f-bpf.png>
@@ -809,10 +802,6 @@ Package pdftex.def Info: pictures//sp-fft-bpf.png  used on input line 1854.
 Overfull \hbox (23.21864pt too wide) in paragraph at lines 1854--1855
  [][] 
  []
-
-
-LaTeX Warning: Reference `fig:sp-fft-bpf' on page 54 undefined on input line 18
-61.
 
 <pictures//spec3-42.png, id=311, 542.7477pt x 291.2481pt>
 File: pictures//spec3-42.png Graphic file (type png)
@@ -906,36 +895,30 @@ Overfull \hbox (23.21864pt too wide) in paragraph at lines 1915--1916
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<pictures//medley.png, id=319, 2465.8524pt x 2461.5162pt>
+[54 <./pictures//sp-f-rough.png> <./pictures//sp-fft-rough.png> <./pictures//sp
+-f-bpf.png> <./pictures//sp-fft-bpf.png>]
+<pictures//medley.png, id=326, 2465.8524pt x 2461.5162pt>
 File: pictures//medley.png Graphic file (type png)
 <use pictures//medley.png>
-Package pdftex.def Info: pictures//medley.png  used on input line 1924.
+Package pdftex.def Info: pictures//medley.png  used on input line 1926.
 (pdftex.def)             Requested size: 435.32419pt x 434.52776pt.
 
+
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<pictures//sp-stat.png, id=320, 984.3174pt x 474.0912pt>
+[55 <./pictures//spec3-42.png> <./pictures//spec3-43.png> <./pictures//spec3-44
+.png> <./pictures//spec3-45.png> <./pictures//sp-g12-1.png> <./pictures//sp-g12
+-3.png> <./pictures//sp-g12-4.png> <./pictures//sp-g12-2.png>]
+<pictures//sp-stat.png, id=338, 851.3406pt x 427.1157pt>
 File: pictures//sp-stat.png Graphic file (type png)
 <use pictures//sp-stat.png>
-Package pdftex.def Info: pictures//sp-stat.png  used on input line 1931.
-(pdftex.def)             Requested size: 338.5863pt x 163.07695pt.
+Package pdftex.def Info: pictures//sp-stat.png  used on input line 1935.
+(pdftex.def)             Requested size: 435.32419pt x 218.40616pt.
+
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<pictures//sp-stat-sq.png, id=321, 984.3174pt x 474.0912pt>
-File: pictures//sp-stat-sq.png Graphic file (type png)
-<use pictures//sp-stat-sq.png>
-Package pdftex.def Info: pictures//sp-stat-sq.png  used on input line 1938.
-(pdftex.def)             Requested size: 338.5863pt x 163.07695pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[54 <./pictures//sp-f-rough.png> <./pictures//sp-fft-rough.png> <./pictures//sp
--f-bpf.png> <./pictures//sp-fft-bpf.png>] [55 <./pictures//spec3-42.png> <./pic
-tures//spec3-43.png> <./pictures//spec3-44.png> <./pictures//spec3-45.png> <./p
-ictures//sp-g12-1.png> <./pictures//sp-g12-3.png> <./pictures//sp-g12-4.png> <.
-/pictures//sp-g12-2.png>] [56 <./pictures//medley.png> <./pictures//sp-stat.png
->] [57 <./pictures//sp-stat-sq.png>]
+[56 <./pictures//medley.png>] [57 <./pictures//sp-stat.png>]
 Appendix A.
 [58
 
@@ -947,15 +930,12 @@ Appendix B.
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: There were multiply-defined labels.
-
  ) 
 Here is how much of TeX's memory you used:
- 6742 strings out of 476091
- 117031 string characters out of 5794081
+ 6731 strings out of 476091
+ 116752 string characters out of 5794081
  1881330 words of memory out of 5000000
- 27020 multiletter control sequences out of 15000+600000
+ 27009 multiletter control sequences out of 15000+600000
  530344 words of font info for 113 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  67i,27n,77p,1666b,558s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -995,10 +975,10 @@ e/texlive/texmf-dist/fonts/type1/public/stmaryrd/stmary10.pfb></usr/share/texli
 ve/texmf-dist/fonts/type1/public/esvect/vect10.pfb></usr/share/texlive/texmf-di
 st/fonts/type1/public/esvect/vect7.pfb></usr/share/texlive/texmf-dist/fonts/typ
 e1/public/esvect/vect8.pfb>
-Output written on book.pdf (65 pages, 5829394 bytes).
+Output written on book.pdf (65 pages, 5819489 bytes).
 PDF statistics:
- 527 PDF objects out of 1000 (max. 8388607)
+ 525 PDF objects out of 1000 (max. 8388607)
  261 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
- 311 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 306 words of extra memory for PDF output out of 10000 (max. 10000000)
 

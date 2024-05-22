@@ -35,6 +35,7 @@ def process(root_path, name, add, low_pass, high_pass):
         start_time = time[0]
         stop_time = time[-1]
         print(time[0] - time[100000], time[100000] - time[200000])
+        exit()
         f = fileh5[key_channels][()][0].tolist()
         #algo.plot_signal(f, start_time, stop_time)
         #algo.plot_freq(f, start_time, stop_time)
