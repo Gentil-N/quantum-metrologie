@@ -2,6 +2,7 @@ from scipy.fft import fft, ifft, fftfreq
 import random
 import numpy as np
 from scipy import integrate
+from scipy import special
 from matplotlib import pyplot as plt
 from matplotlib.cm import ScalarMappable
 from matplotlib.colors import *
@@ -125,15 +126,14 @@ def plot_power_spectrum(signal, time, cut_start, cut_stop, freq_cut_start, freq_
     plt.savefig("./g1-2-analysis/power-spectrums-continous/ps-cut(" + str(cut_start) + "-" + str(cut_stop) + ")-" + name + ".png")
     plt.show()
 
-
 def plot_signal(signal, start_time, stop_time):
     sample_count = len(signal)
     time = np.linspace(start_time, stop_time, sample_count)
     fig1, ax1 = plt.subplots(1, 1)
     fig1.set_size_inches(18.5, 10.5)
-    ax1.plot(time * 1000, signal)
-    ax1.set_xlabel("time [ms]")
-    ax1.set_ylabel("Voltage ouptput [V]")
+    ax1.plot(time, signal)
+    ax1.set_xlabel("Time [s]")
+    ax1.set_ylabel("Amplitude of the signal [no unit]")
     plt.show()
 
 def plot_freq(signal, start_time, stop_time):
@@ -215,6 +215,9 @@ def get_exp_ditributed_rand(mean):
 
 def get_unif_distributed_rand(mean):
     return random.random() * mean * 2
+
+def get_normal_distributed_rand(mean):
+    return abs(mean * np.sqrt(2) * special.erfinv(2 * random.random() - 1) + 0)
 
 def generate_chaotic_light_list(start_time, stop_time, sample_count, sample_spacing, coherence_time, freq, distribution_func, signal_count):
     f_list = []

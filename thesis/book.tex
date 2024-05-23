@@ -1166,7 +1166,7 @@ Therefore, we add two lenses with a focal length of 50mm each in front of both d
 \begin{figure}[h!]
 \caption{Heterodyne experiment with lens added.}
 \centering
-\includegraphics[width=\textwidth]{heterodyne-lens}
+\includegraphics[width=0.8\textwidth]{heterodyne-lens}
 \label{fig:heterodyne-lens}
 \end{figure}
 
@@ -1738,7 +1738,7 @@ Also, for the diagonal elements where $t_1=t_2\stackrel{\text{def}}{=}t$ (which 
 &= 1
 \end{split}
 \end{align}
-This means that \textit{any} analytical signal is totally phase coherent for zero delay: this statement is obvious and confirm the realism aspect of the formula \ref{g1_comput_form}.
+This means that \textit{any} analytical signal is totally phase coherent for zero delay: this statement is obvious and confirm the realism aspect of formula \ref{g1_comput_form}.
 
 
 Finally, \eqref{g1_comput_form} is the final form used for the numerical implementation in order to process the recorded signals of the superradiant beam. Nevertheless, Annex ?? gives some examples of numerical verification before actual use in the experiment as well as more description of the porgram and its optimizations.
@@ -1938,15 +1938,19 @@ Once again, we apply the technique described by figure \ref{fig:to-st} over the 
 
 The first sample, as stated previously, does not reach unity due to the downsampling and neighbors average. The plateau region of $g^1$ does not reach zero as it would do in theory because of the finite amount of signal recorded and the average operation which has a tendancy to lift the full graph. Then, the following gaussian fit is applied:
 \begin{equation}
-\textrm{Gaussian fit}(x, A, \sigma) = \frac{A}{2\pi\sigma} e^{-\frac{x^2}{2\sigma^2}} + 0.1
+\textrm{Gaussian fit}(\tau, A, \sigma) = \frac{A}{2\pi\sigma} e^{-\frac{\tau^2}{2\sigma^2}} + 0.1
 \end{equation}
-where the amplitude $A$ and variance $\sigma^2$ are the paramater numerically determined. As we can see, $\sigma$ is valued to $4\cdot10^{-5}$ which means that, by definition, 95.45\% of the area under the gaussian is covered for $x=2\sigma\simeq 80$µs. In other words, for the time interval where the superradiant laser exhibits a stationary process (i.e between 0.5ms and 3ms on the time interval), the frequency emitted is \textit{fairly} coherent for 40µs ($\vert g^1(\tau) \vert > 0.6$) and mostly incoherent after 80µs.
+where the amplitude $A$ and variance $\sigma^2$ are the paramater numerically determined. As we can see, $\sigma$ is valued to $4\cdot10^{-5}$ which means that, by definition, 95.45\% of the area under the gaussian is covered for $\tau=2\sigma\simeq 80$µs. If we respect the definition given by R.Loudon in sections 3.4, namely:
+\begin{equation}
+\tau_c \stackrel{\text{def}}{=} \int_{-\infty}^{+\infty} \vert g_1(\tau) \vert^2 \, d\tau
+\end{equation} 
+then a numerical integration gives $\tau_c \simeq 71$µs. In other words, for the time interval where the superradiant laser exhibits a stationary process (i.e between 0.5ms and 3ms on the time interval), the frequency emitted is \textit{fairly} coherent for 40µs ($\vert g^1(\tau) \vert > 0.6$), coherent for 60µs\footnote{Due to the global offset of the curves in \ref{fig:sp-stat} along the y-axis, we can predict a slight reduction of the coherence time for the \textit{real} curve.} and mostly incoherent after 80µs.
 
-As I write these lines, the team and myself are not able to understand why the behavior is \textit{Gaussian}. Obivously, it means that the probability distribution of the phase jumps is Gaussian\footnote{See Loudon ??} which may be encountered with thermal light for example. Moreover, we can extend the question by applying the \textit{Wiener-Khintchine theorem} stating that "the autocorrelation function of a stationary random process (i.e $G^1(\tau)$) and the power spectrum of the process form a Fourier transform pair"\footnote{See Mandel and Wolf ??}:
+As I write these lines, the team and myself are not able to understand why the behavior is \textit{Gaussian}. Obivously, it means that the spread of frequencies is mainly due to a Doppler broadening effect\footnote{See Loudon ??} which may be encountered with thermal light for example. Moreover, we can extend the question by applying the \textit{Wiener-Khintchine theorem} stating that "the autocorrelation function of a stationary random process (i.e $G^1(\tau)$) and the power spectrum of the process form a Fourier transform pair"\footnote{See Mandel and Wolf ??}:
 \begin{equation}
 G^1(\tau) = \int_{-\infty}^{+\infty} S(\omega) e^{-i\omega\tau} \,d\omega
 \end{equation}
-where $G^1(\tau)$ is the non-normalized equivalent of $g^1(\tau)$ and $S(\omega)$ the power spectrum. This equation means that the power spectrum in the time interval where the laser exhibits a stationary process, the power spectrum has a gaussian shape\footnote{The Fourier transform of a gaussian function in time space results in a gaussian function in frequency space.} with a width of $1/(2\sigma) = 12.5\cdot 10^{3}$*: the linewidth (that we define by the FMWH here) of the emitted light is approximately $2.355/\sigma \simeq 59$kHz. Therefore, among the characterization of the superradiant laser, the question remaining is: \textit{"Why cold atoms of strontium 88 in the bad cavity regime exhibits a gaussian noise around the carrier frequency?"}
+where $G^1(\tau)$ is the non-normalized equivalent of $g^1(\tau)$ and $S(\omega)$ the power spectrum. This equation means that the power spectrum in the time interval where the laser exhibits a stationary process, the power spectrum has a gaussian shape\footnote{The Fourier transform of a gaussian function in time space results in a gaussian function in frequency space.} with a width of $1/(\sigma) = 25\cdot 10^{3}$*: the linewidth (that we define by the FMWH here) of the emitted light is approximately $2.355/\sigma \simeq 59$kHz. Therefore, among the characterization of the superradiant laser, the question remaining is: \textit{"Why cold atoms of strontium 88 in the bad cavity regime exhibits a gaussian noise around the carrier frequency?"}
 
 
 
@@ -2077,14 +2081,14 @@ following an exponential distribution with a rate param $\lambda \stackrel{\text
 
 Unfortunately, a computer is only able to generate random numbers $u$ following a uniform distribution $U(0,1)$: we get real numbers between 0 and 1 with equal probabilities. As $P(\tau) = p$ is bijective by definition (with $p$ a probability), we note the inverse $P^{-1}(p) = \tau$. Thus we can write:
 \begin{equation}
-P(P^{-1}(p)) = p \Rightarrow ^P(P^{-1}(u)) = u
+P(P^{-1}(p)) = p \Rightarrow P(P^{-1}(u)) = u
 \end{equation}
 where $u$ is a probability as $p$, but $u$ comes from the uniform distribution $U(0,1)$ (it is just a change of variable). Then:
 \begin{equation}
 \label{dist_exp_gene}
 1-e^{-P^{-1}(u)/\tau_c} = u \Leftrightarrow P^{-1}(u) = -\tau_c \ln(1-u) = \tau
 \end{equation}
-In other words, from a probability $u$ given by the computer, $P^{-1}(u)$ get a random time $\tau$ for the next phase jump, following an exponential distribution. This approach is a specific case of the \textit{inverse transform sampling method}.
+In other words, from a probability $u$ given by the computer, $P^{-1}(u)$ produces a random time $\tau$ for the next phase jump, following an exponential distribution. This approach is a specific case of the \textit{inverse transform sampling method}.
 
 \subsection{Signal generation and $g^1$ verification}
 
@@ -2096,10 +2100,44 @@ With an amplitude of $1$ (i.e unit), we generate a cosine wave (or equivalently 
 	\item Chaotic light with a lorentzian frequency spectrum (exponential distribution): We generate a random number from the computer $u \in U(0,1)$. Thanks to \eqref{dist_exp_gene}, we get a time delay. For the interval defined by this delay, we generate a pure cosine wave. At the end of this interval, we generate another random number $u$ defining a phase for the next "pure cosine wave". We repeat the process until we reach $t_{stop}$.
 \end{itemize}
 
-Theoretical curve for the chaotic light:
+\begin{figure}[h!]
+\caption{Example of generation of a chaotic signal with a coherence time $\tau_c$ of 2 seconds. (Period of $2\pi$ over approximately 20 seconds: 10 samples per period.)}
+\centering
+\includegraphics[width=0.9\textwidth]{coh_gen}
+\end{figure}
+
+\begin{figure}[h!]
+\caption{Example of generation of a perfectly coherent signal. Period of $2\pi$ over approximately 20 seconds: 10 samples per period.)}
+\centering
+\includegraphics[width=0.9\textwidth]{chaos_gen}
+\end{figure}
+
+As we already now the result of the algorithme for a perfectly coherent signal\footnote{See section 4.1}, we only focus on the Lorentzian case. Therefore, we generate two signals with a uniform frequency of $2\pi$: the first has a coherence time of 2 seconds whereas the second signal has $\tau_c = 10.0s$. The parameters are: $t_{start} = 0s$, $t_{stop} = 1000s$ and $\tau_{max}=100s$. The amount of sample is valued to ten thousands over the whole width of the signals: $\vert g^1(\tau) \vert$ ic composed of a thousand of samples. The simulated curve of $\vert g^1(\tau) \vert$ is compared with the theoretical curve for collision-broadened light source:
 \begin{equation}
 \vert g^1(\tau) \vert = e^{-\tau/\tau_c}
 \end{equation}
+
+\begin{figure}[h!]
+\centering
+\begin{subfigure}{.48\textwidth}
+  \centering
+  \includegraphics[width=1.1\linewidth]{test_stat_2}
+\end{subfigure}%
+\hspace{1em}%
+\begin{subfigure}{.48\textwidth}
+  \centering
+  \includegraphics[width=1.1\linewidth]{test_stat_10}
+\end{subfigure}
+\caption{Stationary $\vert g^1(\tau) \vert$ for the two different sets. Left: $\tau_c=2$. Right: $\tau_c=10$}
+\end{figure}
+
+As we can see, the theoretical prediction is well respected and the remaining \textit{bumps}, over the time interval showing a complete incoherence, are due to the finite time interval of integration.
+
+\begin{figure}[h!]
+\caption{Example of non stationary plot of $\vert g^1(\tau) \vert$ for one set of data (40 signals) with $\tau_c=2$}
+\centering
+\includegraphics[width=0.9\textwidth]{test_g12}
+\end{figure}
 
 \subsection{Downsampling}
 

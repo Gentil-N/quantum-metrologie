@@ -15,6 +15,8 @@ SIGNAL_COUNT = 40
 
 f_list = algo.generate_chaotic_light_list(START_TIME, STOP_TIME, SAMPLE_COUNT, SAMPLE_SPACING, COHERENCE_TIME, FREQ, algo.get_exp_ditributed_rand, SIGNAL_COUNT)
 g_list = algo.create_hilbert_pair_for_list(f_list, START_TIME, STOP_TIME)
+#algo.plot_signal(f_list[0], START_TIME, STOP_TIME)
+#exit()
 
 def stationary():
     jorg_test = algo.jorg_stationary_test(f_list, START_TIME, STOP_TIME)
@@ -26,12 +28,14 @@ def stationary():
     theo_lorentzian = np.exp(-np.abs(x)/COHERENCE_TIME)
     fig1, ax1 = plt.subplots(1, 1)
     fig1.set_size_inches(18.5, 10.5)
-    ax1.plot(x, g_single, label="simulation")
-    ax1.plot(x, theo_lorentzian, label="theory")
+    ax1.plot(x, g_single, "--", label="simulation")
+    #ax1.plot(x, theo_lorentzian, label="theory")
     ax1.legend()
     ax1.grid()
     title = "Start stop times = " + str(START_TIME) + " to " + str(STOP_TIME) + " - Sample count = " + str(SAMPLE_COUNT) + " - Coh time = " + str(COHERENCE_TIME) + " - Frequency = " + str(FREQ)
     ax1.set_title(title)
+    ax1.set_xlabel("τ [s]")
+    ax1.set_ylabel("|g¹(τ)|")
     plt.savefig("./" + title + ".png")
     plt.show()
 
