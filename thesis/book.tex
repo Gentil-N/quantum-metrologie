@@ -325,22 +325,23 @@ In order to solve the system evolution, one wants to diagonalize the hamiltonian
 \begin{equation}
 \label{jc_block}
 \hat{H}_{JC} = \bigotimes_n \begin{bmatrix}
-\hbar \Delta\omega \, (n-1) & 2\hbar g \sqrt{n}\\
-2\hbar g \sqrt{n} & \hbar \Delta\omega \, n
+\hbar \Delta\omega \, (n-1) & \hbar g \sqrt{n}\\
+\hbar g \sqrt{n} & \hbar \Delta\omega \, n
 \end{bmatrix}
 \end{equation}
 where $n$ under the tensor product is the fock space dimension associated to the cavity system.
 
-After diagonalizing each block of \eqref{jc_block} (Annexe ??), one finds the following egeinvalues and eigenstates:
+After diagonalizing each block of \eqref{jc_block} (Annexe ??), one finds the following eigenvalues and eigenstates:
 \begin{align}
-E_{n, \pm} &\stackrel{\text{def}}{=} \hbar\Delta\omega\,(n-\frac{1}{2}) \pm \frac{\hbar}{2}\sqrt{4g^2n + \Delta\omega ^2}\\
+\label{jc_eigens}
+E_{n, \pm} &\stackrel{\text{def}}{=} \hbar\Delta\omega\,(n-\frac{1}{2}) \pm \hbar\sqrt{4g^2n + \Delta\omega ^2}\\
 \ket{n, +} &\stackrel{\text{def}}{=} \cos\left(\frac{\theta_n}{2}\right) \ket{\uparrow, n - 1}  + \sin\left(\frac{\theta_n}{2}\right) \ket{\downarrow, n}\\
 \ket{n, -} &\stackrel{\text{def}}{=} \cos\left(\frac{\theta_n}{2}\right) \ket{\downarrow, n}  - \cos\left(\frac{\theta_n}{2}\right) \ket{\uparrow, n - 1}
 \end{align}
 with:
 \begin{equation}
 \label{tan_theta_n}
-\tan\left(\theta_n\right) = -\frac{4\sqrt{n}g}{\Delta\omega}
+\tan\left(\theta_n\right) = -\frac{2g\sqrt{n}}{\Delta\omega}
 \end{equation}
 
 To finish with the JC-model, we shall demonstrate one relevant case: the \textit{Rabi flopping} (or more explicitly the Rabi oscillations) when the detuning is null or can be assimilated as vanishing (i.e $\Delta\omega = 0$). Thereby, one starts with the two-level system as excited with an \textit{empty} cavity field:
@@ -351,7 +352,7 @@ where we rewrite the initial state in terms of eigenstates.
 
 Then, applying the spatial evolution operator, one finds (see Annexe ??)
 \begin{align}
-\ket{\psi(t)} &= e^{-\frac{i}{\hbar}E_{1,+}t} \cos\left(\frac{\theta_{1}}{2}\right) \ket{1, +} - e^{-\frac{i}{\hbar}E_{1,-}t} \sin\left(\frac{\theta_{1}}{2}\right) \ket{1, -}\\
+\ket{\psi(t)} &= e^{-\frac{i}{\hbar}\hat{H}_{JC}t}\\
 &= \cos\left(\Omega t\right) \ket{\uparrow, 0} - i \sin\left(\Omega t\right) \ket{\downarrow, 1}
 \end{align}
 where we defined the Rabi frequency $\Omega = 2g$. Making the projection (i.e a measurement) along $\ket{\uparrow, 0}$ or $\ket{\downarrow, 1}$ and one ends up with the Rabi oscillations sketched on figure  \ref{fig:rabi-no-delta} where we set $g=1$:
@@ -372,7 +373,7 @@ As we can see on figure \ref{fig:rabi-no-delta}, the probabilities of finding on
 \label{fig:rabi-prog-delta}
 \end{figure}
 
-Numerically, if one puts progressively a small detuning (i.e $\omega_a$ is still about the same order of magnitude of $\omega_c$), one can numerically sketch figure \ref{fig:rabi-prog-delta} where we see that the energy transfer is progressively discarded as we increase the detuning: the probabilities of inverting the intial state decreases.\footnote{Of course, it depends on the initial state. Here we choosed to work with the pair $\ket{\uparrow, 0}$ and $\ket{\downarrow, 1}$ but similar behaviors happen for other states.} However, the \textit{rate}, at which the energy \textit{may} be transfered, increases: this behavior follows from \eqref{tan_theta_n}.
+Numerically, if one puts progressively a small detuning (i.e $\omega_a$ is still about the same order of magnitude of $\omega_c$), one can numerically sketch figure \ref{fig:rabi-prog-delta} where we see that the energy transfer is progressively discarded as we increase the detuning: the probabilities of inverting the intial state decreases.\footnote{Of course, it depends on the initial state. Here we chose to work with the pair $\ket{\uparrow, 0}$ and $\ket{\downarrow, 1}$ but similar behaviors happen for other states.} However, the \textit{rate}, at which the energy \textit{may} be transfered, increases: this behavior follows from \eqref{tan_theta_n}.
 
 As we can notice, this model is mainly limited by its atomic level capability which is of number of two. Thereby, one would probably like to theoretically predict the behavior for many two-level systems (or equivalently several spins). Then, we shall introduce an extension of this model in the next section.
 
@@ -386,7 +387,7 @@ In order to include more atoms, one needs to extend the Hilbert space involved i
 \label{dist_sig_2}
 &\stackrel{\text{def}}{=} \sum_{j=1}^{N} \hat{\sigma}_i^j
 \end{align}
-where $i \in \left[x,y,z\right]$ and the upper indices indicate the Hilbert spaces involved into the operator owning them: $\mathbb{1}_{k,...,m}$ is the identity operator for the group of spaces from $k$ to $m$.\footnote{We intentionnaly split the tensor product in the transformation \eqref{dist_sig_1} for the sake of clarity even if the tensor product can be reversed. However, we drop the tensor notation in definition \eqref{dist_sig_2} for simplicity.}
+where $i \in \left[x,y,z\right]$ and the upper indices indicate the Hilbert spaces involved into the operator owning them: $\mathbb{1}^{k,...,m}$ is the identity operator for the group of spaces from $k$ to $m$.\footnote{We intentionnaly split the tensor product in the transformation \eqref{dist_sig_1} for the sake of clarity even if the tensor product can be reversed. However, we drop the tensor notation in definition \eqref{dist_sig_2} for simplicity.}
 As this transformation is made of linear combination of two-level system and as the unitary transformation in the previous section, involving commutator rules from the Pauli matrices, are still valid by independency of a system to another (i.e \eqref{sigma_commut} can be upper indexed for each Hilbert space), this leads to an equivalent hamiltonian of \eqref{HJC}:
 \begin{equation}
 \hbar\Delta\omega\,\hat{n} + \hbar g \sum_{j=1}^{N} \left(\hat{\sigma}_+^j \hat{a} + \hat{\sigma}_-^j \hat{a}^{\dag} \right)
@@ -1818,7 +1819,7 @@ To summarize, the cavity laser is continuously phase coherent (between 0.675 and
 
 \section{$g^1$ measurement for the superradiant laser}
 
-The procedure is repeated with, this time, the quasi-continous superradiant laser instead of the "fake" laser. The local oscillator is set at 0.74mW\footnote{The difference with 0.1mW makes no incidence}. The sampling rate is kept at 312.5MHz. Fifty signals encompasing the full quasi-continous lasing are recorded over, approximately, six milliseconds each: we get nearly two million samples per signal.ze
+The procedure is repeated with, this time, the quasi-continous superradiant laser instead of the "fake" laser. The local oscillator is set at 0.74mW\footnote{The difference with 0.1mW makes no incidence.}. The sampling rate is kept at 312.5MHz. Fifty signals encompasing the full quasi-continous lasing are recorded over, approximately, six milliseconds each: we get nearly two million samples per signal.ze
 
 \begin{figure}[h!]
 \centering
@@ -1938,19 +1939,19 @@ Once again, we apply the technique described by figure \ref{fig:to-st} over the 
 
 The first sample, as stated previously, does not reach unity due to the downsampling and neighbors average. The plateau region of $g^1$ does not reach zero as it would do in theory because of the finite amount of signal recorded and the average operation which has a tendancy to lift the full graph. Then, the following gaussian fit is applied:
 \begin{equation}
-\textrm{Gaussian fit}(\tau, A, \sigma) = \frac{A}{2\pi\sigma} e^{-\frac{\tau^2}{2\sigma^2}} + 0.1
+\textrm{Gaussian fit}(\tau, A, \sigma) = \frac{A}{\sqrt{2\pi}\sigma} e^{-\frac{\tau^2}{2\sigma^2}} + 0.1
 \end{equation}
-where the amplitude $A$ and variance $\sigma^2$ are the paramater numerically determined. As we can see, $\sigma$ is valued to $4\cdot10^{-5}$ which means that, by definition, 95.45\% of the area under the gaussian is covered for $\tau=2\sigma\simeq 80$µs. If we respect the definition given by R.Loudon in sections 3.4, namely:
+where the amplitude $A$ and variance $\sigma^2$ are the paramater numerically determined. As we can see in figure \ref{fig:sp-stat}, $\sigma$ is valued to $4\cdot10^{-5}$ which means that, by definition, 95.45\% of the area under the gaussian is covered for $\tau=2\sigma\simeq 80$µs. If we respect the definition given by R.Loudon in sections 3.4, namely:
 \begin{equation}
 \tau_c \stackrel{\text{def}}{=} \int_{-\infty}^{+\infty} \vert g_1(\tau) \vert^2 \, d\tau
 \end{equation} 
-then a numerical integration gives $\tau_c \simeq 71$µs. In other words, for the time interval where the superradiant laser exhibits a stationary process (i.e between 0.5ms and 3ms on the time interval), the frequency emitted is \textit{fairly} coherent for 40µs ($\vert g^1(\tau) \vert > 0.6$), coherent for 60µs\footnote{Due to the global offset of the curves in \ref{fig:sp-stat} along the y-axis, we can predict a slight reduction of the coherence time for the \textit{real} curve.} and mostly incoherent after 80µs.
+then a numerical integration gives $\tau_c \simeq 32$µs. In other words, for the time interval where the superradiant laser exhibits a stationary process (i.e between 0.5ms and 3ms on the time interval), the frequency emitted is \textit{fairly} coherent for 30µs (i.e $\vert g^1(\tau) \vert \gtrsim 0.6$)\footnote{Due to the global offset of the curves in \ref{fig:sp-stat} along the y-axis, we can predict a slight reduction of the coherence time for the \textit{real} curve.} and mostly incoherent after 80µs.
 
 As I write these lines, the team and myself are not able to understand why the behavior is \textit{Gaussian}. Obivously, it means that the spread of frequencies is mainly due to a Doppler broadening effect\footnote{See Loudon ??} which may be encountered with thermal light for example. Moreover, we can extend the question by applying the \textit{Wiener-Khintchine theorem} stating that "the autocorrelation function of a stationary random process (i.e $G^1(\tau)$) and the power spectrum of the process form a Fourier transform pair"\footnote{See Mandel and Wolf ??}:
 \begin{equation}
 G^1(\tau) = \int_{-\infty}^{+\infty} S(\omega) e^{-i\omega\tau} \,d\omega
 \end{equation}
-where $G^1(\tau)$ is the non-normalized equivalent of $g^1(\tau)$ and $S(\omega)$ the power spectrum. This equation means that the power spectrum in the time interval where the laser exhibits a stationary process, the power spectrum has a gaussian shape\footnote{The Fourier transform of a gaussian function in time space results in a gaussian function in frequency space.} with a width of $1/(\sigma) = 25\cdot 10^{3}$*: the linewidth (that we define by the FMWH here) of the emitted light is approximately $2.355/\sigma \simeq 59$kHz. Therefore, among the characterization of the superradiant laser, the question remaining is: \textit{"Why cold atoms of strontium 88 in the bad cavity regime exhibits a gaussian noise around the carrier frequency?"}
+where $G^1(\tau)$ is the non-normalized equivalent of $g^1(\tau)$ and $S(\omega)$ the power spectrum. This equation means that, in the time interval where the laser exhibits a stationary process, the power spectrum has a gaussian shape\footnote{The Fourier transform of a gaussian function in time space results in a gaussian function in frequency space.} with a width of $1/(\sigma) = 25\cdot 10^{3}$*: the linewidth (that we define by the FMWH here) of the emitted light is thus approximately $2.355/\sigma \simeq 59$kHz. Therefore, among the characterization of the superradiant laser, the question remaining is: \textit{"Why cold atoms of strontium 88 in the bad cavity regime exhibits a gaussian spread of the noise around the carrier frequency?"}
 
 
 
@@ -2031,26 +2032,106 @@ U\hbar g\hat{\sigma}_+\hat{a}^\dag U^\dag &= e^{i\omega_a t(\hat{n} + \hat{\sigm
 \end{align}
 The same applies for the remaining terms.
 
-\chapter{Program implementations}
-\section{First order correlation}
+\subsection{Eigenvalues and Eigenstates}
 
-\subsection{$g^1$ for stationary processes}
+From \ref{jc_block}, it turns out that the hamiltonian can be written as:
+\begin{equation}
+\hat{H}_{JC} = \bigotimes_n \hat{H}_n \quad \textrm{s.t} \quad \hat{H}_n = \begin{bmatrix}
+\hbar \Delta\omega \, (n-1) & \hbar g \sqrt{n}\\
+\hbar g \sqrt{n} & \hbar \Delta\omega \, n
+\end{bmatrix}
+\end{equation}
+The goal is to diagonalize each block $\hat{H}_n$. As $\hat{H}_n$ lies in a 2-dimensional Hilbert space, there exists two eigenvalues $E_{n,\pm}$. We use the relation $\textrm{det}(\hat{H}_{JC} - E_{n,\pm}\mathbb{1}) = 0$. Thus we find:
+\begin{equation}
+E_{n,\pm} = \hbar\Delta\omega(n-\frac{1}{2}) \pm \hbar\sqrt{4g^2 n + \Delta\omega^2}
+\end{equation}
+Now we solve:
+\begin{equation}
+\hat{H}_{JC} \ket{v_\pm} = E_{n,\pm}\ket{v_\pm}
+\end{equation}
+with $\ket{v_\pm}=(x_\pm,y_\pm)$. We obtain:
+\begin{equation}
+x_\pm \left( \frac{\Delta\omega \pm \sqrt{4g^2n + \Delta\omega^2}}{2g\sqrt{n}} \right) = y_\pm
+\end{equation}
+which gives, in term of $\ket{v_\pm}$:
+\begin{equation}
+\ket{v_\pm} = x_\pm \begin{pmatrix}
+1\\
+\frac{\Delta\omega \pm \sqrt{4g^2n + \Delta\omega^2}}{2g\sqrt{n}}
+\end{pmatrix}
+\end{equation}
+It requires that $\vert\braket{v_\pm}{v_\pm}\vert^2 = 1$. Thus:
+\begin{equation}
+x_\pm = \frac{2g\sqrt{n}}{\sqrt{8g^2n + 2\Delta\omega^2 \pm 2\Delta\omega \sqrt{4g^2n + \Delta\omega^2}}}
+\end{equation}
+We identify:
+\begin{equation}
+\ket{v_\pm} = \begin{pmatrix}
+\cos(\theta_n/2)\\
+\sin(\theta_n/2)
+\end{pmatrix}
+\end{equation}
+By using the relations:
+\begin{align}
+\begin{split}
+\sin(\theta_n) &= 2\cos(\theta_n/2)\sin(\theta_n/2)\\
+\cos(\theta_n) &= \cos(\theta_n/2)^2 - \sin(\theta_n/2)^2
+\end{split}
+\end{align}
+we finally obtain:
+\begin{equation}
+\tan(\theta_n) = \frac{\sin(\theta_n)}{\cos(\theta_n)} = -\frac{2g\sqrt{n}}{\Delta\omega}
+\end{equation}
+
+\subsection{Spatial evolution operator}
+
+The time evolution operator gives:
+\begin{equation}
+\ket{\psi(t)} = e^{-\frac{i}{\hbar}E_{1,+}t} \cos\left(\frac{\theta_{1}}{2}\right) \ket{1, +} - e^{-\frac{i}{\hbar}E_{1,-}t} \sin\left(\frac{\theta_{1}}{2}\right) \ket{1, -}
+\end{equation}
+Applying the eigenstates/values from \ref{jc_eigens}:
+\begin{align}
+\begin{split}
+\ket{\psi(t)} &= \left( \cos(\theta_1/2)^2 e^{-\frac{i}{\hbar}E_{1,+}t} + \sin(\theta_1/2)^2 e^{-\frac{i}{\hbar}E_{1,-}t} \right) \ket{e, 0} \\
+&+ \left( \cos(\theta_1/2) \sin(\theta_1/2) e^{-\frac{i}{\hbar}E_{1,+}t} - \sin(\theta_1/2) \cos(\theta_1/2) e^{-\frac{i}{\hbar}E_{1,-}t} \right) \ket{g, 1}
+\end{split}
+\end{align}
+As $\Delta\omega = 0$, then:
+\begin{equation}
+\tan(\theta_1) = -\frac{2g}{\Delta\omega} \rightarrow -\infty \Leftrightarrow \theta_1 \equiv \frac{\pi}{2} \left[\pi\right]
+\end{equation}
+Thus:
+\begin{equation}
+E_{1,\pm} = \pm 2\hbar g
+\end{equation}
+Finally, with $\Omega = 2g$:
+\begin{equation}
+\ket{\psi(t)} = \left( \frac{e^{-i\Omega t}}{2} + \frac{e^{+i\Omega t}}{2} \right) \ket{e, 0} + \left( \frac{e^{-i\Omega t}}{2} - \frac{e^{+i\Omega t}}{2} \right) \ket{g, 1}
+\end{equation}
+which gives:
+\begin{equation}
+\ket{\psi(t)} = \cos(\Omega t) \ket{\uparrow, 0} - i \sin(\Omega t) \ket{\downarrow, 1}
+\end{equation}
+
+\chapter{Program implementations}
+
+\section{$g^1$ for stationary processes}
 
 In order to verify the behavior of equation \eqref{g1_comput_form} before its actual utilization, we need to artificially generate (i.e simulate) real cases of light like, among others, perfectly coherent light and \textit{exponential phase decoherence} of light:
 
 \begin{itemize}
 	\item A perfectly coherent light source has, by definition, a unique beat mode: the frequency is well defined and the source is said to be monochromatic. In simple words, the electric field is a sine/cosine wave with a given amplitude and a given phase at the origin.
-	\item A chaotic light source gets random phase jumps at random time intervals. The "mean" delay between phase jumps is \textit{somewhat}\footnote{The actual definition of the coherence time depends on the statistical distribution used for the model. See R.Loudon The Quantum Theory of Light, section 3.1} the coherence time $\tau_c$ of the given source. By Fourier transform logic, if we consider a chaotic light of a given frequency carrier; longer is the coherence time, thinner gets the linewidth around the main frequency, and reciprocally: the extrem case of a chaotic light with infinite coherence time is a monochromatic source. The mathematical object defining the \textit{type} of chaotic light source is the statistical distribution involved into the delay between each phase jump. In the case of exponential distribution of the phase jump, which is very common for atoms in a gaz emitting light for example, the frequency spectrum is \textit{Lorentzian}\footnote{It exists many other types of distribution, namely gaussian distribution where the spectrum is also a gaussian.}.
+	\item A chaotic light source gets random phase jumps at random time intervals. The "mean" delay between phase jumps is \textit{somewhat}\footnote{The actual definition of the coherence time depends on the statistical distribution used for the model. See R.Loudon The Quantum Theory of Light, section 3.1} the coherence time $\tau_c$ of the given source. By Fourier transform logic, if we consider a chaotic light of a given frequency carrier; longer is the coherence time, thinner gets the linewidth around the main frequency, and reciprocally: the extrem case of a chaotic light with infinite coherence time is a monochromatic source. This type of light source is associated to \textit{Lorentzian}-shaped frequency spectrum: the time offset between each phase jump is dicted by an exponential distribution. That case is very common for atoms in a gaz emitting light where the spectrum linewidth is mainly due to the \textit{collision-broadening} effect\footnote{Another type of chaotic light source are the \textit{gaussian}-shaped light sources where, here, the frequency is randomly distributed according to a gaussian distribution around the main frequency.}.
 \end{itemize}
 
-To understand the differences between a stationary and a non-stationary process, we can use the comparison with a dice. Rolling the dice once has a probability  of $1/6$ to obtain any face. We distinct two cases:
+To understand the differences between a stationary and a non-stationary process, one may use the comparison with a dice. Rolling the dice once has a probability  of $1/6$ to obtain any face. We distinct two cases:
 \begin{itemize}
 	\item The dice is \textit{unbreakable}. The second and any other time we roll the dice, we have the same probabilities of obtaining any face. We say that the probabilities are independent other the time: this is a stationary process (in term of statistics).
 	\item The dice is \textit{damageable}. As one corner of the dice gets slightly damaged on the first roll, the probability of obtaining a given face is different the second time we roll the dice. The dice gets more damages after every roll and the probabilities are continously changed over the time: this is a non-stationary process.
 \end{itemize}
 However, in both cases, the face obtained after a roll can be different from the previous roll, in the stationary or non-stationary case: this is the variation of the probabilities which charaterize the process, not the result of the process itself. In term of signal, we deal with continous probabilities hence, \textit{distributions}. Thereby, for a stationary process involving a signal, we say that the statistical distribution is independent of time. This is the opposite for the non-stationary case.
 
-Those two cases are stationary processes, thus, we firstly use the stationary formulation of $g^1$ in order to verify that the generated signals behave as wanted. Then, we apply those generated signals into \eqref{g1_comput_form}: as the signals are stationary process, a symmetric pattern should appear along the diagonal.
+The two types of source light described earlier are stationary processes. Thus, we firstly use the stationary formulation of $g^1$ in order to verify that the generated signals behave as wanted. Then, we apply those generated signals into \eqref{g1_comput_form}: as the signals are stationary process, a symmetric pattern should appear along the diagonal.
 
 Assuming that the signal recorded is a stationary process, we use the same transformation for $g^1$ as in section 1.5:
 \begin{equation}
@@ -2063,7 +2144,7 @@ g^1(\tau) = \frac{\int_{-\infty}^{+\infty} f(t)f(t + \tau)\, dt  + i \int_{-\inf
 \end{equation}
 Note that, compared to \eqref{g1_comput_form}, we drop the index $n$: recording multiple instances is unnecessary as the signal is a stationary process and, instead of an ensemble average, a time average is applied over the full signal $f$ and its Hilbert pair $g$. In practice, the time interval of integration is limited as we record a finite time interval of the signal. Indeed, longer is the time interval, more precision we get as for the non-stationary case where, increasing the amount of record $n$, makes $g^1$ converging to the theoretical result. Then, as $f$ is defined from $t_{start}$ to $t_{stop}$, we choose a maximal $\tau$ called $\tau_{max}$ and only integrate from $t_{start}$ to $t_{stop} - \tau_{max}$: when computing $g^1(\tau_{max})$, the term $f(t+\tau_{max})$ is still included into the interval of definition of $f$.
 
-\subsection{Random number generation}
+\section{Random number generation}
 
 For a chaotic light including atoms in a gaz, the probability that a phase jump occurs at time $\tau$ is given by the cumulative distribution function $P(\tau)$, defined as:
 \begin{equation}
@@ -2090,7 +2171,7 @@ where $u$ is a probability as $p$, but $u$ comes from the uniform distribution $
 \end{equation}
 In other words, from a probability $u$ given by the computer, $P^{-1}(u)$ produces a random time $\tau$ for the next phase jump, following an exponential distribution. This approach is a specific case of the \textit{inverse transform sampling method}.
 
-\subsection{Signal generation and $g^1$ verification}
+\section{Signal generation and $g^1$ verification}
 
 As we can see in \eqref{g1_comput_form} and \eqref{g1_stattionary_computer}, the normalization factor allows to neglect the modulation signal $z_r(t)$ in \eqref{zf_def}: the formulation of $g^1$ (stationary or not) would be exactly the same considering $z_f(t) \propto z_c^*(t)$ or $z_f(t) \propto z_c^*(t)z_r(t)$. Thus, we do not have to modulate the generated signal with a local oscillator in order to test the algorithme.
 
@@ -2112,7 +2193,7 @@ With an amplitude of $1$ (i.e unit), we generate a cosine wave (or equivalently 
 \includegraphics[width=0.9\textwidth]{chaos_gen}
 \end{figure}
 
-As we already now the result of the algorithme for a perfectly coherent signal\footnote{See section 4.1}, we only focus on the Lorentzian case. Therefore, we generate two signals with a uniform frequency of $2\pi$: the first has a coherence time of 2 seconds whereas the second signal has $\tau_c = 10.0s$. The parameters are: $t_{start} = 0s$, $t_{stop} = 1000s$ and $\tau_{max}=100s$. The amount of sample is valued to ten thousands over the whole width of the signals: $\vert g^1(\tau) \vert$ ic composed of a thousand of samples. The simulated curve of $\vert g^1(\tau) \vert$ is compared with the theoretical curve for collision-broadened light source:
+As we already now the result of the algorithme for a perfectly coherent signal\footnote{See section 4.1}, we only focus on the Lorentzian case. Therefore, we generate two signals with a uniform frequency of $2\pi$: the first has a coherence time of 2 seconds whereas the second signal has $\tau_c = 10.0s$. The parameters are: $t_{start} = 0s$, $t_{stop} = 1000s$ and $\tau_{max}=100s$. The amount of sample is valued to ten thousands over the whole width of the signals: $\vert g^1(\tau) \vert$ is composed of a thousand of samples. The simulated curve of $\vert g^1(\tau) \vert$ is compared with the theoretical curve for collision-broadened light source:
 \begin{equation}
 \vert g^1(\tau) \vert = e^{-\tau/\tau_c}
 \end{equation}
@@ -2139,7 +2220,7 @@ As we can see, the theoretical prediction is well respected and the remaining \t
 \includegraphics[width=0.9\textwidth]{test_g12}
 \end{figure}
 
-\subsection{Downsampling}
+\section{Downsampling}
 
 The recorded signal from the experiment is of 43MHz. For a good presicion, we must have approximately 10 samples per period: an optimal sampling rate would be around 430MHz\footnote{In practice, the sampling rate may be as low as 200MHz which reprensent a bit less than five samples per period.}. As the superradiant lasing time can be as long as four milliseconds, the amount of samples for one record of the signal may easily exceed one million. For the non-stationary case of $g^1$, the output data is a 2D map: from the previous case, a map of 1M x 1M samples! A common size/presicion for a float number in a computer is of 32bits (i.e 4 bytes). Then, for recorded signals of 10k, 50k, 100k and 500k samples, we get:
 \begin{itemize}
@@ -2154,23 +2235,24 @@ The first idea is to split the 2D map into squares/chunks of smaller size like a
 
 A clever solution is to downsample. Of course, we cannot reduce the amount of samples directly from the signal which would mean a loss of phase information, even worse, an aliasing of the signal. However, once the 2D map is generated, we may reduce (i.e average) the samples to a regular size of image, say 1k x 1k or even 3k x 3k: a standard screen size is about 2k (width) x 1k (height) which means that even storing a 1M x 1M map, the computer is not able to show more than 2k x 2k in the best cases. This fix the problem of the hard-drive. For the RAM problem, we apply the downsampling technique in parallel of the "chess plate" method: once we have computed a chunk of 10k x 10k for example, we downsample it to a size of 100 x 100 pixels. At the end, the RAM never exceed the size of one chunk at a time!\footnote{In practice, we shall see that the method used for downsampling is overlapping the neighboor chunks for better accuracy, which force the program to save more data in memory.}
 
-Image processing techniques is a very wide subject and deserve a full thesis (and beyond). The most important thing in image scaling in general is the aliasing problem: in short, the frequencies involved in the image are biased when the size is upscaled or downscaled. The first (and very common) technique is the bilinear filter: we simply average a \textit{chunk of pixel} which produce \textit{one pixel} of the new image. The aliasing limit is reached when we divide the size of the image by two: more reduction and we get aliasing. As we shall reduce the image by, at least, a factor of 100, we would need to apply the downsample algoritme at least seven times (i.e $2^7 > 100$): this is time and power consumming. To reduce the chunk in one pass, we use a gaussian filter: instead of averaging equally the neighboors (i.e with same weights), we apply a very strong weight on direct neighboors and a very weak weight on far neighboors (the distribution of the weight follow a gaussian distribution). The gaussian technique is proven to be somehow optimal: nice features, mathematically tractable, little noticeable artefacts...
+Image processing techniques is a very wide subject and deserve a full thesis (and beyond). The most important thing in image scaling in general is the aliasing problem: in short, the frequencies involved in the image are biased when the size is upscaled or downscaled. The first (and very common) technique is the bilinear filter: we simply average a \textit{chunk of pixel} which produce \textit{one pixel} of the new image. The aliasing limit is reached when we divide the size of the image by two: more reduction and we get aliasing. As we shall reduce the image by, at least, a factor of 100, we would need to apply the downsample algorithme at least seven times (i.e $2^7 > 100$): this is time and power consumming. To reduce the chunk in one pass, we use a gaussian filter: instead of averaging equally the neighboors (i.e with same weights), we apply a very strong weight on direct neighboors and a very weak weight on far neighboors (the distribution of the weight follow a gaussian distribution). The gaussian technique is proven to be somehow optimal: nice features, mathematically tractable, little noticeable artefacts...
 
-Technically, a chunk of the 2D map is computed, then gaussian filter is applied on it and transformed into a unique pixel. The question is: how wide/large must be the square/chunk where we apply a gaussian filter? The following description is in 1D in order to simplify the explications: by symmetry, it extends to the 2D case.
+Technically, a chunk of the 2D map is computed, then gaussian filter is applied on it and transformed into a unique pixel. The question is: how wide/large must be the square/chunk where we apply a gaussian filter. The following description is in 1D in order to simplify the explanations: by symmetry, it extends to the 2D case.
 
-The size of the chunk in time space correspond to a bandwidth $B$ in frequency space a shown on Fig ??
+The size of the chunk in time space correspond to a bandwidth $B$ in frequency space: more pixels are included in each chunk, smaller is the bandwidth and reciprocally. Here the time space corresponds to the pixel space, i.e $t=0$ is pixel number zero, $t=1$ is pixel number one and so on. Therefore, the sampling space $T$ is one (but we keep it as $T$ for the moment). As we can see on previous figure, the numerical Fourier transform gives repetition of the main feature every $1/T$. When the amount of pixel is reduced by a factor of $M$ (i.e $M=2$ is the equivalent of converting two pixels into one pixel), the period of the feature's repetition becomes $1/(MT)$ instead of $1/T$ as in figure \ref{fig:dwsmpl-freq}
 
-Fig
-
-Here the time space corresponds to the pixel space, i.e $t=0$ is pixel number zero, $t=1$ is pixel number one and so on. Therefore, the sampling space $T$ is one (but we keep it as $T$ for the moment). As we can see on previous figure, the numerical Fourier transform gives repetition of the main feature every $1/T$. When the amount of pixel is reduced by a factor of $M$ (i.e $M=2$ is the equivalent of converting two pixels into one pixel), the period of the feature's repetition becomes $1/(MT)$ instead of $1/T$ as on Fig ??
-
-Fig
+\begin{figure}[h!]
+\caption{Decimation effect over the spectrum of a discret Fourier transformed signal.}
+\centering
+\includegraphics[width=0.9\textwidth]{dwsmpl-freq}
+\label{fig:dwsmpl-freq}
+\end{figure}
 
 Thereby, we want the bandwidth set by the filtered chunk as:
 \begin{equation}
 B < \frac{0.5}{MT}
 \end{equation}
-otherwise, the features will overlapp (i.e creating aliasing). The gaussiant filter's cutoff (i.e where we consider the frequency of the function as negligeable) is defined by $f_c \stackrel{\text{def}}{=} 1/(2\pi \sigma$ where $\sigma$ is the variance (from the fact that the Fourier transform of a gaussian is a also gaussian). Thus:
+otherwise, the features will overlapp (i.e creating aliasing). The gaussiant filter's cutoff (i.e where we consider the frequency of the function as negligeable) is defined by $f_c \stackrel{\text{def}}{=} 1/(2\pi \sigma)$ where $\sigma$ is the variance (from the fact that the Fourier transform of a gaussian is a also gaussian). Thus:
 \begin{equation}
 f_c < \frac{1}{2MT} \Leftrightarrow \sigma > \frac{MT}{\pi}
 \end{equation}
@@ -2195,10 +2277,15 @@ Using \eqref{sigma_def}:
 \begin{equation}
 x = \pm M \times \frac{2\sqrt{\ln(10)}}{3} \sim \pm M
 \end{equation}
-Therefore, if we want to downsample 10k samples into 100 pixels (i.e $M = 100$), we must apply the filter on regions of $-M$ to $+M$ samples, which corresponds to a length of $200$ samples (where the center of the filter is on the 100th sample of this region). Obviously, this involves an overlap of the regions where the filter is applied as depicted on Fig ??
+Therefore, if we want to downsample 40 pixels into 4 pixels (i.e $M = 10$), we must apply the filter on regions of $-M$ to $+M$ samples, which corresponds to a length of $20$ samples. Obviously, this involves an overlap of the regions where the filter is applied as depicted in figure \ref{fig:dwsmpl-filter}
 
-Fig
+\begin{figure}[h!]
+\caption{Example of a downsampling procedure with a gaussian filter. Each application of the filter gives one sample/pixel of the new signal/image. Four filters are applied: only the second and the third are represented. The first and fourth (i.e the side filters) are a bit more particular, thus not represented here.}
+\centering
+\includegraphics[width=0.9\textwidth]{dwsmpl-filter}
+\label{fig:dwsmpl-filter}
+\end{figure}
 
-Finally, the guaussian filter is normalized: from the previous example, the filter is a map of 200 x 200 and each point is divided by the sum of each weight of the map. In that way, the sum of the filter weights is equal to one.\footnote{Otherwise, there is some leak of the total intensity stored in the image: if the sum is lower than unit, the rescaled image gets darker.}
+Finally, the gaussian filter is normalized: from the previous example, the filter is a 1D-map of 20 points and each point's value is divided by the sum of each weight of this 1D-map. In that way, the sum of the filter weights is equal to one.\footnote{Otherwise, there is some leak of the total intensity stored in the image: if the sum is lower than unit, the rescaled image gets darker.}
 
 \end{document}

@@ -56,7 +56,8 @@ def gaussian(x, a, sigma):
 print(len(tau_list[10:]), " ", len(tau_list[10:]))
 popt, pcov = curve_fit(gaussian, tau_list[10:], g1_stationary[10:])
 
-print(integrate.simps(gaussian(tau_list, *popt), tau_list))
+print(integrate.simps(gaussian(tau_list, *popt)**2, tau_list))
+exit()
 
 fig1, ax1 = plt.subplots(1, 1)
 fig1.set_size_inches(18.5, 10.5)
