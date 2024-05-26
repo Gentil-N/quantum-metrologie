@@ -4,7 +4,7 @@ import scipy.constants as const
 import math
 from enum import Enum
 
-ATOM_COUNT = 100000
+ATOM_COUNT = 500000
 PHOTON_CAPACITY = 10
 SPIN_NUM = ATOM_COUNT / 2.0
 SPIN_DIM = ATOM_COUNT + 1 # 2 * N / 2 + 1
@@ -15,7 +15,7 @@ delta = 0.0
 true_g = 0.0 #10.0
 g = 5117.82 #true_g / np.sqrt(ATOM_COUNT)
 kappa = 2 * np.pi * 780*const.kilo #40.0
-gamma = kappa / 103.9539 #9.0
+gamma = kappa / 103.95373 #9.0
 nu = 2* np.pi * 7.5*const.kilo
 
 op_sz = qp.tensor(qp.spin_Jz(SPIN_NUM), qp.qeye(FOCK_DIM))
@@ -54,6 +54,8 @@ class State:
 
 def proj_op_state(qop_init, state):
     if qop_init == QOpInit.op_a:
+        if state.n < 0:
+            return 0
         factor = math.sqrt(state.n)
         state.n -= 1
         return factor
