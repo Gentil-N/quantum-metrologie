@@ -288,7 +288,7 @@ U \stackrel{\text{def}}{=} e^{\frac{i\omega_at}{\hbar}\hat{H}_0} = e^{i\omega_at
 \end{equation}
 where we utilize the common photon number operator of the field, $\hat{n} = \hat{a}^{\dag}\hat{a}$. As the U(1) symmetry is essentially a rotation along the complex unitary circle, we explicitly choose here a rotation of $\omega_at$ which means that the transformed hamiltonian will be placed in the same frame as the atom: one calls this frame the \textit{rotating frame}.
 
-From Annexe (??) one finally obtains the following parts for the transformed hamiltonian:
+One finally obtains the following parts for the transformed hamiltonian\footnote{See appendix \ref{unit_transfo}}
 \begin{align}
 i\hbar \dot{U} U^{\dag} &= -\hbar\omega_a(\hat{n} + \hat{\sigma}_z)\\
 U\hbar \omega_c\hat{n} U^{\dag} &= \hbar\omega_c\hat{n}\\
@@ -331,7 +331,7 @@ In order to solve the system evolution, one wants to diagonalize the hamiltonian
 \end{equation}
 where $n$ under the tensor product is the fock space dimension associated to the cavity system.
 
-After diagonalizing each block of \eqref{jc_block} (Annexe ??), one finds the following eigenvalues and eigenstates:
+After diagonalizing\footnote{See appendix \ref{eigen_vals_states}} each block of \eqref{jc_block}, one finds the following eigenvalues and eigenstates:
 \begin{align}
 \label{jc_eigens}
 E_{n, \pm} &\stackrel{\text{def}}{=} \hbar\Delta\omega\,(n-\frac{1}{2}) \pm \hbar\sqrt{4g^2n + \Delta\omega ^2}\\
@@ -350,7 +350,7 @@ To finish with the JC-model, we shall demonstrate one relevant case: the \textit
 \end{equation}
 where we rewrite the initial state in terms of eigenstates.
 
-Then, applying the spatial evolution operator, one finds (see Annexe ??)
+Then, applying the spatial evolution operator, one finds\footnote{See appendix \ref{spatial_evol_op}}
 \begin{align}
 \ket{\psi(t)} &= e^{-\frac{i}{\hbar}\hat{H}_{JC}t}\\
 &= \cos\left(\Omega t\right) \ket{\uparrow, 0} - i \sin\left(\Omega t\right) \ket{\downarrow, 1}
@@ -505,7 +505,7 @@ To summarize, the density matrix evolution responds to the following first order
 \label{rho_master_eq}
 \begin{split}
 \dot{\rho} = &\left[ \rho \, , \, i\Delta\omega\,\hat{n} + \frac{i}{\hbar} g \left(\hat{S}_+ \hat{a} + \hat{S}_-\hat{a}^{\dag} \right)\right]\\
-&+ \kappa \left( \hat{a} \rho \hat{a}^\dagger - \frac{1}{2} \left\lbrace \hat{a}^\dagger \hat{a}, \rho \right\rbrace \right)\\
+&+ \kappa \left( \hat{a}^\dagger \rho \hat{a} - \frac{1}{2} \left\lbrace \hat{a}^\dagger \hat{a}, \rho \right\rbrace \right)\\
 &+ \gamma \left( \hat{S}_- \rho \hat{S}_+ - \frac{1}{2} \left\lbrace \hat{S}_+ \hat{S}_-, \rho \right\rbrace \right)\\
 &+ \nu \left( \hat{S}_+ \rho \hat{S}_- - \frac{1}{2} \left\lbrace \hat{S}_- \hat{S}_+, \rho \right\rbrace \right)
 \end{split}
@@ -629,14 +629,15 @@ As before, the stationary assumption allows us to write\footnote{It is possible 
 
 At the end of day, the desired quantities are complex values dependent on operator evolution. That is to say, we actually want the quantum measurement of the ladder and photon number operators. Then, let's start with the value $\left\langle\hat{a}^\dagger\right\rangle$ from the differential equation:
 \begin{align}
+\label{dtad_rough}
 \begin{split}
-\frac{d}{dt}\hat{a}^\dagger = &\quad\frac{i}{\hbar}\left[ \hat{a}^\dagger \, , \,\hat{H}_{TC} \right]\\
-&+ \kappa \left( \hat{a} \hat{a}^\dagger \hat{a}^\dagger - \frac{1}{2} \hat{a}^\dagger \hat{a} \hat{a}^\dagger - \frac{1}{2} \hat{a}^\dagger \hat{a}^\dagger \hat{a} \right)\\
-&+ \gamma \left( \hat{S}_- \hat{a}^\dagger \hat{S}_+ - \frac{1}{2} \hat{S}_+ \hat{S}_- \hat{a}^\dagger - \frac{1}{2} \hat{a}^\dagger \hat{S}_+ \hat{S}_- \right)\\
-&+ \nu \left( \hat{S}_+ \hat{a}^\dagger \hat{S}_- - \frac{1}{2} \hat{S}_- \hat{S}_+ \hat{a}^\dagger - \frac{1}{2} \hat{a}^\dagger \hat{S}_- \hat{S}_+ \right)
+\frac{d}{dt}\hat{a}^\dagger = &\quad\frac{i}{\hbar}\left[ \hat{H}_{TC}\, , \, \hat{a}^\dagger \right]\\
+&+ \kappa \left( \hat{a}^\dagger \hat{a}^\dagger \hat{a} - \frac{1}{2} \hat{a}^\dagger \hat{a} \hat{a}^\dagger - \frac{1}{2} \hat{a}^\dagger \hat{a}^\dagger \hat{a} \right)\\
+&+ \gamma \left( \hat{S}_+ \hat{a}^\dagger \hat{S}_- - \frac{1}{2} \hat{S}_+ \hat{S}_- \hat{a}^\dagger - \frac{1}{2} \hat{a}^\dagger \hat{S}_+ \hat{S}_- \right)\\
+&+ \nu \left( \hat{S}_- \hat{a}^\dagger \hat{S}_+ - \frac{1}{2} \hat{S}_- \hat{S}_+ \hat{a}^\dagger - \frac{1}{2} \hat{a}^\dagger \hat{S}_- \hat{S}_+ \right)
 \end{split}
 \end{align}
-which is the \textit{Heisenberg} equivalent of \eqref{rho_master_eq}.\footnote{We intentionally omit the artificial order of the operators that we made earlier for the implicit representation of the tensor structure: no ordering allows us to highlight the lindblad operators.} One uses the standard commutation relations, remembering that the collective spin operator does not lie into the same space as the cavity ladder operators then one obtains\footnote{See details in Annexe ??}:
+which is the \textit{Heisenberg} equivalent of \eqref{rho_master_eq}.\footnote{We intentionally omit the artificial order of the operators that we made earlier for the implicit representation of the tensor structure: no ordering allows us to highlight the lindblad operators.} One uses the standard commutation relations, remembering that the collective spin operator does not lie into the same space as the cavity ladder operators then one obtains\footnote{See appendix \ref{cumu_exp_for_ad}}:
 \begin{equation}
 \label{ad_pure}
 \frac{d}{dt}\hat{a}^\dagger = \left(i\Delta\omega - \frac{\kappa}{2} \right) \hat{a}^\dagger + \frac{ig}{\hbar} \hat{S}_+
@@ -646,7 +647,7 @@ Making measurement according to a state $\rho$ and knowing that a projection is 
 \label{ad_mean_field}
 \frac{d}{dt}\left\langle\hat{a}^\dagger\right\rangle = \left(i\Delta\omega - \frac{\kappa}{2} \right) \left\langle\hat{a}^\dagger\right\rangle + \frac{ig}{\hbar} \left\langle\hat{S}_+\right\rangle
 \end{equation}
-which is again a differential equation involving but involving only complex (or real) numbers: we have lost all the cross interaction information contained inside the operator and reduced it to the mean value of the operators. However, this first order differential equation is of two variable instead of one as the master equation with the variable $\rho$. Indeed, $\left\langle\hat{S}_+\right\rangle$ is also time dependent and one needs its time evolution in order to solve the equation: in fact, we are actually treating a system of equations and are now looking for the second member. Then, we can reengage the process with the operator $\hat{S}_+$ instead and the differential equation is this time:
+which is again a differential equation involving only complex (or real) numbers: we have lost all the cross interaction information contained inside the operator and reduced it to the mean value of the operators. However, this first order differential equation is of two variable instead of one as the master equation with the variable $\rho$. Indeed, $\left\langle\hat{S}_+\right\rangle$ is also time dependent and one needs its time evolution in order to solve the equation: in fact, we are actually treating a system of equations and are now looking for the second member. Then, we can reengage the process with the operator $\hat{S}_+$ instead and the differential equation is this time:
 \begin{equation}
 \frac{d}{dt}\left\langle\hat{S}_+\right\rangle = -2ig\left\langle\hat{S}_+ \hat{a}^\dagger\right\rangle + \hbar (\nu - \gamma)\left\langle \hat{S}_z \hat{S}_+\right\rangle - \nu \hbar ^2 \left\langle\hat{S}_+\right\rangle
 \end{equation}
@@ -866,7 +867,7 @@ In order to show the different frequency components involved into the detected i
 \begin{equation}
 I_{total}(t) = \vv{E}_{total}(t)^2 = \left(\vv{E}_{cav}(t) + \vv{E}_{LO}(t)\right) \cdot \left(\vv{E}_{cav}(t) + \vv{E}_{LO}(t)\right)
 \end{equation} 
-one gets four different terms\footnote{See annexe ??}:
+one gets four different terms:
 \begin{align}
 I_{total,a}(t) &= \vert\vv{E}_{cav}\vert^2\left(1 + \cos(2\omega_{cav}t)\right)\\
 I_{total,b}(t) &= \vert\vv{E}_{LO}\vert^2\left(1 + \cos(2\omega_{LO}t)\right)\\
@@ -942,9 +943,9 @@ and an ouput\footnote{This is an active component so it needs to be under tensio
  \item The op-amp's inputs draw no current.
 \end{itemize} As showed on Fig ??, the inverting input is grounded which involve (B) to be grounded. Now, let's say that the output saturation voltage of the op-amp is 10V (i.e the max ouput is 10V and min is -10V), if a current flows through B, by second golden rule, then the current flows through the resistance R and generate a voltage.
 \begin{itemize}
-	\item If $I = 10mA$ with $R = 500\Omega$ then $C = -5V$.
-	\item If $I = 20mA$ with same resistance then $C = -10V$.
-	\item If $I = 40mA$ with same resistance then $C = -10V$ as the op-amp is saturated but (B) is know +10V in order to satisfy the relative voltage of 20V at the resistance.
+	\item If $I = 10mA$ with $R = 500\Omega$ then $(C) = -5V$.
+	\item If $I = 20mA$ with same resistance then $(C) = -10V$.
+	\item If $I = 40mA$ with same resistance then $(C) = -10V$ as the op-amp is saturated but (B) is now +10V in order to satisfy the relative voltage of 20V at the resistance.
 \end{itemize}
 where we used the formula:
 \begin{equation}
@@ -976,7 +977,7 @@ In that configuration, one considers the electonical components as perfect or \t
 \label{fig:test}
 \end{figure}
 
-This filter is commonly called a \textit{Notch filter} or \textit{band-stop filter} as its purpose is to block a certain range of frequency in the response of the circuit. The gain of such a circuit is dicted by the formula\footnote{See Annexe ??}:
+This filter is commonly called a \textit{Notch filter} or \textit{band-stop filter} as its purpose is to block a certain range of frequency in the response of the circuit. The gain of such a circuit is dicted by the formula\footnote{See appendix \ref{notch_filter_formula}}:
 \begin{equation}
 \left\lvert \frac{V_{out}}{V_{in}} (\omega) \right\rvert = \frac{1}{\sqrt{1 + \left(\frac{R}{\omega L - \frac{1}{\omega C}}\right)^2}}
 \end{equation}
@@ -1054,7 +1055,7 @@ _{in}$ is the voltage noise generated by the op-amp at its non-inverting input.}
 \label{fig:transimp}
 \end{figure}
 
-This circuit is called a non-inverting voltage amplifier where the gain may be formulated as\footnote{See Annexe ??}:
+This circuit is called a non-inverting voltage amplifier where the gain may be formulated as:
 \begin{equation}
 \textrm{Gain} = \frac{V_{out}}{V_{in}} = 1 + \frac{Z_{f}}{Z_{in}}
 \end{equation}
@@ -1255,7 +1256,7 @@ In order to check experimentally this behavior and evaluate the power to noise r
 	\begin{equation}
 	\vv{E}_{out} = \left( \vv{E}_{in} \cdot \vv{e}_{pol} \right) \vv{e}_{pol}
 	\end{equation}
-	\item A waveplate: its working principle is described in Annexe ??. Here we use a \textit{lambda-half} waveplate (abbreviated $\lambda/2$-waveplate): for a linearly polarized electric field, this device simply rotates the polarization's direction of the electric field.  
+	\item A waveplate: here we use a \textit{lambda-half} waveplate (abbreviated $\lambda/2$-waveplate) and for a linearly polarized electric field, this device simply rotates the polarization's direction of the electric field.  
 \end{itemize}
 
 Assuming that the input electric field is linearly polarized (which is the case experimentally), coupling those two devices makes a very precise power-tunable instrument. Figure \ref{fig:wp-pol-setup} represents how they must be placed along the optical axis.
@@ -1282,10 +1283,10 @@ Once the fields are collinear, it suffices to put the waveplate into the setup a
 
 Now, the principle is to calculate the variance of the recorded output voltage, according to the incoming light power (tuned by the waveplate). However, as we transfer directly the detector's signal to the oscilloscope, we face two problems:
 \begin{itemize}
-	\item The variance (i.e the noise) is modulated by the 43MHz signal as depicted by figure \ref{beatnoise}.
+	\item The variance (i.e the noise) is modulated by the 43MHz signal as depicted by figure \ref{fig:beatnoise}.
 	
 	\begin{figure}[h!]
-	\caption{Complete setup with the group Waveplate\&Polarizer added.}
+	\caption{Example of modulation of a perfect one-mode signal of 43MHz with a noisy signal. The resulting signal does not exhibit simply the variance of both original signals. Indeed, a demodulation process is required in order to retrieve the variance of the noisy signal independently.}
 	\centering
 	\includegraphics[width=0.8\textwidth]{beatnoise}
 	\label{fig:beatnoise}
@@ -1742,7 +1743,7 @@ Also, for the diagonal elements where $t_1=t_2\stackrel{\text{def}}{=}t$ (which 
 This means that \textit{any} analytical signal is totally phase coherent for zero delay: this statement is obvious and confirm the realism aspect of formula \ref{g1_comput_form}.
 
 
-Finally, \eqref{g1_comput_form} is the final form used for the numerical implementation in order to process the recorded signals of the superradiant beam. Nevertheless, Annex ?? gives some examples of numerical verification before actual use in the experiment as well as more description of the porgram and its optimizations.
+Finally, \eqref{g1_comput_form} is the final form used for the numerical implementation in order to process the recorded signals of the superradiant beam. Nevertheless, appendix \ref{prog_impl} gives some examples of numerical verification before actual use in the experiment as well as more description of the porgram and its optimizations.
 
 \section{$g^1$ measurement for a standard laser}
 
@@ -1959,6 +1960,7 @@ where $G^1(\tau)$ is the non-normalized equivalent of $g^1(\tau)$ and $S(\omega)
 \chapter{Mathematical complements}
 \section{Jaynes-Cummings model}
 \subsection{Unitary transformation}
+\label{unit_transfo}
 A special case of the Baker–Campbell–Hausdorff (BCH) formula may be stated as follow:
 
 \begin{corollary}
@@ -2033,6 +2035,7 @@ U\hbar g\hat{\sigma}_+\hat{a}^\dag U^\dag &= e^{i\omega_a t(\hat{n} + \hat{\sigm
 The same applies for the remaining terms.
 
 \subsection{Eigenvalues and Eigenstates}
+\label{eigen_vals_states}
 
 From \ref{jc_block}, it turns out that the hamiltonian can be written as:
 \begin{equation}
@@ -2084,6 +2087,7 @@ we finally obtain:
 \end{equation}
 
 \subsection{Spatial evolution operator}
+\label{spatial_evol_op}
 
 The time evolution operator gives:
 \begin{equation}
@@ -2113,7 +2117,68 @@ which gives:
 \ket{\psi(t)} = \cos(\Omega t) \ket{\uparrow, 0} - i \sin(\Omega t) \ket{\downarrow, 1}
 \end{equation}
 
+\section{Cumulant expansion method for $\hat{a}^\dag$}
+\label{cumu_exp_for_ad}
+
+From \ref{dtad_rough}, we easily see that the $\gamma$ and $\nu$ terms vanish identically because of the tensor relation existing between the cavity field and spin spaces which allows to reorder $\hat{a}^\dag$ and $\hat{S}_+ / \hat{S}_-$ freely. For the $\kappa$ term, we apply the commutator $\left[ \hat{a}, \hat{a}^\dagger \right] = 1$ in order to write:
+\begin{equation}
+\begin{split}
+\kappa \left( \hat{a}^\dagger \hat{a}^\dagger \hat{a} - \frac{1}{2} \hat{a}^\dagger \hat{a} \hat{a}^\dagger - \frac{1}{2} \hat{a}^\dagger \hat{a}^\dagger \hat{a} \right) &= \kappa \left( \frac{1}{2}\hat{a}^\dagger \hat{a}^\dagger \hat{a} - \frac{1}{2} \hat{a}^\dagger (\hat{a}^\dagger \hat{a} + 1) \right)\\
+&= -\frac{\kappa}{2} \hat{a}^\dagger
+\end{split}
+\end{equation}
+The last term is the commutator involving the TC-hamiltonian $\hat{H}_{TC} = \hbar\Delta\omega\,\hat{n} + g \left(\hat{S}_+ \hat{a} + \hat{S}_-\hat{a}^{\dag} \right)$ which reads:
+\begin{equation}
+\begin{split}
+\left[ \hat{H}_{TC}, \hat{a}^\dag \right] &= \hbar\Delta\omega\,\hat{a}^\dag\hat{a}\hat{a}^\dag + g\left(\hat{S}_+ \hat{a}\hat{a}^\dag + \hat{S}_-\hat{a}^{\dag}\hat{a}^\dag \right) - \hbar\Delta\omega\,\hat{a}^\dag\hat{a}^\dag\hat{a} - g\left(\hat{S}_+ \hat{a}^\dag\hat{a} + \hat{S}_-\hat{a}^{\dag}\hat{a}^\dag \right) \\
+&= \hbar\Delta\omega\,\hat{a}^\dag(\hat{a}^\dag\hat{a} + 1) + g\hat{S}_+ (\hat{a}^\dag\hat{a} + 1) - \hbar\Delta\omega\,\hat{a}^\dag\hat{a}^\dag\hat{a} - g\hat{S}_+ \hat{a}^\dag\hat{a} \\
+&= \hbar\Delta\omega + g\hat{S}_+ \\
+\end{split}
+\end{equation}
+where we used the same commutator relation for $\hat{a}$ and $\hat{a}^\dagger$. Thus, we obtain the equation \ref{ad_pure}.
+
+\section{Notch filter formula}
+\label{notch_filter_formula}
+
+It is important to note that the actual notch filter of the detector behaves with a current, meaning that the line between (A) and (B) in figure \ref{fig:filter} drives current but has no voltage difference. As the op-amp following the filter transforms the current into a voltage, analysing the voltage or current response is equivalent. In order to analyse the gain response of the \textit{current-notch-filter}, we reorder the electrical components in a \textit{voltage behavior} as in figure \ref{fig:notch-tension}.
+\begin{figure}[h!]
+\caption{Notch filter in its \textit{standard} form (often presented like this in literature).}
+\centering
+\includegraphics[width=0.3\textwidth]{notch-tension}
+\label{fig:notch-tension}
+\end{figure}
+The impedance $Z_R$ is just the resistance $R$ whereas the impedance $Z_{LC}$ is the sum of the capacitor's impedance and inductor's impedance\footnote{In this section (and only here) the letter $j$ denotes the common imaginary number $i$ in order to not mix it with the current $i(t)$.}:
+\begin{equation}
+Z_{LC} = Z_{L} + Z_{C} = j\omega L - \frac{1}{j\omega C}
+\end{equation}
+where $\omega$ is the frequency of the voltage amplitude running in the filter. The Notch filter is then simply a tension-divider circuit where one may use the following formula:
+\begin{equation}
+V_{in}\frac{Z_{LC}}{Z_{R} + Z_{LC}} = V_{out}
+\end{equation}
+Rearranging the terms gives:
+\begin{equation}
+\frac{V_{out}}{V_{in}} = \frac{1}{1 - j\left( \frac{R}{\omega L - \frac{1}{\omega C}} \right)}
+\label{phasor-vin-vout}
+\end{equation}
+The gain is the absolute value of the phasor representation \ref{phasor-vin-vout}:
+\begin{equation}
+\left\vert \frac{V_{out}}{V_{in}} \right\vert = \frac{1}{\sqrt{1 + \left( \frac{R}{\omega L - \frac{1}{\omega C}} \right)^2}}
+\label{phasor-vin-vout}
+\end{equation}
+which is of course dependent on the voltage frequency. Moreover, the derivative:
+\begin{equation}
+\frac{d}{d\omega} \left\vert \frac{V_{out}}{V_{in}}(\omega) \right\vert = \frac{R^2\left(L + \frac{1}{\omega^2C}\right)}{\left(\omega L - \frac{1}{\omega C}\right)^3\left(\frac{R^2}{\left(\omega L + \frac{1}{\omega C}\right)^2} + 1\right)^{3/2}}
+\end{equation}
+has its sign changing according to the term $\left(\omega L - \frac{1}{\omega C}\right)^3$. In other words:
+\begin{itemize}
+	\item $\omega < \frac{1}{\sqrt{LC}}$ involves that $\frac{d}{d\omega} \left\vert \frac{V_{out}}{V_{in}}(\omega) \right\vert$ is negative.
+	\item $\omega > \frac{1}{\sqrt{LC}}$ involves that $\frac{d}{d\omega} \left\vert \frac{V_{out}}{V_{in}}(\omega) \right\vert$ is positive.
+	\item $\omega = \frac{1}{\sqrt{LC}}$ is a \textit{mathematically} forbidden value.
+\end{itemize}
+Therefore $\omega_0 \stackrel{\text{def}}{=} \frac{1}{\sqrt{LC}}$ is the resonance frequency where the ouput voltage\footnote{As the phasor representation is equivalent to a rotating point in 2D around the origin, the absolute value of the voltage in the phasor representation means that we take the instantaneous maximum of the \textit{phasor-voltage} (which is not necessarily the instantaneous amplitude of the real valued voltage).} is at its minimum compared to the input voltage of the filter.
+
 \chapter{Program implementations}
+\label{prog_impl}
 
 \section{$g^1$ for stationary processes}
 
