@@ -4,7 +4,48 @@ import scipy.constants as const
 import math
 from enum import Enum
 
-ATOM_COUNT = 500000
+
+#
+# ATOM_COUNT = 10_000
+# gamma = kappa / 103.95373
+# <sz> steady = 0.24
+# <sz> max = 5_000
+# ratio = 0.24 / 5000 ~ 0.000048
+#
+# ATOM_COUNT = 100_000
+# gamma = kappa / 103.95373
+# <sz> steady = 412
+# <sz> max = 50_000
+# ratio = 412 / 50_000 ~ 0.00824
+#
+# ATOM_COUNT = 100_000
+# gamma = kappa / 103.9537874
+# <sz> steady = 2.01
+# <sz> max = 50_000
+# ratio = 2 / 50_000 = 0.00004
+#
+# ATOM_COUNT = 500_000
+# gamma = kappa / 103.9537874
+# <sz> steady = 70_000
+# <sz> max = 250_000
+# ratio = 70_000 / 250_000 = 0.28
+# BUUUUUUUUG!!!
+#
+# ATOM_COUNT = 300_000
+# gamma = kappa / 103.954647
+# <sz> steady = 73
+# <sz> max = 150_000
+# ratio = 73 / 150_000 ~ 0.000487
+#
+# ATOM_COUNT = 300_000
+# gamma = kappa / 103.954651
+# <sz> steady = 5.6
+# <sz> max = 150_000
+# ratio = 5.6 / 150_000 ~ 0.000037333
+#
+#
+
+ATOM_COUNT = 100000
 PHOTON_CAPACITY = 10
 SPIN_NUM = ATOM_COUNT / 2.0
 SPIN_DIM = ATOM_COUNT + 1 # 2 * N / 2 + 1
@@ -15,7 +56,7 @@ delta = 0.0
 true_g = 0.0 #10.0
 g = 5117.82 #true_g / np.sqrt(ATOM_COUNT)
 kappa = 2 * np.pi * 780*const.kilo #40.0
-gamma = kappa / 103.95373 #9.0
+gamma = kappa / 103.9537874 #9.0
 nu = 2* np.pi * 7.5*const.kilo
 
 op_sz = qp.tensor(qp.spin_Jz(SPIN_NUM), qp.qeye(FOCK_DIM))
