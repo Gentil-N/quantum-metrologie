@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2024.3.28)  28 MAY 2024 10:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2024.3.28)  28 MAY 2024 13:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -915,84 +915,88 @@ Package pdftex.def Info: pictures//sp-stat.png  used on input line 1941.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [56 <./pictures//medley.png>] [57 <./pictures//sp-stat.png>]
-Appendix A.
+Chapter 5.
 [58
 
 ] [59]
-<pictures//notch-tension.png, id=353, 224.41737pt x 246.5479pt>
+Appendix A.
+[60
+
+] [61]
+<pictures//notch-tension.png, id=359, 224.41737pt x 246.5479pt>
 File: pictures//notch-tension.png Graphic file (type png)
 <use pictures//notch-tension.png>
-Package pdftex.def Info: pictures//notch-tension.png  used on input line 2151.
+Package pdftex.def Info: pictures//notch-tension.png  used on input line 2161.
 (pdftex.def)             Requested size: 145.11052pt x 159.42657pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[60] [61 <./pictures//notch-tension.png>]
+[62] [63 <./pictures//notch-tension.png>]
 Appendix B.
-[62
+[64
 
 ]
-<pictures//coh_gen.png, id=365, 915.6609pt x 298.4751pt>
+<pictures//coh_gen.png, id=371, 915.6609pt x 298.4751pt>
 File: pictures//coh_gen.png Graphic file (type png)
 <use pictures//coh_gen.png>
-Package pdftex.def Info: pictures//coh_gen.png  used on input line 2256.
+Package pdftex.def Info: pictures//coh_gen.png  used on input line 2266.
 (pdftex.def)             Requested size: 435.32419pt x 141.9001pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<pictures//chaos_gen.png, id=366, 882.4167pt x 294.8616pt>
+<pictures//chaos_gen.png, id=372, 882.4167pt x 294.8616pt>
 File: pictures//chaos_gen.png Graphic file (type png)
 <use pictures//chaos_gen.png>
-Package pdftex.def Info: pictures//chaos_gen.png  used on input line 2262.
+Package pdftex.def Info: pictures//chaos_gen.png  used on input line 2272.
 (pdftex.def)             Requested size: 435.32419pt x 145.46426pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[63]
-<pictures//test_stat_2.png, id=370, 705.3552pt x 388.0899pt>
+[65]
+<pictures//test_stat_2.png, id=377, 705.3552pt x 388.0899pt>
 File: pictures//test_stat_2.png Graphic file (type png)
 <use pictures//test_stat_2.png>
-Package pdftex.def Info: pictures//test_stat_2.png  used on input line 2274.
+Package pdftex.def Info: pictures//test_stat_2.png  used on input line 2284.
 (pdftex.def)             Requested size: 255.39105pt x 140.51761pt.
 
-Overfull \hbox (23.21864pt too wide) in paragraph at lines 2274--2275
+Overfull \hbox (23.21864pt too wide) in paragraph at lines 2284--2285
  [][] 
  []
 
-<pictures//test_stat_10.png, id=371, 703.1871pt x 369.2997pt>
+<pictures//test_stat_10.png, id=378, 703.1871pt x 369.2997pt>
 File: pictures//test_stat_10.png Graphic file (type png)
 <use pictures//test_stat_10.png>
-Package pdftex.def Info: pictures//test_stat_10.png  used on input line 2279.
+Package pdftex.def Info: pictures//test_stat_10.png  used on input line 2289.
 (pdftex.def)             Requested size: 255.39105pt x 134.1255pt.
 
-Overfull \hbox (23.21864pt too wide) in paragraph at lines 2279--2280
+Overfull \hbox (23.21864pt too wide) in paragraph at lines 2289--2290
  [][] 
  []
 
-<pictures//test_g12.png, id=372, 915.6609pt x 426.393pt>
+<pictures//test_g12.png, id=379, 915.6609pt x 426.393pt>
 File: pictures//test_g12.png Graphic file (type png)
 <use pictures//test_g12.png>
-Package pdftex.def Info: pictures//test_g12.png  used on input line 2289.
+Package pdftex.def Info: pictures//test_g12.png  used on input line 2299.
 (pdftex.def)             Requested size: 435.32419pt x 202.71445pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[64 <./pictures//coh_gen.png> <./pictures//chaos_gen.png> <./pictures//test_sta
-t_2.png> <./pictures//test_stat_10.png>] [65 <./pictures//test_g12.png>]
-<pictures//dwsmpl-freq.png, id=385, 396.0pt x 106.92pt>
+[66 <./pictures//coh_gen.png> <./pictures//chaos_gen.png> <./pictures//test_sta
+t_2.png> <./pictures//test_stat_10.png>] [67 <./pictures//test_g12.png>]
+<pictures//dwsmpl-freq.png, id=391, 396.0pt x 106.92pt>
 File: pictures//dwsmpl-freq.png Graphic file (type png)
 <use pictures//dwsmpl-freq.png>
-Package pdftex.def Info: pictures//dwsmpl-freq.png  used on input line 2316.
+Package pdftex.def Info: pictures//dwsmpl-freq.png  used on input line 2326.
 (pdftex.def)             Requested size: 435.32419pt x 117.54546pt.
-<pictures//dwsmpl-filter.png, id=386, 373.00645pt x 138.47864pt>
+<pictures//dwsmpl-filter.png, id=392, 373.00645pt x 138.47864pt>
 File: pictures//dwsmpl-filter.png Graphic file (type png)
 <use pictures//dwsmpl-filter.png>
-Package pdftex.def Info: pictures//dwsmpl-filter.png  used on input line 2354.
+Package pdftex.def Info: pictures//dwsmpl-filter.png  used on input line 2364.
 (pdftex.def)             Requested size: 435.32419pt x 161.61575pt.
 
-[66 <./pictures//dwsmpl-freq.png>] [67 <./pictures//dwsmpl-filter.png>]
+[68 <./pictures//dwsmpl-freq.png>] [69 <./pictures//dwsmpl-filter.png>]
 (./book.aux)
 
 LaTeX Warning: There were undefined references.
@@ -1008,7 +1012,7 @@ Here is how much of TeX's memory you used:
  27107 multiletter control sequences out of 15000+600000
  530160 words of font info for 112 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 67i,27n,77p,1666b,558s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 67i,27n,77p,1699b,558s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texli
 ve/texmf-dist/fonts/type1/public/bbold-type1/bbold10.pfb></usr/share/texlive/te
 xmf-dist/fonts/type1/public/bbold-type1/bbold7.pfb></usr/share/texlive/texmf-di
@@ -1045,10 +1049,10 @@ e/texlive/texmf-dist/fonts/type1/public/stmaryrd/stmary10.pfb></usr/share/texli
 ve/texmf-dist/fonts/type1/public/esvect/vect10.pfb></usr/share/texlive/texmf-di
 st/fonts/type1/public/esvect/vect7.pfb></usr/share/texlive/texmf-dist/fonts/typ
 e1/public/esvect/vect8.pfb>
-Output written on book.pdf (69 pages, 6199169 bytes).
+Output written on book.pdf (71 pages, 6204207 bytes).
 PDF statistics:
- 554 PDF objects out of 1000 (max. 8388607)
- 270 compressed objects within 3 object streams
+ 560 PDF objects out of 1000 (max. 8388607)
+ 274 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
  346 words of extra memory for PDF output out of 10000 (max. 10000000)
 
