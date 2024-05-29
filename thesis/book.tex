@@ -1,4 +1,4 @@
-\documentclass[10pt]{report}
+\documentclass[11pt]{report}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage[a4paper,width=170mm,top=20mm,bottom=20mm]{geometry}
@@ -13,6 +13,7 @@
 \usepackage{bbold}
 \usepackage{subcaption}
 \usepackage{lscape}
+\usepackage{parskip}
 
 \usepackage{mathtools}
 \DeclarePairedDelimiter\bra{\langle}{\rvert}
@@ -44,68 +45,61 @@ Those results lead to a better understanding about the coherent state of this ne
 
 \chapter{Introduction}
 
-Nowadays, technologies, industries and modernity in a global perspective, force the humanity to produce more and more advanced instruments in order to get a better understanding of his surrounding as well as, like the snake biting his queue, to create more advanced technologies. One instrument of measure, which is also an elementary quantity, crucial in the mind of a human, is the concept of time. Naturally, \textit{yesterday}, \textit{today} and \textit{tomorrow} stepped into the dictionary of many civilisations. More recently, as soon as the principle of evolution of a system comes up in science, the variable $t$ appears in the equations governing the aforementioned system. Even measuring a distance sometimes corresponds to measuring time and for that, a great precision may be required: for the satellites involved into the \textit{global positioning system} (GPS), with atomic clocks aboard, a tiny error of 100ns in the time interval \textit{"orbit to earth"} generates a physical displacement of 30 meters. This amount of precision involves more tiny errors which involves more tiny physics: quantum physics. Therefore, \textit{Quantum metrology} is a field of science that deals with precision measurements based on quantum physics. The main \textit{products} from quantum metrology are, among others, atomic clocks and lasers with ultra-stable frequencies. Those new tools allows, except the GPS, the detection of gravitational waves, geodesy, quantum simulation, etc. 
+Nowadays, technologies and industries in a global perspective, force the humanity to produce more and more advanced instruments in order to get a better understanding of his surrounding as well as, like the snake biting his tail, to create yet more advanced technologies. One instrument of measure, which is also an elementary quantity, crucial in the mind of a human, is the concept of time. Naturally, \textit{yesterday}, \textit{today} and \textit{tomorrow} stepped into the dictionary of many civilisations. More recently, as soon as the principle of evolution of a system comes up in science, the variable $t$ appears in the equations governing the aforementioned system. Even measuring a distance sometimes corresponds to measuring time and for that, a great precision may be required: for the satellites involved into the \textit{global positioning system} (GPS), with atomic clocks aboard, a tiny error of 100ns in the time interval \textit{"orbit to earth"} generates a physical displacement of 30 meters. This amount of precision involves more tiny errors which involves more tiny physics: quantum physics. Therefore, \textit{Quantum metrology} is a field of science that deals with precision measurements based on quantum physics. The main \textit{products} from quantum metrology are, among others, atomic clocks and lasers with ultra-stable frequencies. Those new tools allows, in addition to the GPS, the detection of gravitational waves, geodesy, quantum simulation, etc. 
 
-In the far past\footnote{More or less two centuries: everything is relative.}, the most precise time measurement was done simply by the \textit{back-and-forth} movement of a pendula where the precision is defined as the mechanical limit of the structure. Today, the range of the swing for a pendula's arm is replaced by the transition frequency of an atom and the precision is now limited by the linewidth of this transition\footnote{In simple terms, the linewidth of a monochromatic light is the randomness of the associated frequency.}. The microwave transition of a caesium atoms at 9.2GHz is equivalent to a pendula swinging periodically every 110 picoseconds. As a \textit{standard}\footnote{Here, "standard" opposes "superradiant".} atomic clock, or a laser in general, is built around an optical cavity, the precision of the emitted frequency and phase\footnote{Phase and frequency are very closely related as the last one is the derivative over time of the first.} is limited by the mechanical surrounding effects which is primarily due to, among others, the mirror fluctuations. In fact, the gain linewidth (i.e the linewidth of the emitted frequency) is firstly limited by the transition linewidth of the atoms but also broadened by the mechanical uncertainties of the cavity itself. For standard lasers, the cavity is parametrized with the so called \textit{good cavity regime}: a single atom of the gain medium is strongly coupled to the cavity and the mirrors are highly reflective. Thus, the emitted light is very dependent on the mechanical fluctuations due to the many round trips of the light before exiting the cavity. 
+In the far past\footnote{More or less two centuries: everything is relative.}, the most precise time measurement was done simply by the \textit{back-and-forth} movement of a pendulum where the precision is defined as the mechanical limit of the structure. Today, the range of the swing for a pendulum's arm is replaced by the transition frequency of an atom and the precision is now limited by the linewidth of this transition\footnote{In simple terms, the linewidth of a monochromatic light is the randomness of the associated frequency.}. The microwave transition of a caesium atom at 9.2GHz is equivalent to a pendulum swinging with a period of 110 picoseconds: the second (the unit) is defined as 9.192,631,770 counts of those microwave oscillations. As a \textit{standard}\footnote{Here, "standard" opposes "superradiant".} atomic clock, or a laser in general, is composed of atoms in its heart, surrounded by an optical cavity. The precision of the emitted frequency and phase\footnote{Phase and frequency are very closely related as the last one is the derivative over time of the first.} is limited by the mechanical surrounding effects which is primarily due to the mirror fluctuations of the cavity. In fact, for lasers, the linewidth of the emitted frequency is firstly limited by the transition linewidth of the atoms but also broadened by the mechanical uncertainties of the cavity itself. For standard lasers, the cavity is in the so called \textit{good cavity regime} where the mirrors are highly reflective. Thus, the emitted light is very dependent on the mechanical fluctuations due to the many round trips of the light before exiting the cavity. 
 
-In order to override those mechanical uncertainties, we parametrize the cavity in the \textit{bad cavity regime} where the mirrors are highly transmitive. Then, the emitted light from an atom is rapidly transmitted through the cavity and the gain linewidth is nearly non-affected by the mechanical fluctuations. Moreover, even if one single atom is weakly coupled to the light modes in this regime, the cavity is configured such that the set of atoms is strongly coupled to it: in practice, we consider tens of millions of atoms which, as an ensemble, strongly interact with the light modes of the cavity whereas an individual atom is weakly interacting with the same fields. Those two configuration, bad cavity regime plus strong ensemble coupling, allow the lased light to be \textit{superradiant}: the phase/frequency of the emitted light is now carried only\footnote{In theory we override the mechanical fluctuations but in real experiments, the lasing field is still slightly dependent on the cavity alterations.} by the gain medium (i.e the set of atoms) compared to standard lasers where the phase information is altered by the cavity. It may be noticed than the bad cavity regime, due to the poor amout of round trips, gives a lower output intensity compared to the good cavity regime.\footnote{The term \textit{superradiant} may be used for different properties of non-standard laser, in particular in the original paper of R.H. Dicke where he names the effect of burst emissions as superradiants: the highlighted property is the intensity being proportional to the square of the amount of atoms.}
+In order to override those mechanical uncertainties, the cavity is placed in the \textit{bad cavity regime} where the mirrors are highly transmitive. Thus, compared to a good cavity regime, the number of round-trips is reduced and the linewidth of the output field is nearly non-affected by the mechanical fluctuations. Moreover, even if one single atom is weakly coupled to the light modes in this regime, the cavity is configured such that the collective coupling of the atoms is strong: in practice, we consider tens of millions of atoms which, as an ensemble, strongly interact with the light modes of the cavity whereas an individual atom is weakly interacting with the same fields.The strong ensemble coupling allows the emitted light to be \textit{superradiant}:  the phase information in the atom-cavity system is mainly stored in the atomic degrees of freedom compared to standard lasers where the phase information is altered by the cavity.\footnote{The term \textit{superradiant} may be used for different properties of non-standard laser, in particular in the original paper of R.H. Dicke where he names the effect of burst emissions as superradiant: the highlighted property is the intensity being proportional to the square of the amount of atoms.}
 
 \begin{figure}[h!]
-\caption{On top: some of the many transitions used in $^{88}$Sr for pumping, cooling and lasing. The levels refer to the electrons in the outermost shell in the \textit{Russel-Saunders} notation $^{2S+1}L_J$ in addition of the standard electronical notation. Here $S$ is the total spin quantum number of the two electrons (as they are spin 1/2 particles, $S$ can be either 0 or 1). $L$ represents the orbital angular momentum quantum numbers by letters from spectroscopic notation ($S$ means 0, $P$ means 1 and $D$ means 2). $J$ denotes the total angular momentum quantum number from the spin-orbit coupling. Below: a simplified diagram refering to a three-level structure where the lasing transition is filled thanks to the decay of the \textit{multilevel} transition, itself filled from the pumping of the base level.}
+\caption{On top: some of the many transitions used in $^{88}$Sr for pumping, cooling and lasing. Below: a simplified diagram refering to a three-level structure where the lasing transition is filled thanks to the decay of the \textit{multilevel} transition, itself filled from the pumping of the base level.}
 \centering
 \includegraphics[width=\textwidth]{sr88}
 \label{fig:sr88}
 \end{figure}
 
-In the quantum metrology group at Niels Bohr's institute, the atom used as the gain medium for the main experiment is the strontium atom; more precisely, $^{88}$Sr. Among others, here are the main properties, according to M. Tang thesis, which led to this choice:
-\begin{itemize}
-	\item $^{88}$Sr is the most abondant isotope of strontium at $\sim$82\% by mass.
-	\item $^{88}$Sr has no nuclear spin, which gives it a simpler level structure
-compared to other isotopes and makes it easier to work with, especially for the many transitions involved in the repumping/cooling scheme.
-	\item Strontium atoms have two electrons in their outermost shell, which gives them a structure of electronic transitions that is particularly useful in quantum metrology.
-	\item The transition  $^1S_0$-$^3P_1$ of $^{88}$Sr has a linewidth of 7.5kHz. Note that the transition $^1S_0$-$^3P_0$ has a nearly null linewidth with 0.2 Telsa of magnetic field applied on it, but demands much more technicity to control. Therefore, the transition $^1S_0$-$^3P_1$ is useful for exploring the physics of metrological systems and developing systems where simplicity is also important
-\end{itemize}
+In the quantum metrology group at the Niels Bohr institute, the atom used as the gain medium for this experiment is the strontium atom; more precisely, $^{88}$Sr. Among others, here are the main properties which led to this choice. $^{88}$Sr is the most abondant isotope of strontium at $\sim$82\% by mass. $^{88}$Sr has no nuclear spin, which gives it a simpler level structure compared to other isotopes and makes it easier to work with, especially for the many transitions involved in the repumping/cooling scheme. Strontium atoms have two electrons in their outermost shell, which gives them a structure of electronic transitions that is particularly useful in quantum metrology. The transition  $^1S_0$-$^3P_1$ of $^{88}$Sr has a linewidth of 7.5kHz. Note that the transition $^1S_0$-$^3P_0$ has a nearly null linewidth (if no magnetic field is present) but demands much more control from a technical point of view. Therefore, the transition $^1S_0$-$^3P_1$ is useful for exploring the physics of metrological systems and developing systems where simplicity is also important.
 
-Finally, the transition $^1S_0$-$^3P_1$ corresponds to the two-level structure modeled in the next chapter.
+In figure \ref{fig:sr88}, the levels refer to the electrons in the outermost shell in the \textit{Russel-Saunders} notation $^{2S+1}L_J$ in addition of the standard electronical notation. Here $S$ is the total spin quantum number of the two electrons (as they are spin 1/2 particles, $S$ can be either 0 or 1). $L$ represents the orbital angular momentum quantum numbers by letters from spectroscopic notation ($S$ means 0, $P$ means 1 and $D$ means 2). $J$ denotes the total angular momentum quantum number from the spin-orbit coupling. The transition $^1S_0$-$^3P_1$ corresponds to the two-level structure modeled in the next chapter.
 
 
 
 \chapter{Superradiance simulation}
 \section{Optical Cavity}
-\paragraph{}
-We firstly introduce a very common object of quantum optics, namely, the \textit{optical cavity}. It consists of two mirrors mounted in parallel of each other: the angle formed by one mirror and the optical axis is a right angle. The idea behind this simple setup is to select a discret range of wavelengths defined by the space between the mirrors. 
 
-Indeed, one can model the cavity as a one-dimensional box, then apply the wave equation $ \square \vv{E} = 0$ where $\square$ is the d'Alembertian operator and $\vv{E}$ the electric field's amplitude, together with the Maxwell equations $\nabla \cdot \vv{E} = \partial _x E = 0$. As the wave must vanish at the boundaries of the box (meaning that the energy cannot propagate outside of the box's region) one would find that the solutions are linear combinations of sinusoidal functions, each of them having a wavenumber multiple of $\frac{\pi}{L}$ where $L$ denotes the length of the box/cavity. We shall consider that our model is situated into a vacuum chamber, leading to the refractive index $n=1$ for the void and the well known constant $ c$ for the speed of light. Then, thanks to the relation $\omega = ck$ we see that the angular frequency is also quantized.\footnote{R.Loudon derives rigorous equations in sections 1.1 and 1.2 of \textit{Quantum Theory of Light}.} It is important to note that the argument is valid for other refractive index and higher dimensions (i.e in 2D, 3D, ...).
+We firstly introduce the \textit{optical cavity}. It consists of two mirrors mounted facing each other: the angle formed by one mirror and the optical axis is a right angle. The idea behind this simple setup is to select a discrete range of wavelengths defined by the space between the mirrors. 
 
-With a more pragmatic point of view, one can think of this wavelength selection as an interferometer. In fact, let's imagine for a while that we emplace a cavity in front of the sun, fast enough to capture a beam of sunlight. Then we stop the clock before further propagation. Mathematically, the waves which are differents from the selective frequency vansih instantaneously, because of the presence of the cavity. However, physically, the full spectrum of the sun still resides between the two mirrors. Then if we run the clock again, the light is reflected from the back mirror. As we captured a continous stream, the $\pi$-dephased reflected light encouters the incoming light: interference happens and after a couple of round-trips, only the waves generating an in-phase match at each round-trip (i.e with a space-frequency or wave-number $\frac{n\pi}{L}, n\in \llbracket 0, +\infty \llbracket $) remains by constructive interference, creating standing waves of the same frequency. On the other hand, all the other frequencies produce after reflection, on average over some round-trips, a destructive phase difference: the sum shall give a null coefficient in term of amplitude for those given frequencies. Although this is a simple explanation, two things are important to note:
+Indeed, one can model the cavity as a one-dimensional box, then apply the wave equation $ \square \vv{E} = 0$ where $\square$ is the d'Alembertian operator and $\vv{E}$ the electric field's amplitude, together with the Maxwell equations $\nabla \cdot \vv{E} = \partial _x E = 0$. As the wave must vanish at the boundaries of the box (meaning that the energy cannot propagate outside of the box's region) one would find that the solutions are linear combinations of sinusoidal functions, each of them having a wavenumber multiple of $\frac{\pi}{L}$ where $L$ denotes the length of the box/cavity. We shall consider that our model is situated in a vacuum chamber, leading to the refractive index $n=1$ for the void and the well known constant $ c$ for the speed of light. Then, thanks to the relation $\omega = ck$ we see that the angular frequency is also quantized.\footnote{R.Loudon derives rigorous equations in sections 1.1 and 1.2 of \textit{Quantum Theory of Light}.} It is important to note that the argument is valid for other refractive indices and higher dimensions (i.e in 2D, 3D, ...).
+
+With a more pragmatic point of view, one can think of this wavelength selection as an interferometer. In fact, let's imagine for a while that we emplace a cavity in front of the sun, fast enough to capture a beam of sunlight. Then we stop the clock before further propagation. Mathematically, the waves which are different from the selective frequency vansih instantaneously, because of the presence of the cavity. However, physically, the full spectrum of the sun still resides between the two mirrors. Then if we run the clock again, the light is reflected from the back mirror. As we captured a continous stream, the $\pi$-dephased reflected light encouters the incoming light: interference happens and after a couple of round-trips, only the waves generating an in-phase match at each round-trip (i.e with a space-frequency or wave-number $\frac{n\pi}{L}, n\in \llbracket 0, +\infty \llbracket $) remains by constructive interference, creating standing waves of the same frequency. On the other hand, all the other frequencies produce after reflection, on average over some round-trips, a destructive phase difference: the sum shall give a null coefficient in terms of amplitude for those given frequencies. Although this is a simple explanation, two things are important to note:
 \begin{itemize}
   \item For the constructive interference case, we say that we need to be in-phase after one round-trip, meaning that after two reflections, which happens after hitting both back and front mirrors of the cavity, the wave must replicate the same amplitude at any position. However, the electric field is not static but moves in space. Then, it becomes more evident that twice the length of the cavity must be a multiple of the frequency in order to give the exact same phase.
-  \item  For all the other frequencies, the phase difference is not random but actually well behaved. Nevertheless, After a couple of round-trip, the set of generated phase difference is unformly distributed among $ \left[ -\pi, \pi \right] $.
+  \item  For all the other frequencies, the phase difference is not random but actually well behaved. Nevertheless, After a couple of round-trips, the set of generated phase difference is unformly distributed among $ \left[ -\pi, \pi \right] $.
 \end{itemize}
 
 Thereby, that is why the device created by C.Fabry and A.Pérot in 1899 is called an \textit{interferometer} as, in their case, the light hit the mirrors with an angle, creating the famous pattern of fringes. Equivalently, this category of instrument is often named \textit{resonator} as the amplitude of the electric field is enhanced in the case of resonance with the cavity or decreases in other cases: by conception, it can be modeled as a classical harmonic oscillator or with the quantum equivalent.\footnote{As we will see later, each resonant frequency has a linewidth as a classical oscillator, in contrary to the quantum equivalent where the energy ladders (i.e the frequencies, in virtue of the relation $ \hbar \omega$) are well defined.}
 
-In real experiments, the device is static and one prefers to let the light enter partially, to feed the cavity, and exit partially to collect the selected waves: only a part of the light is reflected into the cavity. In that way, we use \textit{partially reflective} mirrors parametrized by an electric field reflection coefficient $r$ and an electric field transmission coefficient $t$ obeying the relation $r^2 + t^2 = 1$ (the squared terms are the respective coefficient for the intensityof the field), meaning that all the absorbed energy must be re-emitted by the mirror, which is of course not fully true as some amount of the energy is scattered due to surface roughness. However, current manufacturers creates mirros with less than $0.01\%$ of loss and the above formula is sufficient for most of the applications.
+In real experiments, the device is static and one prefers to let the light enter partially, to feed the cavity, and exit partially to collect the selected waves: only a part of the light is reflected into the cavity. In that way, we use \textit{partially reflective} mirrors parametrized by an electric field reflection coefficient $r$ and an electric field transmission coefficient $t$ obeying the relation $r^2 + t^2 = 1$ (the squared terms are the respective coefficient for the intensity of the field), meaning that all the absorbed energy must be re-emitted by the mirror, which is of course not fully true as some amount of the energy is scattered due to surface roughness. However, current manufacturers creates mirros with less than $0.01\%$ of loss and the above formula is sufficient for most of the applications.
 
-One common approach to express the cavity response (and meets the purpose of this section) is the Airy distribution which represents the intensity ratio between the internal electric field and the \textit{launching} electric field (i.e the amount of \textit{feeding}-field succeding to transmit through the first mirror and penetrate the cavity), in function of the phase accumulated for each round-trip\footnote{Of course, this is not the mathematical definition of the Airy distribution. However, we will see that this \textit{physical} distribution gives an actual Airy distribution.}:
+One common approach to express the cavity response is the Airy distribution which represents the intensity ratio between the internal electric field and the \textit{launching} electric field (i.e the amount of \textit{feeding}-field succeding to transmit through the first mirror and penetrate the cavity), as a function of the phase accumulated for each round-trip\footnote{Of course, this is not the mathematical definition of the Airy distribution. However, we will see that this \textit{physical} distribution gives an actual Airy distribution.}:
 \begin{equation}
 \label{eqairy}
 \textrm{Airy distribution} : A(\phi) = \frac{I_{circ}}{I_{launch}}(\phi)
 \end{equation} 
-In other words, it just makes the link between the enhancment factor of the cavity field and the constructive-destructive interference phase pattern. In order to derive it, we shall use the circulating field approach \footnote{A. E. Siegman, section 11.3, \textit{Lasers}}, represented in Fig (add figure!):
+In other words, it just makes the link between the enhancment factor of the cavity and the constructive-destructive interference phase pattern. In order to derive it, we shall use the circulating field approach \footnote{A. E. Siegman, section 11.3, \textit{Lasers}}:
 \begin{itemize}
 	\item A launching field: $ E_{launch} $
 	\item A round-trip electric field which is the field after one complete round-trip: one reflection on the back mirror plus another on the front mirror. We call it $ E_{RT}$
-	\item A circulating electric field which is the sum of the launched field and the round-trip one: $ E_{circ} =  E_{launch} + E_{RT}$. It is by definition the internal electric field.
+	\item A circulating electric field which is the sum of the launched field and the round-trip one: $ E_{circ} =  E_{launch} + E_{RT}$. It is by definition the internal electric field after one rounde-trip (if we use an infinite sum instead, this would be the definition of the total electric field inside of the cavity).
 \end{itemize}
 
-Here, we use the phasor representation where the electric field (a real analytic signal) is splitted into two conjugate complex numbers:
+Here, we use the phasor representation where the electric field (a real analytic signal) is split into two conjugate complex numbers:
 \begin{align} 
 \label{eq1}
-E(x, t) &= \overline{E}(x, t) + \overline{E}^*(x, t) \quad \textrm{s.t} \quad E(x, t) \in \mathbb{R}, \quad \overline{E}(x, t) \in \mathbb{C} \\\label{eq2}
+E(x, t) &= \overline{E}(x, t) + \overline{E}^*(x, t) \quad \textrm{such that} \quad E(x, t) \in \mathbb{R}, \quad \overline{E}(x, t) \in \mathbb{C} \\\label{eq2}
 &= 2 \Re \{  \overline{E}(x, t) \} 
 \end{align}
-Then, we consider fields evolving in time and in space along the optical axis $ x$. Moreover, one considers only the amplitude of the fields and deals with scalar equations. One can assume linearly polarized input field to get the same mathematical treament but the Airy distribution is valid for any kind of polarization and can be genelarized for vectorial equations (i.e at higher dimension). Note that \eqref{eq1} is not a definition sign "$\stackrel{\text{def}}{=}$" as an analytic signal can be written in that form.\footnote{More explanations about the hypothesis and what an analytic signal implies in section ??}
+Then, we consider fields evolving in time and in space along the optical axis $ x$. Moreover, one considers only the amplitude of the fields and deals with scalar equations. One can assume linearly polarized input field to get the same mathematical treament but the Airy distribution is valid for any kind of polarization and can be generalized for vectorial equations (i.e at higher dimension). Note that \eqref{eq1} is not a definition sign "$\stackrel{\text{def}}{=}$" as any analytic signal can be written in that form.\footnote{More explanations about the hypothesis and what an analytic signal implies in section ??}
 
 Rewriting the equation for the circular field gives:
 \begin{equation}
@@ -117,11 +111,11 @@ which, by linearity and analyticity of the signal, is equivalent to:
 \overline{E}_{circ} = \overline{E}_{launch} + \overline{E}_{RT}
 \end{equation}
 
-Now, one can express the round-trip field from the circular one, dephased by a certain angular amount. Indeed, one knows that each mirror add a phase of $\pi$ to the original field and the amplitude is modulated by the reflection factor $R$. As a field of space-frequency $k$ and propagating over a distance $l$ is shifted by:
+Now, one can express the round-trip field from the circular one, dephased by a certain angular amount. Indeed, one knows that each mirror add a phase of $\pi$ to the original field and the amplitude is modified by the reflection factor $r$. As a field of wave-number $k$ and propagating over a distance $l$ is shifted by:
 \begin{equation}
-ck \times \textrm{"propagation time"} = kl = \omega \times \frac{l}{c}
+ck \times \textrm{"propagation time"} = kl = \frac{\omega}{c}l
 \end{equation} 
-Then, after a complete round-trip, one obtains for the "RT" field a total angular shift of:
+Then, after a complete round-trip, one obtains for the $E_{RT}$ a total angular shift of:
 \begin{equation}
 2\phi \stackrel{\text{def}}{=} \frac{2L}{c}\omega + 2\pi
 \end{equation} 
@@ -132,14 +126,14 @@ where $\phi$ is the same phase as in \eqref{eqairy}. Thereby:
 \end{equation}
 where $r_{1,2}$ are the reflection coefficients of the front and back mirror respectively. In other words, instead of propagating the field from its original value $ \overline{E}_{circ}$ through time or space to get a phase, we compute the relative phase $\phi$ from the length of the cavity $L$ with the field's frequency $\omega$.
 
-One can highlight that for a caracteristic space-frequency of the cavity $k=\frac{n\pi}{L}$, we have:
+One can highlight that for a characteristic space-frequency of the cavity $k=\frac{n\pi}{L}$, we have:
 \begin{equation}
 \label{phimodif}
-2\phi = \frac{2L}{c} \times \frac{cn\pi}{L} + 2\pi = 2\pi(n + 1) \quad \equiv \quad 0 \quad [2\pi]
+2\phi = \frac{2L}{c} \times \frac{cn\pi}{L} + 2\pi = 2\pi(n + 1) \quad = \quad 0 \quad [2\pi]
 \end{equation}
-meaning that those frequencies does not generate any phase shift after one complete round-trip, involving constructive inteferences then standing waves.
+meaning that those frequencies generate constructive inteferences, thus, standing waves.
 
-Putting \eqref{eqrt} in \eqref{eqecirc} leds to:
+Putting \eqref{eqrt} in \eqref{eqecirc} leads to:
 \begin{equation}
 \frac{\overline{E}_{circ}}{\overline{E}_{launch}} = \frac{1}{1 - r_1 r_2 e^{-i2\phi}}
 \end{equation}
@@ -156,7 +150,7 @@ A'(\phi) = (1-r_1^2)(1-r_2^2)\times A(\phi)
 where one uses the intensity transmission coeffcients $t_{1,2}^2 = 1-r_{1,2}^2$. Now, in order to sketch the function, independent of the size of the cavity $L$, we shall use the third term of the equality \eqref{phimodif} to reparametrize the round-trip dephasing variable $\phi$:
 \begin{equation}
 \label{phidef}
-\phi = \pi(x+1) \quad \equiv \quad \pi x \quad [\pi]
+\phi = \pi(x+1) \quad = \quad \pi x \quad [\pi]
 \end{equation}
 where the integer variable $n$ has been replaced by the continuous one $x \in \mathbb{R}$ so that one can also investigate the behavior of the enhancment factor $A'(\phi) \sim A'(x)$ away from the resonant frequencies. Figure \ref{fig:airy-dist} is a normalized drawing\footnote{One divides the whole graph by $A'(0)$} of the airy distribution for a short amount of negative and positive resonant frequencies through a couple of reflexion coefficient $r_{1,2}$. 
 
@@ -179,10 +173,10 @@ with, in virtue of \eqref{phidef}:
 \end{equation}
 where $\textrm{FWHM} \stackrel{\text{def}}{=} \Delta\nu$.
 
-Finally, one can sketch the FWHM in fonction of the mirror reflectivities $r_{1,2}$ and obtains Fig ??
+Finally, one can sketch the FWHM as a fonction of the mirror reflectivities $r_{1,2}$ and obtain figure \ref{fig:airy-fmwh}.
 
 \begin{figure}[h]
-\caption{FMWH plot according to the mirror reflectivities $r_{12} = r_1 = r_2$}
+\caption{FMWH (unit is frequency in rad/s) as function of the mirror reflectivities $r_{12} = r_1 = r_2$. As FSR is unity then the ordinate axis is the inverse of the finesse by definition.}
 \centering
 \includegraphics[width=\textwidth]{airy-fmwh}
 \label{fig:airy-fmwh}
@@ -190,18 +184,18 @@ Finally, one can sketch the FWHM in fonction of the mirror reflectivities $r_{1,
 
 Two important points are noticeable:
 \begin{itemize}
-	\item The linewidth of a cavity is inversly dependent on the mirrors reflectivity. In other words, bigger is the transmission factor of the mirrors, broader is the frequency range around resonances, giving a \textit{less selective} cavity, and reciprocally. Then, two perfeclty reflective mirrors allow the FWHM to tend to zero: the cavity selects only and exactly the resonant frequencies $\frac{n\pi}{L}$. Formally, the \textit{selectivity} of a cavity is defined by its \textit{finesse} which reads $F \stackrel{\text{def}}{=} \frac{\textrm{FSR}}{\Delta\nu}$: one normalizes the distance (in term of frequency) separating two resonances by the linewidth. On figure \ref{fig:airy-fmwh}, as FSR is unity then the ordinate axis is the inverse of the finesse by definition.
+	\item The linewidth of a cavity is invertly dependent on the mirrors reflectivity. In other words, larger is the transmission factor of the mirrors, the broader the frequency range around resonances, giving a \textit{less selective} cavity, and reciprocally. Then, two perfeclty reflective mirrors allow the FWHM to tend to zero: the cavity selects only and exactly the resonant frequencies $\frac{n\pi}{L}$. Formally, the \textit{selectivity} of a cavity is defined by its \textit{finesse} which reads $F \stackrel{\text{def}}{=} \frac{\textrm{FSR}}{\Delta\nu}$ where $FSR$ is the \textit{free spectral range}: one normalizes the distance (in term of frequency) separating two resonances by the linewidth.
 	\item The function modeling the FWHM tends to infinity below a certain value which can be evaluated to approximately $r_1r_2 \approx 0.17$. That is due to the behavior of the $\arcsin$ which is not defined beyond $x=1$ for $x \in \mathbb{R}^+$. 
 \end{itemize}
 
-Nevertherless, it is always possible to build an experiment involving mirrors with high-losses (i.e very low reflection or very high transmission), without the output frequency going crazy. Thereby, what happens? Well, this is a limitation case of this \textit{Airy}-model and in the common scientific description of a cavity, one utilizes the Lorentzian approach where one defines a coherent time of the light from the reflection coefficient and the cavity length, then gets a differential rate equation of the amount of photons (i.e an exponential decay of the electric field) which, by virtue of the Fourier transform, gives a Lorentzian as a spectrum around one resonant frequency. Then, to obtain the full cavity spectrum, one has to superpose each Lorentzian of a given resonance on the same graph.\footnote{Note that when treating the spontaneaous emission of an atom (or more formally, a two-level atomic system), one also deals with differential rate equations, which represents the exponential lifetime decay of the excitation, giving a Lorentzian as a spectrum: longer it takes to the system to decay, broader is the bandwidth. However, the analogy stops here: for a cavity, the whole electric field spectrum is affected by the linewidth, whereas, for a two-level atom, the spectrum represents the frequency uncertainty as the atom can spontaneously emit a photon with frequency slightly different from what the atom has been excited with.}
+Nevertherless, it is always possible to build an experiment involving mirrors with high losses (i.e very low reflection or very high transmission). This is a limitation case of this \textit{Airy}-model and in the common scientific description of a cavity, one utilizes the Lorentzian approach where one defines a coherent time of the light from the reflection coefficient and the cavity length, then gets a differential rate equation of the amount of photons (i.e an exponential decay of the electric field) which, by virtue of the Fourier transform, gives a Lorentzian as a spectrum around one resonant frequency. Then, to obtain the full cavity spectrum, one has to sum each Lorentzian of all the resonances on the same graph.\footnote{Note that when treating the spontaneaous emission of an atom (or more formally, a two-level atomic system), one also deals with differential rate equations, which represents the exponential lifetime decay of the excitation, giving a Lorentzian as a spectrum: longer it takes to the system to decay, broader is the bandwidth. However, the analogy stops here: for a cavity, the whole electric field spectrum is affected by the linewidth, whereas, for a two-level atom, the spectrum represents the frequency uncertainty as the atom can spontaneously emit a photon with frequency slightly different from what the atom has been excited with.}
 
-The Lorentzian model is highly faithfull to the real world experiment for all the possible reflective coefficients and tends to give the same caracteristic values (linewidth, finesse, ...) than the Airy-model from half to full reflective mirrors. However, it may seem to be less intuitive even if the derivation is straigthforward and, after all, the goal here was to show the principle of interference inside a cavity due to the round-trip dephasing term.
+The Lorentzian model is highly faithfull to the real world experiment for all the possible reflective coefficients and tends to give the same caracteristic values (linewidth, finesse, ...) as the Airy-model from half to full reflective mirrors. However, it may seem to be less intuitive even if the derivation is straigthforward and, after all, the goal here was to show the principle of interference inside a cavity due to the round-trip dephasing term.
 
-Finally, the next step for an optical cavity is, as many of physical systems, to interact with its environment. In other words, what happens if one adds an element, let's say atoms, inside of it? Well, this is basically the principle of lots of current experiments and avdvanced optical tools, namely the \textit{LASER} among others, and the next section is decidated to the mathematical formulation of one first model for a cavity filled with a gain medium.
+Finally, the next step for an optical cavity is, as many of physical systems, to interact with its environment. In other words, what happens if one adds an element, let's say atoms, inside of the cavity? This is basically the principle of lots of current experiments and advanced optical tools, namely the \textit{laser} among others, and the next section is decidated to the mathematical formulation of one first model for a cavity filled with a gain medium.
 
 \section{Jaynes-Cummings model}
-\paragraph{}
+
 As an introduction, it is important to remind that the Jaynes-Cummings (JC) approach is no more, no less than a model, which means that it is based on some hypothesis and has limitations which leads to refinements for more complex physical systems. In the current section, we shall present as wide as possible the principles of this model which will be the foundments of all the next derivated/evoluted models\footnote{As written, the JC-model may seem to be a pre-model or even a \textit{toy tool} in view of introducing other legitimate models. Nevertheless, the JC-model is an actual physical approach, currently used for real use-cases in Quantum Optics, especially whith single atom interactions.}, even if the section is not supposed to be exhaustive but only a reference-like for further theoretical developments.
 
 First of all, our system is composed of:
@@ -382,7 +376,7 @@ Numerically, if one puts progressively a small detuning (i.e $\omega_a$ is still
 As we can notice, this model is mainly limited by its atomic level capability which is of number of two. Thereby, one would probably like to theoretically predict the behavior for many two-level systems (or equivalently several spins). Then, we shall introduce an extension of this model in the next section.
 
 \section{Tavis-Cummings model}
-\paragraph{}
+
 
 In order to include more atoms, one needs to extend the Hilbert space involved into the JC-model. In fact, there are two ways of coupling more two-level systems, linked to the question: "Are the sub-systems distinguishable?". Indeed, here is the first \textit{naïve} idea to introduce $N$ atoms:
 \begin{align}
@@ -439,7 +433,6 @@ where $N_{excited}$ is the number of excited two-level syste, and the \textit{eq
 Finally, we obtained a hamiltonian which looks very close to the JC-model and the natural question which now arises is: "How does one populate the gain medium of excitation? How the photons may leak oustside of the cavity?". For the first case, one may start with a state of the desired excited population. However, it exists another approach where our quantum system is included into a quantum \textit{bath}, allowing energy to leak in and out.\footnote{We do not go further into the spectrum caracterisation of $\hat{H}_{TC}$, even if it may be done, because the master equation shall complexify the exact solution at a point that we use another approach for the numerical simulation.}
 
 \section{Open quantum systems and the master equation}
-\paragraph{}
 
 Firstly, we introduce the density operator in order to also treat probabilistic mixtures:
 \begin{equation}
@@ -565,7 +558,6 @@ Unfortunately, the first method of solving, involving the RK intergation, suffer
 This case is a good example of the classical computer limitation and this sort of problem is part of the reason of building a quantum computer/simulator. Indeed, one could make use of the parallelism behavior of the qubit in order to simulate many cross interaction at the same time. However, those kind of projects are not yet achieved and we have to find a \textit{smart} solution, in a sense that we are ready to lose a bit of precision in exchange of computation power and memory space. In fact, all the crossed terms essentially represent the multiple interaction holded by each atom. Secondly, the question we have to ask is: "what mesure do we want from the simulation?". As we shall see in later section, our interested correlation function are, roughly, the expectation values of operators accross the time. In other words, we absolutely do not care about the behavior of individual terms. So, what happens if one plugs directly the excpectation value on the "Heisenberg version" of the master equation \eqref{master_eq_heis}? This is the subject of the next section.
 
 \section{Cumulant expansion method}
-\paragraph{}
 
 Firstly, even if we go into more details in chapter ?? about their signification, we have to recall what are the first and second order correlation function in term of quantum operators in order to visualize which sort of values we need to extract from the master equation.
 
@@ -759,7 +751,6 @@ In general, if one wants to numerically simulate the behavior of $g^1$ and $g^2$
 
 \chapter{Heterodyne experiment}
 \section{Standard setup for $g^1$ and its limitations}
-\paragraph{}
 
 In this section, we shall describe a standard method of measuring the frist order correlation function of a given classical electric field. This is meant to introduce some concepts of wave mixing, intensity detection and noise limit. Some detection properties are limited in the present case and this give a justification of the setup used in the actual experiment for measuring $g^1$.
 
@@ -841,7 +832,6 @@ However, although the Michelson interferometer is a simple setup which gives nic
 At the end of the day, this setup turns out to not be optimal for rigorous and/or advanced measurements. Therefore, the next section shall present another approach as well as the basic concept involved in order to solve the three previous inconvenients.
 
 \section{Balanced heterodyne setup}
-\paragraph{}
 
 An heterodyne setup is, as stated by its name, an experiment involving two mixed electric fields of \textit{different} frequencies\footnote{"Hetero" is the Greek prefix meaning "irregularity" and "dyne" suffix for "dynamic" in contrary to "homo" (= "same") for a homodyne setup with equal frequencies.} which are collected by two detectors. The electric current produced by both detected intensity, that we call \textit{photocurrent}, is then substracted and the resulting electric signal can be recorded on an oscilloscope for example. 
 
@@ -907,7 +897,6 @@ Those two types of noises are uncorrellated and just add together while the ampl
 Thus, the idea behind balanced detection is to cancel the classical noise which can randomly appear on both diodes of the detector at the same time. Indeed, if any correlated variation of the signal apperas in both emited photocurrent, the substraction \textit{erases} this correlated variation (i.e noise) in a sense that the resulting signal then owns the quantum noise, the uncorrelated photocurrent noise (which may be amplified) as well as the electric noise (which is a white noise, hence uncorrelated). Nevertheless, the remaining noise may be considered as very small for our purpose and the detector is made in order to reduce the electrical and amplified power noise in the bandwidth of interest. This reduction of noise by electronic design is the subject of the next section.
 
 \section{Balanced low-noise detector}
-\paragraph{}
 
 In theory, the electronic circuit does not produce any additional noise. That is to say, if there is any variation of the photocurrent at the entry of the circuit, thus after the diodes, the output noise corresponds to this variation (except the amplification of the noise which is a side effect from the purpose of the circuit). In a real world however, without any photocurrent input, the exit cable of the detector shows a random ouput voltage. Of course, the detector must be under voltage, otherwise, no ouput can be generated as some essential components need an external source of electric power. Moreover, this electrical noise being evaluated in term of power (dBm), is a critical parameter. Indeed, if the shot noise limit is lower than the electrical noise, it is possible to lose some part of the data, especially the very weak quantum correlations. Therefore, it is essential to reduce the electrical noise generated by the internal components as much as possible.
 
@@ -1208,7 +1197,7 @@ According to the laser beal size compared to the photosensitive area, two cases 
 \end{itemize}
 As we can notice, this technic shows the same behavior for bigger or smaller beam sizes. However, it is possible to evaluate the beam's diameter by measuring the distance between the beginning and the end of the slope. Indeed, this measure is literraly the position when the laser's beam starts hitting the photosensitive area (i.e this is the beginning of the slope) whereas when the laser's beam is fully included into the photodiode (i.e this is the \textit{plateau} and the end of the slope). Moreover, if the beam is bigger than the photosensitive area, the plateau (thus the end of the slope) will be reached when the beam covers entirely the photodiode: the \textit{slope distance} is the photodiode's diameter, not the beam's diameter. In other worlds, if we measure less than 1.2mm for the \textit{slope distance} then the laser's beam is encompassed into the photosensitive area.
 
-Figure \ref{diode-size-plot} shows the results for two different powers involved in the local oscillator: using two powers ensure that we are not saturating the photodiodes in term of intensity when measuring the beam's size. As we consider the cavity laser very weak (in order of picowatts), the main power come out of the reference laser\footnote{In that case, we use two very distinct powers which are tuned mechanically, with a button on the \textit{laser box}. This is not a \textit{clean} method because it is not very precise and we shall use a different method in the next section.}.
+Figure \ref{fig:diode-size-plot} shows the results for two different powers involved in the local oscillator: using two powers ensure that we are not saturating the photodiodes in term of intensity when measuring the beam's size. As we consider the cavity laser very weak (in order of picowatts), the main power come out of the reference laser\footnote{In that case, we use two very distinct powers which are tuned mechanically, with a button on the \textit{laser box}. This is not a \textit{clean} method because it is not very precise and we shall use a different method in the next section.}.
 
 \begin{figure}[h!]
 \caption{Average voltage ouput of the detector according to the relative position of one of the diode (The other diode is blocked from light), for two different power of the local oscillator.}
@@ -1217,12 +1206,11 @@ Figure \ref{diode-size-plot} shows the results for two different powers involved
 \label{fig:diode-size-plot}
 \end{figure}
 
-As we can see, the yellow curves (low power) may be considered not saturating the diodes as those curves doesn't reach the same maximum than the red curves (high power).\footnote{Note than this argument, alone, does not allow to decide if the red curves means the saturation of the diodes or not.}. We can measure the beam's diameter as roughly 0.6mm for the red curves and 1mm for the yellow curves. Thus, the laser beam is well encompassed into the photodiodes. Secondly, those measurements mean that the power associated to the read curves are saturating the diodes: before the beam hits entirely the photosensitive area, the detector reaches its maximum/minimum of output voltage which is now determined to be $\pm11$ volts.
+The yellow curves (low power) may be considered not saturating the diodes as those curves doesn't reach the same maximum than the red curves (high power).\footnote{Note than this argument, alone, does not allow to decide if the red curves means the saturation of the diodes or not.}. We can measure the beam's diameter as roughly 0.6mm for the red curves and 1mm for the yellow curves. Thus, the laser beam is well encompassed into the photodiodes. Secondly, those measurements mean that the power associated to the read curves are saturating the diodes: before the beam hits entirely the photosensitive area, the detector reaches its maximum/minimum of output voltage which is now determined to be $\pm11$ volts.
 
 Note that the whole procedure relies on the horizontale diplacement. Naively, one could repeat the process accross different vertical positions: one should obtain a 2D map of the output voltage according to the relative beam to diode position. Nevertheless, we only check in practice that the ouput voltage cannot be maximized while moving the dectector up or down when the beam reaches the plateau region (This is done with the yellow curves power, knowing that we are not already saturating the diodes).
 
 \section{Power to noise ratio}
-\paragraph{}
 
 As we already mentioned in section 2.2 (Balanced heterodyne setup), the detection of light involves an amplification of the light's noise dependenging on the light's power. The photocurrent $i(t)$ produced by the diodes may \textit{always} be written with the sum of the mean photocurrent and a shift to the mean:
 \begin{equation}
@@ -1353,7 +1341,6 @@ Between 0.3mW and 0.5mW, the variance for unbalanced detection hits very high va
 At the end of the day, we characterized the electrical noise as well as the light power to \textit{voltage-squared} noise ratio for the detector: the global noise (i.e electrical plus quantum noise) evolves between 35 and 70 nano \textit{volts-squared} for incoming light power of "0"mW\footnote{We never reach experimentally a null input light power. The "zero" value is assumed by convergence.} and 0.68mW.
 
 \section{Intensity calibration}
-\paragraph{}
 
 For all the previous tests, the supposed superradiant laser generated from the cavity and used in sections 2.4 and 2.5 was in reality replaced by a \textit{fake} laser: we used a standard laser reproducing the same frequency of the emited light in case of superradiance.
 
@@ -1501,7 +1488,6 @@ As we can see, between 20 and 50 picowatts, the 43MHz beat is clearly distinguis
 
 \chapter{Data analysis}
 \section{Light detection: classical development}
-\paragraph{}
 
 In this section, we shall make a theoretical development of the detection process from a classical point of view, in order to evaluate the frist order correlation function $g^1$. In fact, we shall demonstrate that the ouput signal from the heterodyne detector is not directly $g^1$ but a composition of the cavity's \textit{signal}\footnote{Note that we use here the term "signal" instead of "electric field" because we are going to analyse somehow equivalently the light, current and voltage fields.} and the local oscillator's \textit{signal}. Therefore, we must numerically transform the ouput signal to compute the norm of $g^1$.
 
@@ -2177,7 +2163,6 @@ Rearranging the terms gives:
 The gain is the absolute value of the phasor representation \ref{phasor-vin-vout}:
 \begin{equation}
 \left\vert \frac{V_{out}}{V_{in}} \right\vert = \frac{1}{\sqrt{1 + \left( \frac{R}{\omega L - \frac{1}{\omega C}} \right)^2}}
-\label{phasor-vin-vout}
 \end{equation}
 which is of course dependent on the voltage frequency. Moreover, the derivative:
 \begin{equation}
