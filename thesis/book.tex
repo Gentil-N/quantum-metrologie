@@ -196,8 +196,6 @@ Finally, the next step for an optical cavity is, as many of physical systems, to
 
 \section{Jaynes-Cummings model}
 
-As an introduction, it is important to remind that the Jaynes-Cummings (JC) approach is no more, no less than a model, which means that it is based on some hypothesis and has limitations which leads to refinements for more complex physical systems. In the current section, we shall present as wide as possible the principles of this model which will be the foundments of all the next derivated/evoluted models\footnote{As written, the JC-model may seem to be a pre-model or even a \textit{toy tool} in view of introducing other legitimate models. Nevertheless, the JC-model is an actual physical approach, currently used for real use-cases in Quantum Optics, especially whith single atom interactions.}, even if the section is not supposed to be exhaustive but only a reference-like for further theoretical developments.
-
 First of all, our system is composed of:
 \begin{itemize}
 	\item An electric field inside a cavity: this E-field is quantized and can only be a superposition of resonances.
@@ -748,6 +746,48 @@ then multiplying the full set on the left by $\hat{a}^\dagger_{t_2}$ and on the 
 Again, this allows time evolution only when $t_1\geqslant t_2$ for non-stationary process whereas we need to reach the steady-state of the set of differential equation involving \eqref{init_g2} in order to get the stable values hence a stationary process for $g^2(\tau)$.
 
 In general, if one wants to numerically simulate the behavior of $g^1$ and $g^2$ of the quantum system (stationary or not), it is necessary to generate a complete set of equation at a minimum order of $m=5$ (i.e maximum four operators inside the correlation variables). From this set of equation, one must generate another set by multiplying the first set with $\hat{a}_{t_2}$ by the right. Finally, the last set is generated from the second one by mutliplying it with $\hat{a}^\dagger_{t_2}$ by the left. At the end of the day, one gets three independent complete set of differential equation of order, at least, $m=5$, $m=6$ and $m=7$. \footnote{The variable $m$ is \textit{artificially} incremented by one each time as the correlation variables get an additional operator constant: we do not derive explicitely a set with $m=6$ and $m=7$.}
+
+\section{$g^1$ simulation results}
+
+Firstly, we must  numerically determine all the constants of the generated set of equation.
+
+\begin{itemize}
+	\item Reduced Planck constant $\hbar$: from the master equation \ref{master_eq_heis} and the change of variable \ref{sig_change_s} from \textit{individual spin} to collective spin, we easily see that $\hbar$ vanishes equally. Numerically speaking, as the equation is not necessarily simplified, we set $\hbar$ to 1.
+	\item Detuning $\Delta\omega$: we consider the cavity field in resonance with the atomic transition. Thus, $\Delta\omega$ is null.
+	\item The cavity loss rate $\kappa$ is experimentally set to $2\pi \cdot 780$kHz.
+	\item The decay rate into free space $\gamma$ is experimentally set to $2\pi \cdot 7.5$kHz.
+	\item Individual coupling $g_0$:\footnote{The collective coupling is $Ng_0$. In the master equation, $g$ is equivalent to $g_0$: we implicitely used the individual coupling.} it is determine by the formula $g_0=\frac{1}{2}\sqrt{C_0\kappa\gamma}$ where $C_0$ is dependent on the Purcell factor $F$ with $C_0=\frac{6\lambda^2}{\pi^3w_0^2}F$. The wavelength $\lambda$ is $689nm$, $F=1000$ and $w_0=450$µm. This gives us $g_0\simeq5117.82$Hz. Thus, the parameters respect the condition $g_0\ll(\kappa, \gamma)$ for the weak coupling. To respect the strong collective coupling condition $(\kappa, \gamma) \gg Ng_0$ where $N$ is the number of atoms, the cavity must be filled with at least ten thousands atoms in order for $Ng_0$ to be an order of magniftude higher than $\kappa$.
+	\item The repumping rate $\nu$ is numerically determined step by step in order to reach a null atomic inversion at steady state (In the actual experiment, the atomic inversion is kept slightly above zero). For a \textit{long time} $t_\infty$, we are looking for $\left\langle \hat{S}_z(t_\infty) \right\rangle \gtrsim 0$ which corresponds to a state $\ket{j=N/2, m \gtrsim 0}$. As the repumping rate is dependent on the number of atoms inside the cavity, the determination of $\nu$ is done for three set of atom numbers: ten thousand, a hundred thousand and three hundred thousands atoms. The ratio is evaluated in order to keep the ratio $\left\langle \hat{S}_z(t_\infty) \right\rangle / \left\langle \hat{S}_z \right\rangle _{max}$ (where $\left\langle \hat{S}_z \right\rangle _{max}$ is set to $N/2$) approximately constant for the three sets of atom numbers\footnote{This corresponds to having the Bloch vector at the same angle (relative to the plan) on the Block sphere.}.
+\end{itemize}
+
+Three sets of differential equations are generated with order $m=2$, $m=3$ and $m=4$. The set $m=2$ is the lower limit of the order $m$: it allows to capture the minimum of quantum correlation for the correlation $\left\langle \hat{n} \right\rangle$.
+
+The real experiments runs with a few tens of millions of atoms. However, most of them are \textit{waiting} in the different intermediate transitions\footnote{In order to populate the level $^3P_1$, multiple levels are used as intermediate stages with different repumps. Thereby, the atoms involving in those levels need a certain amount of time to be excited to the level $^3P_1$.}, the number of atoms actually acting for the laser transition $^1S_0$-$^3P_1$ is evaluated to approximately one million.
+
+As the quasi-continous lasing state is maintained up to approximately four milliseconds, the time interval used for the simulation is long of one millisecond.
+
+In the data analysis chapter \ref{data_analysis_chapter}, we shall see that we can extract a stationary process out of the quasi-continous lasing state. Therefore, only $\vert g^1(\tau) \vert$ shall be computed with initial value. The initial values for the set of equations governing $\left\langle\hat{a}^\dagger(t_1)\hat{a}_{t_2}\right\rangle$ are taken at steady-state, i.e, for $t=1$ms.\footnote{We shall see in the results that 1ms is highly sufficient to reach the steady state of lasing.}
+
+The coherence time $\tau_c$ is computed according to the definition given by R.Loudon in sections 3.4, namely:
+\begin{equation}
+\tau_c \stackrel{\text{def}}{=} \int_{-\infty}^{+\infty} \vert g_1(\tau) \vert^2 \, d\tau
+\end{equation} 
+
+\subsection{Simulation with 10,000 atoms inside the cavity}
+
+We start with $N=10,000$. Thus, the initial state is $\ket{j=5000, m=0, n=0}$: half of the atoms are excited and zero photon is present inside the cavity. The repump rate is evaluated to $\nu \simeq \kappa / 103.95373$. The steady state shows $\left\langle \hat{S}_z(t_\infty) \right\rangle \sim 0.24$: the ratio is approximately $0.000048$.
+
+We clearly see on the figures that order $m=3$ and $m=4$ overlaps perfectly. It means that we succeed to capture all the quantum information/correlation at order $m=3$ for those paramters of the experiment. As only $N$ and $\nu$ are modified for the two remaining set of equations, we can safely restrict the computation to the order $m=3$. 
+
+\subsection{Simulation with 100,000 atoms inside the cavity}
+
+Then, we set $N=100,000$. Thus, the initial state is $\ket{j=50,000, m=0, n=0}$. The repump rate is evaluated to $\nu \simeq \kappa / 103.9537874$. The steady state shows $\left\langle \hat{S}_z(t_\infty) \right\rangle \sim 2.01$: the ratio is approximately $0.00004$.
+
+\subsection{Simulation with 300,000 atoms inside the cavity}
+
+Finally, we set $N=300,000$. We start to see on the figures some clear oscillations due to the high numbers stored in memory (i.e the stability is progressively lost as the number of atoms increases). This is the highest $N$ which gives coherent results with the  Thus, the initial state is $\ket{j=50,000, m=0, n=0}$. The repump rate is evaluated to $\nu \simeq \kappa / 103.954651$. The steady state shows $\left\langle \hat{S}_z(t_\infty) \right\rangle \sim 5.6$. : the ratio is approximately $0.000037333$.
+
+\subsection{Discussion}
 
 \chapter{Heterodyne experiment}
 \section{Standard setup for $g^1$ and its limitations}
@@ -1487,6 +1527,7 @@ In other words, this figure shows \textit{how visible} is the signal compared to
 As we can see, between 20 and 50 picowatts, the 43MHz beat is clearly distinguishable from the global noise level. Therefore, we should be able to retrieve the signal from the detector output when the true superradiant laser shall be used.
 
 \chapter{Data analysis}
+\label{data_analysis_chapter}
 \section{Light detection: classical development}
 
 In this section, we shall make a theoretical development of the detection process from a classical point of view, in order to evaluate the frist order correlation function $g^1$. In fact, we shall demonstrate that the ouput signal from the heterodyne detector is not directly $g^1$ but a composition of the cavity's \textit{signal}\footnote{Note that we use here the term "signal" instead of "electric field" because we are going to analyse somehow equivalently the light, current and voltage fields.} and the local oscillator's \textit{signal}. Therefore, we must numerically transform the ouput signal to compute the norm of $g^1$.
@@ -1932,11 +1973,7 @@ The first sample, as stated previously, does not reach unity due to the downsamp
 \begin{equation}
 \textrm{Gaussian fit}(\tau, A, \sigma) = \frac{A}{\sqrt{2\pi}\sigma} e^{-\frac{\tau^2}{2\sigma^2}} + 0.1
 \end{equation}
-where the amplitude $A$ and variance $\sigma^2$ are the paramater numerically determined. As we can see in figure \ref{fig:sp-stat}, $\sigma$ is valued to $4\cdot10^{-5}$ which means that, by definition, 95.45\% of the area under the gaussian is covered for $\tau=2\sigma\simeq 80$µs. If we respect the definition given by R.Loudon in sections 3.4, namely:
-\begin{equation}
-\tau_c \stackrel{\text{def}}{=} \int_{-\infty}^{+\infty} \vert g_1(\tau) \vert^2 \, d\tau
-\end{equation} 
-then a numerical integration gives $\tau_c \simeq 32$µs. In other words, for the time interval where the superradiant laser exhibits a stationary process (i.e between 0.5ms and 3ms on the time interval), the frequency emitted is \textit{fairly} coherent for 30µs (i.e $\vert g^1(\tau) \vert \gtrsim 0.6$)\footnote{Due to the global offset of the curves in \ref{fig:sp-stat} along the y-axis, we can predict a slight reduction of the coherence time for the \textit{real} curve.} and mostly incoherent after 80µs.
+where the amplitude $A$ and variance $\sigma^2$ are the paramater numerically determined. As we can see in figure \ref{fig:sp-stat}, $\sigma$ is valued to $4\cdot10^{-5}$ which means that, by definition, 95.45\% of the area under the gaussian is covered for $\tau=2\sigma\simeq 80$µs. If we respect the definition \ref{}, then a numerical integration gives $\tau_c \simeq 32$µs. In other words, for the time interval where the superradiant laser exhibits a stationary process (i.e between 0.5ms and 3ms on the time interval), the frequency emitted is \textit{fairly} coherent for 30µs (i.e $\vert g^1(\tau) \vert \gtrsim 0.6$)\footnote{Due to the global offset of the curves in \ref{fig:sp-stat} along the y-axis, we can predict a slight reduction of the coherence time for the \textit{real} curve.} and mostly incoherent after 80µs.
 
 As I write these lines, the team and myself are not able to understand why the behavior is \textit{Gaussian}. Obivously, it means that the spread of frequencies is mainly due to a Doppler broadening effect\footnote{See Loudon ??} which may be encountered with thermal light for example. Moreover, we can extend the question by applying the \textit{Wiener-Khintchine theorem} stating that "the autocorrelation function of a stationary random process (i.e $G^1(\tau)$) and the power spectrum of the process form a Fourier transform pair"\footnote{See Mandel and Wolf ??}:
 \begin{equation}
@@ -1946,11 +1983,11 @@ where $G^1(\tau)$ is the non-normalized equivalent of $g^1(\tau)$ and $S(\omega)
 
 \chapter{Conclusion}
 
-Firstly, we created a quantum model representing the most accurately possible the actual system of the superradiant laser. As the atoms composing the gain medium are indistinguishable, we use the Tavis-Cummings model where the two-level atoms are \textit{packed} into a collective spin state. Moreover, three lindblad terms are added, representing the cavity leak, the repump of the atoms and the decay into free space. We saw that the simulation of open quantum systems involving thousands of particles is a tough subject: a bruteforce simulation is limited to only a few particles. Thereby, the cumulant expansion method is applied where a set of equation involving the expectation values of each group of operator is derived. We may freely choose the level of precision at which we capture the quantum correlation. This method allow a faster computation and save numerical resources in order to simulate sevral hundred thousands of atoms with paramters describing the actual configuration of the superradiant system.
+Firstly, we have created a quantum model representing the most accurately possible the actual system of the superradiant laser. As the atoms composing the gain medium are indistinguishable, we use the Tavis-Cummings model where the two-level atoms are \textit{packed} into a collective spin state. Moreover, three lindblad terms are added, representing the cavity leak, the repump of the atoms and the decay into free space. We saw that the simulation of open quantum systems involving thousands of particles is a tough subject: a bruteforce simulation is limited to only a few particles. Thereby, the cumulant expansion method is applied where a set of equation involving the expectation values of each group of operator is derived. We may freely choose the level of precision at which we capture the quantum correlation. This method allow a faster computation and save numerical resources in order to simulate sevral hundred thousands of atoms with paramters describing the actual configuration of the superradiant system.
 
-In parallel, we build an extension to the original superradiant experiment in the view of measuring the first order correlation function. In order to reduce the electronic noise of the circuit, a component of the detector is changed after a meticulous analysis. Then, the latter is put into the heterodyne experiment and several tests, including intensity saturation and power to noise ratio, are done before actual use. The data analysis of the recorded signals is made through several algorithms treating the non-stationary and stationary case of $g^1$ as well as side numerical methods like band-pass filtering, downsampling, parallelism, etc.
+In parallel, we have built an extension to the original superradiant experiment in the view of measuring the first order correlation function. In order to reduce the electronic noise of the circuit, a component of the detector is changed after a meticulous analysis. Then, the latter is put into the heterodyne experiment and several tests, including intensity saturation and power to noise ratio, are done before actual use. The data analysis of the recorded signals is made through several algorithms treating the non-stationary and stationary case of $g^1$ as well as side numerical methods like band-pass filtering, downsampling, parallelism, etc.
 
-Finally, we experimentally determine a time interval of three to four milliseconds where the superradiant laser exhibits a stationary process. Hence, the stationary $\vert g^1(\tau) \vert$ is numerically extracted from the non-stationary equivalent and we demonstrate that the coherence time $\tau_c$ is about thirty microseconds whereas the phase information is completely lost after eighty microseconds. Moreover, a clear gaussian shape appears for $\vert g^1(\tau) \vert$, revealing a Doppler-broadened effect on the quantum system which allow to determine a linewidth of 59kHz by applying the Wiener-Khintchine theorem. Unfortunately, the numerical results are not conclusive: we barely reach the same order of magnitude for the coherence time $\tau_c$ with ?? microseconds and the gaussian shape is quasi-inexistant (even if the shape is clearly not lorentzian). Moreover, the finite precision of the numbers lead to a limitation of the number of simulated atoms to three hundred thousands, which is approximately three times less than the actual number of active atoms inside the cavity.
+Finally, we experimentally determined a time interval of three to four milliseconds where the superradiant laser exhibits a stationary process. Hence, the stationary $\vert g^1(\tau) \vert$ is numerically extracted from the non-stationary equivalent and we demonstrate that the coherence time $\tau_c$ is about thirty microseconds whereas the phase information is completely lost after eighty microseconds. Moreover, a clear gaussian shape appears for $\vert g^1(\tau) \vert$, revealing a Doppler-broadened effect on the quantum system which allow to determine a linewidth of 59kHz by applying the Wiener-Khintchine theorem. Unfortunately, the numerical results are not conclusive: we barely reach the same order of magnitude for the coherence time $\tau_c$ with ?? microseconds and the gaussian shape is quasi-inexistant (even if the shape is clearly not lorentzian). Moreover, the finite precision of the numbers lead to a limitation of the number of simulated atoms to three hundred thousands, which is approximately three times less than the actual number of active atoms inside the cavity.
 
 Those poor results for the numerical part are a personal deception as I have spent a certain amount of energy writing and optimizing the full algorithm generating the sets of equations as well as the solver. However, this theoretical modeling and simulation allowed me to read tens of related articles from which I have clearly extended my understanding on open quantum systems and their numerical approach. Similarly, the experimentation brought me to edge of my previous capacities, thus enhanced my skills in experimental setup, signal processing and electronics: I learned that being a researcher, especially an experimentalist, force you to, not only excel in your domain (here, quantum optics), but also be a multidisciplinary specialist for which, I think, I managed to control for this project.
 

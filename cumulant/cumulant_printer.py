@@ -91,12 +91,12 @@ def gn_cumulant_printer(op_init, op, order, g_name):
 
 
 ### PRINT PYTHON
-#corr_cumulant_printer(OP_Ad * OP_A, 2)
+#corr_cumulant_printer(OP_Ad, 2)
 #corr_cumulant_printer(OP_Ad * OP_A, 3)
 #corr_cumulant_printer(OP_Ad * OP_A, 4)
-#gn_cumulant_printer(OP_Ad, OP_Ad * OP_Ac, 2, "g1")
+gn_cumulant_printer(OP_Ad, OP_Ad * OP_Ac, 2, "g1")
 #gn_cumulant_printer(OP_Ad, OP_Ad * OP_Ac, 3, "g1")
-gn_cumulant_printer(OP_Ad, OP_Ad * OP_Ac, 4, "g1")
+#gn_cumulant_printer(OP_Ad, OP_Ad * OP_Ac, 4, "g1")
 #gn_cumulant_printer(OP_Ad * OP_A, OP_Adc * OP_Ad * OP_A * OP_Ac, 5, "g2")
 
 ### PRINT RUST

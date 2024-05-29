@@ -3,6 +3,7 @@ from scipy.integrate import solve_ivp
 from matplotlib import pyplot
 from matplotlib import pyplot as plt
 import qutip as qp
+from scipy import integrate
 from cavity_global import *
 #from corr_sys_ada_order_2 import *
 #from corr_sys_ada_order_3 import *
@@ -16,6 +17,8 @@ from g1_sys_adac_order_3 import *
 #from g1_sys_adac_order_4 import *
 #from g2_sys_adcadaac_order_4 import *
 #from g2_sys_adcadaac_order_5 import *
+
+from corr_sys_ad_order_2 import *
 
 #op_sz = qp.tensor(qp.spin_Jz(SPIN_NUM), qp.qeye(FOCK_DIM))
 #op_sp = qp.tensor(qp.spin_Jp(SPIN_NUM), qp.qeye(FOCK_DIM))
@@ -67,33 +70,33 @@ from g1_sys_adac_order_3 import *
 
 ### g1
 
-
-
 #x_init_ad_order_2 = corr_get_init_vec_ad_order_2(init_state)
-state_2 = state.cop()
+#state_2 = state.cop()
+#state_4 = state.cop()
+#x_init_ad_order_2 = corr_get_init_vec_ad_order_2(state_2)
 x_init_ad_order_3 = corr_get_init_vec_ad_order_3(state)
-#x_init_ad_order_4 = corr_get_init_vec_ad_order_4(state_2)
+#x_init_ad_order_4 = corr_get_init_vec_ad_order_4(state_4)
 #
 print("Solver started...", end='', flush=True)
 #solution_order_2 = solve_ivp(corr_system_ad_order_2, [0.0, 10.0], x_init_ad_order_2, first_step=0.1, max_step=0.1)
+#solution_order_2 = solve_ivp(corr_system_ad_order_2, [0.0, 0.001], x_init_ad_order_2)
 solution_order_3 = solve_ivp(corr_system_ad_order_3, [0.0, 0.001], x_init_ad_order_3)
 #solution_order_4 = solve_ivp(corr_system_ad_order_4, [0.0, 0.001], x_init_ad_order_4)
 print("Done")
 #
-print(solution_order_3.y[27][0])
-print(solution_order_3.y[25][0])
 fig, ax = pyplot.subplots(1, 1)
 fig.set_size_inches(18.5, 10.5)
-ax.plot(solution_order_3.t, np.real(solution_order_3.y[27]), label="<n> (cumulant 3rd order)", color="orange")
-ax.plot(solution_order_3.t, np.real(solution_order_3.y[25]), label="<Sz> (cumulant 3rd order)", color="green")
-#ax.plot(solution_order_4.t, np.real(solution_order_4.y[73]), label="<n> (cumulant 4th order)", color="blue")
-#ax.plot(solution_order_4.t, np.real(solution_order_4.y[68]), label="<Sz> (cumulant 4th order)", color="green")
+#ax.plot(solution_order_2.t * 1000, np.real(solution_order_2.y[11]), label="<n> (cumulant 2nd order)", color="pink", linestyle="--")
+#ax.plot(solution_order_2.t * 1000, np.real(solution_order_2.y[9]), label="<Sz> (cumulant 2nd order)", color="purple", linestyle="--")
+ax.plot(solution_order_3.t * 1000, np.real(solution_order_3.y[27]), label="<n> (cumulant 3rd order)", color="orange")
+ax.plot(solution_order_3.t * 1000, np.real(solution_order_3.y[25]), label="<Sz> (cumulant 3rd order)", color="green")
+#ax.plot(solution_order_4.t * 1000, np.real(solution_order_4.y[73]), label="<n> (cumulant 4th order)", color="orange", linestyle='dashdot')
+#ax.plot(solution_order_4.t * 1000, np.real(solution_order_4.y[68]), label="<Sz> (cumulant 4th order)", color="red", linestyle='dashdot')
 ax.legend()
-ax.set_xlabel('time [s]')
+ax.set_xlabel('time [ms]')
 ax.set_ylabel('expectation values')
 #
 plt.show()
-n_steady_state = solution_order_3.y[27][-1]
 #
 #
 ## We compute g1 in the steady-state so we take the last value of a(t) and ad(t) for a0 (= ac) and ad0 (= adc)
@@ -119,22 +122,29 @@ x_init_g1_order_3 = g1_get_init_vec_adac_order_3(solution_order_3.y, -1)
 #x_init_g1_order_4 = g1_get_init_vec_adac_order_4(solution_order_4.y, -1)
 #
 print("Solver started...", end='', flush=True)
-#g1_solution_order_2 = solve_ivp(g1_sys_order_2, [0.0, 10.0], x_init_g1_order_2, first_step=0.1, max_step=0.1)
+#g1_solution_order_2 = solve_ivp(g1_sys_order_2, [0.0, 0.001], x_init_g1_order_2)
 g1_solution_order_3 = solve_ivp(g1_sys_order_3, [0.0, 0.001], x_init_g1_order_3)
 #g1_solution_order_4 = solve_ivp(g1_sys_order_4, [0.0, 0.001], x_init_g1_order_4)
 print("Done")
 #
+
+print("Integrating...")
+print(integrate.simps((np.abs(g1_solution_order_3.y[0]) / np.abs(g1_solution_order_3.y[42][0]))**2, g1_solution_order_3.t))
+print("Done")
+
 fig, ax = pyplot.subplots(1, 1)
 fig.set_size_inches(18.5, 10.5)
 #ax.plot(g1_solution_order_2.t, np.real(g1_solution_order_2.y[0]), label="<ad(t)ac> 2nd steady-state", color="green", linestyle="--")
 #ax.plot(g1_solution_order_3.t, np.abs(g1_solution_order_3.y[0]), label="<ad(t)ac> 3rd steady-state", color="orange", linestyle="--")
-ax.plot(g1_solution_order_3.t, np.abs(g1_solution_order_3.y[0]) / np.abs(g1_solution_order_3.y[42][0]), label="|g¹(τ)| (cumulant 3rd order)", color="blue")
+#ax.plot(g1_solution_order_2.t * 1000, np.abs(g1_solution_order_2.y[0]) / np.abs(g1_solution_order_3.y[14][0]), label="|g¹(τ)| (cumulant 2nd order)", color="pink")
+ax.plot(g1_solution_order_3.t * 1000, np.abs(g1_solution_order_3.y[0]) / np.abs(g1_solution_order_3.y[42][0]), label="|g¹(τ)| (cumulant 3rd order)", color="blue")
+#ax.plot(g1_solution_order_4.t * 1000, np.abs(g1_solution_order_4.y[0]) / np.abs(g1_solution_order_4.y[98][0]), label="|g¹(τ)| (cumulant 3rd order)", color="red")
 #ax.plot(g1_solution_order_3.t, np.abs(g1_solution_order_3.y[0]) / n_steady_state, label="<ad(t)ac> 3rd steady-state", color="green", linestyle="--")
 #ax.plot(g1_solution_order_4.t, np.real(g1_solution_order_4.y[0]), label="<ad(t)ac> 4th steady-state", color="red", linestyle="--")
 #ax.plot(g1_solution_order_3.t, np.abs(g1_solution_order_3.y[0]) / np.abs(g1_solution_order_4.y[98][0]), label="|g¹(τ)| (cumulant 4th order)", color="blue")
 #
 ax.legend()
-ax.set_xlabel('τ')
+ax.set_xlabel('τ [ms]')
 ax.set_ylabel('correlations')
 #
 plt.show()
