@@ -155,7 +155,7 @@ where one uses the intensity transmission coeffcients $t_{1,2}^2 = 1-r_{1,2}^2$.
 where the integer variable $n$ has been replaced by the continuous one $x \in \mathbb{R}$ so that one can also investigate the behavior of the enhancment factor $A'(\phi) \sim A'(x)$ away from the resonant frequencies. Figure \ref{fig:airy-dist} is a normalized drawing\footnote{One divides the whole graph by $A'(0)$} of the airy distribution for a short amount of negative and positive resonant frequencies through a couple of reflexion coefficient $r_{1,2}$. 
 
 \begin{figure}[h]
-\caption{Normalized Airy distribution plot from -5 to 5 rads for three different sets of mirrors.}
+\caption{Normalized Airy distribution plot from -5 to 5 rads for three different sets of mirrors. The linewidth of each resonance increase as the reflection coefficient of the mirrors decrease. We set $r_{1,2} = 0.9$ for the blue curve, $r_{1,2} = 0.8$ for the orange curve, $r_{1,2} = 0.7$ for the green curve. The reflection coefficient is the same for the two mirrors in the three cases: $r_{1} = r_{2}$.}
 \centering
 \includegraphics[width=\textwidth]{airy-dist}
 \label{fig:airy-dist}
@@ -176,7 +176,7 @@ where $\textrm{FWHM} \stackrel{\text{def}}{=} \Delta\nu$.
 Finally, one can sketch the FWHM as a fonction of the mirror reflectivities $r_{1,2}$ and obtain figure \ref{fig:airy-fmwh}.
 
 \begin{figure}[h]
-\caption{FMWH (unit is frequency in rad/s) as function of the mirror reflectivities $r_{12} = r_1 = r_2$. As FSR is unity then the ordinate axis is the inverse of the finesse by definition.}
+\caption{FMWH (unit is frequency in rad/s) as function of the mirror reflectivities $r_{12} = r_1 = r_2$. As FSR is unity then the ordinate axis is the inverse of the finesse by definition. The divergence of the curve at $\sim 0.2$ clearly shows the limitation of the \textit{Airy} approach for the low reflection coefficients.}
 \centering
 \includegraphics[width=\textwidth]{airy-fmwh}
 \label{fig:airy-fmwh}
@@ -184,7 +184,7 @@ Finally, one can sketch the FWHM as a fonction of the mirror reflectivities $r_{
 
 Two important points are noticeable:
 \begin{itemize}
-	\item The linewidth of a cavity is invertly dependent on the mirrors reflectivity. In other words, larger is the transmission factor of the mirrors, the broader the frequency range around resonances, giving a \textit{less selective} cavity, and reciprocally. Then, two perfeclty reflective mirrors allow the FWHM to tend to zero: the cavity selects only and exactly the resonant frequencies $\frac{n\pi}{L}$. Formally, the \textit{selectivity} of a cavity is defined by its \textit{finesse} which reads $F \stackrel{\text{def}}{=} \frac{\textrm{FSR}}{\Delta\nu}$ where $FSR$ is the \textit{free spectral range}: one normalizes the distance (in term of frequency) separating two resonances by the linewidth.
+	\item The linewidth of a cavity is invertly dependent on the mirrors reflectivity. In other words, larger is the transmission factor of the mirrors, the broader the frequency range around resonances, giving a \textit{less selective} cavity, and reciprocally. Then, two perfeclty reflective mirrors allow the FWHM to tend to zero: the cavity selects only and exactly the resonant frequencies $\frac{n\pi}{L}$. Formally, the \textit{selectivity} of a cavity is defined by its \textit{finesse} which reads $F \stackrel{\text{def}}{=} \frac{\textrm{FSR}}{\Delta\nu}$ where $\textrm{FSR}$ is the \textit{free spectral range}: one normalizes the distance (in term of frequency) separating two resonances by the linewidth.
 	\item The function modeling the FWHM tends to infinity below a certain value which can be evaluated to approximately $r_1r_2 \approx 0.17$. That is due to the behavior of the $\arcsin$ which is not defined beyond $x=1$ for $x \in \mathbb{R}^+$. 
 \end{itemize}
 
@@ -354,7 +354,7 @@ Then, applying the spatial evolution operator, one finds\footnote{See appendix \
 where we defined the Rabi frequency $\Omega = 2g$. Making the projection (i.e a measurement) along $\ket{\uparrow, 0}$ or $\ket{\downarrow, 1}$ and one ends up with the Rabi oscillations sketched on figure  \ref{fig:rabi-no-delta} where we set $g=1$:
 
 \begin{figure}[h]
-\caption{Rabi oscillations for the simple initial state $\ket{\uparrow, 0}$.}
+\caption{Rabi oscillations for the simple initial state $\ket{\uparrow, 0}$. Projection on the state "one-photon/atom not excited" (orange curve) and the state "zero photon/atom excited" (blue curve)}
 \centering
 \includegraphics[width=\textwidth]{rabi-no-delta}
 \label{fig:rabi-no-delta}
@@ -363,7 +363,7 @@ where we defined the Rabi frequency $\Omega = 2g$. Making the projection (i.e a 
 As we can see on figure \ref{fig:rabi-no-delta}, the probabilities of finding one photon with the atom in its ground state, while no photon with the atom in the excited state, oscillate in opposite phase.
 
 \begin{figure}[h!]
-\caption{Rabi oscillations for the initial state $\ket{\uparrow, 0}$ with different detunings.}
+\caption{Rabi oscillations for the initial state $\ket{\uparrow, 0}$ with different detunings. Projection on the state "one-photon/atom not excited" (dotted curves) and the state "zero photon/atom excited" (solid curves)}
 \centering
 \includegraphics[width=\textwidth]{rabi-prog-delta}
 \label{fig:rabi-prog-delta}
@@ -1056,7 +1056,7 @@ An heterodyne setup is, as stated by its name, an experiment involving two mixed
 A simple version of the heterodyne setup used in the actual experiment is summarysed in figure \ref{fig:heterodyne-fst}.
 
 \begin{figure}[h!]
-\caption{Heterodyne setup diagram.}
+\caption{Heterodyne setup diagram. Two laser beams as inputs of the beam splitter: the cavity field and the local oscillator field. Each output of the beam splitter is detected by a photodiode. The electric voltage produced is then substracted.}
 \centering
 \includegraphics[width=\textwidth]{heterodyne-fst}
 \label{fig:heterodyne-fst}
@@ -1121,7 +1121,7 @@ In theory, the electronic circuit does not produce any additional noise. That is
 Firstly, we introduce a basic diagram on the working principle of the detector in figure \ref{fig:detector-fst}. It is mainly composed of two diodes (block (1)), which are also called \textit{photodiodes} as they react to the incoming light, plus an essential circuit called \textit{transimpedance amplifier} (block (2)) connected in between of the diodes.
 
 \begin{figure}[h!]
-\caption{Basic electric circuit showing the working principle of the detector.}
+\caption{Basic electric circuit showing the working principle of the detector. "Block 1" is composed of two photodiodes whereas "Block 2" is mainly composed of the transimpedance amplifier circuit.}
 \centering
 \includegraphics[width=0.6\textwidth]{detector-fst}
 \label{fig:detector-fst}
@@ -1130,7 +1130,7 @@ Firstly, we introduce a basic diagram on the working principle of the detector i
 The photodiodes are placed in the so called \textit{photoconductive mode} where the region of reverse bias in figure \ref{fig:photodiode-vi} defines the relation bewteen the voltage and the current. In fact a basic diode, by principle, allows the current to flow through it only if the voltage is positive on the cathode and negative on the anode (i.e forward bias). Otherwise, when reverse biased, the current does not flow\footnote{In practice, there exists a a certain voltage called \footnote{breakdown voltage} where the current suddenly flow exponentially from the anode to the cathode.}. For a photodiode, the same idea applies except that when reverse biased, the current can flow through it only if the diode is illuminated. Note that even if the current flows, the difference of voltage between the anode and cathode stays the same: in other words, the photodiode does not act as a switch where the the voltage is homogeneous through the component when the current flow (i.e when the circuit is closed). 
 
 \begin{figure}[h!]
-\caption{Photodiode modes according the the applied voltage and light intensity.}
+\caption{Photodiode modes according the the applied voltage and light intensity. The mode actually used in the detector is the "photoconductive mode or "reverse bias" region. Three solid black curves are represented with incoming light power increasing as the curves \textit{moves down} the graph: for a negative voltage applied on the diodes, more light hit the diode, more current flows through.}
 \centering
 \includegraphics[width=0.7\textwidth]{photodiode-vi}
 \label{fig:photodiode-vi}
@@ -1152,7 +1152,7 @@ and an ouput\footnote{This is an active component so it needs to be under tensio
 \begin{itemize}
  \item The op-amp's output attempts to do whatever it is necessary to make the voltage difference between the inputs zero until a saturation ouput voltage
  \item The op-amp's inputs draw no current.
-\end{itemize} As showed on Fig ??, the inverting input is grounded which involve (B) to be grounded. Now, let's say that the output saturation voltage of the op-amp is 10V (i.e the max ouput is 10V and min is -10V), if a current flows through B, by second golden rule, then the current flows through the resistance R and generate a voltage.
+\end{itemize} As showed in figure \ref{fig:detector-fst} , the inverting input is grounded which involve (B) to be grounded. Now, let's say that the output saturation voltage of the op-amp is 10V (i.e the max ouput is 10V and min is -10V), if a current flows through B, by second golden rule, then the current flows through the resistance R and generate a voltage.
 \begin{itemize}
 	\item If $I = 10mA$ with $R = 500\Omega$ then $(C) = -5V$.
 	\item If $I = 20mA$ with same resistance then $(C) = -10V$.
@@ -1163,7 +1163,7 @@ where we used the formula:
 \label{ueqri}
 U = R \times I
 \end{equation}
-with $U$ the tension in volts, $R$ the resistance in ohms, and $I$ the current in ampères. Evidently, those examples are representing a DC signal. However, the photodiodes react to a beat created by the overlap of two beams as described in the previous section\footnote{They react to the $\delta\omega$ term defined earlier which is in practice around 43MHz.}: this beat is an AC signal and from the previous example, the limit of photocurrent for saturation would variate periodically (according to the shape if the signal) between +20mA and -20mA.
+with $U$ the tension in volts, $R$ the resistance in ohms, and $I$ the current in ampères. Evidently, those examples are representing a DC signal. However, the photodiodes react to a beat created by the overlap of two beams as described in the previous section\footnote{They react to the $\delta\omega$ term defined earlier which is in practice around 43MHz.}: this beat is an AC signal and from the previous example, the limit of photocurrent for saturation would vary periodically (according to the shape if the signal) between +20mA and -20mA.
 
 In other words, the transimpedance amplifier circuit has a limited range of input current which can be transformed into a voltage. In fact, one has to be careful on the photocurrent involved after the diodes (i.e at (A)) by testing the ouput voltage of the detector according to the light power hiting the diodes. Otherwise, if the incoming light deliver a photocurrent leading to saturation, one loses the data. Actually, as the photocurrent are substracted, the range limits must be tested with one of the two diodes disabled \footnote{In practice, we just put a piece of paper in front of one photodiode.}. The actual detector has a limited range output of $\pm$15V and the saturation test of the circuit is tested in a further section.
 
@@ -1202,7 +1202,7 @@ which is called the \textit{resonance} of the circuit caracterizing a null imped
 Moreover, the whole circuit, as depicted in figure \ref{fig:detector-fst} plus the Notch filter, has a hidden filter. Indeed, the photodiodes, when enabled and receiving light, may be theoretically replaced by an equivalent circuit between as represented in figure \ref{fig:equiv-diode}: one current source in parallele of a capacitor and a resistance.
 
 \begin{figure}[h!]
-\caption{Equivalent circuit for a photodiode.}
+\caption{Equivalent circuit for a photodiode. A resistor and a capacitor are put in parallel (those two components are sometimes called \textit{stray capacitance/resistance}).}
 \centering
 \includegraphics[width=0.2\textwidth]{equiv-diode}
 \label{fig:equiv-diode}
@@ -1215,7 +1215,7 @@ C_{total} = C_{photodiode,1} + C_{photodiode,2} + C_{op-amp}
 In theory (i.e from the data sheets) we have a total capacitance of $9pF$ (pico-Farads) but in practice, and with further analyses of the dectector, it turns out that $C_{total}$ is around $14pF$. Note that this formula is clearly the same for resistors in series. Now, the figure \ref{fig:detector-sec} shows the simplified circuit of the dectector with the Notch filter and the \textit{hidden} filter, where we replaced the resistor .
 
 \begin{figure}[h!]
-\caption{Detetector's circuit design with the additional filters.}
+\caption{Detetector's circuit design with the additional filters between the photodiodes and the transimpedance amplifier.}
 \centering
 \includegraphics[width=0.7\textwidth]{detector-sec}
 \label{fig:detector-sec}
@@ -1250,7 +1250,7 @@ The gain is set to 1 only for a very narrow frequency range (parametrized by the
 As we can see, compared to the transimpedance amplifier, this circuit in figure \ref{fig:detector-sec} has an additional impedance $Z_{in}$ between the nodes (A) and (B). Considering the photodiodes as a current source, things get more complex than the transimpedance amplifier by the presence of $Z_{in}$. Actually, we use an \textit{electronic design automation software}, namely \textit{LTSpice}, in order to get the gain at the ouput of the actual detector. Then, from simulation, we get figure \ref{fig:total_gain_original} which clearly shows that the filters does not affect the interesting region which consist of a narrow bandwidth arround 43MHz: the expected signal collected from the photodiodes is amplified whereas high frequencies (i.e above 100Mhz) are removed from the output signal.
 
 \begin{figure}[h!]
-\caption{Total gain of the circuit with original components.}
+\caption{Total gain of the circuit with original components. It shows how the output power is increased/reduced compared to the input power of the circuit as function of the frequency of the input signal. The 43MHz input frequency is not affected by the filters.}
 \centering
 \includegraphics[width=\textwidth]{total_gain_original}
 \label{fig:total_gain_original}
@@ -1259,8 +1259,8 @@ As we can see, compared to the transimpedance amplifier, this circuit in figure 
 However, we stated before that the noise is generated from the non-inverting input of the op-amp whereas the photodiodes does not receive light: the equivalent circuit corresponds to the simplified diagram which is given in figure \ref{fig:transimp}.
 
 \begin{figure}[h!]
-\caption{Basic circuit designa of a transimpedance amplifier. $V
-_{in}$ is the voltage noise generated by the op-amp at its non-inverting input.}
+\caption{Basic circuit design of a transimpedance amplifier. $V
+_{in}$ is the voltage noise generated by the op-amp at its non-inverting input. $Z_{in}$ and $Z_f$ are two impedance of the associated passive component (it can be a resistor, capacitor, inductor...)}
 \centering
 \includegraphics[width=0.5\textwidth]{transimp}
 \label{fig:transimp}
@@ -1273,7 +1273,7 @@ This circuit is called a non-inverting voltage amplifier where the gain may be f
 where $Z_f$ is basically a resistor\footnote{On the real electronic scheme \ref{fig:elec-scheme}, the resistor owns an additional capacitor in parallele.} and $Z_{in}$ is composed of the filters (Notch plus Tank filter). Thanks to the inversion if the impedance, namely $1/Z_{in}$, the behavior of all the components $Z_{in}$ are inverted. In other words, the Notch filter corresponds now to a \textit{band-pass} filter whereas the Tank filter corresponds to a \textit{band-cut} filter for the electronical noise. Thereby, we need to match the band-cut filter resonance, that is to say where the gain of the electronic noise is minimum, to the main frequency of our incoming beam (i.e 43MHz).
 
 \begin{figure}[h!]
-\caption{Full electronic scheme of the actual detector. The actual component values may differ from reality as this figure has been produced for several \textit{type} of the same detector.}
+\caption{Full electronic scheme of the actual detector. The actual component values may differ from reality as this figure has been produced for several \textit{type} of the same detector. We basically see the circuit of figure \ref{fig:detector-sec} on the left.}
 \centering
 \includegraphics[width=0.95\textwidth]{elec-scheme}
 \label{fig:elec-scheme}
@@ -1282,7 +1282,7 @@ where $Z_f$ is basically a resistor\footnote{On the real electronic scheme \ref{
 From simulation of the electronic scheme \ref{fig:elec-scheme}, we get the following gain graph \ref{fig:noise_gain_opamp_original}. 
 
 \begin{figure}[h!]
-\caption{Simulated noise gain graph with the original components.}
+\caption{Simulated noise gain graph with the original components. The notch (left vertical line) and tank filter (right vertical line) are positioned as predicted.}
 \centering
 \includegraphics[width=0.8\textwidth]{noise_gain_opamp_original}
 \label{fig:noise_gain_opamp_original}
@@ -1304,17 +1304,17 @@ Then, we can compare those values with the detector directly connect to the spec
 \begin{subfigure}{.45\textwidth}
   \centering
   \includegraphics[width=1.1\linewidth]{opick}
-  \caption{Op-amp's noise for the notch filter.}
+  \caption{Noise power centered around the notch filter resonance.}
   \label{fig:opeak}
 \end{subfigure}%
 \hspace{1em}%
 \begin{subfigure}{.45\textwidth}
   \centering
   \includegraphics[width=1.1\linewidth]{odeep}
-  \caption{Op-amp's noise for the tank filter.}
+  \caption{Noise power centered around the tank filter resonance.}
   \label{fig:odeep}
 \end{subfigure}
-\caption{Experimental spectrums with the original components.}
+\caption{Experimental spectrums with the original components. The detector is turned on with the photodiodes blocked from any incoming light and the output signal is analysed on a spectrum analyzer.}
 \label{fig:exp_spec_o}
 \end{figure}
 
@@ -1326,7 +1326,7 @@ f_{tank} = \frac{1}{2\pi\sqrt{0.82 \times 10^{-6} \times 14 \times 10^{-12}}} \s
 \end{equation}
 which appears to be $3$MHz out of resonance. However, when simulating the full circuit with this new value for the inductor, one obtains the graph \ref{fig:noise_gain_opamp_new}.
 \begin{figure}[h!]
-\caption{Simulated noise gain graph with the new inductor.}
+\caption{Simulated noise gain graph with the new inductor. Notch filter marked by the vertical line on the left. Tank filter marked by the vertical line on the right. The associated frequencies correspond approximately to the theory.}
 \centering
 \includegraphics[width=\textwidth]{noise_gain_opamp_new}
 \label{fig:noise_gain_opamp_new}
@@ -1341,14 +1341,14 @@ At the end of the day, we have an inductor of exactly $0.8\mu F$ which allow a n
 \begin{subfigure}{.45\textwidth}
   \centering
   \includegraphics[width=1.1\linewidth]{mpick}
-  \caption{Op-amp's noise for the notch filter.}
+  \caption{Noise power centered around the notch filter resonance.}
   \label{fig:mpeak}
 \end{subfigure}%
 \hspace{1em}%
 \begin{subfigure}{.45\textwidth}
   \centering
   \includegraphics[width=1.1\linewidth]{mdeep}
-  \caption{Op-amp's noise for the tank filter.}
+  \caption{Noise power centered around the notch filter resonance.}
   \label{fig:mdeep}
 \end{subfigure}
 \caption{Experimental spectrums with the new inductor.}
@@ -1364,7 +1364,7 @@ Finally, we succeded to modify the detector with our frequency requirements by r
 The next sections will focus on the parametrization/configuration of the detector which involves, among others, saturation test, amplification noise test and technical procedures in order to make sure that the experiment works in the parameter's range of the detector.
 
 \begin{figure}[h!]
-\caption{Total gain of the circuit with the new inductor.}
+\caption{Total gain of the circuit with the new inductor. The 43MHz frequency is not affected by the filters.}
 \centering
 \includegraphics[width=\textwidth]{total_gain_new}
 \label{fig:total_gain_new}
@@ -1377,7 +1377,7 @@ Firstly, we start to simply verify if the \textit{final} laser beam, which is co
 Therefore, we add two lenses with a focal length of 50mm each in front of both diodes. We place them at 65mm from the diodes respectively. From a geometrical optic's point of view, the laser is essentially an ensemble of parallel lines of light as one could perceive from a distant star. Thereby, from the optical rule involved for a convergent lens, the laser's parallel lines firstly converge after crossing the lens until they all reach the focal point, then diverges. With this configuration, summarized in figure \ref{fig:heterodyne-lens}, the diodes are exactly 15mm after the focal point of the lenses. 
 
 \begin{figure}[h!]
-\caption{Heterodyne experiment with lens added.}
+\caption{Heterodyne experiment with lens added. The detector moves along a micrometer ruler in order to tune precisely the relative position between the photodiodes and the beams. In reality, this is a micrometer \textit{screw} but for the sake of simplicty, we talk about "ruler".}
 \centering
 \includegraphics[width=0.8\textwidth]{heterodyne-lens}
 \label{fig:heterodyne-lens}
@@ -1418,7 +1418,7 @@ As we can notice, this technic shows the same behavior for bigger or smaller bea
 Figure \ref{fig:diode-size-plot} shows the results for two different powers involved in the local oscillator: using two powers ensure that we are not saturating the photodiodes in term of intensity when measuring the beam's size. As we consider the cavity laser very weak (in order of picowatts), the main power come out of the reference laser\footnote{In that case, we use two very distinct powers which are tuned mechanically, with a button on the \textit{laser box}. This is not a \textit{clean} method because it is not very precise and we shall use a different method in the next section.}.
 
 \begin{figure}[h!]
-\caption{Average voltage ouput of the detector according to the relative position of one of the diode (The other diode is blocked from light), for two different power of the local oscillator.}
+\caption{Average voltage ouput of the detector according to the relative position of one of the diode (The other diode is blocked from light), for two different power of the local oscillator. Red curves: each diode receives 1.15mW of light power. Yellow curves: each diode receives 625µW of light power.}
 \centering
 \includegraphics[width=\textwidth]{diode-size-plot}
 \label{fig:diode-size-plot}
@@ -1472,7 +1472,7 @@ In order to check experimentally this behavior and evaluate the power to noise r
 Assuming that the input electric field is linearly polarized (which is the case experimentally), coupling those two devices makes a very precise power-tunable instrument. Figure \ref{fig:wp-pol-setup} represents how they must be placed along the optical axis.
 
 \begin{figure}[h!]
-\caption{Waveplate and polarizer setup as a power-tunable instrument. Note that the incoming beam doesn't to be necessary vertically polarized. Only the relative angle between the waveplate and polarizer is relevant for amplitude reduction}
+\caption{Waveplate and polarizer setup as a power-tunable instrument. The polarization stateof the light is sketched along the optical path. Note that the incoming beam does not need to be necessary vertically polarized. Only the relative angle between the waveplate and polarizer is relevant for amplitude reduction.}
 \centering
 \includegraphics[width=0.9\textwidth]{wp-pol-setup}
 \label{fig:wp-pol-setup}
@@ -1481,7 +1481,7 @@ Assuming that the input electric field is linearly polarized (which is the case 
 The waveplate rotate the electric field and the polarizer project the electric field: if the E-field is parallel to the polarizer axis after the waveplate, the output amplitude is the same as the input one. If the E-field is perpendicular to the polarizer axis after the waveplate, the ouput amplitude is null. Every polarisation's direction of the E-field in between shall give a reduced amplitude compared to the maximum amplitude: because of the scalar operation, the amplitude relation is not linear but \textit{cosine} dependent, hence very sensitive for almost perpendicular E-fields. The ensemble of Fig \ref{fig:wp-pol-setup} is placed before the beam splitter along the local oscillator's optical axis as in Fig \ref{fig:heterodyne-wp}.
 
 \begin{figure}[h!]
-\caption{Complete setup with the group Waveplate\&Polarizer added.}
+\caption{Complete setup with the group waveplate+polarizer added before the beam splitter (from the local oscillator's side).}
 \centering
 \includegraphics[width=0.8\textwidth]{heterodyne-wp}
 \label{fig:heterodyne-wp}
@@ -1517,7 +1517,7 @@ Now if we set that $\omega_1$ corresponds to our 43MHz and $\omega_2$ of the sam
 In other words, the modulation process translates the spectrum with 43MHz to the left (if we only take into account the term $\omega_1 -\omega_2$. Thus, a signal at 42MHz for example, will become a signal of -1MHz. By symmetry of the spectrum, this signal will superpose with a previous 44MHz signal also translated to 1MHz. 
 
 \begin{figure}[h!]
-\caption{Diagram showing the demodulation setup at the output of the detector.}
+\caption{Diagram showing the demodulation setup at the output of the detector. The dector ouput is mixed with a perfect one-mode signal of 43MHz. A low pass filter is then applied before the record step on the oscilloscope.}
 \centering
 \includegraphics[width=0.5\textwidth]{wavemixer}
 \label{fig:wavemixer}
@@ -1534,7 +1534,7 @@ In figure \ref{fig:power2noise}, we present the variance of the output voltage f
 where $N$ is the amount of samples recorded, $x_i$ denotes one sample (in volts) and $\overline{x}$ the mean voltage of the set. As a typical is set is not too large, computationally speaking, we can apply the rough formula\footnote{For very large sets of data, one may use other approaches involving approximative but efficient algorithms.}.
 
 \begin{figure}[h!]
-\caption{Power to noise ratio plot for three different configurations.}
+\caption{Power to noise ratio plot for three different configurations. Cross symbols are experimental data whereas solid straigth lines are the asocciated fit. The red color stands for the balanced detection. The green color and purple color stand for the unbalanced detections: only the left/right diode receives light respectively.}
 \centering
 \includegraphics[width=0.8\textwidth]{power2noise}
 \label{fig:power2noise}
@@ -1548,7 +1548,7 @@ Three sets are recorded:
 In the three cases, an affine fit is applied (i.e with a non-zero y-value at $x=0$), represented by the straight lines. The first thing we can notice is that the unbalanced detection fits are cut after 0.3mW. Figure \ref{fig:power2tension} represent the mean voltage (the DC component) received for each experimental point of figure \ref{fig:power2noise}.
 
 \begin{figure}[h!]
-\caption{Mean tension from the data sets of figure \ref{fig:power2noise}}
+\caption{Mean tension from the data sets of figure \ref{fig:power2noise} as function of the input light power. }
 \centering
 \includegraphics[width=0.8\textwidth]{power2tension}
 \label{fig:power2tension}
@@ -1565,7 +1565,7 @@ For all the previous tests, the supposed superradiant laser generated from the c
 As previously stated, the cavity laser is mixed with the local oscillator to generate a 43MHz beat. In other words, the reference laser is configured to be 43MHz away from the cavity laser. However, the experiment is made in a way that it is hard to change all the optics in order to generate the desired frequency for the fake laser. Thereby, we create two sidebands by phase modulation, 781.14MHz away from the main frequency as depicted in figure \ref{fig:sb-def}.
 
 \begin{figure}[h!]
-\caption{Spectrum of the generated fake laser.}
+\caption{Spectrum of the generated "fake" laser. Two sidebands stand at equal \textit{frequency-distance} (781.14MHz) of the carrier frequency ($\sim$434THz).}
 \centering
 \includegraphics[width=0.6\textwidth]{sb-def}
 \label{fig:sb-def}
@@ -1611,7 +1611,7 @@ In order to visualize the carrier and its sidebands as on previous figure \ref{f
 Nevertheless, as both the sidebands and the carrier are on resonance, applying this modulation mode directly on the fake laser ownning the two sidebands shall give a single intensity peak (Figure \ref{fig:sb-fsr})
 
 \begin{figure}[h!]
-\caption{Spectrum of the fake laser without offset on the sidebands giving a unique peak for the intensity output the time axis represent the extension/contraction of the piezo according to the time.}
+\caption{Spectrum of the fake laser without offset on the sidebands. As the FSR equals the sideband-to-carrier difference, the light after the cavity gives a unique peak for the intensity output. For the "intensity" graph, the time axis represents the extension/contraction of the piezo according to the time.}
 \centering
 \includegraphics[width=0.8\textwidth]{sb-fsr}
 \label{fig:sb-fsr}
@@ -1620,7 +1620,7 @@ Nevertheless, as both the sidebands and the carrier are on resonance, applying t
 To rectify the problem, we give a small offset to the 781.14MHz frequency and, as represented in figure \ref{fig:sb-off}, the sidebands are now off resonance. Note that the offset may be equivalently positive or negative.
 
 \begin{figure}[h!]
-\caption{Spectrum of the fake laser with an offset on the sidebands giving three peaks for the intensity output.}
+\caption{Spectrum of the fake laser with an offset on the sidebands giving three peaks for the intensity output. The intensity ouput varies between three different peaks as the piezo element contract or dilate: left sideband, carrier and right sideband frequencies are individually able to cross the cavity.}
 \centering
 \includegraphics[width=0.8\textwidth]{sb-off}
 \label{fig:sb-off}
@@ -1655,7 +1655,7 @@ where $P_{s}$ is the power associated to one sideband and $P_{tot}$ the total po
 The measurement are taken from 100\% of modulation down to, ideally, 0\%, by step of 5\%: 100\%, 95\%, 90\%, etc. Until 35\% (included), the offset is of 6MHz which gives two sidebands far of 787.14MHz from the carrier. Below 35\%, the sideband's intensity is drastically reduced and not distinguishible anymore, mainly because the edges of the intensity peak from the carrier \textit{hides} the very weak intensity from the sidebands. The offset is thus increased to 14MHz, giving 795.14MHz for the frequency shift between the carrier and the sidebands. The curves from the oscilloscope are smoothed: the sideband intensities are visible for 30\%, 25\% and 20\% of modulation. Below 20\%, no additional \textit{tricks} can make the sidebands visible again.
 
 \begin{figure}[h!]
-\caption{Plot of the ratio $r$ and $\alpha$ with two different fits.}
+\caption{Plot of the ratio $r$ and $\alpha$ with two different fits as function of the modulation amplitude. The blue points are the measured sideband ratios (in \%). The green curve is a bessel fit applied on the first 60 \% of the data. The red curve is a bessel fit applied on the full experimental data. Finally, we prefer to trust the exponential fit (orange curve) even if there is no physical argument for it.}
 \hspace*{-2cm}\includegraphics[width=1.25\textwidth]{sb-r-fit}
 \label{fig:sb-r-fit}
 \end{figure}
@@ -1691,7 +1691,7 @@ The variable $h$ is then determined numerically. As we can see, the red curve in
 Figure \ref{fig:sb-power-visibility} represents the power difference between the peak at 43MHz and the global noise level on the spectrum analyzer, according to the sideband power: we select an amplitude of modulation with a null offset for the sidebands; we compute the associated sideband power (from a total power of 0.01µW which is constant over the data set); we measure the power difference on the spectrum analyzer. This time, the balanced detector is used instead of the previous \textit{intensity detector}: we are interested by the noise-to-beat ratio for the detector actually used in the final experiment for $g^1$. Therefore, one diode (equivalently left or right) is blocked in order to show the beat, otherwise canceled by substraction of the photocurrent.
 
 \begin{figure}[h!]
-\caption{Beat power visibility according to the light power of the sideband.}
+\caption{Beat power visibility on the oscilloscope (difference between the background noise and the top of the recorded beat) according to the light power of the associated sideband.}
 \centering
 \includegraphics[width=0.8\textwidth]{sb-power-visibility}
 \label{fig:sb-power-visibility}
@@ -1965,14 +1965,14 @@ The local oscillator is tuned at approximately 0.1mW for each branch after the b
 \begin{subfigure}{.48\textwidth}
   \centering
   \includegraphics[width=1.1\linewidth]{st-f-rough}
-  \caption{One of the ten signals: raw data.}
+  \caption{Plot of the raw data (voltage ouput of the detector) for one of the ten signals over 1.6ms}
   \label{fig:st-f-rough}
 \end{subfigure}%
 \hspace{1em}%
 \begin{subfigure}{.48\textwidth}
   \centering
   \includegraphics[width=1.1\linewidth]{st-fft-rough}
-  \caption{One of the ten signals: power spectrum of the raw data.}
+  \caption{Power spectrum associated to the same signal as \ref{fig:st-f-rough}. A lot of noise is generated at low frequency due to the electronic circuit. We clearly see the 44MHz beat received.}
   \label{fig:st-fft-rough}
 \end{subfigure}
 \caption{}
@@ -1985,14 +1985,14 @@ Figure \ref{fig:st-f-rough} is a plot of one recorded signal without modificatio
 \begin{subfigure}{.48\textwidth}
   \centering
   \includegraphics[width=1.1\linewidth]{st-f-bpf}
-  \caption{One of the ten signals: data after the band-pass filter.}
+  \caption{Same signal as \ref{fig:st-f-rough} with a band bass filter of 2MHz centered on the 44MHz feature.}
   \label{fig:st-f-bpf}
 \end{subfigure}%
 \hspace{1em}%
 \begin{subfigure}{.48\textwidth}
   \centering
   \includegraphics[width=1.1\linewidth]{st-fft-bpf}
-  \caption{One of the ten signals: power spectrum of the data after the band-pass filter.}
+  \caption{Power spectrum of \ref{fig:st-f-bpf} centered on the main feature.}
   \label{fig:st-fft-bpf}
 \end{subfigure}
 \caption{}
@@ -2001,7 +2001,7 @@ Figure \ref{fig:st-f-rough} is a plot of one recorded signal without modificatio
 Clearly, the signal obtained after the band-pass filter is \textit{weaker} and not shifted anymore: the previous shift in \ref{fig:st-f-rough} was generated by the noise signal. Also, the width of the band-pass filter is wide enough to encompass the main features of the beat signal at 44.4MHz, as sketched in figure \ref{fig:st-fft-bpf}.
 
 \begin{figure}[h!]
-\caption{Non-stationary plot of $g^1$ for a standard laser.}
+\caption{Non-stationary plot of $\vert g^1(t_1, t_2)\vert$ for a standard laser. Time in milliseconds on both axis. The color map does not reach unity because of the downsampling effect.}
 \centering
 \includegraphics[width=0.9\textwidth]{st-g12}
 \label{fig:st-g12}
@@ -2011,7 +2011,7 @@ After numerically processing the signal, we obtain figure \ref{fig:st-g12}: a 2D
 It is clear that the map \ref{fig:st-g12} exhibits a nearly perfect symmetry along the diagonal $t_1=t_2$. In other words: $\vert g^1(t_1, t_2) \vert = \vert g^1(t_1 + T, t_2 + T) \vert$ with $T$ a constant. It allows us to average the blue diagonal elements as described in figure \ref{fig:to-st}.
 
 \begin{figure}[h!]
-\caption{Diagram of the method to transform the map $\vert g^1(t_1, t_2) \vert$ to $\vert g^1(\tau) \vert$.}
+\caption{Diagram of the method to transform the map $\vert g^1(t_1, t_2) \vert$ to $\vert g^1(\tau) \vert$. The red box is the border of the summed data. The average is done along the blue diagonals and their symmetric along the green line where $t_1=t_2$.}
 \centering
 \includegraphics[width=0.5\textwidth]{to-st}
 \label{fig:to-st}
@@ -2021,7 +2021,7 @@ The red square delimitation is used in order to not \textit{overweight} or \text
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.7\linewidth]{st-stat}
-\caption{Approximation of $\vert g^1(\tau) \vert$ for the cavity laser.}
+\caption{Approximation of $\vert g^1(\tau) \vert$ for the cavity laser. The curve does not reach unity for $\tau=0$ because of the downsampling effect.}
 \label{fig:st-stat}
 \end{figure}
 
@@ -2036,14 +2036,14 @@ The procedure is repeated with, this time, the quasi-continous superradiant lase
 \begin{subfigure}{.48\textwidth}
   \centering
   \includegraphics[width=1.1\linewidth]{sp-f-rough}
-  \caption{One of the fifty signals: raw data.}
+  \caption{Plot of the raw data (voltage ouput of the detector) for one of the fifty signals over ~6ms}
   \label{fig:sp-f-rough}
 \end{subfigure}%
 \hspace{1em}%
 \begin{subfigure}{.48\textwidth}
   \centering
   \includegraphics[width=1.1\linewidth]{sp-fft-rough}
-  \caption{One of the fifty signals: power spectrum of the raw data.}
+  \caption{Power spectrum associated to the same signal as \ref{fig:sp-f-rough}. We clearly see the 43MHz beat received with some interesting features on its close sides (less than 2MHz away from the 43MHz beat).}
   \label{fig:sp-fft-rough}
 \end{subfigure}
 \caption{}
@@ -2056,14 +2056,14 @@ Figure \ref{fig:sp-f-rough} is one example over the fifty signals: no filter is 
 \begin{subfigure}{.48\textwidth}
   \centering
   \includegraphics[width=1.1\linewidth]{sp-f-bpf}
-  \caption{One of the fifty signals: data after the band-pass filter.}
+  \caption{Same signal as \ref{fig:st-f-rough} with a band bass filter of 5MHz centered on the 43MHz feature. We clearly see a burst of light before quasi-conitnous lasing from 1 to 3ms, then a progressive exctinction.}
   \label{fig:sp-f-bpf}
 \end{subfigure}%
 \hspace{1em}%
 \begin{subfigure}{.48\textwidth}
   \centering
   \includegraphics[width=1.1\linewidth]{sp-fft-bpf}
-  \caption{One of the fifty signals: power spectrum of the data after the band-pass filter.}
+  \caption{Power spectrum of \ref{fig::sp-f-bpf} centered on the main feature.}
   \label{fig:sp-fft-bpf}
 \end{subfigure}
 \caption{}
@@ -2095,7 +2095,7 @@ In order to encompass the majority of the features, we apply a band-pass filter 
   \centering
   \includegraphics[width=1.1\linewidth]{spec3-45}
 \end{subfigure}
-\caption{Spectrograms of four different recorded signals for the quasi-continuous superradiant laser}
+\caption{Spectrograms of four different recorded signals for the quasi-continuous superradiant laser. We can notice a commong initial drift probably due to the time required for the laser to lock precisely to the cavity resonance.}
 \label{fig:spectrograms}
 \end{figure}
 
@@ -2132,7 +2132,7 @@ Figure \ref{fig:spectrograms} are the spectrograms for four different signals: w
 In order to lighten the computation process, each signal is divied in blocks of 200 000 samples which allow us only to generate the $\vert g^1(t_1, t_2) \vert$ over a small region (that we call \textit{chunk}) along the diagonal. The chunk are overlapped in order to show a not reduce to zero the anti-diagonal width\footnote{Without the overlap, }. On a recent computer, with the multithreading feature enabled (i.e parallel computation over six cores), the total computation took a bit more than four hours. Figure \ref{fig:sp-g12} represents four different chunks of the 2D map. Figure \ref{fig:medley} is familiarly called \textit{medley} as every chunk is pasted on the same figure at its respective position.
 
 \begin{figure}[h!]
-\caption{Non-stationary plot of $g^1$ for the superradiant laser. The width (i.e $t_{1, max}$) and the height (i.e $t_{2, max}$) of this 2D map are naturally valued to 6ms.}
+\caption{Non-stationary plot of  $\vert g^1(t_1, t_2) \vert$ for the superradiant laser. The width (i.e $t_{1, max}$) and the height (i.e $t_{2, max}$) of this 2D map are naturally valued to 6ms.}
 \centering
 \includegraphics[width=0.9\textwidth]{medley}
 \label{fig:medley}
@@ -2141,7 +2141,7 @@ In order to lighten the computation process, each signal is divied in blocks of 
 Once again, we apply the technique described by figure \ref{fig:to-st} over the chunk n°3 to n°11 (where we get the maximum width of the \textit{yellow diagonal}. The red borders are applied on each chunk and, thanks to the overlap of the chunks, all the samples composing the resulting $\vert g^1(\tau) \vert$ are equivalently weighted during the average process: we get figure \ref{fig:sp-stat}.
 
 \begin{figure}[h!]
-\caption{Approximation of $\vert g^1(\tau) \vert$ for the superradiant laser.}
+\caption{Approximation of $\vert g^1(\tau) \vert$ for the superradiant laser. The blue cross elements are the averaged samples whereas the red curve is a gaussian fit. The first isolated blue point does not reach unity because of the downsampling effect. The gaussian curves are lifted from the x-axis due to the finiteamount of signal recorded (in theory, this plateau region after $\tau=0.15ms$ should tend to zero).}
 \centering
 \includegraphics[width=0.9\textwidth]{sp-stat}
 \label{fig:sp-stat}
@@ -2151,7 +2151,7 @@ The first sample, as stated previously, does not reach unity due to the downsamp
 \begin{equation}
 \textrm{Gaussian fit}(\tau, A, \sigma) = \frac{A}{\sqrt{2\pi}\sigma} e^{-\frac{\tau^2}{2\sigma^2}} + 0.1
 \end{equation}
-where the amplitude $A$ and variance $\sigma^2$ are the paramater numerically determined. As we can see in figure \ref{fig:sp-stat}, $\sigma$ is valued to $4\cdot10^{-5}$ which means that, by definition, 95.45\% of the area under the gaussian is covered for $\tau=2\sigma\simeq 80$µs. If we respect the definition \ref{}, then a numerical integration gives $\tau_c \simeq 32$µs. In other words, for the time interval where the superradiant laser exhibits a stationary process (i.e between 0.5ms and 3ms on the time interval), the frequency emitted is \textit{fairly} coherent for 30µs (i.e $\vert g^1(\tau) \vert \gtrsim 0.6$)\footnote{Due to the global offset of the curves in \ref{fig:sp-stat} along the y-axis, we can predict a slight reduction of the coherence time for the \textit{real} curve.} and mostly incoherent after 80µs.
+where the amplitude $A$ and variance $\sigma^2$ are the paramater numerically determined. As we can see in figure \ref{fig:sp-stat}, $\sigma$ is valued to $4\cdot10^{-5}$ which means that, by definition, 95.45\% of the area under the gaussian is covered for $\tau=2\sigma\simeq 80$µs. If we respect the definition \ref{tau_c_loudon_def}, then a numerical integration gives $\tau_c \simeq 64$µs. In other words, for the time interval where the superradiant laser exhibits a stationary process (i.e between 0.5ms and 3ms on the time interval), the frequency emitted is \textit{fairly} coherent for 60µs (i.e $\vert g^1(\tau) \vert \gtrsim 0.3$)\footnote{Due to the global offset of the curves in \ref{fig:sp-stat} along the y-axis, we can predict a slight reduction of the coherence time for the \textit{real} curve.} and mostly incoherent after 80µs.
 
 As I write these lines, the team and myself are not able to understand why the behavior is \textit{Gaussian}. Obivously, it means that the spread of frequencies is mainly due to a Doppler broadening effect\footnote{See Loudon ??} which may be encountered with thermal light for example. Moreover, we can extend the question by applying the \textit{Wiener-Khintchine theorem} stating that "the autocorrelation function of a stationary random process (i.e $G^1(\tau)$) and the power spectrum of the process form a Fourier transform pair"\footnote{See Mandel and Wolf ??}:
 \begin{equation}
@@ -2165,11 +2165,11 @@ Firstly, we have created a quantum model representing the most accurately possib
 
 In parallel, we have built an extension to the original superradiant experiment in the view of measuring the first order correlation function. In order to reduce the electronic noise of the circuit, a component of the detector is changed after a meticulous analysis. Then, the latter is put into the heterodyne experiment and several tests, including intensity saturation and power to noise ratio, are done before actual use. The data analysis of the recorded signals is made through several algorithms treating the non-stationary and stationary case of $g^1$ as well as side numerical methods like band-pass filtering, downsampling, parallelism, etc.
 
-Finally, we experimentally determined a time interval of three to four milliseconds where the superradiant laser exhibits a stationary process. Hence, the stationary $\vert g^1(\tau) \vert$ is numerically extracted from the non-stationary equivalent and we demonstrate that the coherence time $\tau_c$ is about thirty microseconds whereas the phase information is completely lost after eighty microseconds. Moreover, a clear gaussian shape appears for $\vert g^1(\tau) \vert$, revealing a Doppler-broadened effect on the quantum system which allow to determine a linewidth of 59kHz by applying the Wiener-Khintchine theorem. Unfortunately, the numerical results are not conclusive: we barely reach the same order of magnitude for the coherence time $\tau_c$ with ?? microseconds and the gaussian shape is quasi-inexistant (even if the shape is clearly not lorentzian). Moreover, the finite precision of the numbers lead to a limitation of the number of simulated atoms to three hundred thousands, which is approximately three times less than the actual number of active atoms inside the cavity.
+Finally, we experimentally determined a time interval of three to four milliseconds where the superradiant laser exhibits a stationary process. Hence, the stationary $\vert g^1(\tau) \vert$ is numerically extracted from the non-stationary equivalent and we demonstrate that the coherence time $\tau_c$ is about 60µs whereas the phase information is completely lost after eighty microseconds. Moreover, a clear gaussian shape appears for $\vert g^1(\tau) \vert$, revealing a Doppler-broadened effect on the quantum system which allow to determine a linewidth of 59kHz by applying the Wiener-Khintchine theorem. Unfortunately, the numerical results are not conclusive: we barely reach the same order of magnitude for the coherence time $\tau_c$ with 22µs (for the case of 10,000 atoms) and the gaussian shape is quasi-inexistant (even if the shape is clearly not lorentzian). Moreover, the finite precision of the numbers lead to a limitation of the number of simulated atoms to three hundred thousands, which is approximately three times less than the actual number of active atoms inside the cavity.
 
 Those poor results for the numerical part are a personal deception as I have spent a certain amount of energy writing and optimizing the full algorithm generating the sets of equations as well as the solver. However, this theoretical modeling and simulation allowed me to read tens of related articles from which I have clearly extended my understanding on open quantum systems and their numerical approach. Similarly, the experimentation brought me to edge of my previous capacities, thus enhanced my skills in experimental setup, signal processing and electronics: I learned that being a researcher, especially an experimentalist, force you to, not only excel in your domain (here, quantum optics), but also be a multidisciplinary specialist for which, I think, I managed to control for this project.
 
-As I write those lines, the results for the second order correlation function have been in preparation for the last month now. Another setup is already built, including fiber coupling, single photon detectors, numerical processing etc. This involve intensity interferometry, thus photon correlation, quantum noise attenuation: this experiment is related to the Hanbury-Brown-Twiss experiment. It requires then a quantum development of the detection to reveal the autocrorrelation $g^2(\tau)$ into the final computed data. As the first order correlation function is clearly gaussian-shaped, we shall use the \textit{Siegert} relation $\vert g^2(\tau) \vert = 1 + \vert g^1(\tau)^2 \vert$ in order to confirm the results. In short, very interesting physics are incoming for which, I regret, should have been written in this thesis but as the single photon detectors are borrowed from another team, the whole process took more time than expected\footnote{Those two little detectors cost roughly ten thousands euros! The price of a new car! Therefore, as the quantum metrology group use them only for this project, we prefer to save the money and borrow them from very kind colleagues.} \footnote{The experiment during the first semester (September to October) has also been be slightly delayed as the \textit{master reference laser} of the lab (serving as reference for all the experiments) was in a servicing process in Austria as it has been used during four years without fine verification.}. However, if I succeed to extract the right data and understand the process leading to those results, this work should lead to an article in collaboration with my supervisor.
+As I write those lines, the results for the second order correlation function have been in preparation for the last month now. Another setup is already built, including fiber coupling, single photon detectors, numerical processing etc. This involve intensity interferometry, thus photon correlation, quantum noise attenuation: this experiment is related to the Hanbury-Brown-Twiss experiment. It requires then a quantum development of the detection to reveal the autocrorrelation $g^2(\tau)$ into the final computed data. As the first order correlation function is clearly gaussian-shaped, we shall use the \textit{Siegert} relation $\vert g^2(\tau) \vert = 1 + \vert g^1(\tau) \vert^2$ in order to confirm the results. In short, very interesting physics are incoming for which, I regret, should have been written in this thesis but as the single photon detectors are borrowed from another team, the whole process took more time than expected\footnote{Those two little detectors cost roughly ten thousands euros! The price of a new car! Therefore, as the quantum metrology group use them only for this project, we prefer to save the money and borrow them from very kind colleagues.} \footnote{The experiment during the first semester (September to October) has also been be slightly delayed as the \textit{master reference laser} of the lab (serving as reference for all the experiments) was in a servicing process in Austria as it has been used during four years without fine verification.}. However, if I succeed to extract the right data and understand the process leading to those results, this work should lead to an article in collaboration with my supervisor.
 
 \appendix
 \chapter{Mathematical complements}
@@ -2357,7 +2357,7 @@ where we used the commutator relation $\left[ \hat{a}, \hat{a}^\dagger \right] =
 
 It is important to note that the actual notch filter of the detector behaves with a current, meaning that the line between (A) and (B) in figure \ref{fig:filter} drives current but has no voltage difference. As the op-amp following the filter transforms the current into a voltage, analysing the voltage or current response is equivalent. In order to analyse the gain response of the \textit{current-notch-filter}, we reorder the electrical components in a \textit{voltage behavior} as in figure \ref{fig:notch-tension}.
 \begin{figure}[h!]
-\caption{Notch filter in its \textit{standard} form (often presented like this in literature).}
+\caption{Notch filter in its \textit{standard} form (often presented like this in the literature). $Z_R$ is the impedance of the resistor. $Z_{LC}$ is the impedance of the capacity and the inductor.}
 \centering
 \includegraphics[width=0.3\textwidth]{notch-tension}
 \label{fig:notch-tension}
@@ -2461,13 +2461,13 @@ With an amplitude of $1$ (i.e unit), we generate a cosine wave (or equivalently 
 \end{itemize}
 
 \begin{figure}[h!]
-\caption{Example of generation of a chaotic signal with a coherence time $\tau_c$ of 2 seconds. (Period of $2\pi$ over approximately 20 seconds: 10 samples per period.)}
+\caption{Example of generation of a chaotic signal with a coherence time $\tau_c$ of 2 seconds. Period of $2\pi$ over approximately 20 seconds: 10 samples per period.}
 \centering
 \includegraphics[width=0.9\textwidth]{coh_gen}
 \end{figure}
 
 \begin{figure}[h!]
-\caption{Example of generation of a perfectly coherent signal. Period of $2\pi$ over approximately 20 seconds: 10 samples per period.)}
+\caption{Example of generation of a perfectly coherent signal. Period of $2\pi$ over approximately 20 seconds: 10 samples per period. We clearly see the phase jumps occuring randomly. The space between each jump must follow an exponential distribution}
 \centering
 \includegraphics[width=0.9\textwidth]{chaos_gen}
 \end{figure}
@@ -2488,13 +2488,13 @@ As we already now the result of the algorithme for a perfectly coherent signal\f
   \centering
   \includegraphics[width=1.1\linewidth]{test_stat_10}
 \end{subfigure}
-\caption{Stationary $\vert g^1(\tau) \vert$ for the two different sets. Left: $\tau_c=2$. Right: $\tau_c=10$}
+\caption{Stationary $\vert g^1(\tau) \vert$ for the two different sets. Left: $\tau_c=2$. Right: $\tau_c=10$. The orange curves are the theoretical predictions whereas the blue dotted curves are the numerical computation. The \textit{bumpy} patterns are due to the finite interval of integration (in theory, the time interval is infinite and this plateau region should reach zero equally).}
 \end{figure}
 
 As we can see, the theoretical prediction is well respected and the remaining \textit{bumps}, over the time interval showing a complete incoherence, are due to the finite time interval of integration.
 
 \begin{figure}[h!]
-\caption{Example of non stationary plot of $\vert g^1(\tau) \vert$ for one set of data (40 signals) with $\tau_c=2$}
+\caption{Example of non stationary plot of $\vert g^1(\tau) \vert$ for one set of data (40 signals) with $\tau_c=2$.}
 \centering
 \includegraphics[width=0.9\textwidth]{test_g12}
 \end{figure}
@@ -2521,7 +2521,7 @@ Technically, a chunk of the 2D map is computed, then gaussian filter is applied 
 The size of the chunk in time space correspond to a bandwidth $B$ in frequency space: more pixels are included in each chunk, smaller is the bandwidth and reciprocally. Here the time space corresponds to the pixel space, i.e $t=0$ is pixel number zero, $t=1$ is pixel number one and so on. Therefore, the sampling space $T$ is one (but we keep it as $T$ for the moment). As we can see on previous figure, the numerical Fourier transform gives repetition of the main feature every $1/T$. When the amount of pixel is reduced by a factor of $M$ (i.e $M=2$ is the equivalent of converting two pixels into one pixel), the period of the feature's repetition becomes $1/(MT)$ instead of $1/T$ as in figure \ref{fig:dwsmpl-freq}
 
 \begin{figure}[h!]
-\caption{Decimation effect over the spectrum of a discret Fourier transformed signal.}
+\caption{Decimation effect over the spectrum of a discret Fourier transformed signal. The features of the signal is repeated every $1/(MT)$ (the unit of the frequency is dependent on the unit of the x-axis of the signal).}
 \centering
 \includegraphics[width=0.9\textwidth]{dwsmpl-freq}
 \label{fig:dwsmpl-freq}
@@ -2559,7 +2559,7 @@ x = \pm M \times \frac{2\sqrt{\ln(10)}}{3} \sim \pm M
 Therefore, if we want to downsample 40 pixels into 4 pixels (i.e $M = 10$), we must apply the filter on regions of $-M$ to $+M$ samples, which corresponds to a length of $20$ samples. Obviously, this involves an overlap of the regions where the filter is applied as depicted in figure \ref{fig:dwsmpl-filter}
 
 \begin{figure}[h!]
-\caption{Example of a downsampling procedure with a gaussian filter. Each application of the filter gives one sample/pixel of the new signal/image. Four filters are applied: only the second and the third are represented. The first and fourth (i.e the side filters) are a bit more particular, thus not represented here.}
+\caption{Example of a downsampling procedure with a gaussian filter 20 pixels wide. Each application of the filter gives one sample/pixel of the new signal/image. Four filters are applied on an image of 40 pixels: only the second (0 to 20th pixels) and the third (20th to 40th pixel) are represented. The first and fourth (i.e the side filters) are a bit more particular, thus not represented here. This diagram shows the overlap region when the gaussian filter is applied on different parts of this 1D-image.}
 \centering
 \includegraphics[width=0.9\textwidth]{dwsmpl-filter}
 \label{fig:dwsmpl-filter}
