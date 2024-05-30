@@ -749,20 +749,25 @@ In general, if one wants to numerically simulate the behavior of $g^1$ and $g^2$
 
 \section{$g^1$ simulation results}
 
-Firstly, we must  numerically determine all the constants of the generated set of equation.
+Firstly, we must  numerically determine all the constants of the generated set of equations.
 
 \begin{itemize}
-	\item Reduced Planck constant $\hbar$: from the master equation \ref{master_eq_heis} and the change of variable \ref{sig_change_s} from \textit{individual spin} to collective spin, we easily see that $\hbar$ vanishes equally. Numerically speaking, as the equation is not necessarily simplified, we set $\hbar$ to 1.
+	\item Reduced Planck constant $\hbar$: from the master equation \ref{master_eq_heis} and the change of variable \ref{sig_change_s} from \textit{individual spin} to collective spin, we easily see that $\hbar$ vanishes equally. Numerically speaking, as the equations are not necessarily simplified, we set $\hbar$ to 1.
 	\item Detuning $\Delta\omega$: we consider the cavity field in resonance with the atomic transition. Thus, $\Delta\omega$ is null.
 	\item The cavity loss rate $\kappa$ is experimentally set to $2\pi \cdot 780$kHz.
 	\item The decay rate into free space $\gamma$ is experimentally set to $2\pi \cdot 7.5$kHz.
-	\item Individual coupling $g_0$:\footnote{The collective coupling is $Ng_0$. In the master equation, $g$ is equivalent to $g_0$: we implicitely used the individual coupling.} it is determine by the formula $g_0=\frac{1}{2}\sqrt{C_0\kappa\gamma}$ where $C_0$ is dependent on the Purcell factor $F$ with $C_0=\frac{6\lambda^2}{\pi^3w_0^2}F$. The wavelength $\lambda$ is $689nm$, $F=1000$ and $w_0=450$µm. This gives us $g_0\simeq5117.82$Hz. Thus, the parameters respect the condition $g_0\ll(\kappa, \gamma)$ for the weak coupling. To respect the strong collective coupling condition $(\kappa, \gamma) \gg Ng_0$ where $N$ is the number of atoms, the cavity must be filled with at least ten thousands atoms in order for $Ng_0$ to be an order of magniftude higher than $\kappa$.
-	\item The repumping rate $\nu$ is numerically determined step by step in order to reach a null atomic inversion at steady state (In the actual experiment, the atomic inversion is kept slightly above zero). For a \textit{long time} $t_\infty$, we are looking for $\left\langle \hat{S}_z(t_\infty) \right\rangle \gtrsim 0$ which corresponds to a state $\ket{j=N/2, m \gtrsim 0}$. As the repumping rate is dependent on the number of atoms inside the cavity, the determination of $\nu$ is done for three set of atom numbers: ten thousand, a hundred thousand and three hundred thousands atoms. The ratio is evaluated in order to keep the ratio $\left\langle \hat{S}_z(t_\infty) \right\rangle / \left\langle \hat{S}_z \right\rangle _{max}$ (where $\left\langle \hat{S}_z \right\rangle _{max}$ is set to $N/2$) approximately constant for the three sets of atom numbers\footnote{This corresponds to having the Bloch vector at the same angle (relative to the plan) on the Block sphere.}.
+	\item Individual coupling $g_0$:\footnote{The collective coupling is $Ng_0$. In the master equation, $g$ is equivalent to $g_0$: we implicitely used the individual coupling.} it is determine by the formula $g_0=\frac{1}{2}\sqrt{C_0\kappa\gamma}$ where $C_0$ is dependent on the Purcell factor $F$ with $C_0=\frac{6\lambda^2}{\pi^3w_0^2}F$. The wavelength $\lambda$ is $689nm$, $F=1000$ and $w_0=450$µm. This gives us $g_0\simeq5117.82$Hz. Thus, the parameters respect the condition $g_0\ll(\kappa, \gamma)$ for the weak coupling. To respect the strong collective coupling condition $(\kappa, \gamma) \ll Ng_0$ where $N$ is the number of atoms, the cavity must be filled with at least ten thousands atoms in order for $Ng_0$ to be an order of magniftude higher than $\kappa$.
+	\item The repumping rate $\nu$ is numerically determined step by step in order to reach a null atomic inversion at steady state (In the actual experiment, the atomic inversion is kept slightly above zero). For a \textit{long time} $t_\infty$, we are looking for $\left\langle \hat{S}_z(t_\infty) \right\rangle \gtrsim 0$ which corresponds to a state $\ket{j=N/2, m \gtrsim 0}$. As the repumping rate is dependent on the number of atoms inside the cavity, the determination of $\nu$ is done for three set of atom numbers: ten thousand, a hundred thousand and three hundred thousands atoms. The repumping rate is evaluated in order to for the ratio:
+\begin{equation}
+\label{special_ratio}
+\frac{\left\langle \hat{S}_z(t_\infty) \right\rangle + \left\langle \hat{S}_z \right\rangle _{max}}{2\left\langle \hat{S}_z \right\rangle _{max}} = \frac{\left\langle \hat{S}_z(t_\infty) \right\rangle}{2\left\langle \hat{S}_z \right\rangle _{max}} + \frac{1}{2} = \frac{\left\langle \hat{S}_z(t_\infty) \right\rangle}{N} + \frac{1}{2}
+\end{equation}
+to be approximately constant for the three sets of atom numbers (Here we implicitely set $\left\langle \hat{S}_z \right\rangle _{max} = N/2$.\footnote{This corresponds to having the Bloch vector at the same angle (relative to the plan) on the Block sphere for the three sets.}.
 \end{itemize}
 
 Three sets of differential equations are generated with order $m=2$, $m=3$ and $m=4$. The set $m=2$ is the lower limit of the order $m$: it allows to capture the minimum of quantum correlation for the correlation $\left\langle \hat{n} \right\rangle$.
 
-The real experiments runs with a few tens of millions of atoms. However, most of them are \textit{waiting} in the different intermediate transitions\footnote{In order to populate the level $^3P_1$, multiple levels are used as intermediate stages with different repumps. Thereby, the atoms involving in those levels need a certain amount of time to be excited to the level $^3P_1$.}, the number of atoms actually acting for the laser transition $^1S_0$-$^3P_1$ is evaluated to approximately one million.
+The real experiments runs with a few tens of millions of atoms. However, most of them are \textit{waiting} in the different intermediate transitions\footnote{In order to populate the level $^3P_1$, multiple levels are used as intermediate stages with different repumps. Thereby, the atoms involving in those levels need a certain amount of time to be excited to the level $^3P_1$.}, then the number of atoms actually acting for the laser transition $^1S_0$-$^3P_1$ is evaluated to approximately one million.
 
 As the quasi-continous lasing state is maintained up to approximately four milliseconds, the time interval used for the simulation is long of one millisecond.
 
@@ -770,24 +775,197 @@ In the data analysis chapter \ref{data_analysis_chapter}, we shall see that we c
 
 The coherence time $\tau_c$ is computed according to the definition given by R.Loudon in sections 3.4, namely:
 \begin{equation}
+\label{tau_c_loudon_def}
 \tau_c \stackrel{\text{def}}{=} \int_{-\infty}^{+\infty} \vert g_1(\tau) \vert^2 \, d\tau
 \end{equation} 
 
+\pagebreak
 \subsection{Simulation with 10,000 atoms inside the cavity}
 
-We start with $N=10,000$. Thus, the initial state is $\ket{j=5000, m=0, n=0}$: half of the atoms are excited and zero photon is present inside the cavity. The repump rate is evaluated to $\nu \simeq \kappa / 103.95373$. The steady state shows $\left\langle \hat{S}_z(t_\infty) \right\rangle \sim 0.24$: the ratio is approximately $0.000048$.
+We start with $N=10,000$. Thus, the initial state is $\ket{j=5000, m=0, n=0}$: half of the atoms are excited and zero photon is present inside the cavity. The repump rate is evaluated to $\nu \simeq \kappa / 103.95373$. The steady state shows $\left\langle \hat{S}_z(t_\infty) \right\rangle \sim 0.22$: the ratio is $0.500022$.
 
-We clearly see on the figures that order $m=3$ and $m=4$ overlaps perfectly. It means that we succeed to capture all the quantum information/correlation at order $m=3$ for those paramters of the experiment. As only $N$ and $\nu$ are modified for the two remaining set of equations, we can safely restrict the computation to the order $m=3$. 
+We clearly see on the figures that order $m=3$ and $m=4$ overlaps perfectly. It means that we succeed to capture all the quantum information/correlation at order $m=3$ for those paramters of the experiment. As only $N$ and $\nu$ are modified for the two remaining set of equations, we can safely restrict the computation to the order $m=3$.
 
+\begin{figure}[h!]
+\centering
+\begin{subfigure}{.48\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{10k_234_nsz}
+  \caption{Original plot with full time interval (0 to 1ms)}
+\end{subfigure}%
+\hspace{1em}%
+\begin{subfigure}{.48\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{10k_234_nsz_zoom_1}
+  \caption{Zoom on the main features (from 0 to 60µs).}
+  \label{10k_234_nsz_zoom_1}
+\end{subfigure}
+\caption{Simulation results for 10,000 atoms inside the cavity. Three set of equations are generated with order $m=2$ (denoted "2nd order"), $m=3$ (denoted "3rd order") and $m=4$ (denoted "4th order"). Two types of expectation values are plotted: the photon number $\left\langle \hat{n} \right\rangle$ inside the cavity and the atomic inversion $\left\langle  \hat{S}_z \right\rangle$}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\begin{subfigure}{.48\textwidth}
+  \centering
+  \includegraphics[width=1.1\linewidth]{10k_234_nsz_zoom_2}
+  \caption{Steady-state of $\left\langle \hat{n} \right\rangle$. Pink dotted curve is of 2nd order. Olive solid curve is of 3rd order. Orange dot-dashed is of 4th order. The second order shows clear unstabilities at steady-state.}
+  \label{fig:steady-2nd-unstable}
+\end{subfigure}%
+\hspace{1em}%
+\begin{subfigure}{.48\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{10k_234_nsz_zoom_3}
+  \caption{Steady-state of $\left\langle \hat{S}_z \right\rangle$. Purple dotted curve is of 2nd order. Green solid curve is of 3rd order. Red dot-dashed is of 4th order. We take the thrid order curve as the limit $\left\langle \hat{S}_z(t_\infty) \right\rangle$}
+\end{subfigure}
+\caption{Zoom on the convergent steady-state values for 10,000 atoms inside the cavity.}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\begin{subfigure}{.48\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{10k_234_g1}
+  \caption{Original plot with full time interval (0 to 1ms).}
+\end{subfigure}%
+\hspace{1em}%
+\begin{subfigure}{.48\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{10k_234_g1_zoom}
+  \caption{Zoom on the main feature (from 0 to 175µs).}
+  \label{10k_234_g1_zoom}
+\end{subfigure}
+\caption{Simulation results for 10,000 atoms inside the cavity. Plot of $\vert g^1(\tau) \vert$. The three sets clearly overlap and the last rendered curve is shown of top of the others (namely, the 4th order in solid red).}
+\end{figure}
+
+\begin{figure}[h!]
+\caption{Extra zoom of $\vert g^1(\tau) \vert$ for 10,000 atoms inside the cavity. It is evident that showing the 2nd, 3rd or 4th order of the solution doesn't affect the results (or not enough to be considered).}
+\centering
+\includegraphics[width=0.6\textwidth]{10k_234_g1_zoom_2}
+\end{figure}
+
+\pagebreak
 \subsection{Simulation with 100,000 atoms inside the cavity}
 
-Then, we set $N=100,000$. Thus, the initial state is $\ket{j=50,000, m=0, n=0}$. The repump rate is evaluated to $\nu \simeq \kappa / 103.9537874$. The steady state shows $\left\langle \hat{S}_z(t_\infty) \right\rangle \sim 2.01$: the ratio is approximately $0.00004$.
+Then, we set $N=100,000$. Thus, the initial state is $\ket{j=50,000, m=0, n=0}$. The repump rate is evaluated to $\nu \simeq \kappa / 103.9537874$. The steady state shows $\left\langle \hat{S}_z(t_\infty) \right\rangle \sim 2$: the ratio is $0.50002$.
 
+\begin{figure}[h!]
+\centering
+\begin{subfigure}{.48\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{100k_3_nsz}
+  \caption{Original plot with full time interval (0 to 1ms)}
+\end{subfigure}%
+\hspace{1em}%
+\begin{subfigure}{.48\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{100k_3_nsz_zoom_1}
+  \caption{Zoom on the main features (from 0 to 200µs).}
+  \label{100k_3_nsz_zoom_1}
+\end{subfigure}
+\caption{Simulation results for 100,000 atoms inside the cavity. Two types of expectation values are plotted: the photon number $\left\langle \hat{n} \right\rangle$ inside the cavity (green) and the atomic inversion $\left\langle  \hat{S}_z \right\rangle$ (orange)}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\begin{subfigure}{.48\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{100k_3_nsz_zoom_3}
+  \caption{Steady-state of $\left\langle \hat{n} \right\rangle$.}
+\end{subfigure}%
+\hspace{1em}%
+\begin{subfigure}{.48\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{100k_3_nsz_zoom_2}
+  \caption{Steady-state of $\left\langle \hat{S}_z \right\rangle$.}
+\end{subfigure}
+\caption{Zoom on the convergent steady-state values for 100,000 atoms inside the cavity.}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\begin{subfigure}{.48\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{100k_3_g1}
+  \caption{Original plot with full time interval (0 to 1ms).}
+\end{subfigure}%
+\hspace{1em}%
+\begin{subfigure}{.48\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{100k_3_g1_zoom_1}
+  \caption{Zoom on the main feature (from 0 to 200µs).}
+  \label{100k_3_g1_zoom_1}
+\end{subfigure}
+\caption{Simulation results for 100,000 atoms inside the cavity. Plot of $\vert g^1(\tau) \vert$.}
+\end{figure}
+
+\pagebreak
 \subsection{Simulation with 300,000 atoms inside the cavity}
 
-Finally, we set $N=300,000$. We start to see on the figures some clear oscillations due to the high numbers stored in memory (i.e the stability is progressively lost as the number of atoms increases). This is the highest $N$ which gives coherent results with the  Thus, the initial state is $\ket{j=50,000, m=0, n=0}$. The repump rate is evaluated to $\nu \simeq \kappa / 103.954651$. The steady state shows $\left\langle \hat{S}_z(t_\infty) \right\rangle \sim 5.6$. : the ratio is approximately $0.000037333$.
+Finally, we set $N=300,000$. We start to see on the figures some clear oscillations due to the high numbers stored in memory (i.e the stability is progressively lost as the number of atoms increases). This is the highest $N$ which gives coherent results with the  Thus, the initial state is $\ket{j=150,000, m=0, n=0}$. The repump rate is evaluated to $\nu \simeq \kappa / 103.954651$. The steady state shows $\left\langle \hat{S}_z(t_\infty) \right\rangle \sim 5.6$. : the ratio is approximately $0.5000187$.
 
+\begin{figure}[h!]
+\centering
+\begin{subfigure}{.48\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{300k_3_nsz}
+  \caption{Original plot with full time interval (0 to 1ms)}
+\end{subfigure}%
+\hspace{1em}%
+\begin{subfigure}{.48\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{300k_3_nsz_zoom_1}
+  \caption{Zoom on the main features (from 0 to 140µs).}
+  \label{300k_3_nsz_zoom_1}
+\end{subfigure}
+\caption{Simulation results for 300,000 atoms inside the cavity. Two types of expectation values are plotted: the photon number $\left\langle \hat{n} \right\rangle$ inside the cavity (green) and the atomic inversion $\left\langle  \hat{S}_z \right\rangle$ (orange)}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\begin{subfigure}{.48\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{300k_3_nsz_zoom_3}
+  \caption{Steady-state of $\left\langle \hat{n} \right\rangle$.}
+\end{subfigure}%
+\hspace{1em}%
+\begin{subfigure}{.48\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{300k_3_nsz_zoom_2}
+  \caption{Steady-state of $\left\langle \hat{S}_z \right\rangle$.}
+\end{subfigure}
+\caption{Zoom on the convergent steady-state values for 300,000 atoms inside the cavity. We clearly see unstability of the solution by the small oscillations at "steady-state". Compared to the 2nd order in figure \ref{fig:steady-2nd-unstable} where the unstabilities were due to the lack of quantum correlation in the set of equations, here the unstability is due to the numerical values starting to exceed the float precision.}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\begin{subfigure}{.48\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{300k_3_g1}
+  \caption{Original plot with full time interval (0 to 1ms).}
+\end{subfigure}%
+\hspace{1em}%
+\begin{subfigure}{.48\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{300k_3_g1_zoom_1}
+  \caption{Zoom on the main feature (from 0 to 50µs).}
+  \label{300k_3_g1_zoom_1}
+\end{subfigure}
+\caption{Simulation results for 300,000 atoms inside the cavity. Plot of $\vert g^1(\tau) \vert$.}
+\end{figure}
+
+\pagebreak
 \subsection{Discussion}
+
+First of all, we can notice that we respect for the three cases the experimental condition of having approximately half of the atoms excited \footnote{And this proportion of excitation is kept almost constant across the three cases}. Moreover, as we shall see in chapter \ref{data_analysis_chapter}, the quantum system emits a a small additional burst of light in the first 10µs before reaching the steady-state for the two first cases (10,000 and 100,000) in figures \ref{10k_234_nsz_zoom_1} and \ref{100k_3_nsz_zoom_1}. This behavior corresponds excatly to the experimental signal. The behavior of the third case does not show an equivalent burst in figure \ref{300k_3_nsz_zoom_1} which gives a clue of its inaccuracy.\footnote{There is one oscillation in the same interval of time but it is not superior in value to the steady-state: this is not a burst.}
+
+In order to compute the coherence time $\tau_c$, we integrate over:
+\begin{equation}
+\label{half_tau_c_loudon_def}
+\int_{0}^{+\infty} \vert g_1(\tau) \vert^2 \, d\tau
+\end{equation}
+and make use of the relation $g^1(\tau)=g^1(-\tau)$ by doubling the result of \ref{half_tau_c_loudon_def} to obtain \ref{tau_c_loudon_def}. In that way, we get $\tau_c \simeq 22$µs for 10,000 atoms inside the cavity, $\tau_c \simeq 19$µs for 100,000 atoms, $\tau_c \simeq 4.8$µs for 300,000 atoms. We can notice that from 10,000 to 100,000 atoms, the number of atoms is multiplied by 10 (an order of magnitude higher) whereas the coherence time $\tau_c$ is reduced by 10-15\%. However, from 100,000 to 300,000 atoms, the number of atoms is multiplied by 3 (same order of magnitude) whereas the coherence time $\tau_c$ if almost divided by 4. Moreover, thanks to the re-evaluation of the repump rate $\nu$ and the computation of the ratio \ref{special_ratio}, we kept track of the equivalence of the atom excitation value which was somehow identical in proportion for the three cases of atoms inside the cavity. In other words, this difference in the reduction of $\tau_c$ does not come from the position of the Bloch vector of the system on the Block sphere. Nevertheless, for the difference of $\tau_c$ between 10,000 and 300,000 atoms, we can suspect the high amount of atoms as problematic for the float precision which \textit{collapses} the numerical solution.
+
+Although the coherence time is not quite respected as we shall see in chapter \ref{data_analysis_chapter}, it is clear that $\vert g^1(\tau) \vert$ does not exhibit a lorentzian behavior for the cases 10,000 and 100,000 atoms in figures \ref{10k_234_g1_zoom} and \ref{100k_3_g1_zoom_1}. The third case shows a clear gaussian shape in figure \ref{300k_3_g1_zoom_1} but can be biased as we got some clues of the numerical unstability of the system for this case.
 
 \chapter{Heterodyne experiment}
 \section{Standard setup for $g^1$ and its limitations}

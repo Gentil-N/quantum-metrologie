@@ -1,15 +1,15 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.15)  29 MAY 2024 21:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2024.3.28)  30 MAY 2024 12:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **book.tex
 (./book.tex
-LaTeX2e <2021-11-15> patch level 1
-L3 programming layer <2022-01-21>
+LaTeX2e <2022-11-01> patch level 1
+L3 programming layer <2023-01-16>
 (/usr/share/texlive/texmf-dist/tex/latex/base/report.cls
-Document Class: report 2021/10/04 v1.4n Standard LaTeX document class
+Document Class: report 2022/07/02 v1.4n Standard LaTeX document class
 (/usr/share/texlive/texmf-dist/tex/latex/base/size11.clo
-File: size11.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
+File: size11.clo 2022/07/02 v1.4n Standard LaTeX file (size option)
 )
 \c@part=\count185
 \c@chapter=\count186
@@ -20,9 +20,9 @@ File: size11.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
 \c@subparagraph=\count191
 \c@figure=\count192
 \c@table=\count193
-\abovecaptionskip=\skip47
-\belowcaptionskip=\skip48
-\bibindent=\dimen138
+\abovecaptionskip=\skip48
+\belowcaptionskip=\skip49
+\bibindent=\dimen140
 )
 (/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2021/02/14 v1.3d Input encoding file
@@ -33,11 +33,11 @@ Package: inputenc 2021/02/14 v1.3d Input encoding file
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
-Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
 \KV@toks@=\toks18
 )
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2021/03/04 v1.4d Standard LaTeX Graphics (DPC,SPQR)
+Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
@@ -48,10 +48,10 @@ File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 Package graphics Info: Driver file: pdftex.def on input line 107.
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
-File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
+File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
 ))
-\Gin@req@height=\dimen139
-\Gin@req@width=\dimen140
+\Gin@req@height=\dimen141
+\Gin@req@width=\dimen142
 )
 (/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
@@ -60,19 +60,19 @@ Package: geometry 2020/01/02 v5.9 Page Geometry
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 
 (/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty
-Package: iftex 2020/03/06 v1.0d TeX engine tests
+Package: iftex 2022/02/03 v1.0f TeX engine tests
 ))
 \Gm@cnth=\count194
 \Gm@cntv=\count195
 \c@Gm@tempcnt=\count196
-\Gm@bindingoffset=\dimen141
-\Gm@wd@mp=\dimen142
-\Gm@odd@mp=\dimen143
-\Gm@even@mp=\dimen144
-\Gm@layoutwidth=\dimen145
-\Gm@layoutheight=\dimen146
-\Gm@layouthoffset=\dimen147
-\Gm@layoutvoffset=\dimen148
+\Gm@bindingoffset=\dimen143
+\Gm@wd@mp=\dimen144
+\Gm@odd@mp=\dimen145
+\Gm@even@mp=\dimen146
+\Gm@layoutwidth=\dimen147
+\Gm@layoutheight=\dimen148
+\Gm@layouthoffset=\dimen149
+\Gm@layoutvoffset=\dimen150
 \Gm@dimlist=\toks19
 )
 (/usr/share/texlive/texmf-dist/tex/latex/jknapltx/mathrsfs.sty
@@ -80,8 +80,8 @@ Package: mathrsfs 1996/01/01 Math RSFS package v1.0 (jk)
 \symrsfs=\mathgroup4
 )
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
-Package: amsmath 2021/10/15 v2.17l AMS math features
-\@mathmargin=\skip49
+Package: amsmath 2022/04/08 v2.17n AMS math features
+\@mathmargin=\skip50
 
 For additional information on amsmath, use the `?' option.
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
@@ -90,31 +90,41 @@ Package: amstext 2021/08/26 v2.01 AMS text
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks20
-\ex@=\dimen149
+\ex@=\dimen151
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen150
+\pmbraise@=\dimen152
 )
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
-Package: amsopn 2021/08/26 v2.02 operator names
+Package: amsopn 2022/04/08 v2.04 operator names
 )
 \inf@bad=\count197
 LaTeX Info: Redefining \frac on input line 234.
 \uproot@=\count198
 \leftroot@=\count199
 LaTeX Info: Redefining \overline on input line 399.
+LaTeX Info: Redefining \colon on input line 410.
 \classnum@=\count266
 \DOTSCASE@=\count267
 LaTeX Info: Redefining \ldots on input line 496.
 LaTeX Info: Redefining \dots on input line 499.
 LaTeX Info: Redefining \cdots on input line 620.
-\Mathstrutbox@=\box50
-\strutbox@=\box51
-\big@size=\dimen151
+\Mathstrutbox@=\box51
+\strutbox@=\box52
+LaTeX Info: Redefining \big on input line 722.
+LaTeX Info: Redefining \Big on input line 723.
+LaTeX Info: Redefining \bigg on input line 724.
+LaTeX Info: Redefining \Bigg on input line 725.
+\big@size=\dimen153
 LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
 \macc@depth=\count268
+LaTeX Info: Redefining \bmod on input line 905.
+LaTeX Info: Redefining \pmod on input line 910.
+LaTeX Info: Redefining \smash on input line 940.
+LaTeX Info: Redefining \relbar on input line 970.
+LaTeX Info: Redefining \Relbar on input line 971.
 \c@MaxMatrixCols=\count269
 \dotsspace@=\muskip16
 \c@parentequation=\count270
@@ -124,18 +134,18 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
 \column@=\count273
 \maxfields@=\count274
 \andhelp@=\toks22
-\eqnshift@=\dimen152
-\alignsep@=\dimen153
-\tagshift@=\dimen154
-\tagwidth@=\dimen155
-\totwidth@=\dimen156
-\lineht@=\dimen157
+\eqnshift@=\dimen154
+\alignsep@=\dimen155
+\tagshift@=\dimen156
+\tagwidth@=\dimen157
+\totwidth@=\dimen158
+\lineht@=\dimen159
 \@envbody=\toks23
-\multlinegap=\skip50
-\multlinetaggap=\skip51
+\multlinegap=\skip51
+\multlinetaggap=\skip52
 \mathdisplay@stack=\toks24
-LaTeX Info: Redefining \[ on input line 2938.
-LaTeX Info: Redefining \] on input line 2939.
+LaTeX Info: Redefining \[ on input line 2953.
+LaTeX Info: Redefining \] on input line 2954.
 )
 (/usr/share/texlive/texmf-dist/tex/latex/amscls/amsthm.sty
 Package: amsthm 2020/05/29 v2.20.6
@@ -144,9 +154,9 @@ Package: amsthm 2020/05/29 v2.20.6
 \thm@headfont=\toks27
 \thm@notefont=\toks28
 \thm@headpunct=\toks29
-\thm@preskip=\skip52
-\thm@postskip=\skip53
-\thm@headsep=\skip54
+\thm@preskip=\skip53
+\thm@postskip=\skip54
+\thm@headsep=\skip55
 \dth@everypar=\toks30
 )
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
@@ -175,20 +185,21 @@ Package: bbold 1994/04/06 Bbold symbol package
 LaTeX Font Info:    Redeclaring math alphabet \mathbb on input line 42.
 )
 (/usr/share/texlive/texmf-dist/tex/latex/caption/subcaption.sty
-Package: subcaption 2020/10/07 v1.3j Sub-captions (AR)
+Package: subcaption 2022/01/07 v1.5 Sub-captions (AR)
 
 (/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
-Package: caption 2020/10/26 v3.5g Customizing captions (AR)
+Package: caption 2022/03/01 v3.6b Customizing captions (AR)
 
 (/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
-Package: caption3 2020/10/21 v2.2e caption3 kernel (AR)
-\captionmargin=\dimen158
-\captionmargin@=\dimen159
-\captionwidth=\dimen160
-\caption@tempdima=\dimen161
-\caption@indent=\dimen162
-\caption@parindent=\dimen163
-\caption@hangindent=\dimen164
+Package: caption3 2022/03/17 v2.3b caption3 kernel (AR)
+\caption@tempdima=\dimen160
+\captionmargin=\dimen161
+\caption@leftmargin=\dimen162
+\caption@rightmargin=\dimen163
+\caption@width=\dimen164
+\caption@indent=\dimen165
+\caption@parindent=\dimen166
+\caption@hangindent=\dimen167
 Package caption Info: Standard document class detected.
 )
 \c@caption@flags=\count275
@@ -204,56 +215,56 @@ Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
 Package: parskip 2021-03-14 v2.0h non-zero parskip adjustments
 
 (/usr/share/texlive/texmf-dist/tex/latex/kvoptions/kvoptions.sty
-Package: kvoptions 2020-10-07 v3.14 Key value format for package options (HO)
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 
 (/usr/share/texlive/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
 Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
 )
-(/usr/share/texlive/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.sty
-Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
+(/usr/share/texlive/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
 \etb@tempcnta=\count279
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/mathtools/mathtools.sty
-Package: mathtools 2021/02/02 v1.28 mathematical typesetting tools
+Package: mathtools 2022/06/29 v1.29 mathematical typesetting tools
 
 (/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
 \calc@Acount=\count280
 \calc@Bcount=\count281
-\calc@Adimen=\dimen165
-\calc@Bdimen=\dimen166
-\calc@Askip=\skip55
-\calc@Bskip=\skip56
+\calc@Adimen=\dimen168
+\calc@Bdimen=\dimen169
+\calc@Askip=\skip56
+\calc@Bskip=\skip57
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
 \calc@Ccount=\count282
-\calc@Cskip=\skip57
+\calc@Cskip=\skip58
 )
 (/usr/share/texlive/texmf-dist/tex/latex/mathtools/mhsetup.sty
 Package: mhsetup 2021/03/18 v1.4 programming setup (MH)
 )
 \g_MT_multlinerow_int=\count283
-\l_MT_multwidth_dim=\dimen167
-\origjot=\skip58
-\l_MT_shortvdotswithinadjustabove_dim=\dimen168
-\l_MT_shortvdotswithinadjustbelow_dim=\dimen169
-\l_MT_above_intertext_sep=\dimen170
-\l_MT_below_intertext_sep=\dimen171
-\l_MT_above_shortintertext_sep=\dimen172
-\l_MT_below_shortintertext_sep=\dimen173
-\xmathstrut@box=\box52
-\xmathstrut@dim=\dimen174
+\l_MT_multwidth_dim=\dimen170
+\origjot=\skip59
+\l_MT_shortvdotswithinadjustabove_dim=\dimen171
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen172
+\l_MT_above_intertext_sep=\dimen173
+\l_MT_below_intertext_sep=\dimen174
+\l_MT_above_shortintertext_sep=\dimen175
+\l_MT_below_shortintertext_sep=\dimen176
+\xmathstrut@box=\box53
+\xmathstrut@dim=\dimen177
 )
 \c@theorem=\count284
 \c@corollary=\count285
 
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
+File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count286
-\l__pdf_internal_box=\box53
+\l__pdf_internal_box=\box54
 )
 (./book.aux)
 \openout1 = `book.aux'.
@@ -275,13 +286,13 @@ LaTeX Font Info:    ... okay on input line 32.
  (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count287
-\scratchdimen=\dimen175
-\scratchbox=\box54
+\scratchdimen=\dimen178
+\scratchbox=\box55
 \nofMPsegments=\count288
 \nofMParguments=\count289
 \everyMPshowfont=\toks31
 \MPscratchCnt=\count290
-\MPscratchDim=\dimen176
+\MPscratchDim=\dimen179
 \MPnumerator=\count291
 \makeMPintoPDFobject=\count292
 \everyMPtoPDFconversion=\toks32
@@ -421,587 +432,727 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [12] [13 <./pictures//rabi-no-delta.png> <./pictures//rabi-prog-delta.png>]
 [14] [15] [16] [17] [18] [19] [20] [21] [22] [23] [24] [25]
+<pictures//10k_234_nsz.png, id=130, 604.1772pt x 362.0727pt>
+File: pictures//10k_234_nsz.png Graphic file (type png)
+<use pictures//10k_234_nsz.png>
+Package pdftex.def Info: pictures//10k_234_nsz.png  used on input line 793.
+(pdftex.def)             Requested size: 232.17241pt x 139.13599pt.
+<pictures//10k_234_nsz_zoom_1.png, id=131, 604.1772pt x 362.0727pt>
+File: pictures//10k_234_nsz_zoom_1.png Graphic file (type png)
+<use pictures//10k_234_nsz_zoom_1.png>
+Package pdftex.def Info: pictures//10k_234_nsz_zoom_1.png  used on input line 7
+99.
+(pdftex.def)             Requested size: 232.17241pt x 139.13599pt.
+<pictures//10k_234_nsz_zoom_2.png, id=132, 604.1772pt x 362.0727pt>
+File: pictures//10k_234_nsz_zoom_2.png Graphic file (type png)
+<use pictures//10k_234_nsz_zoom_2.png>
+Package pdftex.def Info: pictures//10k_234_nsz_zoom_2.png  used on input line 8
+10.
+(pdftex.def)             Requested size: 255.39105pt x 153.04738pt.
+
+Overfull \hbox (23.21864pt too wide) in paragraph at lines 810--811
+ [][] 
+ []
+
+<pictures//10k_234_nsz_zoom_3.png, id=133, 604.1772pt x 362.0727pt>
+File: pictures//10k_234_nsz_zoom_3.png Graphic file (type png)
+<use pictures//10k_234_nsz_zoom_3.png>
+Package pdftex.def Info: pictures//10k_234_nsz_zoom_3.png  used on input line 8
+17.
+(pdftex.def)             Requested size: 232.17241pt x 139.13599pt.
+<pictures//10k_234_g1.png, id=134, 642.4803pt x 404.712pt>
+File: pictures//10k_234_g1.png Graphic file (type png)
+<use pictures//10k_234_g1.png>
+Package pdftex.def Info: pictures//10k_234_g1.png  used on input line 827.
+(pdftex.def)             Requested size: 232.17241pt x 146.25198pt.
+<pictures//10k_234_g1_zoom.png, id=135, 642.4803pt x 404.712pt>
+File: pictures//10k_234_g1_zoom.png Graphic file (type png)
+<use pictures//10k_234_g1_zoom.png>
+Package pdftex.def Info: pictures//10k_234_g1_zoom.png  used on input line 833.
+
+(pdftex.def)             Requested size: 232.17241pt x 146.25198pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<pictures//10k_234_g1_zoom_2.png, id=136, 642.4803pt x 404.712pt>
+File: pictures//10k_234_g1_zoom_2.png Graphic file (type png)
+<use pictures//10k_234_g1_zoom_2.png>
+Package pdftex.def Info: pictures//10k_234_g1_zoom_2.png  used on input line 84
+3.
+(pdftex.def)             Requested size: 290.22105pt x 182.81653pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[26 <./pictures//10k_234_nsz.png> <./pictures//10k_234_nsz_zoom_1.png> <./pictu
+res//10k_234_nsz_zoom_2.png> <./pictures//10k_234_nsz_zoom_3.png>]
+<pictures//100k_3_nsz.png, id=147, 559.3698pt x 369.2997pt>
+File: pictures//100k_3_nsz.png Graphic file (type png)
+<use pictures//100k_3_nsz.png>
+Package pdftex.def Info: pictures//100k_3_nsz.png  used on input line 855.
+(pdftex.def)             Requested size: 232.17241pt x 153.27905pt.
+<pictures//100k_3_nsz_zoom_1.png, id=148, 559.3698pt x 369.2997pt>
+File: pictures//100k_3_nsz_zoom_1.png Graphic file (type png)
+<use pictures//100k_3_nsz_zoom_1.png>
+Package pdftex.def Info: pictures//100k_3_nsz_zoom_1.png  used on input line 86
+1.
+(pdftex.def)             Requested size: 232.17241pt x 153.27905pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<pictures//100k_3_nsz_zoom_3.png, id=149, 559.3698pt x 369.2997pt>
+File: pictures//100k_3_nsz_zoom_3.png Graphic file (type png)
+<use pictures//100k_3_nsz_zoom_3.png>
+Package pdftex.def Info: pictures//100k_3_nsz_zoom_3.png  used on input line 87
+2.
+(pdftex.def)             Requested size: 232.17241pt x 153.27905pt.
+<pictures//100k_3_nsz_zoom_2.png, id=150, 559.3698pt x 369.2997pt>
+File: pictures//100k_3_nsz_zoom_2.png Graphic file (type png)
+<use pictures//100k_3_nsz_zoom_2.png>
+Package pdftex.def Info: pictures//100k_3_nsz_zoom_2.png  used on input line 87
+8.
+(pdftex.def)             Requested size: 232.17241pt x 153.27905pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<pictures//100k_3_g1.png, id=151, 475.5366pt x 325.215pt>
+File: pictures//100k_3_g1.png Graphic file (type png)
+<use pictures//100k_3_g1.png>
+Package pdftex.def Info: pictures//100k_3_g1.png  used on input line 888.
+(pdftex.def)             Requested size: 232.17241pt x 158.7811pt.
+<pictures//100k_3_g1_zoom_1.png, id=152, 475.5366pt x 325.215pt>
+File: pictures//100k_3_g1_zoom_1.png Graphic file (type png)
+<use pictures//100k_3_g1_zoom_1.png>
+Package pdftex.def Info: pictures//100k_3_g1_zoom_1.png  used on input line 894
+.
+(pdftex.def)             Requested size: 232.17241pt x 158.7811pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[27 <./pictures//10k_234_g1.png> <./pictures//10k_234_g1_zoom.png> <./pictures/
+/10k_234_g1_zoom_2.png>] [28 <./pictures//100k_3_nsz.png> <./pictures//100k_3_n
+sz_zoom_1.png> <./pictures//100k_3_nsz_zoom_3.png> <./pictures//100k_3_nsz_zoom
+_2.png> <./pictures//100k_3_g1.png> <./pictures//100k_3_g1_zoom_1.png>]
+<pictures//300k_3_nsz.png, id=168, 484.209pt x 307.8702pt>
+File: pictures//300k_3_nsz.png Graphic file (type png)
+<use pictures//300k_3_nsz.png>
+Package pdftex.def Info: pictures//300k_3_nsz.png  used on input line 910.
+(pdftex.def)             Requested size: 232.17241pt x 147.62097pt.
+<pictures//300k_3_nsz_zoom_1.png, id=169, 484.209pt x 307.8702pt>
+File: pictures//300k_3_nsz_zoom_1.png Graphic file (type png)
+<use pictures//300k_3_nsz_zoom_1.png>
+Package pdftex.def Info: pictures//300k_3_nsz_zoom_1.png  used on input line 91
+6.
+(pdftex.def)             Requested size: 232.17241pt x 147.62097pt.
+<pictures//300k_3_nsz_zoom_3.png, id=170, 484.209pt x 307.8702pt>
+File: pictures//300k_3_nsz_zoom_3.png Graphic file (type png)
+<use pictures//300k_3_nsz_zoom_3.png>
+Package pdftex.def Info: pictures//300k_3_nsz_zoom_3.png  used on input line 92
+7.
+(pdftex.def)             Requested size: 232.17241pt x 147.62097pt.
+<pictures//300k_3_nsz_zoom_2.png, id=171, 484.209pt x 307.8702pt>
+File: pictures//300k_3_nsz_zoom_2.png Graphic file (type png)
+<use pictures//300k_3_nsz_zoom_2.png>
+Package pdftex.def Info: pictures//300k_3_nsz_zoom_2.png  used on input line 93
+3.
+(pdftex.def)             Requested size: 232.17241pt x 147.62097pt.
+<pictures//300k_3_g1.png, id=172, 474.0912pt x 312.9291pt>
+File: pictures//300k_3_g1.png Graphic file (type png)
+<use pictures//300k_3_g1.png>
+Package pdftex.def Info: pictures//300k_3_g1.png  used on input line 943.
+(pdftex.def)             Requested size: 232.17241pt x 153.25064pt.
+<pictures//300k_3_g1_zoom_1.png, id=173, 474.0912pt x 312.9291pt>
+File: pictures//300k_3_g1_zoom_1.png Graphic file (type png)
+<use pictures//300k_3_g1_zoom_1.png>
+Package pdftex.def Info: pictures//300k_3_g1_zoom_1.png  used on input line 949
+.
+(pdftex.def)             Requested size: 232.17241pt x 153.25064pt.
+
+[29 <./pictures//300k_3_nsz.png> <./pictures//300k_3_nsz_zoom_1.png> <./picture
+s//300k_3_nsz_zoom_3.png> <./pictures//300k_3_nsz_zoom_2.png> <./pictures//300k
+_3_g1.png> <./pictures//300k_3_g1_zoom_1.png>] [30]
 Chapter 3.
-[26
+[31
 
 ]
-Overfull \hbox (24.61662pt too wide) in paragraph at lines 847--849
+Overfull \hbox (24.61662pt too wide) in paragraph at lines 1025--1027
 \OT1/cmr/m/n/10.95 In other words, the vis-i-bil-ity two mixed elec-tric field 
 is pro-por-tional to the co-her-ence term $[][]$. 
  []
 
-[27]
-<pictures//heterodyne-fst.png, id=136, 340.53926pt x 166.10748pt>
+[32]
+<pictures//heterodyne-fst.png, id=193, 340.53926pt x 166.10748pt>
 File: pictures//heterodyne-fst.png Graphic file (type png)
 <use pictures//heterodyne-fst.png>
-Package pdftex.def Info: pictures//heterodyne-fst.png  used on input line 883.
+Package pdftex.def Info: pictures//heterodyne-fst.png  used on input line 1061.
+
 (pdftex.def)             Requested size: 483.69684pt x 235.94014pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[28] [29 <./pictures//heterodyne-fst.png>]
-<pictures//detector-fst.png, id=146, 419.31656pt x 383.93437pt>
+[33] [34 <./pictures//heterodyne-fst.png>]
+<pictures//detector-fst.png, id=202, 419.31656pt x 383.93437pt>
 File: pictures//detector-fst.png Graphic file (type png)
 <use pictures//detector-fst.png>
-Package pdftex.def Info: pictures//detector-fst.png  used on input line 948.
+Package pdftex.def Info: pictures//detector-fst.png  used on input line 1126.
 (pdftex.def)             Requested size: 290.22105pt x 265.72931pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[30]
-<pictures//photodiode-vi.png, id=150, 278.4804pt x 160.9212pt>
+[35]
+<pictures//photodiode-vi.png, id=207, 278.4804pt x 160.9212pt>
 File: pictures//photodiode-vi.png Graphic file (type png)
 <use pictures//photodiode-vi.png>
-Package pdftex.def Info: pictures//photodiode-vi.png  used on input line 957.
+Package pdftex.def Info: pictures//photodiode-vi.png  used on input line 1135.
 (pdftex.def)             Requested size: 338.5863pt x 195.6606pt.
- [31 <./pictures//detector-fst.png> <./pictures//photodiode-vi.png>]
-[32]
-<pictures//filter.png, id=159, 146.79843pt x 207.77625pt>
+ [36 <./pictures//detector-fst.png> <./pictures//photodiode-vi.png>]
+[37]
+<pictures//filter.png, id=216, 146.79843pt x 207.77625pt>
 File: pictures//filter.png Graphic file (type png)
 <use pictures//filter.png>
-Package pdftex.def Info: pictures//filter.png  used on input line 998.
+Package pdftex.def Info: pictures//filter.png  used on input line 1176.
 (pdftex.def)             Requested size: 101.57692pt x 143.77156pt.
-<pictures//notch-resp.png, id=160, 507.3354pt x 367.8543pt>
+<pictures//notch-resp.png, id=217, 507.3354pt x 367.8543pt>
 File: pictures//notch-resp.png Graphic file (type png)
 <use pictures//notch-resp.png>
-Package pdftex.def Info: pictures//notch-resp.png  used on input line 1005.
+Package pdftex.def Info: pictures//notch-resp.png  used on input line 1183.
 (pdftex.def)             Requested size: 290.22105pt x 210.43687pt.
-<pictures//equiv-diode.png, id=161, 128.73094pt x 130.98938pt>
+<pictures//equiv-diode.png, id=218, 128.73094pt x 130.98938pt>
 File: pictures//equiv-diode.png Graphic file (type png)
 <use pictures//equiv-diode.png>
-Package pdftex.def Info: pictures//equiv-diode.png  used on input line 1029.
+Package pdftex.def Info: pictures//equiv-diode.png  used on input line 1207.
 (pdftex.def)             Requested size: 96.73788pt x 98.43765pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[33 <./pictures//filter.png> <./pictures//notch-resp.png>]
-<pictures//detector-sec.png, id=167, 485.56406pt x 341.02406pt>
+[38 <./pictures//filter.png> <./pictures//notch-resp.png>]
+<pictures//detector-sec.png, id=224, 485.56406pt x 341.02406pt>
 File: pictures//detector-sec.png Graphic file (type png)
 <use pictures//detector-sec.png>
-Package pdftex.def Info: pictures//detector-sec.png  used on input line 1042.
+Package pdftex.def Info: pictures//detector-sec.png  used on input line 1220.
 (pdftex.def)             Requested size: 338.5863pt x 237.79417pt.
-<pictures//tank.png, id=168, 158.09062pt x 137.7647pt>
+<pictures//tank.png, id=225, 158.09062pt x 137.7647pt>
 File: pictures//tank.png Graphic file (type png)
 <use pictures//tank.png>
-Package pdftex.def Info: pictures//tank.png  used on input line 1056.
+Package pdftex.def Info: pictures//tank.png  used on input line 1234.
 (pdftex.def)             Requested size: 116.08885pt x 101.16438pt.
-<pictures//tank-response.png, id=169, 497.2176pt x 338.9463pt>
+<pictures//tank-response.png, id=226, 497.2176pt x 338.9463pt>
 File: pictures//tank-response.png Graphic file (type png)
 <use pictures//tank-response.png>
-Package pdftex.def Info: pictures//tank-response.png  used on input line 1063.
+Package pdftex.def Info: pictures//tank-response.png  used on input line 1241.
 (pdftex.def)             Requested size: 290.22105pt x 197.85094pt.
- [34 <./pictures//equiv-diode.png> <./pictures//detector-sec.png>]
-<pictures//total_gain_original.jpg, id=175, 2032.59375pt x 1129.21875pt>
+ [39 <./pictures//equiv-diode.png> <./pictures//detector-sec.png>]
+<pictures//total_gain_original.jpg, id=232, 2032.59375pt x 1129.21875pt>
 File: pictures//total_gain_original.jpg Graphic file (type jpg)
 <use pictures//total_gain_original.jpg>
 Package pdftex.def Info: pictures//total_gain_original.jpg  used on input line 
-1077.
+1255.
 (pdftex.def)             Requested size: 483.69684pt x 268.70915pt.
-<pictures//transimp.png, id=176, 277.78781pt x 177.66376pt>
+<pictures//transimp.png, id=233, 277.78781pt x 177.66376pt>
 File: pictures//transimp.png Graphic file (type png)
 <use pictures//transimp.png>
-Package pdftex.def Info: pictures//transimp.png  used on input line 1087.
+Package pdftex.def Info: pictures//transimp.png  used on input line 1265.
 (pdftex.def)             Requested size: 241.84842pt x 154.68007pt.
- [35 <./pictures//tank.png> <./pictures//tank-response.png> <./pictures//total_
+ [40 <./pictures//tank.png> <./pictures//tank-response.png> <./pictures//total_
 gain_original.jpg>]
-<pictures//elec-scheme.png, id=183, 755.9442pt x 375.804pt>
+<pictures//elec-scheme.png, id=239, 755.9442pt x 375.804pt>
 File: pictures//elec-scheme.png Graphic file (type png)
 <use pictures//elec-scheme.png>
-Package pdftex.def Info: pictures//elec-scheme.png  used on input line 1100.
+Package pdftex.def Info: pictures//elec-scheme.png  used on input line 1278.
 (pdftex.def)             Requested size: 459.51051pt x 228.4373pt.
-<pictures//noise_gain_opamp_original.jpg, id=184, 1025.33063pt x 459.96844pt>
+<pictures//noise_gain_opamp_original.jpg, id=240, 1025.33063pt x 459.96844pt>
 File: pictures//noise_gain_opamp_original.jpg Graphic file (type jpg)
 <use pictures//noise_gain_opamp_original.jpg>
 Package pdftex.def Info: pictures//noise_gain_opamp_original.jpg  used on input
- line 1109.
+ line 1287.
 (pdftex.def)             Requested size: 386.95894pt x 173.58965pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[36 <./pictures//transimp.png> <./pictures//elec-scheme.png>]
-<pictures//opick.png, id=190, 661.2705pt x 312.2064pt>
+[41 <./pictures//transimp.png> <./pictures//elec-scheme.png>]
+<pictures//opick.png, id=247, 661.2705pt x 312.2064pt>
 File: pictures//opick.png Graphic file (type png)
 <use pictures//opick.png>
-Package pdftex.def Info: pictures//opick.png  used on input line 1128.
+Package pdftex.def Info: pictures//opick.png  used on input line 1306.
 (pdftex.def)             Requested size: 239.42963pt x 113.0421pt.
 
-Overfull \hbox (21.76753pt too wide) in paragraph at lines 1128--1129
+Overfull \hbox (21.76753pt too wide) in paragraph at lines 1306--1307
  [][] 
  []
 
-<pictures//odeep.png, id=191, 595.5048pt x 303.534pt>
+<pictures//odeep.png, id=248, 595.5048pt x 303.534pt>
 File: pictures//odeep.png Graphic file (type png)
 <use pictures//odeep.png>
-Package pdftex.def Info: pictures//odeep.png  used on input line 1135.
+Package pdftex.def Info: pictures//odeep.png  used on input line 1313.
 (pdftex.def)             Requested size: 239.42963pt x 122.0367pt.
 
-Overfull \hbox (21.76753pt too wide) in paragraph at lines 1135--1136
+Overfull \hbox (21.76753pt too wide) in paragraph at lines 1313--1314
  [][] 
  []
 
-<pictures//noise_gain_opamp_new.jpg, id=192, 2032.59375pt x 1129.21875pt>
+<pictures//noise_gain_opamp_new.jpg, id=249, 2032.59375pt x 1129.21875pt>
 File: pictures//noise_gain_opamp_new.jpg Graphic file (type jpg)
 <use pictures//noise_gain_opamp_new.jpg>
 Package pdftex.def Info: pictures//noise_gain_opamp_new.jpg  used on input line
- 1153.
+ 1331.
 (pdftex.def)             Requested size: 483.69684pt x 268.70915pt.
-[37 <./pictures//noise_gain_opamp_original.jpg> <./pictures//opick.png> <./pict
+[42 <./pictures//noise_gain_opamp_original.jpg> <./pictures//opick.png> <./pict
 ures//odeep.png>]
-<pictures//mpick.png, id=198, 685.8423pt x 298.4751pt>
+<pictures//mpick.png, id=255, 685.8423pt x 298.4751pt>
 File: pictures//mpick.png Graphic file (type png)
 <use pictures//mpick.png>
-Package pdftex.def Info: pictures//mpick.png  used on input line 1165.
+Package pdftex.def Info: pictures//mpick.png  used on input line 1343.
 (pdftex.def)             Requested size: 239.42963pt x 104.19914pt.
 
-Overfull \hbox (21.76753pt too wide) in paragraph at lines 1165--1166
+Overfull \hbox (21.76753pt too wide) in paragraph at lines 1343--1344
  [][] 
  []
 
-<pictures//mdeep.png, id=199, 702.4644pt x 289.8027pt>
+<pictures//mdeep.png, id=256, 702.4644pt x 289.8027pt>
 File: pictures//mdeep.png Graphic file (type png)
 <use pictures//mdeep.png>
-Package pdftex.def Info: pictures//mdeep.png  used on input line 1172.
+Package pdftex.def Info: pictures//mdeep.png  used on input line 1350.
 (pdftex.def)             Requested size: 239.42963pt x 98.77481pt.
 
-Overfull \hbox (21.76753pt too wide) in paragraph at lines 1172--1173
+Overfull \hbox (21.76753pt too wide) in paragraph at lines 1350--1351
  [][] 
  []
 
-[38 <./pictures//noise_gain_opamp_new.jpg> <./pictures//mpick.png> <./pictures/
+[43 <./pictures//noise_gain_opamp_new.jpg> <./pictures//mpick.png> <./pictures/
 /mdeep.png>]
-<pictures//total_gain_new.jpg, id=205, 2032.59375pt x 1129.21875pt>
+<pictures//total_gain_new.jpg, id=262, 2032.59375pt x 1129.21875pt>
 File: pictures//total_gain_new.jpg Graphic file (type jpg)
 <use pictures//total_gain_new.jpg>
-Package pdftex.def Info: pictures//total_gain_new.jpg  used on input line 1191.
+Package pdftex.def Info: pictures//total_gain_new.jpg  used on input line 1369.
 
 (pdftex.def)             Requested size: 483.69684pt x 268.70915pt.
-<pictures//heterodyne-lens.png, id=206, 317.83665pt x 225.51266pt>
+<pictures//heterodyne-lens.png, id=263, 317.83665pt x 225.51266pt>
 File: pictures//heterodyne-lens.png Graphic file (type png)
 <use pictures//heterodyne-lens.png>
-Package pdftex.def Info: pictures//heterodyne-lens.png  used on input line 1204
+Package pdftex.def Info: pictures//heterodyne-lens.png  used on input line 1382
 .
 (pdftex.def)             Requested size: 386.95894pt x 274.57446pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[39 <./pictures//total_gain_new.jpg>]
-<pictures//diode-size-sm.png, id=210, 538.26094pt x 93.34875pt>
+[44 <./pictures//total_gain_new.jpg>]
+<pictures//diode-size-sm.png, id=267, 538.26094pt x 93.34875pt>
 File: pictures//diode-size-sm.png Graphic file (type png)
 <use pictures//diode-size-sm.png>
-Package pdftex.def Info: pictures//diode-size-sm.png  used on input line 1222.
+Package pdftex.def Info: pictures//diode-size-sm.png  used on input line 1400.
 (pdftex.def)             Requested size: 435.32419pt x 75.49811pt.
-<pictures//diode-size-eq.png, id=211, 435.12563pt x 79.04532pt>
+<pictures//diode-size-eq.png, id=268, 435.12563pt x 79.04532pt>
 File: pictures//diode-size-eq.png Graphic file (type png)
 <use pictures//diode-size-eq.png>
-Package pdftex.def Info: pictures//diode-size-eq.png  used on input line 1228.
+Package pdftex.def Info: pictures//diode-size-eq.png  used on input line 1406.
 (pdftex.def)             Requested size: 338.5863pt x 61.51155pt.
-<pictures//diode-size-big.png, id=212, 589.4522pt x 97.11281pt>
+<pictures//diode-size-big.png, id=269, 589.4522pt x 97.11281pt>
 File: pictures//diode-size-big.png Graphic file (type png)
 <use pictures//diode-size-big.png>
-Package pdftex.def Info: pictures//diode-size-big.png  used on input line 1234.
+Package pdftex.def Info: pictures//diode-size-big.png  used on input line 1412.
 
 (pdftex.def)             Requested size: 483.69684pt x 79.6908pt.
- [40 <./pictures//heterodyne-lens.png> <./pictures//diode-size-sm.png> <./pictu
+ [45 <./pictures//heterodyne-lens.png> <./pictures//diode-size-sm.png> <./pictu
 res//diode-size-eq.png>]
-<diode-size-plot.png, id=219, 654.0435pt x 321.6015pt>
+<diode-size-plot.png, id=276, 654.0435pt x 321.6015pt>
 File: diode-size-plot.png Graphic file (type png)
 <use diode-size-plot.png>
-Package pdftex.def Info: diode-size-plot.png  used on input line 1245.
+Package pdftex.def Info: diode-size-plot.png  used on input line 1423.
 (pdftex.def)             Requested size: 483.69684pt x 237.83907pt.
- [41 <./pictures//diode-size-big.png> <./diode-size-plot.png>] [42]
-<pictures//wp-pol-setup.png, id=229, 513.41812pt x 161.85469pt>
+ [46 <./pictures//diode-size-big.png> <./diode-size-plot.png>] [47]
+<pictures//wp-pol-setup.png, id=286, 513.41812pt x 161.85469pt>
 File: pictures//wp-pol-setup.png Graphic file (type png)
 <use pictures//wp-pol-setup.png>
-Package pdftex.def Info: pictures//wp-pol-setup.png  used on input line 1299.
+Package pdftex.def Info: pictures//wp-pol-setup.png  used on input line 1477.
 (pdftex.def)             Requested size: 435.32419pt x 137.2363pt.
-<pictures//heterodyne-wp.png, id=230, 317.83665pt x 193.35063pt>
+<pictures//heterodyne-wp.png, id=287, 317.83665pt x 193.35063pt>
 File: pictures//heterodyne-wp.png Graphic file (type png)
 <use pictures//heterodyne-wp.png>
-Package pdftex.def Info: pictures//heterodyne-wp.png  used on input line 1308.
+Package pdftex.def Info: pictures//heterodyne-wp.png  used on input line 1486.
 (pdftex.def)             Requested size: 386.95894pt x 235.41537pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[43 <./pictures//wp-pol-setup.png>]
-<pictures//beatnoise.png, id=235, 501.37312pt x 107.65219pt>
+[48 <./pictures//wp-pol-setup.png>]
+<pictures//beatnoise.png, id=293, 501.37312pt x 107.65219pt>
 File: pictures//beatnoise.png Graphic file (type png)
 <use pictures//beatnoise.png>
-Package pdftex.def Info: pictures//beatnoise.png  used on input line 1323.
+Package pdftex.def Info: pictures//beatnoise.png  used on input line 1501.
 (pdftex.def)             Requested size: 386.95894pt x 83.08954pt.
- [44 <./pictures//heterodyne-wp.png> <./pictures//beatnoise.png>]
-<pictures//wavemixer.png, id=241, 429.10312pt x 407.27156pt>
+ [49 <./pictures//heterodyne-wp.png> <./pictures//beatnoise.png>]
+<pictures//wavemixer.png, id=299, 429.10312pt x 407.27156pt>
 File: pictures//wavemixer.png Graphic file (type png)
 <use pictures//wavemixer.png>
-Package pdftex.def Info: pictures//wavemixer.png  used on input line 1344.
+Package pdftex.def Info: pictures//wavemixer.png  used on input line 1522.
 (pdftex.def)             Requested size: 241.84842pt x 229.54333pt.
- [45 <./pictures//wavemixer.png>]
-<pictures//power2noise.png, id=246, 780.516pt x 412.6617pt>
+ [50 <./pictures//wavemixer.png>]
+<pictures//power2noise.png, id=304, 780.516pt x 412.6617pt>
 File: pictures//power2noise.png Graphic file (type png)
 <use pictures//power2noise.png>
-Package pdftex.def Info: pictures//power2noise.png  used on input line 1361.
+Package pdftex.def Info: pictures//power2noise.png  used on input line 1539.
 (pdftex.def)             Requested size: 386.95894pt x 204.58614pt.
-<pictures//power2tension.png, id=247, 661.9932pt x 403.2666pt>
+<pictures//power2tension.png, id=305, 661.9932pt x 403.2666pt>
 File: pictures//power2tension.png Graphic file (type png)
 <use pictures//power2tension.png>
-Package pdftex.def Info: pictures//power2tension.png  used on input line 1375.
+Package pdftex.def Info: pictures//power2tension.png  used on input line 1553.
 (pdftex.def)             Requested size: 386.95894pt x 235.72849pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[46 <./pictures//power2noise.png>]
-<pictures//sb-def.png, id=252, 190.1842pt x 113.02376pt>
+[51 <./pictures//power2noise.png>]
+<pictures//sb-def.png, id=310, 190.1842pt x 113.02376pt>
 File: pictures//sb-def.png Graphic file (type png)
 <use pictures//sb-def.png>
-Package pdftex.def Info: pictures//sb-def.png  used on input line 1392.
+Package pdftex.def Info: pictures//sb-def.png  used on input line 1570.
 (pdftex.def)             Requested size: 290.22105pt x 172.49806pt.
- [47 <./pictures//power2tension.png> <./pictures//sb-def.png>] [48]
-<pictures//sb-fsr.png, id=263, 295.8421pt x 269.63895pt>
+ [52 <./pictures//power2tension.png> <./pictures//sb-def.png>] [53]
+<pictures//sb-fsr.png, id=320, 295.8421pt x 269.63895pt>
 File: pictures//sb-fsr.png Graphic file (type png)
 <use pictures//sb-fsr.png>
-Package pdftex.def Info: pictures//sb-fsr.png  used on input line 1438.
+Package pdftex.def Info: pictures//sb-fsr.png  used on input line 1616.
 (pdftex.def)             Requested size: 386.95894pt x 352.7194pt.
-<pictures//sb-off.png, id=264, 295.8421pt x 298.3779pt>
+<pictures//sb-off.png, id=321, 295.8421pt x 298.3779pt>
 File: pictures//sb-off.png Graphic file (type png)
 <use pictures//sb-off.png>
-Package pdftex.def Info: pictures//sb-off.png  used on input line 1447.
+Package pdftex.def Info: pictures//sb-off.png  used on input line 1625.
 (pdftex.def)             Requested size: 386.95894pt x 390.31335pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[49 <./pictures//sb-fsr.png>] [50 <./pictures//sb-off.png>]
-<pictures//sb-r-fit.png, id=273, 1235.817pt x 669.9429pt>
+[54 <./pictures//sb-fsr.png>] [55 <./pictures//sb-off.png>]
+<pictures//sb-r-fit.png, id=330, 1235.817pt x 669.9429pt>
 File: pictures//sb-r-fit.png Graphic file (type png)
 <use pictures//sb-r-fit.png>
-Package pdftex.def Info: pictures//sb-r-fit.png  used on input line 1481.
+Package pdftex.def Info: pictures//sb-r-fit.png  used on input line 1659.
 (pdftex.def)             Requested size: 604.62105pt x 327.76376pt.
 
-Overfull \hbox (64.0187pt too wide) in paragraph at lines 1481--1483
+Overfull \hbox (64.0187pt too wide) in paragraph at lines 1659--1661
 []| []
  []
 
-[51 <./pictures//sb-r-fit.png>]
-<pictures//sb-power-visibility.png, id=278, 688.0104pt x 375.0813pt>
+[56 <./pictures//sb-r-fit.png>]
+<pictures//sb-power-visibility.png, id=335, 688.0104pt x 375.0813pt>
 File: pictures//sb-power-visibility.png Graphic file (type png)
 <use pictures//sb-power-visibility.png>
 Package pdftex.def Info: pictures//sb-power-visibility.png  used on input line 
-1518.
+1696.
 (pdftex.def)             Requested size: 386.95894pt x 210.95981pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[52] [53 <./pictures//sb-power-visibility.png>]
+[57] [58 <./pictures//sb-power-visibility.png>]
 Chapter 4.
-[54
+[59
 
-] [55] [56] [57] [58]
-<pictures//st-f-rough.png, id=302, 463.2507pt x 297.7524pt>
+] [60] [61] [62] [63]
+<pictures//st-f-rough.png, id=359, 463.2507pt x 297.7524pt>
 File: pictures//st-f-rough.png Graphic file (type png)
 <use pictures//st-f-rough.png>
-Package pdftex.def Info: pictures//st-f-rough.png  used on input line 1789.
+Package pdftex.def Info: pictures//st-f-rough.png  used on input line 1967.
 (pdftex.def)             Requested size: 255.39105pt x 164.15504pt.
 
-Overfull \hbox (23.21864pt too wide) in paragraph at lines 1789--1790
+Overfull \hbox (23.21864pt too wide) in paragraph at lines 1967--1968
  [][] 
  []
 
-<pictures//st-fft-rough.png, id=303, 500.8311pt x 300.6432pt>
+<pictures//st-fft-rough.png, id=360, 500.8311pt x 300.6432pt>
 File: pictures//st-fft-rough.png Graphic file (type png)
 <use pictures//st-fft-rough.png>
-Package pdftex.def Info: pictures//st-fft-rough.png  used on input line 1796.
+Package pdftex.def Info: pictures//st-fft-rough.png  used on input line 1974.
 (pdftex.def)             Requested size: 255.39105pt x 153.30765pt.
 
-Overfull \hbox (23.21864pt too wide) in paragraph at lines 1796--1797
+Overfull \hbox (23.21864pt too wide) in paragraph at lines 1974--1975
  [][] 
  []
 
-<pictures//st-f-bpf.png, id=304, 570.2103pt x 333.8874pt>
+<pictures//st-f-bpf.png, id=361, 570.2103pt x 333.8874pt>
 File: pictures//st-f-bpf.png Graphic file (type png)
 <use pictures//st-f-bpf.png>
-Package pdftex.def Info: pictures//st-f-bpf.png  used on input line 1809.
+Package pdftex.def Info: pictures//st-f-bpf.png  used on input line 1987.
 (pdftex.def)             Requested size: 255.39105pt x 149.54486pt.
 
-Overfull \hbox (23.21864pt too wide) in paragraph at lines 1809--1810
+Overfull \hbox (23.21864pt too wide) in paragraph at lines 1987--1988
  [][] 
  []
 
-<pictures//st-fft-bpf.png, id=305, 506.6127pt x 315.8199pt>
+<pictures//st-fft-bpf.png, id=362, 506.6127pt x 315.8199pt>
 File: pictures//st-fft-bpf.png Graphic file (type png)
 <use pictures//st-fft-bpf.png>
-Package pdftex.def Info: pictures//st-fft-bpf.png  used on input line 1816.
+Package pdftex.def Info: pictures//st-fft-bpf.png  used on input line 1994.
 (pdftex.def)             Requested size: 255.39105pt x 159.20587pt.
 
-Overfull \hbox (23.21864pt too wide) in paragraph at lines 1816--1817
+Overfull \hbox (23.21864pt too wide) in paragraph at lines 1994--1995
  [][] 
  []
 
-[59 <./pictures//st-f-rough.png> <./pictures//st-fft-rough.png>]
-<pictures//st-g12.png, id=312, 1003.1076pt x 712.5822pt>
+[64 <./pictures//st-f-rough.png> <./pictures//st-fft-rough.png>]
+<pictures//st-g12.png, id=368, 1003.1076pt x 712.5822pt>
 File: pictures//st-g12.png Graphic file (type png)
 <use pictures//st-g12.png>
-Package pdftex.def Info: pictures//st-g12.png  used on input line 1828.
+Package pdftex.def Info: pictures//st-g12.png  used on input line 2006.
 (pdftex.def)             Requested size: 435.32419pt x 309.24225pt.
- [60 <./pictures//st-f-bpf.png> <./pictures//st-fft-bpf.png> <./pictures//st-g1
+ [65 <./pictures//st-f-bpf.png> <./pictures//st-fft-bpf.png> <./pictures//st-g1
 2.png>]
-<pictures//to-st.png, id=319, 434.37282pt x 402.75468pt>
+<pictures//to-st.png, id=376, 434.37282pt x 402.75468pt>
 File: pictures//to-st.png Graphic file (type png)
 <use pictures//to-st.png>
-Package pdftex.def Info: pictures//to-st.png  used on input line 1838.
+Package pdftex.def Info: pictures//to-st.png  used on input line 2016.
 (pdftex.def)             Requested size: 241.84842pt x 224.25052pt.
-<pictures//st-stat.png, id=320, 500.1084pt x 295.5843pt>
+<pictures//st-stat.png, id=377, 500.1084pt x 295.5843pt>
 File: pictures//st-stat.png Graphic file (type png)
 <use pictures//st-stat.png>
-Package pdftex.def Info: pictures//st-stat.png  used on input line 1845.
+Package pdftex.def Info: pictures//st-stat.png  used on input line 2023.
 (pdftex.def)             Requested size: 338.5863pt x 200.11967pt.
 
-[61 <./pictures//to-st.png> <./pictures//st-stat.png>]
-<pictures//sp-f-rough.png, id=326, 572.3784pt x 348.3414pt>
+[66 <./pictures//to-st.png> <./pictures//st-stat.png>]
+<pictures//sp-f-rough.png, id=383, 572.3784pt x 348.3414pt>
 File: pictures//sp-f-rough.png Graphic file (type png)
 <use pictures//sp-f-rough.png>
-Package pdftex.def Info: pictures//sp-f-rough.png  used on input line 1860.
+Package pdftex.def Info: pictures//sp-f-rough.png  used on input line 2038.
 (pdftex.def)             Requested size: 255.39105pt x 155.42336pt.
 
-Overfull \hbox (23.21864pt too wide) in paragraph at lines 1860--1861
+Overfull \hbox (23.21864pt too wide) in paragraph at lines 2038--2039
  [][] 
  []
 
-<pictures//sp-fft-rough.png, id=327, 543.4704pt x 323.7696pt>
+<pictures//sp-fft-rough.png, id=384, 543.4704pt x 323.7696pt>
 File: pictures//sp-fft-rough.png Graphic file (type png)
 <use pictures//sp-fft-rough.png>
-Package pdftex.def Info: pictures//sp-fft-rough.png  used on input line 1867.
+Package pdftex.def Info: pictures//sp-fft-rough.png  used on input line 2045.
 (pdftex.def)             Requested size: 255.39105pt x 152.14703pt.
 
-Overfull \hbox (23.21864pt too wide) in paragraph at lines 1867--1868
+Overfull \hbox (23.21864pt too wide) in paragraph at lines 2045--2046
  [][] 
  []
 
-<pictures//sp-f-bpf.png, id=328, 535.5207pt x 313.6518pt>
+<pictures//sp-f-bpf.png, id=385, 535.5207pt x 313.6518pt>
 File: pictures//sp-f-bpf.png Graphic file (type png)
 <use pictures//sp-f-bpf.png>
-Package pdftex.def Info: pictures//sp-f-bpf.png  used on input line 1880.
+Package pdftex.def Info: pictures//sp-f-bpf.png  used on input line 2058.
 (pdftex.def)             Requested size: 255.39105pt x 149.57959pt.
 
-Overfull \hbox (23.21864pt too wide) in paragraph at lines 1880--1881
+Overfull \hbox (23.21864pt too wide) in paragraph at lines 2058--2059
  [][] 
  []
 
-<pictures//sp-fft-bpf.png, id=329, 642.4803pt x 336.7782pt>
+<pictures//sp-fft-bpf.png, id=386, 642.4803pt x 336.7782pt>
 File: pictures//sp-fft-bpf.png Graphic file (type png)
 <use pictures//sp-fft-bpf.png>
-Package pdftex.def Info: pictures//sp-fft-bpf.png  used on input line 1887.
+Package pdftex.def Info: pictures//sp-fft-bpf.png  used on input line 2065.
 (pdftex.def)             Requested size: 255.39105pt x 133.87126pt.
 
-Overfull \hbox (23.21864pt too wide) in paragraph at lines 1887--1888
+Overfull \hbox (23.21864pt too wide) in paragraph at lines 2065--2066
  [][] 
  []
 
-<pictures//spec3-42.png, id=330, 542.7477pt x 291.2481pt>
+<pictures//spec3-42.png, id=387, 542.7477pt x 291.2481pt>
 File: pictures//spec3-42.png Graphic file (type png)
 <use pictures//spec3-42.png>
-Package pdftex.def Info: pictures//spec3-42.png  used on input line 1900.
+Package pdftex.def Info: pictures//spec3-42.png  used on input line 2078.
 (pdftex.def)             Requested size: 255.39105pt x 137.0466pt.
 
-Overfull \hbox (23.21864pt too wide) in paragraph at lines 1900--1901
+Overfull \hbox (23.21864pt too wide) in paragraph at lines 2078--2079
  [][] 
  []
 
-<pictures//spec3-43.png, id=331, 533.3526pt x 299.9205pt>
+<pictures//spec3-43.png, id=388, 533.3526pt x 299.9205pt>
 File: pictures//spec3-43.png Graphic file (type png)
 <use pictures//spec3-43.png>
-Package pdftex.def Info: pictures//spec3-43.png  used on input line 1905.
+Package pdftex.def Info: pictures//spec3-43.png  used on input line 2083.
 (pdftex.def)             Requested size: 255.39105pt x 143.61238pt.
 
-Overfull \hbox (23.21864pt too wide) in paragraph at lines 1905--1906
+Overfull \hbox (23.21864pt too wide) in paragraph at lines 2083--2084
  [][] 
  []
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<pictures//spec3-44.png, id=332, 546.3612pt x 310.0383pt>
+<pictures//spec3-44.png, id=389, 546.3612pt x 310.0383pt>
 File: pictures//spec3-44.png Graphic file (type png)
 <use pictures//spec3-44.png>
-Package pdftex.def Info: pictures//spec3-44.png  used on input line 1913.
+Package pdftex.def Info: pictures//spec3-44.png  used on input line 2091.
 (pdftex.def)             Requested size: 255.39105pt x 144.92323pt.
 
-Overfull \hbox (23.21864pt too wide) in paragraph at lines 1913--1914
+Overfull \hbox (23.21864pt too wide) in paragraph at lines 2091--2092
  [][] 
  []
 
-<pictures//spec3-45.png, id=333, 537.6888pt x 283.2984pt>
+<pictures//spec3-45.png, id=390, 537.6888pt x 283.2984pt>
 File: pictures//spec3-45.png Graphic file (type png)
 <use pictures//spec3-45.png>
-Package pdftex.def Info: pictures//spec3-45.png  used on input line 1918.
+Package pdftex.def Info: pictures//spec3-45.png  used on input line 2096.
 (pdftex.def)             Requested size: 255.39105pt x 134.56381pt.
 
-Overfull \hbox (23.21864pt too wide) in paragraph at lines 1918--1919
+Overfull \hbox (23.21864pt too wide) in paragraph at lines 2096--2097
  [][] 
  []
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<pictures//sp-g12-1.png, id=334, 584.6643pt x 337.5009pt>
+<pictures//sp-g12-1.png, id=391, 584.6643pt x 337.5009pt>
 File: pictures//sp-g12-1.png Graphic file (type png)
 <use pictures//sp-g12-1.png>
-Package pdftex.def Info: pictures//sp-g12-1.png  used on input line 1930.
+Package pdftex.def Info: pictures//sp-g12-1.png  used on input line 2108.
 (pdftex.def)             Requested size: 255.39105pt x 147.42453pt.
 
-Overfull \hbox (23.21864pt too wide) in paragraph at lines 1930--1931
+Overfull \hbox (23.21864pt too wide) in paragraph at lines 2108--2109
  [][] 
  []
 
-<pictures//sp-g12-3.png, id=335, 629.4717pt x 381.5856pt>
+<pictures//sp-g12-3.png, id=392, 629.4717pt x 381.5856pt>
 File: pictures//sp-g12-3.png Graphic file (type png)
 <use pictures//sp-g12-3.png>
-Package pdftex.def Info: pictures//sp-g12-3.png  used on input line 1935.
+Package pdftex.def Info: pictures//sp-g12-3.png  used on input line 2113.
 (pdftex.def)             Requested size: 255.39105pt x 154.81497pt.
 
-Overfull \hbox (23.21864pt too wide) in paragraph at lines 1935--1936
+Overfull \hbox (23.21864pt too wide) in paragraph at lines 2113--2114
  [][] 
  []
 
-[62 <./pictures//sp-f-rough.png> <./pictures//sp-fft-rough.png> <./pictures//sp
+[67 <./pictures//sp-f-rough.png> <./pictures//sp-fft-rough.png> <./pictures//sp
 -f-bpf.png> <./pictures//sp-fft-bpf.png>]
-<pictures//sp-g12-4.png, id=343, 633.0852pt x 364.9635pt>
+<pictures//sp-g12-4.png, id=400, 633.0852pt x 364.9635pt>
 File: pictures//sp-g12-4.png Graphic file (type png)
 <use pictures//sp-g12-4.png>
-Package pdftex.def Info: pictures//sp-g12-4.png  used on input line 1943.
+Package pdftex.def Info: pictures//sp-g12-4.png  used on input line 2121.
 (pdftex.def)             Requested size: 255.39105pt x 147.22467pt.
 
-Overfull \hbox (23.21864pt too wide) in paragraph at lines 1943--1944
+Overfull \hbox (23.21864pt too wide) in paragraph at lines 2121--2122
  [][] 
  []
 
-<pictures//sp-g12-2.png, id=344, 563.706pt x 306.4248pt>
+<pictures//sp-g12-2.png, id=401, 563.706pt x 306.4248pt>
 File: pictures//sp-g12-2.png Graphic file (type png)
 <use pictures//sp-g12-2.png>
-Package pdftex.def Info: pictures//sp-g12-2.png  used on input line 1948.
+Package pdftex.def Info: pictures//sp-g12-2.png  used on input line 2126.
 (pdftex.def)             Requested size: 255.39105pt x 138.82501pt.
 
-Overfull \hbox (23.21864pt too wide) in paragraph at lines 1948--1949
+Overfull \hbox (23.21864pt too wide) in paragraph at lines 2126--2127
  [][] 
  []
 
-[63 <./pictures//spec3-42.png> <./pictures//spec3-43.png> <./pictures//spec3-44
+[68 <./pictures//spec3-42.png> <./pictures//spec3-43.png> <./pictures//spec3-44
 .png> <./pictures//spec3-45.png> <./pictures//sp-g12-1.png> <./pictures//sp-g12
 -3.png> <./pictures//sp-g12-4.png> <./pictures//sp-g12-2.png>]
-<pictures//medley.png, id=356, 2465.8524pt x 2461.5162pt>
+<pictures//medley.png, id=413, 2465.8524pt x 2461.5162pt>
 File: pictures//medley.png Graphic file (type png)
 <use pictures//medley.png>
-Package pdftex.def Info: pictures//medley.png  used on input line 1959.
+Package pdftex.def Info: pictures//medley.png  used on input line 2137.
 (pdftex.def)             Requested size: 435.32419pt x 434.52776pt.
-<pictures//sp-stat.png, id=357, 658.3797pt x 377.2494pt>
+<pictures//sp-stat.png, id=414, 658.3797pt x 377.2494pt>
 File: pictures//sp-stat.png Graphic file (type png)
 <use pictures//sp-stat.png>
-Package pdftex.def Info: pictures//sp-stat.png  used on input line 1968.
+Package pdftex.def Info: pictures//sp-stat.png  used on input line 2146.
 (pdftex.def)             Requested size: 435.32419pt x 249.44012pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[64 <./pictures//medley.png>]
+[69 <./pictures//medley.png>]
 
-LaTeX Warning: Reference `' on page 65 undefined on input line 1976.
+LaTeX Warning: Reference `' on page 70 undefined on input line 2154.
 
-[65 <./pictures//sp-stat.png>]
+[70 <./pictures//sp-stat.png>]
 Chapter 5.
-[66
+[71
 
-] [67]
+] [72]
 Appendix A.
-[68
-
-] [69]
-<pictures//notch-tension.png, id=379, 224.41737pt x 246.5479pt>
-File: pictures//notch-tension.png Graphic file (type png)
-<use pictures//notch-tension.png>
-Package pdftex.def Info: pictures//notch-tension.png  used on input line 2184.
-(pdftex.def)             Requested size: 145.11052pt x 159.42657pt.
- [70] [71 <./pictures//notch-tension.png>] [72]
-Appendix B.
 [73
 
 ] [74]
-<pictures//coh_gen.png, id=397, 915.6609pt x 298.4751pt>
+<pictures//notch-tension.png, id=436, 224.41737pt x 246.5479pt>
+File: pictures//notch-tension.png Graphic file (type png)
+<use pictures//notch-tension.png>
+Package pdftex.def Info: pictures//notch-tension.png  used on input line 2362.
+(pdftex.def)             Requested size: 145.11052pt x 159.42657pt.
+ [75] [76 <./pictures//notch-tension.png>] [77]
+Appendix B.
+[78
+
+] [79]
+<pictures//coh_gen.png, id=454, 915.6609pt x 298.4751pt>
 File: pictures//coh_gen.png Graphic file (type png)
 <use pictures//coh_gen.png>
-Package pdftex.def Info: pictures//coh_gen.png  used on input line 2288.
+Package pdftex.def Info: pictures//coh_gen.png  used on input line 2466.
 (pdftex.def)             Requested size: 435.32419pt x 141.9001pt.
-<pictures//chaos_gen.png, id=398, 882.4167pt x 294.8616pt>
+<pictures//chaos_gen.png, id=455, 882.4167pt x 294.8616pt>
 File: pictures//chaos_gen.png Graphic file (type png)
 <use pictures//chaos_gen.png>
-Package pdftex.def Info: pictures//chaos_gen.png  used on input line 2294.
+Package pdftex.def Info: pictures//chaos_gen.png  used on input line 2472.
 (pdftex.def)             Requested size: 435.32419pt x 145.46426pt.
- [75 <./pictures//coh_gen.png> <./pictures//chaos_gen.png>]
-<pictures//test_stat_2.png, id=404, 705.3552pt x 388.0899pt>
+ [80 <./pictures//coh_gen.png> <./pictures//chaos_gen.png>]
+<pictures//test_stat_2.png, id=461, 705.3552pt x 388.0899pt>
 File: pictures//test_stat_2.png Graphic file (type png)
 <use pictures//test_stat_2.png>
-Package pdftex.def Info: pictures//test_stat_2.png  used on input line 2306.
+Package pdftex.def Info: pictures//test_stat_2.png  used on input line 2484.
 (pdftex.def)             Requested size: 255.39105pt x 140.51761pt.
 
-Overfull \hbox (23.21864pt too wide) in paragraph at lines 2306--2307
+Overfull \hbox (23.21864pt too wide) in paragraph at lines 2484--2485
  [][] 
  []
 
-<pictures//test_stat_10.png, id=405, 703.1871pt x 369.2997pt>
+<pictures//test_stat_10.png, id=462, 703.1871pt x 369.2997pt>
 File: pictures//test_stat_10.png Graphic file (type png)
 <use pictures//test_stat_10.png>
-Package pdftex.def Info: pictures//test_stat_10.png  used on input line 2311.
+Package pdftex.def Info: pictures//test_stat_10.png  used on input line 2489.
 (pdftex.def)             Requested size: 255.39105pt x 134.1255pt.
 
-Overfull \hbox (23.21864pt too wide) in paragraph at lines 2311--2312
+Overfull \hbox (23.21864pt too wide) in paragraph at lines 2489--2490
  [][] 
  []
 
-<pictures//test_g12.png, id=406, 915.6609pt x 426.393pt>
+<pictures//test_g12.png, id=463, 915.6609pt x 426.393pt>
 File: pictures//test_g12.png Graphic file (type png)
 <use pictures//test_g12.png>
-Package pdftex.def Info: pictures//test_g12.png  used on input line 2321.
+Package pdftex.def Info: pictures//test_g12.png  used on input line 2499.
 (pdftex.def)             Requested size: 435.32419pt x 202.71445pt.
-[76 <./pictures//test_stat_2.png> <./pictures//test_stat_10.png> <./pictures//t
+[81 <./pictures//test_stat_2.png> <./pictures//test_stat_10.png> <./pictures//t
 est_g12.png>]
-<pictures//dwsmpl-freq.png, id=413, 396.0pt x 106.92pt>
+<pictures//dwsmpl-freq.png, id=470, 396.0pt x 106.92pt>
 File: pictures//dwsmpl-freq.png Graphic file (type png)
 <use pictures//dwsmpl-freq.png>
-Package pdftex.def Info: pictures//dwsmpl-freq.png  used on input line 2348.
+Package pdftex.def Info: pictures//dwsmpl-freq.png  used on input line 2526.
 (pdftex.def)             Requested size: 435.32419pt x 117.54546pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[77]
-<pictures//dwsmpl-filter.png, id=418, 373.00645pt x 138.47864pt>
+[82]
+<pictures//dwsmpl-filter.png, id=474, 373.00645pt x 138.47864pt>
 File: pictures//dwsmpl-filter.png Graphic file (type png)
 <use pictures//dwsmpl-filter.png>
-Package pdftex.def Info: pictures//dwsmpl-filter.png  used on input line 2386.
+Package pdftex.def Info: pictures//dwsmpl-filter.png  used on input line 2564.
 (pdftex.def)             Requested size: 435.32419pt x 161.61575pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[78 <./pictures//dwsmpl-freq.png>] [79 <./pictures//dwsmpl-filter.png>]
+[83 <./pictures//dwsmpl-freq.png>] [84 <./pictures//dwsmpl-filter.png>]
 (./book.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 7397 strings out of 478287
- 128106 string characters out of 5849289
- 420139 words of memory out of 5000000
- 25471 multiletter control sequences out of 15000+600000
- 489323 words of font info for 118 fonts, out of 8000000 for 9000
+ 7801 strings out of 476091
+ 137730 string characters out of 5794081
+ 1875330 words of memory out of 5000000
+ 28060 multiletter control sequences out of 15000+600000
+ 532686 words of font info for 123 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 67i,27n,77p,1696b,535s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 67i,27n,77p,1696b,556s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texli
 ve/texmf-dist/fonts/type1/public/bbold-type1/bbold10.pfb></usr/share/texlive/te
 xmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-di
@@ -1010,31 +1161,34 @@ ts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/typ
 e1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
 lic/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
 sfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi
-9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9
-.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/share/texmf/fonts/t
-ype1/public/cm-super/sfrm1095.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
-blic/stmaryrd/stmary10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/es
-vect/vect10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/esvect/vect8.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/esvect/vect9.pfb>
-Output written on book.pdf (81 pages, 6159964 bytes).
+cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi
+8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/share/texmf/fonts/type1/public/cm
+-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1095.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/public/stmaryrd/stmary10.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/esvect/vect10.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/esvect/vect8.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/esvect/vect9.pfb>
+Output written on book.pdf (86 pages, 6630176 bytes).
 PDF statistics:
- 561 PDF objects out of 1000 (max. 8388607)
- 278 compressed objects within 3 object streams
+ 630 PDF objects out of 1000 (max. 8388607)
+ 298 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
- 346 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 441 words of extra memory for PDF output out of 10000 (max. 10000000)
 
