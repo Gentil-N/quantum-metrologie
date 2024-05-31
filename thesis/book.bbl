@@ -1,0 +1,336 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global}
+    \entry{exprepcumu}{article}{}
+      \name{author}{1}{}{%
+        {{hash=0841fe596f313b3bdfd05b1677f9da27}{%
+           family={D.Fabrey},
+           familyi={D\bibinitperiod},
+           given={James},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{0841fe596f313b3bdfd05b1677f9da27}
+      \strng{fullhash}{0841fe596f313b3bdfd05b1677f9da27}
+      \strng{bibnamehash}{0841fe596f313b3bdfd05b1677f9da27}
+      \strng{authorbibnamehash}{0841fe596f313b3bdfd05b1677f9da27}
+      \strng{authornamehash}{0841fe596f313b3bdfd05b1677f9da27}
+      \strng{authorfullhash}{0841fe596f313b3bdfd05b1677f9da27}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Exponential Representations of the Canonical Commutation Relations}
+      \field{year}{1970}
+    \endentry
+    \entry{cumujulia}{article}{}
+      \name{author}{1}{}{%
+        {{hash=5bab6ba34a6c4b14337901b2bc821ec1}{%
+           family={D.Plankensteiner},
+           familyi={D\bibinitperiod},
+           given={H.Ritsch},
+           giveni={H\bibinitperiod},
+           suffix={C.Hotter},
+           suffixi={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{5bab6ba34a6c4b14337901b2bc821ec1}
+      \strng{fullhash}{5bab6ba34a6c4b14337901b2bc821ec1}
+      \strng{bibnamehash}{5bab6ba34a6c4b14337901b2bc821ec1}
+      \strng{authorbibnamehash}{5bab6ba34a6c4b14337901b2bc821ec1}
+      \strng{authornamehash}{5bab6ba34a6c4b14337901b2bc821ec1}
+      \strng{authorfullhash}{5bab6ba34a6c4b14337901b2bc821ec1}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Quantum}
+      \field{title}{QuantumCumulants.jl: A julia framework for generalized mean-field equations in open quantum systems}
+      \field{year}{2021}
+    \endentry
+    \entry{jcumlarson}{article}{}
+      \name{author}{1}{}{%
+        {{hash=abfd2585934ca5f423db436360e4d119}{%
+           family={Jonas\bibnamedelima Larson},
+           familyi={J\bibinitperiod\bibinitdelim L\bibinitperiod},
+           given={Themistolkis\bibnamedelima Mavrogordatos},
+           giveni={T\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \strng{namehash}{abfd2585934ca5f423db436360e4d119}
+      \strng{fullhash}{abfd2585934ca5f423db436360e4d119}
+      \strng{bibnamehash}{abfd2585934ca5f423db436360e4d119}
+      \strng{authorbibnamehash}{abfd2585934ca5f423db436360e4d119}
+      \strng{authornamehash}{abfd2585934ca5f423db436360e4d119}
+      \strng{authorfullhash}{abfd2585934ca5f423db436360e4d119}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{The Jaynes-Cummings model and its descendants}
+      \field{year}{2022}
+    \endentry
+    \entry{sofus}{thesis}{}
+      \name{author}{1}{}{%
+        {{hash=445e95bc8a7def6810e4aca2259c04f9}{%
+           family={Kristensen},
+           familyi={K\bibinitperiod},
+           given={Sofus\bibnamedelima Laguna},
+           giveni={S\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+      }
+      \strng{namehash}{445e95bc8a7def6810e4aca2259c04f9}
+      \strng{fullhash}{445e95bc8a7def6810e4aca2259c04f9}
+      \strng{bibnamehash}{445e95bc8a7def6810e4aca2259c04f9}
+      \strng{authorbibnamehash}{445e95bc8a7def6810e4aca2259c04f9}
+      \strng{authornamehash}{445e95bc8a7def6810e4aca2259c04f9}
+      \strng{authorfullhash}{445e95bc8a7def6810e4aca2259c04f9}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Atom Interferometry in an Optical Cavity with Optical Lattice Trapping on Seconds Timescale}
+      \field{type}{PhD Thesis}
+      \field{year}{2023}
+    \endentry
+    \entry{exprepcumuryogo}{article}{}
+      \name{author}{1}{}{%
+        {{hash=3db80a54dbc22f6e0f8ef62d81d5e4c4}{%
+           family={Kubo},
+           familyi={K\bibinitperiod},
+           given={Ryogo},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{3db80a54dbc22f6e0f8ef62d81d5e4c4}
+      \strng{fullhash}{3db80a54dbc22f6e0f8ef62d81d5e4c4}
+      \strng{bibnamehash}{3db80a54dbc22f6e0f8ef62d81d5e4c4}
+      \strng{authorbibnamehash}{3db80a54dbc22f6e0f8ef62d81d5e4c4}
+      \strng{authornamehash}{3db80a54dbc22f6e0f8ef62d81d5e4c4}
+      \strng{authorfullhash}{3db80a54dbc22f6e0f8ef62d81d5e4c4}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Generalized Cumulant Expansion Method}
+      \field{year}{1962}
+    \endentry
+    \entry{mandelwolf}{book}{}
+      \name{author}{1}{}{%
+        {{hash=b88e36e8421a6ffdc4188a5c19dfd11a}{%
+           family={Leonard\bibnamedelima Mandel},
+           familyi={L\bibinitperiod\bibinitdelim M\bibinitperiod},
+           given={Emil\bibnamedelima Wolf},
+           giveni={E\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge university Press}%
+      }
+      \strng{namehash}{b88e36e8421a6ffdc4188a5c19dfd11a}
+      \strng{fullhash}{b88e36e8421a6ffdc4188a5c19dfd11a}
+      \strng{bibnamehash}{b88e36e8421a6ffdc4188a5c19dfd11a}
+      \strng{authorbibnamehash}{b88e36e8421a6ffdc4188a5c19dfd11a}
+      \strng{authornamehash}{b88e36e8421a6ffdc4188a5c19dfd11a}
+      \strng{authorfullhash}{b88e36e8421a6ffdc4188a5c19dfd11a}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Optical Coherence and Quantum Optics}
+      \field{year}{1995}
+      \keyw{physics}
+    \endentry
+    \entry{rloudon}{book}{}
+      \name{author}{1}{}{%
+        {{hash=2eb6b1750ea9da3a129681e6853fc930}{%
+           family={Loudon},
+           familyi={L\bibinitperiod},
+           given={Rodney},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Oxford University Press}%
+      }
+      \strng{namehash}{2eb6b1750ea9da3a129681e6853fc930}
+      \strng{fullhash}{2eb6b1750ea9da3a129681e6853fc930}
+      \strng{bibnamehash}{2eb6b1750ea9da3a129681e6853fc930}
+      \strng{authorbibnamehash}{2eb6b1750ea9da3a129681e6853fc930}
+      \strng{authornamehash}{2eb6b1750ea9da3a129681e6853fc930}
+      \strng{authorfullhash}{2eb6b1750ea9da3a129681e6853fc930}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{The Quantum Theory of Light}
+      \field{year}{1973}
+      \keyw{physics}
+    \endentry
+    \entry{lindmatrix}{article}{}
+      \name{author}{1}{}{%
+        {{hash=82195db9efc6c008bd184de4a3167cb2}{%
+           family={M.Am-Shallem},
+           familyi={M\bibinithyphendelim S\bibinitperiod}}}%
+      }
+      \strng{namehash}{82195db9efc6c008bd184de4a3167cb2}
+      \strng{fullhash}{82195db9efc6c008bd184de4a3167cb2}
+      \strng{bibnamehash}{82195db9efc6c008bd184de4a3167cb2}
+      \strng{authorbibnamehash}{82195db9efc6c008bd184de4a3167cb2}
+      \strng{authornamehash}{82195db9efc6c008bd184de4a3167cb2}
+      \strng{authorfullhash}{82195db9efc6c008bd184de4a3167cb2}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Three approaches for representing Lindblad dynamics by a matrix-vector notation}
+    \endentry
+    \entry{introlindblad}{article}{}
+      \name{author}{1}{}{%
+        {{hash=e4aaf24bcceda92a2238fbd5f6974aba}{%
+           family={Manzano},
+           familyi={M\bibinitperiod},
+           given={Daniel},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{e4aaf24bcceda92a2238fbd5f6974aba}
+      \strng{fullhash}{e4aaf24bcceda92a2238fbd5f6974aba}
+      \strng{bibnamehash}{e4aaf24bcceda92a2238fbd5f6974aba}
+      \strng{authorbibnamehash}{e4aaf24bcceda92a2238fbd5f6974aba}
+      \strng{authornamehash}{e4aaf24bcceda92a2238fbd5f6974aba}
+      \strng{authorfullhash}{e4aaf24bcceda92a2238fbd5f6974aba}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv}
+      \field{title}{A short introduction to the Lindblad Master Equation}
+    \endentry
+    \entry{foxmark}{book}{}
+      \name{author}{1}{}{%
+        {{hash=0e1602b408c4ef63e9408e6a5067459d}{%
+           family={Mark},
+           familyi={M\bibinitperiod},
+           given={Fox},
+           giveni={F\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Oxford University Press}%
+      }
+      \strng{namehash}{0e1602b408c4ef63e9408e6a5067459d}
+      \strng{fullhash}{0e1602b408c4ef63e9408e6a5067459d}
+      \strng{bibnamehash}{0e1602b408c4ef63e9408e6a5067459d}
+      \strng{authorbibnamehash}{0e1602b408c4ef63e9408e6a5067459d}
+      \strng{authornamehash}{0e1602b408c4ef63e9408e6a5067459d}
+      \strng{authorfullhash}{0e1602b408c4ef63e9408e6a5067459d}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Quantum Optics: An Introduction}
+      \field{year}{2006}
+      \keyw{physics}
+    \endentry
+    \entry{paulwinfield}{book}{}
+      \name{author}{1}{}{%
+        {{hash=bfe583b41a522030f8d21a9870e9c955}{%
+           family={Paul\bibnamedelima Horowitz},
+           familyi={P\bibinitperiod\bibinitdelim H\bibinitperiod},
+           given={Winfield\bibnamedelima Hill},
+           giveni={W\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge university Press}%
+      }
+      \strng{namehash}{bfe583b41a522030f8d21a9870e9c955}
+      \strng{fullhash}{bfe583b41a522030f8d21a9870e9c955}
+      \strng{bibnamehash}{bfe583b41a522030f8d21a9870e9c955}
+      \strng{authorbibnamehash}{bfe583b41a522030f8d21a9870e9c955}
+      \strng{authornamehash}{bfe583b41a522030f8d21a9870e9c955}
+      \strng{authorfullhash}{bfe583b41a522030f8d21a9870e9c955}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{The Art of Electronics}
+      \field{year}{1980}
+      \keyw{physics}
+    \endentry
+    \entry{dicke}{article}{}
+      \name{author}{1}{}{%
+        {{hash=525c97bf3984d4f72349d4a69b98376f}{%
+           family={R.H.Dicke},
+           familyi={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{525c97bf3984d4f72349d4a69b98376f}
+      \strng{fullhash}{525c97bf3984d4f72349d4a69b98376f}
+      \strng{bibnamehash}{525c97bf3984d4f72349d4a69b98376f}
+      \strng{authorbibnamehash}{525c97bf3984d4f72349d4a69b98376f}
+      \strng{authornamehash}{525c97bf3984d4f72349d4a69b98376f}
+      \strng{authorfullhash}{525c97bf3984d4f72349d4a69b98376f}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Coherence in Spontaneous Radiation Processes}
+      \field{year}{1953}
+    \endentry
+    \entry{stefan}{thesis}{}
+      \name{author}{1}{}{%
+        {{hash=7958882aaec2a4e75d2bc04de3b66f67}{%
+           family={Schäffer},
+           familyi={S\bibinitperiod},
+           given={Stefan\bibnamedelima Alaric},
+           giveni={S\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \strng{namehash}{7958882aaec2a4e75d2bc04de3b66f67}
+      \strng{fullhash}{7958882aaec2a4e75d2bc04de3b66f67}
+      \strng{bibnamehash}{7958882aaec2a4e75d2bc04de3b66f67}
+      \strng{authorbibnamehash}{7958882aaec2a4e75d2bc04de3b66f67}
+      \strng{authornamehash}{7958882aaec2a4e75d2bc04de3b66f67}
+      \strng{authorfullhash}{7958882aaec2a4e75d2bc04de3b66f67}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Studies of Coellective Effects in Atomic Strontium}
+      \field{type}{mathesis}
+      \field{year}{2015}
+    \endentry
+    \entry{mikkel}{thesis}{}
+      \name{author}{1}{}{%
+        {{hash=b82e1a32c4f5fba51274b135cc523867}{%
+           family={Tang},
+           familyi={T\bibinitperiod},
+           given={Mikkel},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{b82e1a32c4f5fba51274b135cc523867}
+      \strng{fullhash}{b82e1a32c4f5fba51274b135cc523867}
+      \strng{bibnamehash}{b82e1a32c4f5fba51274b135cc523867}
+      \strng{authorbibnamehash}{b82e1a32c4f5fba51274b135cc523867}
+      \strng{authornamehash}{b82e1a32c4f5fba51274b135cc523867}
+      \strng{authorfullhash}{b82e1a32c4f5fba51274b135cc523867}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Superradiant Lasers Based on Strontium-88}
+      \field{type}{PhD Thesis}
+      \field{year}{2022}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

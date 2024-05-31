@@ -1,0 +1,15 @@
+[0] Config.pm:306> INFO - This is Biber 2.18
+[3] Config.pm:309> INFO - Logfile is 'book.blg'
+[219] biber:340> INFO - === fre maj 31, 2024, 16:34:44
+[249] Biber.pm:418> INFO - Reading 'book.bcf'
+[398] Biber.pm:978> INFO - Found 14 citekeys in bib section 0
+[436] Biber.pm:4401> INFO - Processing section 0
+[467] Biber.pm:4592> INFO - Looking for bibtex file 'book.bib' for section 0
+[469] bibtex.pm:1713> INFO - LaTeX decoding ...
+[504] bibtex.pm:1518> INFO - Found BibTeX data source 'book.bib'
+[710] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[710] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[711] Biber.pm:4221> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
+[711] Biber.pm:4227> INFO - No sort tailoring available for locale 'en-US'
+[742] bbl.pm:654> INFO - Writing 'book.bbl' with encoding 'UTF-8'
+[753] bbl.pm:757> INFO - Output to book.bbl
