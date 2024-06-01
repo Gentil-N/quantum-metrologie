@@ -2,10 +2,13 @@
 \providecommand\hyper@newdestlabel[2]{}
 \providecommand\HyperFirstAtBeginDocument{\AtBeginDocument}
 \HyperFirstAtBeginDocument{\ifx\hyper@anchor\@undefined
+\global\let\oldcontentsline\contentsline
+\gdef\contentsline#1#2#3#4{\oldcontentsline{#1}{#2}{#3}}
 \global\let\oldnewlabel\newlabel
 \gdef\newlabel#1#2{\newlabelxx{#1}#2}
 \gdef\newlabelxx#1#2#3#4#5#6{\oldnewlabel{#1}{{#2}{#3}}}
 \AtEndDocument{\ifx\hyper@anchor\@undefined
+\let\contentsline\oldcontentsline
 \let\newlabel\oldnewlabel
 \fi}
 \fi}
@@ -14,295 +17,316 @@
 \providecommand\HyField@AuxAddToFields[1]{}
 \providecommand\HyField@AuxAddToCoFields[2]{}
 \abx@aux@refcontext{nty/global//global/global}
-\@writefile{toc}{\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}\protected@file@percent }
+\providecommand \oddpage@label [2]{}
+\@writefile{toc}{\contentsline {chapter}{\numberline {1}Introduction}{3}{chapter.1}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{lof}{\contentsline {figure}{\numberline {1.1}{\ignorespaces On top: some of the many transitions used in $^{88}$Sr for pumping, cooling and lasing. Below: a simplified diagram referring to a three-level structure where the lasing transition is filled thanks to the decay of the \textit  {multilevel} transition, itself filled from the pumping of the base level.\relax }}{3}{figure.caption.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1.1}{\ignorespaces On top: some of the many transitions used in $^{88}$Sr for pumping, cooling and lasing. Below: a simplified diagram referring to a three-level structure where the lasing transition $^1S_0$-$^3P_1$ is filled thanks to the decay of the \textit  {multilevel} transition, itself filled from the pumping of the base level $^1S_0$.\relax }}{5}{figure.caption.3}\protected@file@percent }
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
-\newlabel{fig:sr88}{{1.1}{3}{On top: some of the many transitions used in $^{88}$Sr for pumping, cooling and lasing. Below: a simplified diagram referring to a three-level structure where the lasing transition is filled thanks to the decay of the \textit {multilevel} transition, itself filled from the pumping of the base level.\relax }{figure.caption.2}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {2}Superradiance simulation}{4}{chapter.2}\protected@file@percent }
+\newlabel{fig:sr88}{{1.1}{5}{On top: some of the many transitions used in $^{88}$Sr for pumping, cooling and lasing. Below: a simplified diagram referring to a three-level structure where the lasing transition $^1S_0$-$^3P_1$ is filled thanks to the decay of the \textit {multilevel} transition, itself filled from the pumping of the base level $^1S_0$.\relax }{figure.caption.3}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {2}Superradiance simulation}{6}{chapter.2}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {2.1}Optical Cavity}{4}{section.2.1}\protected@file@percent }
-\newlabel{eqairy}{{2.1}{5}{Optical Cavity}{equation.2.1.1}{}}
-\newlabel{eq1}{{2.2}{5}{Optical Cavity}{equation.2.1.2}{}}
-\newlabel{eq2}{{2.3}{5}{Optical Cavity}{equation.2.1.3}{}}
-\newlabel{eqecirc}{{2.5}{5}{Optical Cavity}{equation.2.1.5}{}}
-\newlabel{eqrt}{{2.8}{6}{Optical Cavity}{equation.2.1.8}{}}
-\newlabel{phimodif}{{2.9}{6}{Optical Cavity}{equation.2.1.9}{}}
-\newlabel{airyformula}{{2.11}{6}{Optical Cavity}{equation.2.1.11}{}}
-\newlabel{airyformulasec}{{2.12}{6}{Optical Cavity}{equation.2.1.12}{}}
-\newlabel{phidef}{{2.13}{6}{Optical Cavity}{equation.2.1.13}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces Normalized Airy distribution plot from -5 to 5 rads for three different sets of mirrors. The linewidth of each resonance increase as the reflection coefficient of the mirrors decrease. We set $r_{1,2} = 0.9$ for the blue curve, $r_{1,2} = 0.8$ for the orange curve, $r_{1,2} = 0.7$ for the green curve. The reflection coefficient is the same for the two mirrors in the three cases: $r_{1} = r_{2}$.\relax }}{7}{figure.caption.3}\protected@file@percent }
-\newlabel{fig:airy-dist}{{2.1}{7}{Normalized Airy distribution plot from -5 to 5 rads for three different sets of mirrors. The linewidth of each resonance increase as the reflection coefficient of the mirrors decrease. We set $r_{1,2} = 0.9$ for the blue curve, $r_{1,2} = 0.8$ for the orange curve, $r_{1,2} = 0.7$ for the green curve. The reflection coefficient is the same for the two mirrors in the three cases: $r_{1} = r_{2}$.\relax }{figure.caption.3}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.2}{\ignorespaces FMWH (unit is frequency in rad/s) as function of the mirror reflectivities $r_{12} = r_1 = r_2$. As FSR is unity then the ordinate axis is the inverse of the finesse by definition. The divergence of the curve at $\sim 0.2$ clearly shows the limitation of the \textit  {Airy} approach for the low reflection coefficients.\relax }}{8}{figure.caption.4}\protected@file@percent }
-\newlabel{fig:airy-fmwh}{{2.2}{8}{FMWH (unit is frequency in rad/s) as function of the mirror reflectivities $r_{12} = r_1 = r_2$. As FSR is unity then the ordinate axis is the inverse of the finesse by definition. The divergence of the curve at $\sim 0.2$ clearly shows the limitation of the \textit {Airy} approach for the low reflection coefficients.\relax }{figure.caption.4}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.2}Jaynes-Cummings model}{8}{section.2.2}\protected@file@percent }
-\newlabel{sec_bosonic_mw}{{2.19}{9}{Jaynes-Cummings model}{equation.2.2.19}{}}
-\newlabel{sigma_commut}{{2.23}{9}{Jaynes-Cummings model}{equation.2.2.23}{}}
-\newlabel{sigmapm_rules}{{2.24}{9}{Jaynes-Cummings model}{equation.2.2.24}{}}
-\newlabel{hjc_original_frame}{{2.30}{10}{Jaynes-Cummings model}{equation.2.2.30}{}}
-\newlabel{unitary_trans_def}{{2.33}{10}{Jaynes-Cummings model}{equation.2.2.33}{}}
-\newlabel{rwa_1}{{2.39}{11}{Jaynes-Cummings model}{equation.2.2.39}{}}
-\newlabel{rwa_2}{{2.40}{11}{Jaynes-Cummings model}{equation.2.2.40}{}}
-\newlabel{HJC}{{2.41}{11}{Jaynes-Cummings model}{equation.2.2.41}{}}
-\newlabel{jc_block}{{2.48}{12}{Jaynes-Cummings model}{equation.2.2.48}{}}
-\newlabel{jc_eigens}{{2.49}{12}{Jaynes-Cummings model}{equation.2.2.49}{}}
-\newlabel{tan_theta_n}{{2.52}{12}{Jaynes-Cummings model}{equation.2.2.52}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.3}{\ignorespaces Rabi oscillations for the simple initial state $\ket  {\uparrow , 0}$. Projection on the state "one-photon/atom not excited" (orange curve) and the state "zero photon/atom excited" (blue curve)\relax }}{13}{figure.caption.5}\protected@file@percent }
-\newlabel{fig:rabi-no-delta}{{2.3}{13}{Rabi oscillations for the simple initial state $\ket {\uparrow , 0}$. Projection on the state "one-photon/atom not excited" (orange curve) and the state "zero photon/atom excited" (blue curve)\relax }{figure.caption.5}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.4}{\ignorespaces Rabi oscillations for the initial state $\ket  {\uparrow , 0}$ with different detunings. Projection on the state "one-photon/atom not excited" (dotted curves) and the state "zero photon/atom excited" (solid curves)\relax }}{13}{figure.caption.6}\protected@file@percent }
-\newlabel{fig:rabi-prog-delta}{{2.4}{13}{Rabi oscillations for the initial state $\ket {\uparrow , 0}$ with different detunings. Projection on the state "one-photon/atom not excited" (dotted curves) and the state "zero photon/atom excited" (solid curves)\relax }{figure.caption.6}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.3}Tavis-Cummings model}{13}{section.2.3}\protected@file@percent }
-\newlabel{dist_sig_1}{{2.56}{14}{Tavis-Cummings model}{equation.2.3.56}{}}
-\newlabel{dist_sig_2}{{2.57}{14}{Tavis-Cummings model}{equation.2.3.57}{}}
-\newlabel{sig_change_s}{{2.59}{14}{Tavis-Cummings model}{equation.2.3.59}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.4}Open quantum systems and the master equation}{15}{section.2.4}\protected@file@percent }
-\newlabel{def_dens_mat}{{2.64}{15}{Open quantum systems and the master equation}{equation.2.4.64}{}}
-\newlabel{deftwo_dens_mat}{{2.65}{15}{Open quantum systems and the master equation}{equation.2.4.65}{}}
-\newlabel{vonneuman}{{2.67}{16}{Open quantum systems and the master equation}{equation.2.4.67}{}}
-\newlabel{master_eq_heis}{{2.71}{17}{Open quantum systems and the master equation}{equation.2.4.71}{}}
-\newlabel{rho_master_eq}{{2.72}{17}{Open quantum systems and the master equation}{equation.2.4.72}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.5}Cumulant expansion method}{19}{section.2.5}\protected@file@percent }
-\newlabel{g1_classic_def}{{2.80}{19}{Cumulant expansion method}{equation.2.5.80}{}}
-\newlabel{quantum_meas}{{2.83}{19}{Cumulant expansion method}{equation.2.5.83}{}}
-\newlabel{quantum_g1_1D_map}{{2.86}{20}{Cumulant expansion method}{equation.2.5.86}{}}
-\newlabel{dtad_rough}{{2.91}{21}{Cumulant expansion method}{equation.2.5.91}{}}
-\newlabel{ad_pure}{{2.92}{21}{Cumulant expansion method}{equation.2.5.92}{}}
-\newlabel{ad_mean_field}{{2.93}{21}{Cumulant expansion method}{equation.2.5.93}{}}
-\newlabel{sp_mean_field}{{2.97}{21}{Cumulant expansion method}{equation.2.5.97}{}}
-\newlabel{sz_mean_field}{{2.98}{21}{Cumulant expansion method}{equation.2.5.98}{}}
-\newlabel{g1_explicit_cumu}{{2.109}{23}{Cumulant expansion method}{equation.2.5.109}{}}
-\newlabel{init_g2}{{2.114}{24}{Cumulant expansion method}{equation.2.5.114}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.6}$g^1$ simulation results}{24}{section.2.6}\protected@file@percent }
-\newlabel{special_ratio}{{2.115}{25}{$g^1$ simulation results}{equation.2.6.115}{}}
-\newlabel{tau_c_loudon_def}{{2.116}{25}{$g^1$ simulation results}{equation.2.6.116}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.6.1}Simulation with 10,000 atoms inside the cavity}{26}{subsection.2.6.1}\protected@file@percent }
-\newlabel{10k_234_nsz_zoom_1}{{2.5b}{26}{Zoom on the main features (from 0 to 60 µs).\relax }{figure.caption.7}{}}
-\newlabel{sub@10k_234_nsz_zoom_1}{{b}{26}{Zoom on the main features (from 0 to 60 µs).\relax }{figure.caption.7}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.5}{\ignorespaces Simulation results for 10,000 atoms inside the cavity. Three set of equations are generated with order $m=2$ (denoted "2nd order"), $m=3$ (denoted "3rd order") and $m=4$ (denoted "4th order"). Two types of expectation values are plotted: the photon number $\left \langle \hat  {n} \right \rangle $ inside the cavity and the atomic inversion $\left \langle \hat  {S}_z \right \rangle $\relax }}{26}{figure.caption.7}\protected@file@percent }
-\newlabel{fig:steady-2nd-unstable}{{2.6a}{26}{Steady-state of $\left \langle \hat {n} \right \rangle $. Pink dotted curve is of 2nd order. Olive solid curve is of 3rd order. Orange dot-dashed is of 4th order. The second order shows clear instabilities at steady-state.\relax }{figure.caption.8}{}}
-\newlabel{sub@fig:steady-2nd-unstable}{{a}{26}{Steady-state of $\left \langle \hat {n} \right \rangle $. Pink dotted curve is of 2nd order. Olive solid curve is of 3rd order. Orange dot-dashed is of 4th order. The second order shows clear instabilities at steady-state.\relax }{figure.caption.8}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.6}{\ignorespaces Zoom on the convergent steady-state values for 10,000 atoms inside the cavity.\relax }}{26}{figure.caption.8}\protected@file@percent }
-\newlabel{10k_234_g1_zoom}{{2.7b}{27}{Zoom on the main feature (from 0 to 175 µs).\relax }{figure.caption.9}{}}
-\newlabel{sub@10k_234_g1_zoom}{{b}{27}{Zoom on the main feature (from 0 to 175 µs).\relax }{figure.caption.9}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.7}{\ignorespaces Simulation results for 10,000 atoms inside the cavity. Plot of $\vert g^1(\tau ) \vert $. The three sets clearly overlap and the last rendered curve is shown of top of the others (namely, the 4th order in solid red).\relax }}{27}{figure.caption.9}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {2.8}{\ignorespaces Extra zoom of $\vert g^1(\tau ) \vert $ for 10,000 atoms inside the cavity. It is evident that showing the 2nd, 3rd or 4th order of the solution doesn't affect the results (or not enough to be considered).\relax }}{27}{figure.caption.10}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.6.2}Simulation with 100,000 atoms inside the cavity}{27}{subsection.2.6.2}\protected@file@percent }
-\newlabel{100k_3_nsz_zoom_1}{{2.9b}{28}{Zoom on the main features (from 0 to 200 µs).\relax }{figure.caption.11}{}}
-\newlabel{sub@100k_3_nsz_zoom_1}{{b}{28}{Zoom on the main features (from 0 to 200 µs).\relax }{figure.caption.11}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.9}{\ignorespaces Simulation results for 100,000 atoms inside the cavity. Two types of expectation values are plotted: the photon number $\left \langle \hat  {n} \right \rangle $ inside the cavity (green) and the atomic inversion $\left \langle \hat  {S}_z \right \rangle $ (orange)\relax }}{28}{figure.caption.11}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {2.10}{\ignorespaces Zoom on the convergent steady-state values for 100,000 atoms inside the cavity.\relax }}{28}{figure.caption.12}\protected@file@percent }
-\newlabel{100k_3_g1_zoom_1}{{2.11b}{28}{Zoom on the main feature (from 0 to 200 µs).\relax }{figure.caption.13}{}}
-\newlabel{sub@100k_3_g1_zoom_1}{{b}{28}{Zoom on the main feature (from 0 to 200 µs).\relax }{figure.caption.13}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.11}{\ignorespaces Simulation results for 100,000 atoms inside the cavity. Plot of $\vert g^1(\tau ) \vert $.\relax }}{28}{figure.caption.13}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.6.3}Simulation with 300,000 atoms inside the cavity}{28}{subsection.2.6.3}\protected@file@percent }
-\newlabel{300k_3_nsz_zoom_1}{{2.12b}{29}{Zoom on the main features (from 0 to 140 µs).\relax }{figure.caption.14}{}}
-\newlabel{sub@300k_3_nsz_zoom_1}{{b}{29}{Zoom on the main features (from 0 to 140 µs).\relax }{figure.caption.14}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.12}{\ignorespaces Simulation results for 300,000 atoms inside the cavity. Two types of expectation values are plotted: the photon number $\left \langle \hat  {n} \right \rangle $ inside the cavity (green) and the atomic inversion $\left \langle \hat  {S}_z \right \rangle $ (orange)\relax }}{29}{figure.caption.14}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {2.13}{\ignorespaces Zoom on the convergent steady-state values for 300,000 atoms inside the cavity. We clearly see the unstability of the solution by the small oscillations at "steady-state". Compared to the 2nd order in figure \ref {fig:steady-2nd-unstable} where the instabilities were due to the lack of quantum correlation in the set of equations, here the instability is due to the numerical values starting to exceed the float precision.\relax }}{29}{figure.caption.15}\protected@file@percent }
-\newlabel{300k_3_g1_zoom_1}{{2.14b}{29}{Zoom on the main feature (from 0 to 50 µs).\relax }{figure.caption.16}{}}
-\newlabel{sub@300k_3_g1_zoom_1}{{b}{29}{Zoom on the main feature (from 0 to 50 µs).\relax }{figure.caption.16}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.14}{\ignorespaces Simulation results for 300,000 atoms inside the cavity. Plot of $\vert g^1(\tau ) \vert $.\relax }}{29}{figure.caption.16}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.6.4}Discussion}{30}{subsection.2.6.4}\protected@file@percent }
-\newlabel{half_tau_c_loudon_def}{{2.117}{30}{Discussion}{equation.2.6.117}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {3}Heterodyne experiment}{31}{chapter.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2.1}Optical Cavity}{6}{section.2.1}\protected@file@percent }
+\newlabel{eqairy}{{2.1}{7}{Optical Cavity}{equation.2.1.1}{}}
+\newlabel{eq1}{{2.2}{7}{Optical Cavity}{equation.2.1.2}{}}
+\newlabel{eq2}{{2.3}{7}{Optical Cavity}{equation.2.1.3}{}}
+\newlabel{eqecirc}{{2.5}{7}{Optical Cavity}{equation.2.1.5}{}}
+\newlabel{eqrt}{{2.8}{8}{Optical Cavity}{equation.2.1.8}{}}
+\newlabel{phimodif}{{2.9}{8}{Optical Cavity}{equation.2.1.9}{}}
+\newlabel{airyformula}{{2.11}{8}{Optical Cavity}{equation.2.1.11}{}}
+\newlabel{airyformulasec}{{2.12}{8}{Optical Cavity}{equation.2.1.12}{}}
+\newlabel{phidef}{{2.13}{8}{Optical Cavity}{equation.2.1.13}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces Normalized Airy distribution plot from -5 to 5 rads for three different sets of mirrors. The linewidth of each resonance increase as the reflection coefficient of the mirrors decrease. We set $r_{1,2} = 0.9$ for the blue curve, $r_{1,2} = 0.8$ for the orange curve, $r_{1,2} = 0.7$ for the green curve. The reflection coefficient is the same for the two mirrors in the three cases: $r_{1} = r_{2}$.\relax }}{9}{figure.caption.4}\protected@file@percent }
+\newlabel{fig:airy-dist}{{2.1}{9}{Normalized Airy distribution plot from -5 to 5 rads for three different sets of mirrors. The linewidth of each resonance increase as the reflection coefficient of the mirrors decrease. We set $r_{1,2} = 0.9$ for the blue curve, $r_{1,2} = 0.8$ for the orange curve, $r_{1,2} = 0.7$ for the green curve. The reflection coefficient is the same for the two mirrors in the three cases: $r_{1} = r_{2}$.\relax }{figure.caption.4}{}}
+\abx@aux@cite{0}{rloudon}
+\abx@aux@segm{0}{0}{rloudon}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.2}{\ignorespaces FMWH (unit is frequency in rad/s) as function of the mirror reflectivities $r_{12} = r_1 = r_2$. As FSR is unity then the ordinate axis is the inverse of the finesse by definition. The divergence of the curve at $\sim 0.2$ clearly shows the limitation of the \textit  {Airy} approach for the low reflection coefficients.\relax }}{10}{figure.caption.5}\protected@file@percent }
+\newlabel{fig:airy-fmwh}{{2.2}{10}{FMWH (unit is frequency in rad/s) as function of the mirror reflectivities $r_{12} = r_1 = r_2$. As FSR is unity then the ordinate axis is the inverse of the finesse by definition. The divergence of the curve at $\sim 0.2$ clearly shows the limitation of the \textit {Airy} approach for the low reflection coefficients.\relax }{figure.caption.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.2}Jaynes-Cummings model}{10}{section.2.2}\protected@file@percent }
+\abx@aux@cite{0}{mandelwolf}
+\abx@aux@segm{0}{0}{mandelwolf}
+\newlabel{sec_bosonic_mw}{{2.19}{11}{Jaynes-Cummings model}{equation.2.2.19}{}}
+\newlabel{sigma_commut}{{2.23}{11}{Jaynes-Cummings model}{equation.2.2.23}{}}
+\newlabel{sigmapm_rules}{{2.24}{11}{Jaynes-Cummings model}{equation.2.2.24}{}}
+\newlabel{hjc_original_frame}{{2.30}{12}{Jaynes-Cummings model}{equation.2.2.30}{}}
+\newlabel{unitary_trans_def}{{2.33}{13}{Jaynes-Cummings model}{equation.2.2.33}{}}
+\newlabel{rwa_1}{{2.39}{13}{Jaynes-Cummings model}{equation.2.2.39}{}}
+\newlabel{rwa_2}{{2.40}{13}{Jaynes-Cummings model}{equation.2.2.40}{}}
+\newlabel{HJC}{{2.41}{13}{Jaynes-Cummings model}{equation.2.2.41}{}}
+\newlabel{jc_block}{{2.48}{14}{Jaynes-Cummings model}{equation.2.2.48}{}}
+\newlabel{jc_eigens}{{2.49}{14}{Jaynes-Cummings model}{equation.2.2.49}{}}
+\newlabel{tan_theta_n}{{2.52}{14}{Jaynes-Cummings model}{equation.2.2.52}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.3}{\ignorespaces Rabi oscillations for the simple initial state $\ket  {\uparrow , 0}$. Projection on the state "one-photon/atom not excited" (orange curve) and the state "zero photon/atom excited" (blue curve)\relax }}{15}{figure.caption.6}\protected@file@percent }
+\newlabel{fig:rabi-no-delta}{{2.3}{15}{Rabi oscillations for the simple initial state $\ket {\uparrow , 0}$. Projection on the state "one-photon/atom not excited" (orange curve) and the state "zero photon/atom excited" (blue curve)\relax }{figure.caption.6}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.4}{\ignorespaces Rabi oscillations for the initial state $\ket  {\uparrow , 0}$ with different detunings. Projection on the state "one-photon/atom not excited" (dotted curves) and the state "zero photon/atom excited" (solid curves)\relax }}{15}{figure.caption.7}\protected@file@percent }
+\newlabel{fig:rabi-prog-delta}{{2.4}{15}{Rabi oscillations for the initial state $\ket {\uparrow , 0}$ with different detunings. Projection on the state "one-photon/atom not excited" (dotted curves) and the state "zero photon/atom excited" (solid curves)\relax }{figure.caption.7}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.3}Tavis-Cummings model}{15}{section.2.3}\protected@file@percent }
+\abx@aux@cite{0}{dicke}
+\abx@aux@segm{0}{0}{dicke}
+\newlabel{dist_sig_1}{{2.56}{16}{Tavis-Cummings model}{equation.2.3.56}{}}
+\newlabel{dist_sig_2}{{2.57}{16}{Tavis-Cummings model}{equation.2.3.57}{}}
+\newlabel{sig_change_s}{{2.59}{16}{Tavis-Cummings model}{equation.2.3.59}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.4}Open quantum systems and the master equation}{17}{section.2.4}\protected@file@percent }
+\newlabel{def_dens_mat}{{2.64}{17}{Open quantum systems and the master equation}{equation.2.4.64}{}}
+\newlabel{deftwo_dens_mat}{{2.65}{17}{Open quantum systems and the master equation}{equation.2.4.65}{}}
+\newlabel{vonneuman}{{2.67}{18}{Open quantum systems and the master equation}{equation.2.4.67}{}}
+\newlabel{master_eq_heis}{{2.71}{19}{Open quantum systems and the master equation}{equation.2.4.71}{}}
+\newlabel{rho_master_eq}{{2.72}{19}{Open quantum systems and the master equation}{equation.2.4.72}{}}
+\abx@aux@cite{0}{introlindblad}
+\abx@aux@segm{0}{0}{introlindblad}
+\@writefile{toc}{\contentsline {section}{\numberline {2.5}Cumulant expansion method}{21}{section.2.5}\protected@file@percent }
+\newlabel{g1_classic_def}{{2.80}{21}{Cumulant expansion method}{equation.2.5.80}{}}
+\newlabel{quantum_meas}{{2.83}{21}{Cumulant expansion method}{equation.2.5.83}{}}
+\newlabel{quantum_g1_1D_map}{{2.86}{22}{Cumulant expansion method}{equation.2.5.86}{}}
+\newlabel{dtad_rough}{{2.91}{23}{Cumulant expansion method}{equation.2.5.91}{}}
+\newlabel{ad_pure}{{2.92}{23}{Cumulant expansion method}{equation.2.5.92}{}}
+\newlabel{ad_mean_field}{{2.93}{23}{Cumulant expansion method}{equation.2.5.93}{}}
+\newlabel{sp_mean_field}{{2.97}{23}{Cumulant expansion method}{equation.2.5.97}{}}
+\newlabel{sz_mean_field}{{2.98}{23}{Cumulant expansion method}{equation.2.5.98}{}}
+\abx@aux@cite{0}{cumujulia}
+\abx@aux@segm{0}{0}{cumujulia}
+\abx@aux@cite{0}{exprepcumuryogo}
+\abx@aux@segm{0}{0}{exprepcumuryogo}
+\newlabel{g1_explicit_cumu}{{2.109}{25}{Cumulant expansion method}{equation.2.5.109}{}}
+\newlabel{init_g2}{{2.114}{26}{Cumulant expansion method}{equation.2.5.114}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.6}$g^1$ simulation results}{26}{section.2.6}\protected@file@percent }
+\newlabel{special_ratio}{{2.115}{27}{$g^1$ simulation results}{equation.2.6.115}{}}
+\newlabel{tau_c_loudon_def}{{2.116}{27}{$g^1$ simulation results}{equation.2.6.116}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.6.1}Simulation with 10,000 atoms inside the cavity}{28}{subsection.2.6.1}\protected@file@percent }
+\newlabel{10k_234_nsz_zoom_1}{{2.5b}{28}{Zoom on the main features (from 0 to 60 µs).\relax }{figure.caption.8}{}}
+\newlabel{sub@10k_234_nsz_zoom_1}{{b}{28}{Zoom on the main features (from 0 to 60 µs).\relax }{figure.caption.8}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.5}{\ignorespaces Simulation results for 10,000 atoms inside the cavity. Three set of equations are generated with order $m=2$ (denoted "2nd order"), $m=3$ (denoted "3rd order") and $m=4$ (denoted "4th order"). Two types of expectation values are plotted: the photon number $\left \langle \hat  {n} \right \rangle $ inside the cavity and the atomic inversion $\left \langle \hat  {S}_z \right \rangle $\relax }}{28}{figure.caption.8}\protected@file@percent }
+\newlabel{fig:steady-2nd-unstable}{{2.6a}{28}{Steady-state of $\left \langle \hat {n} \right \rangle $. Pink dotted curve is of 2nd order. Olive solid curve is of 3rd order. Orange dot-dashed is of 4th order. The second order shows clear instabilities at steady-state.\relax }{figure.caption.9}{}}
+\newlabel{sub@fig:steady-2nd-unstable}{{a}{28}{Steady-state of $\left \langle \hat {n} \right \rangle $. Pink dotted curve is of 2nd order. Olive solid curve is of 3rd order. Orange dot-dashed is of 4th order. The second order shows clear instabilities at steady-state.\relax }{figure.caption.9}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.6}{\ignorespaces Zoom on the convergent steady-state values for 10,000 atoms inside the cavity.\relax }}{28}{figure.caption.9}\protected@file@percent }
+\newlabel{10k_234_g1_zoom}{{2.7b}{29}{Zoom on the main feature (from 0 to 175 µs).\relax }{figure.caption.10}{}}
+\newlabel{sub@10k_234_g1_zoom}{{b}{29}{Zoom on the main feature (from 0 to 175 µs).\relax }{figure.caption.10}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.7}{\ignorespaces Simulation results for 10,000 atoms inside the cavity. Plot of $\vert g^1(\tau ) \vert $. The three sets clearly overlap and the last rendered curve is shown of top of the others (namely, the 4th order in solid red).\relax }}{29}{figure.caption.10}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2.8}{\ignorespaces Extra zoom of $\vert g^1(\tau ) \vert $ for 10,000 atoms inside the cavity. It is evident that showing the 2nd, 3rd or 4th order of the solution doesn't affect the results (or not enough to be considered).\relax }}{29}{figure.caption.11}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.6.2}Simulation with 100,000 atoms inside the cavity}{29}{subsection.2.6.2}\protected@file@percent }
+\newlabel{100k_3_nsz_zoom_1}{{2.9b}{30}{Zoom on the main features (from 0 to 200 µs).\relax }{figure.caption.12}{}}
+\newlabel{sub@100k_3_nsz_zoom_1}{{b}{30}{Zoom on the main features (from 0 to 200 µs).\relax }{figure.caption.12}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.9}{\ignorespaces Simulation results for 100,000 atoms inside the cavity. Two types of expectation values are plotted: the photon number $\left \langle \hat  {n} \right \rangle $ inside the cavity (green) and the atomic inversion $\left \langle \hat  {S}_z \right \rangle $ (orange)\relax }}{30}{figure.caption.12}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2.10}{\ignorespaces Zoom on the convergent steady-state values for 100,000 atoms inside the cavity.\relax }}{30}{figure.caption.13}\protected@file@percent }
+\newlabel{100k_3_g1_zoom_1}{{2.11b}{30}{Zoom on the main feature (from 0 to 200 µs).\relax }{figure.caption.14}{}}
+\newlabel{sub@100k_3_g1_zoom_1}{{b}{30}{Zoom on the main feature (from 0 to 200 µs).\relax }{figure.caption.14}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.11}{\ignorespaces Simulation results for 100,000 atoms inside the cavity. Plot of $\vert g^1(\tau ) \vert $.\relax }}{30}{figure.caption.14}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.6.3}Simulation with 300,000 atoms inside the cavity}{30}{subsection.2.6.3}\protected@file@percent }
+\newlabel{300k_3_nsz_zoom_1}{{2.12b}{31}{Zoom on the main features (from 0 to 140 µs).\relax }{figure.caption.15}{}}
+\newlabel{sub@300k_3_nsz_zoom_1}{{b}{31}{Zoom on the main features (from 0 to 140 µs).\relax }{figure.caption.15}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.12}{\ignorespaces Simulation results for 300,000 atoms inside the cavity. Two types of expectation values are plotted: the photon number $\left \langle \hat  {n} \right \rangle $ inside the cavity (green) and the atomic inversion $\left \langle \hat  {S}_z \right \rangle $ (orange)\relax }}{31}{figure.caption.15}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2.13}{\ignorespaces Zoom on the convergent steady-state values for 300,000 atoms inside the cavity. We clearly see the unstability of the solution by the small oscillations at "steady-state". Compared to the 2nd order in figure \ref  {fig:steady-2nd-unstable} where the instabilities were due to the lack of quantum correlation in the set of equations, here the instability is due to the numerical values starting to exceed the float precision.\relax }}{31}{figure.caption.16}\protected@file@percent }
+\newlabel{300k_3_g1_zoom_1}{{2.14b}{31}{Zoom on the main feature (from 0 to 50 µs).\relax }{figure.caption.17}{}}
+\newlabel{sub@300k_3_g1_zoom_1}{{b}{31}{Zoom on the main feature (from 0 to 50 µs).\relax }{figure.caption.17}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.14}{\ignorespaces Simulation results for 300,000 atoms inside the cavity. Plot of $\vert g^1(\tau ) \vert $.\relax }}{31}{figure.caption.17}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.6.4}Discussion}{32}{subsection.2.6.4}\protected@file@percent }
+\newlabel{half_tau_c_loudon_def}{{2.117}{32}{Discussion}{equation.2.6.117}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {3}Heterodyne experiment}{33}{chapter.3}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {3.1}Standard setup for $g^1$ and its limitations}{31}{section.3.1}\protected@file@percent }
-\newlabel{e_tot_def}{{3.1}{31}{Standard setup for $g^1$ and its limitations}{equation.3.1.1}{}}
-\newlabel{gamma_corr_def}{{3.6}{32}{Standard setup for $g^1$ and its limitations}{equation.3.1.6}{}}
-\newlabel{def_visibility}{{3.10}{32}{Standard setup for $g^1$ and its limitations}{equation.3.1.10}{}}
-\newlabel{i_detect_eta}{{3.13}{32}{Standard setup for $g^1$ and its limitations}{equation.3.1.13}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.2}Balanced heterodyne setup}{33}{section.3.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces Heterodyne setup diagram. Two laser beams as inputs of the beam splitter: the cavity field and the local oscillator field. Each output of the beam splitter is detected by a photodiode. The electric voltage produced is then subtracted.\relax }}{34}{figure.caption.17}\protected@file@percent }
-\newlabel{fig:heterodyne-fst}{{3.1}{34}{Heterodyne setup diagram. Two laser beams as inputs of the beam splitter: the cavity field and the local oscillator field. Each output of the beam splitter is detected by a photodiode. The electric voltage produced is then subtracted.\relax }{figure.caption.17}{}}
-\newlabel{e_cav_e_lo}{{3.14}{34}{Balanced heterodyne setup}{equation.3.2.14}{}}
-\newlabel{mix_hetero_ic}{{3.22}{35}{Balanced heterodyne setup}{equation.3.2.22}{}}
-\newlabel{mix_hetero_id}{{3.23}{35}{Balanced heterodyne setup}{equation.3.2.23}{}}
-\newlabel{list_comp_light_mix}{{3.24}{35}{Balanced heterodyne setup}{equation.3.2.24}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.3}Balanced low-noise detector}{36}{section.3.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces Basic electric circuit showing the working principle of the detector. "Block 1" is composed of two photodiodes whereas "Block 2" is mainly composed of the transimpedance amplifier circuit.\relax }}{36}{figure.caption.18}\protected@file@percent }
-\newlabel{fig:detector-fst}{{3.2}{36}{Basic electric circuit showing the working principle of the detector. "Block 1" is composed of two photodiodes whereas "Block 2" is mainly composed of the transimpedance amplifier circuit.\relax }{figure.caption.18}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces Photodiode modes according the the applied voltage and light intensity. The mode actually used in the detector is the "photoconductive mode or "reverse bias" region. Three solid black curves are represented with incoming light power increasing as the curves \textit  {moves down} the graph: for a negative voltage applied on the diodes, more light hit the diode, more current flows through.\relax }}{37}{figure.caption.19}\protected@file@percent }
-\newlabel{fig:photodiode-vi}{{3.3}{37}{Photodiode modes according the the applied voltage and light intensity. The mode actually used in the detector is the "photoconductive mode or "reverse bias" region. Three solid black curves are represented with incoming light power increasing as the curves \textit {moves down} the graph: for a negative voltage applied on the diodes, more light hit the diode, more current flows through.\relax }{figure.caption.19}{}}
-\newlabel{fig:filter}{{3.4a}{38}{Electric circuit of the additional \textit {Notch} filter: in parallel of the circuit, a capacity, a resistor and an inductor in series.\relax }{figure.caption.20}{}}
-\newlabel{sub@fig:filter}{{a}{38}{Electric circuit of the additional \textit {Notch} filter: in parallel of the circuit, a capacity, a resistor and an inductor in series.\relax }{figure.caption.20}{}}
-\newlabel{fig:notch-resp}{{3.4b}{38}{Typical Notch filter's response with $R = 10\Omega $, $C = 1 \,\textrm {Farad}(F)$ and $L = 1 \,\textrm {Henry}(H)$.\relax }{figure.caption.20}{}}
-\newlabel{sub@fig:notch-resp}{{b}{38}{Typical Notch filter's response with $R = 10\Omega $, $C = 1 \,\textrm {Farad}(F)$ and $L = 1 \,\textrm {Henry}(H)$.\relax }{figure.caption.20}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.4}{\ignorespaces Notch filter design and its electrical response.\relax }}{38}{figure.caption.20}\protected@file@percent }
-\newlabel{fig:test}{{3.4}{38}{Notch filter design and its electrical response.\relax }{figure.caption.20}{}}
-\newlabel{ueqri}{{3.25}{38}{Balanced low-noise detector}{equation.3.3.25}{}}
-\newlabel{rlc_resonance}{{3.27}{39}{Balanced low-noise detector}{equation.3.3.27}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.5}{\ignorespaces Equivalent circuit for a photodiode. A resistor and a capacitor are put in parallel (those two components are sometimes called \textit  {stray capacitance/resistance}).\relax }}{39}{figure.caption.21}\protected@file@percent }
-\newlabel{fig:equiv-diode}{{3.5}{39}{Equivalent circuit for a photodiode. A resistor and a capacitor are put in parallel (those two components are sometimes called \textit {stray capacitance/resistance}).\relax }{figure.caption.21}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.6}{\ignorespaces Detetector's circuit design with the additional filters between the photodiodes and the transimpedance amplifier.\relax }}{40}{figure.caption.22}\protected@file@percent }
-\newlabel{fig:detector-sec}{{3.6}{40}{Detetector's circuit design with the additional filters between the photodiodes and the transimpedance amplifier.\relax }{figure.caption.22}{}}
-\newlabel{peak_notch_original}{{3.31}{40}{Balanced low-noise detector}{equation.3.3.31}{}}
-\newlabel{fig:tank}{{3.7a}{41}{Electric circuit of the hidden tank filter: in parallel of the circuit, a capacity and an inductor in parallels.\relax }{figure.caption.23}{}}
-\newlabel{sub@fig:tank}{{a}{41}{Electric circuit of the hidden tank filter: in parallel of the circuit, a capacity and an inductor in parallels.\relax }{figure.caption.23}{}}
-\newlabel{fig:tank-response}{{3.7b}{41}{Typical tank filter's response with $R = 10\Omega $, $C = 1 \,F$ and $L = 1 \,H$.\relax }{figure.caption.23}{}}
-\newlabel{sub@fig:tank-response}{{b}{41}{Typical tank filter's response with $R = 10\Omega $, $C = 1 \,F$ and $L = 1 \,H$.\relax }{figure.caption.23}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.7}{\ignorespaces Tank filter design and its electrical response.\relax }}{41}{figure.caption.23}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {3.8}{\ignorespaces Total gain of the circuit with original components. It shows how the output power is increased/reduced compared to the input power of the circuit as function of the frequency of the input signal. The 43 MHz input frequency is not affected by the filters.\relax }}{41}{figure.caption.24}\protected@file@percent }
-\newlabel{fig:total_gain_original}{{3.8}{41}{Total gain of the circuit with original components. It shows how the output power is increased/reduced compared to the input power of the circuit as function of the frequency of the input signal. The 43 MHz input frequency is not affected by the filters.\relax }{figure.caption.24}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.9}{\ignorespaces Basic circuit design of a transimpedance amplifier. $V _{in}$ is the voltage noise generated by the op-amp at its non-inverting input. $Z_{in}$ and $Z_f$ are two impedance of the associated passive component (it can be a resistor, capacitor, inductor...)\relax }}{42}{figure.caption.25}\protected@file@percent }
-\newlabel{fig:transimp}{{3.9}{42}{Basic circuit design of a transimpedance amplifier. $V _{in}$ is the voltage noise generated by the op-amp at its non-inverting input. $Z_{in}$ and $Z_f$ are two impedance of the associated passive component (it can be a resistor, capacitor, inductor...)\relax }{figure.caption.25}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.10}{\ignorespaces Full electronic scheme of the actual detector. The actual component values may differ from reality as this figure has been produced for several \textit  {type} of the same detector. We basically see the circuit of figure \ref {fig:detector-sec} on the left.\relax }}{42}{figure.caption.26}\protected@file@percent }
-\newlabel{fig:elec-scheme}{{3.10}{42}{Full electronic scheme of the actual detector. The actual component values may differ from reality as this figure has been produced for several \textit {type} of the same detector. We basically see the circuit of figure \ref {fig:detector-sec} on the left.\relax }{figure.caption.26}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.11}{\ignorespaces Simulated noise gain graph with the original components. The notch (left vertical line) and tank filter (right vertical line) are positioned as predicted.\relax }}{43}{figure.caption.27}\protected@file@percent }
-\newlabel{fig:noise_gain_opamp_original}{{3.11}{43}{Simulated noise gain graph with the original components. The notch (left vertical line) and tank filter (right vertical line) are positioned as predicted.\relax }{figure.caption.27}{}}
-\newlabel{fig:opeak}{{3.12a}{43}{Noise power centered around the notch filter resonance.\relax }{figure.caption.28}{}}
-\newlabel{sub@fig:opeak}{{a}{43}{Noise power centered around the notch filter resonance.\relax }{figure.caption.28}{}}
-\newlabel{fig:odeep}{{3.12b}{43}{Noise power centered around the tank filter resonance.\relax }{figure.caption.28}{}}
-\newlabel{sub@fig:odeep}{{b}{43}{Noise power centered around the tank filter resonance.\relax }{figure.caption.28}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.12}{\ignorespaces Experimental spectrums with the original components. The detector is turned on with the photodiodes blocked from any incoming light and the output signal is analyzed on a spectrum analyzer.\relax }}{43}{figure.caption.28}\protected@file@percent }
-\newlabel{fig:exp_spec_o}{{3.12}{43}{Experimental spectrums with the original components. The detector is turned on with the photodiodes blocked from any incoming light and the output signal is analyzed on a spectrum analyzer.\relax }{figure.caption.28}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.13}{\ignorespaces Simulated noise gain graph with the new inductor. Notch filter marked by the vertical line on the left. Tank filter marked by the vertical line on the right. The associated frequencies correspond approximately to the theory.\relax }}{44}{figure.caption.29}\protected@file@percent }
-\newlabel{fig:noise_gain_opamp_new}{{3.13}{44}{Simulated noise gain graph with the new inductor. Notch filter marked by the vertical line on the left. Tank filter marked by the vertical line on the right. The associated frequencies correspond approximately to the theory.\relax }{figure.caption.29}{}}
-\newlabel{fig:mpeak}{{3.14a}{44}{Noise power centered around the notch filter resonance.\relax }{figure.caption.30}{}}
-\newlabel{sub@fig:mpeak}{{a}{44}{Noise power centered around the notch filter resonance.\relax }{figure.caption.30}{}}
-\newlabel{fig:mdeep}{{3.14b}{44}{Noise power centered around the notch filter resonance.\relax }{figure.caption.30}{}}
-\newlabel{sub@fig:mdeep}{{b}{44}{Noise power centered around the notch filter resonance.\relax }{figure.caption.30}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.14}{\ignorespaces Experimental spectrums with the new inductor.\relax }}{44}{figure.caption.30}\protected@file@percent }
-\newlabel{fig:exp_spec_m}{{3.14}{44}{Experimental spectrums with the new inductor.\relax }{figure.caption.30}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.4}Diode's size versus laser's cross section area}{44}{section.3.4}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {3.15}{\ignorespaces Total gain of the circuit with the new inductor. The 43 MHz frequency is not affected by the filters.\relax }}{45}{figure.caption.31}\protected@file@percent }
-\newlabel{fig:total_gain_new}{{3.15}{45}{Total gain of the circuit with the new inductor. The 43 MHz frequency is not affected by the filters.\relax }{figure.caption.31}{}}
-\newlabel{lens_cross_section_ratio}{{3.34}{45}{Diode's size versus laser's cross section area}{equation.3.4.34}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.16}{\ignorespaces Heterodyne experiment with lens added. The detector moves along a micrometer ruler in order to tune precisely the relative position between the photodiodes and the beams. In reality, this is a micrometer \textit  {screw} but for the sake of simplicity, we talk about "ruler".\relax }}{46}{figure.caption.32}\protected@file@percent }
-\newlabel{fig:heterodyne-lens}{{3.16}{46}{Heterodyne experiment with lens added. The detector moves along a micrometer ruler in order to tune precisely the relative position between the photodiodes and the beams. In reality, this is a micrometer \textit {screw} but for the sake of simplicity, we talk about "ruler".\relax }{figure.caption.32}{}}
-\newlabel{fig:diode-size-sm}{{\caption@xref {fig:diode-size-sm}{ on input line 1410}}{46}{Diode's size versus laser's cross section area}{figure.caption.33}{}}
-\newlabel{fig:diode-size-eq}{{\caption@xref {fig:diode-size-eq}{ on input line 1416}}{46}{Diode's size versus laser's cross section area}{figure.caption.34}{}}
-\newlabel{fig:diode-size-big}{{\caption@xref {fig:diode-size-big}{ on input line 1422}}{46}{Diode's size versus laser's cross section area}{figure.caption.35}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.17}{\ignorespaces Average voltage output of the detector according to the relative position of one of the diode (The other diode is blocked from light), for two different power of the local oscillator. Red curves: each diode receives 1.15 mW of light power. Yellow curves: each diode receives 625 µW of light power.\relax }}{47}{figure.caption.36}\protected@file@percent }
-\newlabel{fig:diode-size-plot}{{3.17}{47}{Average voltage output of the detector according to the relative position of one of the diode (The other diode is blocked from light), for two different power of the local oscillator. Red curves: each diode receives 1.15 mW of light power. Yellow curves: each diode receives 625 µW of light power.\relax }{figure.caption.36}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.5}Power to noise ratio}{47}{section.3.5}\protected@file@percent }
-\newlabel{i_split_delta_i}{{3.35}{48}{Power to noise ratio}{equation.3.5.35}{}}
-\newlabel{def_p_noise}{{3.36}{48}{Power to noise ratio}{equation.3.5.36}{}}
-\newlabel{delta_i_var_prop_i}{{3.37}{48}{Power to noise ratio}{equation.3.5.37}{}}
-\newlabel{p_noise_i_mean}{{3.38}{48}{Power to noise ratio}{equation.3.5.38}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.18}{\ignorespaces Waveplate and polarizer setup as a power-tunable instrument. The polarization state of the light is sketched along the optical path. Note that the incoming beam does not need to be necessary vertically polarized. Only the relative angle between the waveplate and polarizer is relevant for amplitude reduction.\relax }}{49}{figure.caption.37}\protected@file@percent }
-\newlabel{fig:wp-pol-setup}{{3.18}{49}{Waveplate and polarizer setup as a power-tunable instrument. The polarization state of the light is sketched along the optical path. Note that the incoming beam does not need to be necessary vertically polarized. Only the relative angle between the waveplate and polarizer is relevant for amplitude reduction.\relax }{figure.caption.37}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.19}{\ignorespaces Complete setup with the group waveplate+polarizer added before the beam splitter (from the local oscillator's side).\relax }}{49}{figure.caption.38}\protected@file@percent }
-\newlabel{fig:heterodyne-wp}{{3.19}{49}{Complete setup with the group waveplate+polarizer added before the beam splitter (from the local oscillator's side).\relax }{figure.caption.38}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.20}{\ignorespaces Example of modulation of a perfect one-mode signal of 43 MHz with a noisy signal. The resulting signal does not exhibit simply the variance of both original signals. Indeed, a demodulation process is required in order to retrieve the variance of the noisy signal independently.\relax }}{50}{figure.caption.39}\protected@file@percent }
-\newlabel{fig:beatnoise}{{3.20}{50}{Example of modulation of a perfect one-mode signal of 43 MHz with a noisy signal. The resulting signal does not exhibit simply the variance of both original signals. Indeed, a demodulation process is required in order to retrieve the variance of the noisy signal independently.\relax }{figure.caption.39}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.21}{\ignorespaces Diagram showing the demodulation setup at the output of the detector. The detector output is mixed with a perfect one-mode signal of 43 MHz. A low pass filter is then applied before the record step on the oscilloscope.\relax }}{51}{figure.caption.40}\protected@file@percent }
-\newlabel{fig:wavemixer}{{3.21}{51}{Diagram showing the demodulation setup at the output of the detector. The detector output is mixed with a perfect one-mode signal of 43 MHz. A low pass filter is then applied before the record step on the oscilloscope.\relax }{figure.caption.40}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.22}{\ignorespaces Power to noise ratio plot for three different configurations. Cross symbols are experimental data whereas solid straight lines are the associated fit. The red color stands for the balanced detection. The green color and purple color stand for the unbalanced detections: only the left/right diode receives light respectively.\relax }}{52}{figure.caption.41}\protected@file@percent }
-\newlabel{fig:power2noise}{{3.22}{52}{Power to noise ratio plot for three different configurations. Cross symbols are experimental data whereas solid straight lines are the associated fit. The red color stands for the balanced detection. The green color and purple color stand for the unbalanced detections: only the left/right diode receives light respectively.\relax }{figure.caption.41}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.23}{\ignorespaces Mean tension from the data sets of figure \ref {fig:power2noise} as function of the input light power. \relax }}{52}{figure.caption.42}\protected@file@percent }
-\newlabel{fig:power2tension}{{3.23}{52}{Mean tension from the data sets of figure \ref {fig:power2noise} as function of the input light power. \relax }{figure.caption.42}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.6}Intensity calibration}{53}{section.3.6}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {3.24}{\ignorespaces Spectrum of the generated "fake" laser. Two sidebands stand at equal \textit  {frequency-distance} (781.14 MHz) of the carrier frequency ($\sim $434 THz).\relax }}{53}{figure.caption.43}\protected@file@percent }
-\newlabel{fig:sb-def}{{3.24}{53}{Spectrum of the generated "fake" laser. Two sidebands stand at equal \textit {frequency-distance} (781.14 MHz) of the carrier frequency ($\sim $434 THz).\relax }{figure.caption.43}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.25}{\ignorespaces Spectrum of the fake laser without offset on the sidebands. As the FSR equals the sideband-to-carrier difference, the light after the cavity gives a unique peak for the intensity output. For the "intensity" graph, the time axis represents the extension/contraction of the piezo according to the time.\relax }}{55}{figure.caption.44}\protected@file@percent }
-\newlabel{fig:sb-fsr}{{3.25}{55}{Spectrum of the fake laser without offset on the sidebands. As the FSR equals the sideband-to-carrier difference, the light after the cavity gives a unique peak for the intensity output. For the "intensity" graph, the time axis represents the extension/contraction of the piezo according to the time.\relax }{figure.caption.44}{}}
-\newlabel{i_tot_r_def}{{3.50}{55}{Intensity calibration}{equation.3.6.50}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.26}{\ignorespaces Spectrum of the fake laser with an offset on the sidebands giving three peaks for the intensity output. The intensity output varies between three different peaks as the piezo element contract or dilate: left sideband, carrier and right sideband frequencies are individually able to cross the cavity.\relax }}{56}{figure.caption.45}\protected@file@percent }
-\newlabel{fig:sb-off}{{3.26}{56}{Spectrum of the fake laser with an offset on the sidebands giving three peaks for the intensity output. The intensity output varies between three different peaks as the piezo element contract or dilate: left sideband, carrier and right sideband frequencies are individually able to cross the cavity.\relax }{figure.caption.45}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.27}{\ignorespaces Plot of the ratio $r$ and $\alpha $ with two different fits as function of the modulation amplitude. The blue points are the measured sideband ratios (in \%). The green curve is a Bessel fit applied on the first 60 \% of the data. The red curve is a Bessel fit applied on the full experimental data. Finally, we prefer to trust the exponential fit (orange curve) even if there is no physical argument for it.\relax }}{57}{figure.caption.46}\protected@file@percent }
-\newlabel{fig:sb-r-fit}{{3.27}{57}{Plot of the ratio $r$ and $\alpha $ with two different fits as function of the modulation amplitude. The blue points are the measured sideband ratios (in \%). The green curve is a Bessel fit applied on the first 60 \% of the data. The red curve is a Bessel fit applied on the full experimental data. Finally, we prefer to trust the exponential fit (orange curve) even if there is no physical argument for it.\relax }{figure.caption.46}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.28}{\ignorespaces Beat power visibility on the oscilloscope (difference between the background noise and the top of the recorded beat) according to the light power of the associated sideband.\relax }}{58}{figure.caption.47}\protected@file@percent }
-\newlabel{fig:sb-power-visibility}{{3.28}{58}{Beat power visibility on the oscilloscope (difference between the background noise and the top of the recorded beat) according to the light power of the associated sideband.\relax }{figure.caption.47}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {4}Data analysis}{60}{chapter.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.1}Standard setup for $g^1$ and its limitations}{33}{section.3.1}\protected@file@percent }
+\newlabel{e_tot_def}{{3.1}{33}{Standard setup for $g^1$ and its limitations}{equation.3.1.1}{}}
+\newlabel{gamma_corr_def}{{3.6}{34}{Standard setup for $g^1$ and its limitations}{equation.3.1.6}{}}
+\newlabel{def_visibility}{{3.10}{34}{Standard setup for $g^1$ and its limitations}{equation.3.1.10}{}}
+\newlabel{i_detect_eta}{{3.13}{34}{Standard setup for $g^1$ and its limitations}{equation.3.1.13}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.2}Balanced heterodyne setup}{35}{section.3.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces Heterodyne setup diagram. Two laser beams as inputs of the beam splitter: the cavity field and the local oscillator field. Each output of the beam splitter is detected by a photodiode. The electric voltage produced is then subtracted.\relax }}{36}{figure.caption.18}\protected@file@percent }
+\newlabel{fig:heterodyne-fst}{{3.1}{36}{Heterodyne setup diagram. Two laser beams as inputs of the beam splitter: the cavity field and the local oscillator field. Each output of the beam splitter is detected by a photodiode. The electric voltage produced is then subtracted.\relax }{figure.caption.18}{}}
+\newlabel{e_cav_e_lo}{{3.14}{36}{Balanced heterodyne setup}{equation.3.2.14}{}}
+\abx@aux@cite{0}{foxmark}
+\abx@aux@segm{0}{0}{foxmark}
+\newlabel{mix_hetero_ic}{{3.22}{37}{Balanced heterodyne setup}{equation.3.2.22}{}}
+\newlabel{mix_hetero_id}{{3.23}{37}{Balanced heterodyne setup}{equation.3.2.23}{}}
+\newlabel{list_comp_light_mix}{{3.24}{37}{Balanced heterodyne setup}{equation.3.2.24}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.3}Balanced low-noise detector}{38}{section.3.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces Basic electric circuit showing the working principle of the detector. "Block 1" is composed of two photodiodes whereas "Block 2" is mainly composed of the transimpedance amplifier circuit.\relax }}{38}{figure.caption.19}\protected@file@percent }
+\newlabel{fig:detector-fst}{{3.2}{38}{Basic electric circuit showing the working principle of the detector. "Block 1" is composed of two photodiodes whereas "Block 2" is mainly composed of the transimpedance amplifier circuit.\relax }{figure.caption.19}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces Photodiode modes according the the applied voltage and light intensity. The mode actually used in the detector is the "photoconductive mode or "reverse bias" region. Three solid black curves are represented with incoming light power increasing as the curves \textit  {moves down} the graph: for a negative voltage applied on the diodes, more light hit the diode, more current flows through.\relax }}{39}{figure.caption.20}\protected@file@percent }
+\newlabel{fig:photodiode-vi}{{3.3}{39}{Photodiode modes according the the applied voltage and light intensity. The mode actually used in the detector is the "photoconductive mode or "reverse bias" region. Three solid black curves are represented with incoming light power increasing as the curves \textit {moves down} the graph: for a negative voltage applied on the diodes, more light hit the diode, more current flows through.\relax }{figure.caption.20}{}}
+\newlabel{fig:filter}{{3.4a}{40}{Electric circuit of the additional \textit {Notch} filter: in parallel of the circuit, a capacity, a resistor and an inductor in series.\relax }{figure.caption.21}{}}
+\newlabel{sub@fig:filter}{{a}{40}{Electric circuit of the additional \textit {Notch} filter: in parallel of the circuit, a capacity, a resistor and an inductor in series.\relax }{figure.caption.21}{}}
+\newlabel{fig:notch-resp}{{3.4b}{40}{Typical Notch filter's response with $R = 10\Omega $, $C = 1 \,\textrm {Farad}(F)$ and $L = 1 \,\textrm {Henry}(H)$.\relax }{figure.caption.21}{}}
+\newlabel{sub@fig:notch-resp}{{b}{40}{Typical Notch filter's response with $R = 10\Omega $, $C = 1 \,\textrm {Farad}(F)$ and $L = 1 \,\textrm {Henry}(H)$.\relax }{figure.caption.21}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.4}{\ignorespaces Notch filter design and its electrical response.\relax }}{40}{figure.caption.21}\protected@file@percent }
+\newlabel{fig:test}{{3.4}{40}{Notch filter design and its electrical response.\relax }{figure.caption.21}{}}
+\newlabel{ueqri}{{3.25}{40}{Balanced low-noise detector}{equation.3.3.25}{}}
+\newlabel{rlc_resonance}{{3.27}{41}{Balanced low-noise detector}{equation.3.3.27}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.5}{\ignorespaces Equivalent circuit for a photodiode. A resistor and a capacitor are put in parallel (those two components are sometimes called \textit  {stray capacitance/resistance}).\relax }}{41}{figure.caption.22}\protected@file@percent }
+\newlabel{fig:equiv-diode}{{3.5}{41}{Equivalent circuit for a photodiode. A resistor and a capacitor are put in parallel (those two components are sometimes called \textit {stray capacitance/resistance}).\relax }{figure.caption.22}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.6}{\ignorespaces Detetector's circuit design with the additional filters between the photodiodes and the transimpedance amplifier.\relax }}{42}{figure.caption.23}\protected@file@percent }
+\newlabel{fig:detector-sec}{{3.6}{42}{Detetector's circuit design with the additional filters between the photodiodes and the transimpedance amplifier.\relax }{figure.caption.23}{}}
+\newlabel{peak_notch_original}{{3.31}{42}{Balanced low-noise detector}{equation.3.3.31}{}}
+\newlabel{fig:tank}{{3.7a}{43}{Electric circuit of the hidden tank filter: in parallel of the circuit, a capacity and an inductor in parallels.\relax }{figure.caption.24}{}}
+\newlabel{sub@fig:tank}{{a}{43}{Electric circuit of the hidden tank filter: in parallel of the circuit, a capacity and an inductor in parallels.\relax }{figure.caption.24}{}}
+\newlabel{fig:tank-response}{{3.7b}{43}{Typical tank filter's response with $R = 10\Omega $, $C = 1 \,F$ and $L = 1 \,H$.\relax }{figure.caption.24}{}}
+\newlabel{sub@fig:tank-response}{{b}{43}{Typical tank filter's response with $R = 10\Omega $, $C = 1 \,F$ and $L = 1 \,H$.\relax }{figure.caption.24}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.7}{\ignorespaces Tank filter design and its electrical response.\relax }}{43}{figure.caption.24}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3.8}{\ignorespaces Total gain of the circuit with original components. It shows how the output power is increased/reduced compared to the input power of the circuit as function of the frequency of the input signal. The 43 MHz input frequency is not affected by the filters.\relax }}{43}{figure.caption.25}\protected@file@percent }
+\newlabel{fig:total_gain_original}{{3.8}{43}{Total gain of the circuit with original components. It shows how the output power is increased/reduced compared to the input power of the circuit as function of the frequency of the input signal. The 43 MHz input frequency is not affected by the filters.\relax }{figure.caption.25}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.9}{\ignorespaces Basic circuit design of a transimpedance amplifier. $V _{in}$ is the voltage noise generated by the op-amp at its non-inverting input. $Z_{in}$ and $Z_f$ are two impedance of the associated passive component (it can be a resistor, capacitor, inductor...)\relax }}{44}{figure.caption.26}\protected@file@percent }
+\newlabel{fig:transimp}{{3.9}{44}{Basic circuit design of a transimpedance amplifier. $V _{in}$ is the voltage noise generated by the op-amp at its non-inverting input. $Z_{in}$ and $Z_f$ are two impedance of the associated passive component (it can be a resistor, capacitor, inductor...)\relax }{figure.caption.26}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.10}{\ignorespaces Full electronic scheme of the actual detector. The actual component values may differ from reality as this figure has been produced for several \textit  {type} of the same detector. We basically see the circuit of figure \ref  {fig:detector-sec} on the left.\relax }}{44}{figure.caption.27}\protected@file@percent }
+\newlabel{fig:elec-scheme}{{3.10}{44}{Full electronic scheme of the actual detector. The actual component values may differ from reality as this figure has been produced for several \textit {type} of the same detector. We basically see the circuit of figure \ref {fig:detector-sec} on the left.\relax }{figure.caption.27}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.11}{\ignorespaces Simulated noise gain graph with the original components. The notch (left vertical line) and tank filter (right vertical line) are positioned as predicted.\relax }}{45}{figure.caption.28}\protected@file@percent }
+\newlabel{fig:noise_gain_opamp_original}{{3.11}{45}{Simulated noise gain graph with the original components. The notch (left vertical line) and tank filter (right vertical line) are positioned as predicted.\relax }{figure.caption.28}{}}
+\newlabel{fig:opeak}{{3.12a}{45}{Noise power centered around the notch filter resonance.\relax }{figure.caption.29}{}}
+\newlabel{sub@fig:opeak}{{a}{45}{Noise power centered around the notch filter resonance.\relax }{figure.caption.29}{}}
+\newlabel{fig:odeep}{{3.12b}{45}{Noise power centered around the tank filter resonance.\relax }{figure.caption.29}{}}
+\newlabel{sub@fig:odeep}{{b}{45}{Noise power centered around the tank filter resonance.\relax }{figure.caption.29}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.12}{\ignorespaces Experimental spectrums with the original components. The detector is turned on with the photodiodes blocked from any incoming light and the output signal is analyzed on a spectrum analyzer.\relax }}{45}{figure.caption.29}\protected@file@percent }
+\newlabel{fig:exp_spec_o}{{3.12}{45}{Experimental spectrums with the original components. The detector is turned on with the photodiodes blocked from any incoming light and the output signal is analyzed on a spectrum analyzer.\relax }{figure.caption.29}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.13}{\ignorespaces Simulated noise gain graph with the new inductor. Notch filter marked by the vertical line on the left. Tank filter marked by the vertical line on the right. The associated frequencies correspond approximately to the theory.\relax }}{46}{figure.caption.30}\protected@file@percent }
+\newlabel{fig:noise_gain_opamp_new}{{3.13}{46}{Simulated noise gain graph with the new inductor. Notch filter marked by the vertical line on the left. Tank filter marked by the vertical line on the right. The associated frequencies correspond approximately to the theory.\relax }{figure.caption.30}{}}
+\newlabel{fig:mpeak}{{3.14a}{46}{Noise power centered around the notch filter resonance.\relax }{figure.caption.31}{}}
+\newlabel{sub@fig:mpeak}{{a}{46}{Noise power centered around the notch filter resonance.\relax }{figure.caption.31}{}}
+\newlabel{fig:mdeep}{{3.14b}{46}{Noise power centered around the notch filter resonance.\relax }{figure.caption.31}{}}
+\newlabel{sub@fig:mdeep}{{b}{46}{Noise power centered around the notch filter resonance.\relax }{figure.caption.31}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.14}{\ignorespaces Experimental spectrums with the new inductor.\relax }}{46}{figure.caption.31}\protected@file@percent }
+\newlabel{fig:exp_spec_m}{{3.14}{46}{Experimental spectrums with the new inductor.\relax }{figure.caption.31}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.4}Diode's size versus laser's cross section area}{46}{section.3.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3.15}{\ignorespaces Total gain of the circuit with the new inductor. The 43 MHz frequency is not affected by the filters.\relax }}{47}{figure.caption.32}\protected@file@percent }
+\newlabel{fig:total_gain_new}{{3.15}{47}{Total gain of the circuit with the new inductor. The 43 MHz frequency is not affected by the filters.\relax }{figure.caption.32}{}}
+\newlabel{lens_cross_section_ratio}{{3.34}{47}{Diode's size versus laser's cross section area}{equation.3.4.34}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.16}{\ignorespaces Heterodyne experiment with lens added. The detector moves along a micrometer ruler in order to tune precisely the relative position between the photodiodes and the beams. In reality, this is a micrometer \textit  {screw} but for the sake of simplicity, we talk about "ruler".\relax }}{48}{figure.caption.33}\protected@file@percent }
+\newlabel{fig:heterodyne-lens}{{3.16}{48}{Heterodyne experiment with lens added. The detector moves along a micrometer ruler in order to tune precisely the relative position between the photodiodes and the beams. In reality, this is a micrometer \textit {screw} but for the sake of simplicity, we talk about "ruler".\relax }{figure.caption.33}{}}
+\newlabel{fig:diode-size-sm}{{\caption@xref {fig:diode-size-sm}{ on input line 1473}}{48}{Diode's size versus laser's cross section area}{figure.caption.34}{}}
+\newlabel{fig:diode-size-eq}{{\caption@xref {fig:diode-size-eq}{ on input line 1479}}{48}{Diode's size versus laser's cross section area}{figure.caption.35}{}}
+\newlabel{fig:diode-size-big}{{\caption@xref {fig:diode-size-big}{ on input line 1485}}{48}{Diode's size versus laser's cross section area}{figure.caption.36}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.17}{\ignorespaces Average voltage output of the detector according to the relative position of one of the diode (The other diode is blocked from light), for two different power of the local oscillator. Red curves: each diode receives 1.15 mW of light power. Yellow curves: each diode receives 625 µW of light power.\relax }}{49}{figure.caption.37}\protected@file@percent }
+\newlabel{fig:diode-size-plot}{{3.17}{49}{Average voltage output of the detector according to the relative position of one of the diode (The other diode is blocked from light), for two different power of the local oscillator. Red curves: each diode receives 1.15 mW of light power. Yellow curves: each diode receives 625 µW of light power.\relax }{figure.caption.37}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.5}Power to noise ratio}{49}{section.3.5}\protected@file@percent }
+\abx@aux@cite{0}{foxmark}
+\abx@aux@segm{0}{0}{foxmark}
+\newlabel{i_split_delta_i}{{3.35}{50}{Power to noise ratio}{equation.3.5.35}{}}
+\newlabel{def_p_noise}{{3.36}{50}{Power to noise ratio}{equation.3.5.36}{}}
+\newlabel{delta_i_var_prop_i}{{3.37}{50}{Power to noise ratio}{equation.3.5.37}{}}
+\newlabel{p_noise_i_mean}{{3.38}{50}{Power to noise ratio}{equation.3.5.38}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.18}{\ignorespaces Waveplate and polarizer setup as a power-tunable instrument. The polarization state of the light is sketched along the optical path. Note that the incoming beam does not need to be necessary vertically polarized. Only the relative angle between the waveplate and polarizer is relevant for amplitude reduction.\relax }}{51}{figure.caption.38}\protected@file@percent }
+\newlabel{fig:wp-pol-setup}{{3.18}{51}{Waveplate and polarizer setup as a power-tunable instrument. The polarization state of the light is sketched along the optical path. Note that the incoming beam does not need to be necessary vertically polarized. Only the relative angle between the waveplate and polarizer is relevant for amplitude reduction.\relax }{figure.caption.38}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.19}{\ignorespaces Complete setup with the group waveplate+polarizer added before the beam splitter (from the local oscillator's side).\relax }}{51}{figure.caption.39}\protected@file@percent }
+\newlabel{fig:heterodyne-wp}{{3.19}{51}{Complete setup with the group waveplate+polarizer added before the beam splitter (from the local oscillator's side).\relax }{figure.caption.39}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.20}{\ignorespaces Example of modulation of a perfect one-mode signal of 43 MHz with a noisy signal. The resulting signal does not exhibit simply the variance of both original signals. Indeed, a demodulation process is required in order to retrieve the variance of the noisy signal independently.\relax }}{52}{figure.caption.40}\protected@file@percent }
+\newlabel{fig:beatnoise}{{3.20}{52}{Example of modulation of a perfect one-mode signal of 43 MHz with a noisy signal. The resulting signal does not exhibit simply the variance of both original signals. Indeed, a demodulation process is required in order to retrieve the variance of the noisy signal independently.\relax }{figure.caption.40}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.21}{\ignorespaces Diagram showing the demodulation setup at the output of the detector. The detector output is mixed with a perfect one-mode signal of 43 MHz. A low pass filter is then applied before the record step on the oscilloscope.\relax }}{53}{figure.caption.41}\protected@file@percent }
+\newlabel{fig:wavemixer}{{3.21}{53}{Diagram showing the demodulation setup at the output of the detector. The detector output is mixed with a perfect one-mode signal of 43 MHz. A low pass filter is then applied before the record step on the oscilloscope.\relax }{figure.caption.41}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.22}{\ignorespaces Power to noise ratio plot for three different configurations. Cross symbols are experimental data whereas solid straight lines are the associated fit. The red color stands for the balanced detection. The green color and purple color stand for the unbalanced detections: only the left/right diode receives light respectively.\relax }}{54}{figure.caption.42}\protected@file@percent }
+\newlabel{fig:power2noise}{{3.22}{54}{Power to noise ratio plot for three different configurations. Cross symbols are experimental data whereas solid straight lines are the associated fit. The red color stands for the balanced detection. The green color and purple color stand for the unbalanced detections: only the left/right diode receives light respectively.\relax }{figure.caption.42}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.23}{\ignorespaces Mean tension from the data sets of figure \ref  {fig:power2noise} as function of the input light power. \relax }}{54}{figure.caption.43}\protected@file@percent }
+\newlabel{fig:power2tension}{{3.23}{54}{Mean tension from the data sets of figure \ref {fig:power2noise} as function of the input light power. \relax }{figure.caption.43}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.6}Intensity calibration}{55}{section.3.6}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3.24}{\ignorespaces Spectrum of the generated "fake" laser. Two sidebands stand at equal \textit  {frequency-distance} (781.14 MHz) of the carrier frequency ($\sim $434 THz).\relax }}{55}{figure.caption.44}\protected@file@percent }
+\newlabel{fig:sb-def}{{3.24}{55}{Spectrum of the generated "fake" laser. Two sidebands stand at equal \textit {frequency-distance} (781.14 MHz) of the carrier frequency ($\sim $434 THz).\relax }{figure.caption.44}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.25}{\ignorespaces Spectrum of the fake laser without offset on the sidebands. As the FSR equals the sideband-to-carrier difference, the light after the cavity gives a unique peak for the intensity output. For the "intensity" graph, the time axis represents the extension/contraction of the piezo according to the time.\relax }}{57}{figure.caption.45}\protected@file@percent }
+\newlabel{fig:sb-fsr}{{3.25}{57}{Spectrum of the fake laser without offset on the sidebands. As the FSR equals the sideband-to-carrier difference, the light after the cavity gives a unique peak for the intensity output. For the "intensity" graph, the time axis represents the extension/contraction of the piezo according to the time.\relax }{figure.caption.45}{}}
+\newlabel{i_tot_r_def}{{3.50}{57}{Intensity calibration}{equation.3.6.50}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.26}{\ignorespaces Spectrum of the fake laser with an offset on the sidebands giving three peaks for the intensity output. The intensity output varies between three different peaks as the piezo element contract or dilate: left sideband, carrier and right sideband frequencies are individually able to cross the cavity.\relax }}{58}{figure.caption.46}\protected@file@percent }
+\newlabel{fig:sb-off}{{3.26}{58}{Spectrum of the fake laser with an offset on the sidebands giving three peaks for the intensity output. The intensity output varies between three different peaks as the piezo element contract or dilate: left sideband, carrier and right sideband frequencies are individually able to cross the cavity.\relax }{figure.caption.46}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.27}{\ignorespaces Plot of the ratio $r$ and $\alpha $ with two different fits as function of the modulation amplitude. The blue points are the measured sideband ratios (in \%). The green curve is a Bessel fit applied on the first 60 \% of the data. The red curve is a Bessel fit applied on the full experimental data. Finally, we prefer to trust the exponential fit (orange curve) even if there is no physical argument for it.\relax }}{59}{figure.caption.47}\protected@file@percent }
+\newlabel{fig:sb-r-fit}{{3.27}{59}{Plot of the ratio $r$ and $\alpha $ with two different fits as function of the modulation amplitude. The blue points are the measured sideband ratios (in \%). The green curve is a Bessel fit applied on the first 60 \% of the data. The red curve is a Bessel fit applied on the full experimental data. Finally, we prefer to trust the exponential fit (orange curve) even if there is no physical argument for it.\relax }{figure.caption.47}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.28}{\ignorespaces Beat power visibility on the oscilloscope (difference between the background noise and the top of the recorded beat) according to the light power of the associated sideband.\relax }}{60}{figure.caption.48}\protected@file@percent }
+\newlabel{fig:sb-power-visibility}{{3.28}{60}{Beat power visibility on the oscilloscope (difference between the background noise and the top of the recorded beat) according to the light power of the associated sideband.\relax }{figure.caption.48}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {4}Data analysis}{62}{chapter.4}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{data_analysis_chapter}{{4}{60}{Data analysis}{chapter.4}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.1}Light detection: classical development}{60}{section.4.1}\protected@file@percent }
-\newlabel{x_r_in_r}{{4.1}{60}{Light detection: classical development}{equation.4.1.1}{}}
-\newlabel{square_integrable}{{4.2}{60}{Light detection: classical development}{equation.4.1.2}{}}
-\newlabel{x_def_z_zstar}{{4.6}{60}{Light detection: classical development}{equation.4.1.6}{}}
-\newlabel{x_eq_zc_zcstar}{{4.8}{61}{Light detection: classical development}{equation.4.1.8}{}}
-\newlabel{x_eq_zr_zrstar}{{4.9}{61}{Light detection: classical development}{equation.4.1.9}{}}
-\newlabel{beam_splitter_relation}{{4.10}{61}{Light detection: classical development}{equation.4.1.10}{}}
-\newlabel{x_out_a_def}{{4.11}{61}{Light detection: classical development}{equation.4.1.11}{}}
-\newlabel{x_out_b_def}{{4.12}{61}{Light detection: classical development}{equation.4.1.12}{}}
-\newlabel{i_a_minus_i_b}{{4.26}{62}{Light detection: classical development}{equation.4.1.26}{}}
-\newlabel{iaib_temp}{{4.29}{63}{Light detection: classical development}{equation.4.1.29}{}}
-\newlabel{zf_eq_f_p_g}{{4.33}{63}{Light detection: classical development}{equation.4.1.33}{}}
-\newlabel{zf_def}{{4.35}{64}{Light detection: classical development}{equation.4.1.35}{}}
-\newlabel{g1_in_our_case}{{4.36}{64}{Light detection: classical development}{equation.4.1.36}{}}
-\newlabel{g1_comput_form}{{4.42}{64}{Light detection: classical development}{equation.4.1.42}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.2}$g^1$ measurement for a standard laser}{65}{section.4.2}\protected@file@percent }
-\newlabel{fig:st-f-rough}{{4.1a}{65}{Plot of the raw data (voltage output of the detector) for one of the ten signals over 1.6 ms\relax }{figure.caption.48}{}}
-\newlabel{sub@fig:st-f-rough}{{a}{65}{Plot of the raw data (voltage output of the detector) for one of the ten signals over 1.6 ms\relax }{figure.caption.48}{}}
-\newlabel{fig:st-fft-rough}{{4.1b}{65}{Power spectrum associated to the same signal as \ref {fig:st-f-rough}. A lot of noise is generated at low frequency due to the electronic circuit. We clearly see the 44 MHz beat received.\relax }{figure.caption.48}{}}
-\newlabel{sub@fig:st-fft-rough}{{b}{65}{Power spectrum associated to the same signal as \ref {fig:st-f-rough}. A lot of noise is generated at low frequency due to the electronic circuit. We clearly see the 44 MHz beat received.\relax }{figure.caption.48}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces \relax }}{65}{figure.caption.48}\protected@file@percent }
-\newlabel{fig:st-f-bpf}{{4.2a}{66}{Same signal as \ref {fig:st-f-rough} with a band bass filter of 2 MHz centered on the 44 MHz feature.\relax }{figure.caption.49}{}}
-\newlabel{sub@fig:st-f-bpf}{{a}{66}{Same signal as \ref {fig:st-f-rough} with a band bass filter of 2 MHz centered on the 44 MHz feature.\relax }{figure.caption.49}{}}
-\newlabel{fig:st-fft-bpf}{{4.2b}{66}{Power spectrum of \ref {fig:st-f-bpf} centered on the main feature.\relax }{figure.caption.49}{}}
-\newlabel{sub@fig:st-fft-bpf}{{b}{66}{Power spectrum of \ref {fig:st-f-bpf} centered on the main feature.\relax }{figure.caption.49}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces \relax }}{66}{figure.caption.49}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces Non-stationary plot of $\vert g^1(t_1, t_2)\vert $ for a standard laser. Time in milliseconds on both axis. The color map does not reach unity because of the downsampling effect.\relax }}{66}{figure.caption.50}\protected@file@percent }
-\newlabel{fig:st-g12}{{4.3}{66}{Non-stationary plot of $\vert g^1(t_1, t_2)\vert $ for a standard laser. Time in milliseconds on both axis. The color map does not reach unity because of the downsampling effect.\relax }{figure.caption.50}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces Diagram of the method to transform the map $\vert g^1(t_1, t_2) \vert $ to $\vert g^1(\tau ) \vert $. The red box is the border of the summed data. The average is done along the blue diagonals and their symmetric along the green line where $t_1=t_2$.\relax }}{67}{figure.caption.51}\protected@file@percent }
-\newlabel{fig:to-st}{{4.4}{67}{Diagram of the method to transform the map $\vert g^1(t_1, t_2) \vert $ to $\vert g^1(\tau ) \vert $. The red box is the border of the summed data. The average is done along the blue diagonals and their symmetric along the green line where $t_1=t_2$.\relax }{figure.caption.51}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.5}{\ignorespaces Approximation of $\vert g^1(\tau ) \vert $ for the cavity laser. The curve does not reach unity for $\tau =0$ because of the downsampling effect.\relax }}{67}{figure.caption.52}\protected@file@percent }
-\newlabel{fig:st-stat}{{4.5}{67}{Approximation of $\vert g^1(\tau ) \vert $ for the cavity laser. The curve does not reach unity for $\tau =0$ because of the downsampling effect.\relax }{figure.caption.52}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.3}$g^1$ measurement for the superradiant laser}{68}{section.4.3}\protected@file@percent }
-\newlabel{fig:sp-f-rough}{{4.6a}{68}{Plot of the raw data (voltage output of the detector) for one of the fifty signals over ~6ms\relax }{figure.caption.53}{}}
-\newlabel{sub@fig:sp-f-rough}{{a}{68}{Plot of the raw data (voltage output of the detector) for one of the fifty signals over ~6ms\relax }{figure.caption.53}{}}
-\newlabel{fig:sp-fft-rough}{{4.6b}{68}{Power spectrum associated to the same signal as \ref {fig:sp-f-rough}. We clearly see the 43 MHz beat received with some interesting features on its close sides (less than 2 MHz away from the 43 MHz beat).\relax }{figure.caption.53}{}}
-\newlabel{sub@fig:sp-fft-rough}{{b}{68}{Power spectrum associated to the same signal as \ref {fig:sp-f-rough}. We clearly see the 43 MHz beat received with some interesting features on its close sides (less than 2 MHz away from the 43 MHz beat).\relax }{figure.caption.53}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.6}{\ignorespaces \relax }}{68}{figure.caption.53}\protected@file@percent }
-\newlabel{fig:sp-f-bpf}{{4.7a}{68}{Same signal as \ref {fig:st-f-rough} with a band bass filter of 5 MHz centered on the 43 MHz feature. We clearly see a burst of light before quasi-continuous lasing from 1 to 3 ms, then a progressive extinction.\relax }{figure.caption.54}{}}
-\newlabel{sub@fig:sp-f-bpf}{{a}{68}{Same signal as \ref {fig:st-f-rough} with a band bass filter of 5 MHz centered on the 43 MHz feature. We clearly see a burst of light before quasi-continuous lasing from 1 to 3 ms, then a progressive extinction.\relax }{figure.caption.54}{}}
-\newlabel{fig:sp-fft-bpf}{{4.7b}{68}{Power spectrum of \ref {fig:sp-f-bpf} centered on the main feature.\relax }{figure.caption.54}{}}
-\newlabel{sub@fig:sp-fft-bpf}{{b}{68}{Power spectrum of \ref {fig:sp-f-bpf} centered on the main feature.\relax }{figure.caption.54}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.7}{\ignorespaces \relax }}{68}{figure.caption.54}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4.9}{\ignorespaces Spectrograms of four different recorded signals for the quasi-continuous superradiant laser. We can notice a common initial drift probably due to the time required for the laser to lock precisely to the cavity resonance.\relax }}{69}{figure.caption.56}\protected@file@percent }
-\newlabel{fig:spectrograms}{{4.9}{69}{Spectrograms of four different recorded signals for the quasi-continuous superradiant laser. We can notice a common initial drift probably due to the time required for the laser to lock precisely to the cavity resonance.\relax }{figure.caption.56}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.11}{\ignorespaces Four different \textit  {chunks} of the map $\vert g^1(t_1, t_2) \vert $\relax }}{70}{figure.caption.58}\protected@file@percent }
-\newlabel{fig:sp-g12}{{4.11}{70}{Four different \textit {chunks} of the map $\vert g^1(t_1, t_2) \vert $\relax }{figure.caption.58}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.12}{\ignorespaces Non-stationary plot of $\vert g^1(t_1, t_2) \vert $ for the superradiant laser. The width (i.e $t_{1, max}$) and the height (i.e $t_{2, max}$) of this 2D map are naturally valued to 6ms.\relax }}{70}{figure.caption.59}\protected@file@percent }
-\newlabel{fig:medley}{{4.12}{70}{Non-stationary plot of $\vert g^1(t_1, t_2) \vert $ for the superradiant laser. The width (i.e $t_{1, max}$) and the height (i.e $t_{2, max}$) of this 2D map are naturally valued to 6ms.\relax }{figure.caption.59}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.13}{\ignorespaces Approximation of $\vert g^1(\tau ) \vert $ for the superradiant laser. The blue cross elements are the averaged samples whereas the red curve is a Gaussian fit. The first isolated blue point does not reach unity because of the downsampling effect. The Gaussian curves are lifted from the x-axis due to the finite amount of signal recorded (in theory, this plateau region after $\tau =0.15ms$ should tend to zero).\relax }}{71}{figure.caption.60}\protected@file@percent }
-\newlabel{fig:sp-stat}{{4.13}{71}{Approximation of $\vert g^1(\tau ) \vert $ for the superradiant laser. The blue cross elements are the averaged samples whereas the red curve is a Gaussian fit. The first isolated blue point does not reach unity because of the downsampling effect. The Gaussian curves are lifted from the x-axis due to the finite amount of signal recorded (in theory, this plateau region after $\tau =0.15ms$ should tend to zero).\relax }{figure.caption.60}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}Conclusion}{73}{chapter.5}\protected@file@percent }
+\newlabel{data_analysis_chapter}{{4}{62}{Data analysis}{chapter.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}Light detection: classical development}{62}{section.4.1}\protected@file@percent }
+\newlabel{x_r_in_r}{{4.1}{62}{Light detection: classical development}{equation.4.1.1}{}}
+\newlabel{square_integrable}{{4.2}{62}{Light detection: classical development}{equation.4.1.2}{}}
+\newlabel{x_def_z_zstar}{{4.6}{62}{Light detection: classical development}{equation.4.1.6}{}}
+\newlabel{x_eq_zc_zcstar}{{4.8}{63}{Light detection: classical development}{equation.4.1.8}{}}
+\newlabel{x_eq_zr_zrstar}{{4.9}{63}{Light detection: classical development}{equation.4.1.9}{}}
+\newlabel{beam_splitter_relation}{{4.10}{63}{Light detection: classical development}{equation.4.1.10}{}}
+\newlabel{x_out_a_def}{{4.11}{63}{Light detection: classical development}{equation.4.1.11}{}}
+\newlabel{x_out_b_def}{{4.12}{63}{Light detection: classical development}{equation.4.1.12}{}}
+\newlabel{i_a_minus_i_b}{{4.26}{64}{Light detection: classical development}{equation.4.1.26}{}}
+\newlabel{iaib_temp}{{4.29}{65}{Light detection: classical development}{equation.4.1.29}{}}
+\newlabel{zf_eq_f_p_g}{{4.33}{65}{Light detection: classical development}{equation.4.1.33}{}}
+\newlabel{zf_def}{{4.35}{66}{Light detection: classical development}{equation.4.1.35}{}}
+\newlabel{g1_in_our_case}{{4.36}{66}{Light detection: classical development}{equation.4.1.36}{}}
+\newlabel{g1_comput_form}{{4.42}{66}{Light detection: classical development}{equation.4.1.42}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}$g^1$ measurement for a standard laser}{67}{section.4.2}\protected@file@percent }
+\newlabel{fig:st-f-rough}{{4.1a}{67}{Plot of the raw data (voltage output of the detector) for one of the ten signals over 1.6 ms\relax }{figure.caption.49}{}}
+\newlabel{sub@fig:st-f-rough}{{a}{67}{Plot of the raw data (voltage output of the detector) for one of the ten signals over 1.6 ms\relax }{figure.caption.49}{}}
+\newlabel{fig:st-fft-rough}{{4.1b}{67}{Power spectrum associated to the same signal as \ref {fig:st-f-rough}. A lot of noise is generated at low frequency due to the electronic circuit. We clearly see the 44 MHz beat received.\relax }{figure.caption.49}{}}
+\newlabel{sub@fig:st-fft-rough}{{b}{67}{Power spectrum associated to the same signal as \ref {fig:st-f-rough}. A lot of noise is generated at low frequency due to the electronic circuit. We clearly see the 44 MHz beat received.\relax }{figure.caption.49}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces \relax }}{67}{figure.caption.49}\protected@file@percent }
+\newlabel{fig:st-f-bpf}{{4.2a}{68}{Same signal as \ref {fig:st-f-rough} with a band bass filter of 2 MHz centered on the 44 MHz feature.\relax }{figure.caption.50}{}}
+\newlabel{sub@fig:st-f-bpf}{{a}{68}{Same signal as \ref {fig:st-f-rough} with a band bass filter of 2 MHz centered on the 44 MHz feature.\relax }{figure.caption.50}{}}
+\newlabel{fig:st-fft-bpf}{{4.2b}{68}{Power spectrum of \ref {fig:st-f-bpf} centered on the main feature.\relax }{figure.caption.50}{}}
+\newlabel{sub@fig:st-fft-bpf}{{b}{68}{Power spectrum of \ref {fig:st-f-bpf} centered on the main feature.\relax }{figure.caption.50}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces \relax }}{68}{figure.caption.50}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces Non-stationary plot of $\vert g^1(t_1, t_2)\vert $ for a standard laser. Time in milliseconds on both axis. The color map does not reach unity because of the downsampling effect.\relax }}{68}{figure.caption.51}\protected@file@percent }
+\newlabel{fig:st-g12}{{4.3}{68}{Non-stationary plot of $\vert g^1(t_1, t_2)\vert $ for a standard laser. Time in milliseconds on both axis. The color map does not reach unity because of the downsampling effect.\relax }{figure.caption.51}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces Diagram of the method to transform the map $\vert g^1(t_1, t_2) \vert $ to $\vert g^1(\tau ) \vert $. The red box is the border of the summed data. The average is done along the blue diagonals and their symmetric along the green line where $t_1=t_2$.\relax }}{69}{figure.caption.52}\protected@file@percent }
+\newlabel{fig:to-st}{{4.4}{69}{Diagram of the method to transform the map $\vert g^1(t_1, t_2) \vert $ to $\vert g^1(\tau ) \vert $. The red box is the border of the summed data. The average is done along the blue diagonals and their symmetric along the green line where $t_1=t_2$.\relax }{figure.caption.52}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.5}{\ignorespaces Approximation of $\vert g^1(\tau ) \vert $ for the cavity laser. The curve does not reach unity for $\tau =0$ because of the downsampling effect.\relax }}{69}{figure.caption.53}\protected@file@percent }
+\newlabel{fig:st-stat}{{4.5}{69}{Approximation of $\vert g^1(\tau ) \vert $ for the cavity laser. The curve does not reach unity for $\tau =0$ because of the downsampling effect.\relax }{figure.caption.53}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}$g^1$ measurement for the superradiant laser}{70}{section.4.3}\protected@file@percent }
+\newlabel{fig:sp-f-rough}{{4.6a}{70}{Plot of the raw data (voltage output of the detector) for one of the fifty signals over ~6ms\relax }{figure.caption.54}{}}
+\newlabel{sub@fig:sp-f-rough}{{a}{70}{Plot of the raw data (voltage output of the detector) for one of the fifty signals over ~6ms\relax }{figure.caption.54}{}}
+\newlabel{fig:sp-fft-rough}{{4.6b}{70}{Power spectrum associated to the same signal as \ref {fig:sp-f-rough}. We clearly see the 43 MHz beat received with some interesting features on its close sides (less than 2 MHz away from the 43 MHz beat).\relax }{figure.caption.54}{}}
+\newlabel{sub@fig:sp-fft-rough}{{b}{70}{Power spectrum associated to the same signal as \ref {fig:sp-f-rough}. We clearly see the 43 MHz beat received with some interesting features on its close sides (less than 2 MHz away from the 43 MHz beat).\relax }{figure.caption.54}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.6}{\ignorespaces \relax }}{70}{figure.caption.54}\protected@file@percent }
+\newlabel{fig:sp-f-bpf}{{4.7a}{70}{Same signal as \ref {fig:st-f-rough} with a band bass filter of 5 MHz centered on the 43 MHz feature. We clearly see a burst of light before quasi-continuous lasing from 1 to 3 ms, then a progressive extinction.\relax }{figure.caption.55}{}}
+\newlabel{sub@fig:sp-f-bpf}{{a}{70}{Same signal as \ref {fig:st-f-rough} with a band bass filter of 5 MHz centered on the 43 MHz feature. We clearly see a burst of light before quasi-continuous lasing from 1 to 3 ms, then a progressive extinction.\relax }{figure.caption.55}{}}
+\newlabel{fig:sp-fft-bpf}{{4.7b}{70}{Power spectrum of \ref {fig:sp-f-bpf} centered on the main feature.\relax }{figure.caption.55}{}}
+\newlabel{sub@fig:sp-fft-bpf}{{b}{70}{Power spectrum of \ref {fig:sp-f-bpf} centered on the main feature.\relax }{figure.caption.55}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.7}{\ignorespaces \relax }}{70}{figure.caption.55}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.9}{\ignorespaces Spectrograms of four different recorded signals for the quasi-continuous superradiant laser. We can notice a common initial drift probably due to the time required for the laser to lock precisely to the cavity resonance.\relax }}{71}{figure.caption.57}\protected@file@percent }
+\newlabel{fig:spectrograms}{{4.9}{71}{Spectrograms of four different recorded signals for the quasi-continuous superradiant laser. We can notice a common initial drift probably due to the time required for the laser to lock precisely to the cavity resonance.\relax }{figure.caption.57}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.11}{\ignorespaces Four different \textit  {chunks} of the map $\vert g^1(t_1, t_2) \vert $\relax }}{72}{figure.caption.59}\protected@file@percent }
+\newlabel{fig:sp-g12}{{4.11}{72}{Four different \textit {chunks} of the map $\vert g^1(t_1, t_2) \vert $\relax }{figure.caption.59}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.12}{\ignorespaces Non-stationary plot of $\vert g^1(t_1, t_2) \vert $ for the superradiant laser. The width (i.e $t_{1, max}$) and the height (i.e $t_{2, max}$) of this 2D map are naturally valued to 6ms.\relax }}{72}{figure.caption.60}\protected@file@percent }
+\newlabel{fig:medley}{{4.12}{72}{Non-stationary plot of $\vert g^1(t_1, t_2) \vert $ for the superradiant laser. The width (i.e $t_{1, max}$) and the height (i.e $t_{2, max}$) of this 2D map are naturally valued to 6ms.\relax }{figure.caption.60}{}}
+\abx@aux@cite{0}{rloudon}
+\abx@aux@segm{0}{0}{rloudon}
+\abx@aux@cite{0}{mandelwolf}
+\abx@aux@segm{0}{0}{mandelwolf}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.13}{\ignorespaces Approximation of $\vert g^1(\tau ) \vert $ for the superradiant laser. The blue cross elements are the averaged samples whereas the red curve is a Gaussian fit. The first isolated blue point does not reach unity because of the downsampling effect. The Gaussian curves are lifted from the x-axis due to the finite amount of signal recorded (in theory, this plateau region after $\tau =0.15ms$ should tend to zero).\relax }}{73}{figure.caption.61}\protected@file@percent }
+\newlabel{fig:sp-stat}{{4.13}{73}{Approximation of $\vert g^1(\tau ) \vert $ for the superradiant laser. The blue cross elements are the averaged samples whereas the red curve is a Gaussian fit. The first isolated blue point does not reach unity because of the downsampling effect. The Gaussian curves are lifted from the x-axis due to the finite amount of signal recorded (in theory, this plateau region after $\tau =0.15ms$ should tend to zero).\relax }{figure.caption.61}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Conclusion}{75}{chapter.5}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {chapter}{\numberline {A}Mathematical complements}{75}{appendix.A}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {A}Mathematical complements}{77}{appendix.A}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {A.1}Jaynes-Cummings model}{75}{section.A.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {A.1.1}Unitary transformation}{75}{subsection.A.1.1}\protected@file@percent }
-\newlabel{unit_transfo}{{A.1.1}{75}{Unitary transformation}{subsection.A.1.1}{}}
-\newlabel{commut_first}{{A.3}{75}{Unitary transformation}{equation.A.1.3}{}}
-\newlabel{commut_sec}{{A.5}{75}{Unitary transformation}{equation.A.1.5}{}}
-\newlabel{commut_third}{{A.7}{75}{Unitary transformation}{equation.A.1.7}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {A.1.2}Eigenvalues and Eigenstates}{76}{subsection.A.1.2}\protected@file@percent }
-\newlabel{eigen_vals_states}{{A.1.2}{76}{Eigenvalues and Eigenstates}{subsection.A.1.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {A.1.3}Spatial evolution operator}{77}{subsection.A.1.3}\protected@file@percent }
-\newlabel{spatial_evol_op}{{A.1.3}{77}{Spatial evolution operator}{subsection.A.1.3}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {A.2}Cumulant expansion method for $\hat  {a}^\dag  $}{77}{section.A.2}\protected@file@percent }
-\newlabel{cumu_exp_for_ad}{{A.2}{77}{Cumulant expansion method for $\hat {a}^\dag $}{section.A.2}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {A.3}Notch filter formula}{78}{section.A.3}\protected@file@percent }
-\newlabel{notch_filter_formula}{{A.3}{78}{Notch filter formula}{section.A.3}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {A.1}{\ignorespaces Notch filter in its \textit  {standard} form (often presented like this in the literature). $Z_R$ is the impedance of the resistor. $Z_{LC}$ is the impedance of the capacity and the inductor.\relax }}{78}{figure.caption.61}\protected@file@percent }
-\newlabel{fig:notch-tension}{{A.1}{78}{Notch filter in its \textit {standard} form (often presented like this in the literature). $Z_R$ is the impedance of the resistor. $Z_{LC}$ is the impedance of the capacity and the inductor.\relax }{figure.caption.61}{}}
-\newlabel{phasor-vin-vout}{{A.42}{78}{Notch filter formula}{equation.A.3.42}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {B}Program implementations}{80}{appendix.B}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {A.1}Jaynes-Cummings model}{77}{section.A.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.1.1}Unitary transformation}{77}{subsection.A.1.1}\protected@file@percent }
+\newlabel{unit_transfo}{{A.1.1}{77}{Unitary transformation}{subsection.A.1.1}{}}
+\newlabel{commut_first}{{A.3}{77}{Unitary transformation}{equation.A.1.3}{}}
+\newlabel{commut_sec}{{A.5}{77}{Unitary transformation}{equation.A.1.5}{}}
+\newlabel{commut_third}{{A.7}{77}{Unitary transformation}{equation.A.1.7}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.1.2}Eigenvalues and Eigenstates}{78}{subsection.A.1.2}\protected@file@percent }
+\newlabel{eigen_vals_states}{{A.1.2}{78}{Eigenvalues and Eigenstates}{subsection.A.1.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.1.3}Spatial evolution operator}{79}{subsection.A.1.3}\protected@file@percent }
+\newlabel{spatial_evol_op}{{A.1.3}{79}{Spatial evolution operator}{subsection.A.1.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {A.2}Cumulant expansion method for $\hat  {a}^\dag  $}{79}{section.A.2}\protected@file@percent }
+\newlabel{cumu_exp_for_ad}{{A.2}{79}{Cumulant expansion method for $\hat {a}^\dag $}{section.A.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {A.3}Notch filter formula}{80}{section.A.3}\protected@file@percent }
+\newlabel{notch_filter_formula}{{A.3}{80}{Notch filter formula}{section.A.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A.1}{\ignorespaces Notch filter in its \textit  {standard} form (often presented like this in the literature). $Z_R$ is the impedance of the resistor. $Z_{LC}$ is the impedance of the capacity and the inductor.\relax }}{80}{figure.caption.62}\protected@file@percent }
+\newlabel{fig:notch-tension}{{A.1}{80}{Notch filter in its \textit {standard} form (often presented like this in the literature). $Z_R$ is the impedance of the resistor. $Z_{LC}$ is the impedance of the capacity and the inductor.\relax }{figure.caption.62}{}}
+\newlabel{phasor-vin-vout}{{A.42}{80}{Notch filter formula}{equation.A.3.42}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {B}Program implementations}{82}{appendix.B}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{prog_impl}{{B}{80}{Program implementations}{appendix.B}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {B.1}$g^1$ for stationary processes}{80}{section.B.1}\protected@file@percent }
-\newlabel{g1_stattionary_computer}{{B.2}{81}{$g^1$ for stationary processes}{equation.B.1.2}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {B.2}Random number generation}{81}{section.B.2}\protected@file@percent }
-\newlabel{dist_exp_gene}{{B.6}{81}{Random number generation}{equation.B.2.6}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {B.3}Signal generation and $g^1$ verification}{82}{section.B.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {B.1}{\ignorespaces Example of generation of a chaotic signal with a coherence time $\tau _c$ of 2 seconds. Period of $2\pi $ over approximately 20 seconds: 10 samples per period.\relax }}{82}{figure.caption.62}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {B.2}{\ignorespaces Example of generation of a perfectly coherent signal. Period of $2\pi $ over approximately 20 seconds: 10 samples per period. We clearly see the phase jumps occurring randomly. The space between each jump must follow an exponential distribution\relax }}{82}{figure.caption.63}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {B.3}{\ignorespaces Stationary $\vert g^1(\tau ) \vert $ for the two different sets. Left: $\tau _c=2$. Right: $\tau _c=10$. The orange curves are the theoretical predictions whereas the blue dotted curves are the numerical computation. The \textit  {bumpy} patterns are due to the finite interval of integration (in theory, the time interval is infinite and this plateau region should reach zero equally).\relax }}{83}{figure.caption.64}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {B.4}{\ignorespaces Example of non stationary plot of $\vert g^1(\tau ) \vert $ for one set of data (40 signals) with $\tau _c=2$.\relax }}{83}{figure.caption.65}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {B.4}Downsampling}{83}{section.B.4}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {B.5}{\ignorespaces Decimation effect over the spectrum of a discrete Fourier transformed signal. The features of the signal is repeated every $1/(MT)$ (the unit of the frequency is dependent on the unit of the x-axis of the signal).\relax }}{85}{figure.caption.66}\protected@file@percent }
-\newlabel{fig:dwsmpl-freq}{{B.5}{85}{Decimation effect over the spectrum of a discrete Fourier transformed signal. The features of the signal is repeated every $1/(MT)$ (the unit of the frequency is dependent on the unit of the x-axis of the signal).\relax }{figure.caption.66}{}}
-\newlabel{sigma_def}{{B.11}{85}{Downsampling}{equation.B.4.11}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {B.6}{\ignorespaces Example of a downsampling procedure with a Gaussian filter of 20 pixels. Each application of the filter gives one sample/pixel of the new signal/image. Four filters are applied on an image of 40 pixels: only the second (0 to 20th pixels) and the third (20th to 40th pixel) are represented. The first and fourth (i.e the side filters) are a bit more particular, thus not represented here. This diagram shows the overlap region when the Gaussian filter is applied on different parts of this 1D-image.\relax }}{86}{figure.caption.67}\protected@file@percent }
-\newlabel{fig:dwsmpl-filter}{{B.6}{86}{Example of a downsampling procedure with a Gaussian filter of 20 pixels. Each application of the filter gives one sample/pixel of the new signal/image. Four filters are applied on an image of 40 pixels: only the second (0 to 20th pixels) and the third (20th to 40th pixel) are represented. The first and fourth (i.e the side filters) are a bit more particular, thus not represented here. This diagram shows the overlap region when the Gaussian filter is applied on different parts of this 1D-image.\relax }{figure.caption.67}{}}
+\newlabel{prog_impl}{{B}{82}{Program implementations}{appendix.B}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {B.1}$g^1$ for stationary processes}{82}{section.B.1}\protected@file@percent }
+\newlabel{g1_stattionary_computer}{{B.2}{83}{$g^1$ for stationary processes}{equation.B.1.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {B.2}Random number generation}{83}{section.B.2}\protected@file@percent }
+\newlabel{dist_exp_gene}{{B.6}{83}{Random number generation}{equation.B.2.6}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {B.3}Signal generation and $g^1$ verification}{84}{section.B.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {B.1}{\ignorespaces Example of generation of a chaotic signal with a coherence time $\tau _c$ of 2 seconds. Period of $2\pi $ over approximately 20 seconds: 10 samples per period.\relax }}{84}{figure.caption.63}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {B.2}{\ignorespaces Example of generation of a perfectly coherent signal. Period of $2\pi $ over approximately 20 seconds: 10 samples per period. We clearly see the phase jumps occurring randomly. The space between each jump must follow an exponential distribution\relax }}{84}{figure.caption.64}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {B.3}{\ignorespaces Stationary $\vert g^1(\tau ) \vert $ for the two different sets. Left: $\tau _c=2$. Right: $\tau _c=10$. The orange curves are the theoretical predictions whereas the blue dotted curves are the numerical computation. The \textit  {bumpy} patterns are due to the finite interval of integration (in theory, the time interval is infinite and this plateau region should reach zero equally).\relax }}{85}{figure.caption.65}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {B.4}{\ignorespaces Example of non stationary plot of $\vert g^1(\tau ) \vert $ for one set of data (40 signals) with $\tau _c=2$.\relax }}{85}{figure.caption.66}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {B.4}Downsampling}{85}{section.B.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {B.5}{\ignorespaces Decimation effect over the spectrum of a discrete Fourier transformed signal. The features of the signal is repeated every $1/(MT)$ (the unit of the frequency is dependent on the unit of the x-axis of the signal).\relax }}{87}{figure.caption.67}\protected@file@percent }
+\newlabel{fig:dwsmpl-freq}{{B.5}{87}{Decimation effect over the spectrum of a discrete Fourier transformed signal. The features of the signal is repeated every $1/(MT)$ (the unit of the frequency is dependent on the unit of the x-axis of the signal).\relax }{figure.caption.67}{}}
+\newlabel{sigma_def}{{B.11}{87}{Downsampling}{equation.B.4.11}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {B.6}{\ignorespaces Example of a downsampling procedure with a Gaussian filter of 20 pixels. Each application of the filter gives one sample/pixel of the new signal/image. Four filters are applied on an image of 40 pixels: only the second (0 to 20th pixels) and the third (20th to 40th pixel) are represented. The first and fourth (i.e the side filters) are a bit more particular, thus not represented here. This diagram shows the overlap region when the Gaussian filter is applied on different parts of this 1D-image.\relax }}{88}{figure.caption.68}\protected@file@percent }
+\newlabel{fig:dwsmpl-filter}{{B.6}{88}{Example of a downsampling procedure with a Gaussian filter of 20 pixels. Each application of the filter gives one sample/pixel of the new signal/image. Four filters are applied on an image of 40 pixels: only the second (0 to 20th pixels) and the third (20th to 40th pixel) are represented. The first and fourth (i.e the side filters) are a bit more particular, thus not represented here. This diagram shows the overlap region when the Gaussian filter is applied on different parts of this 1D-image.\relax }{figure.caption.68}{}}
 \abx@aux@cite{0}{dicke}
 \abx@aux@segm{0}{0}{dicke}
 \abx@aux@cite{0}{introlindblad}
@@ -331,9 +355,10 @@
 \abx@aux@segm{0}{0}{mikkel}
 \abx@aux@cite{0}{stefan}
 \abx@aux@segm{0}{0}{stefan}
-\@writefile{toc}{\contentsline {chapter}{\numberline {C}Resources}{87}{appendix.C}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {C}Resources}{89}{appendix.C}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{lof}{\contentsline {figure}{\numberline {C.1}{\ignorespaces I personally call that \textit  {\textbf  {the beast}}: it is the main setup for the superradiant experiment.\relax }}{89}{figure.caption.69}\protected@file@percent }
 \abx@aux@read@bbl@mdfivesum{10572F6FAD746950F7DFC7AAC637EC8C}
 \abx@aux@defaultrefcontext{0}{exprepcumu}{nty/global//global/global}
 \abx@aux@defaultrefcontext{0}{cumujulia}{nty/global//global/global}
@@ -349,4 +374,4 @@
 \abx@aux@defaultrefcontext{0}{dicke}{nty/global//global/global}
 \abx@aux@defaultrefcontext{0}{stefan}{nty/global//global/global}
 \abx@aux@defaultrefcontext{0}{mikkel}{nty/global//global/global}
-\gdef \@abspage@last{92}
+\gdef \@abspage@last{94}
