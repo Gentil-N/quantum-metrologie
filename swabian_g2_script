@@ -1,0 +1,111 @@
+import matplotlib.pyplot as plt
+import TimeTagger
+import numpy as np
+import numba
+import threading
+
+def save_array(file_name, array):
+	f = open(file_name, "w)
+	string_file = ""
+	for dat in array:
+		string_file += str(int(dat)) + "\n"
+	f.write(string_file)
+	f.close()
+
+class CustomCount(TimeTagger.CustomMeasurement):
+	def __init__(self, tagger, trigger_channel, start_channel, stop_channel, start_time_g2, stop_time_g2):
+		TimeTagger.CustomMeasurement.__init__(self, tagger)
+		self.start_time_g2 = start_time_g2
+		self.stop_time_g2 = stop_time_g2
+		self.tau_length_pico = stop_time_g2 - start_time_g2
+		self.g2_tau = np.zeros(self.tau_length_pico)
+		self.trigger_channel = trigger_channel
+		self.start_channel = start_channel
+		self.stop_channel = stop_channel
+		self.record_enabled = False
+		self.last_start = 0
+		self.start_time = -1
+		
+		self.register_channel(trigger_channel)
+		self.register_channel(start_channel)
+		self.register_channel(stop_channel)
+		self.clear_impl()
+		self.finalize_init()
+		
+	def __del__(self):
+		self.stop()
+		
+	def on_start(self):
+		pass
+	
+	def on_stop(self):
+		pass
+		
+	def clear_impl(self):
+		self.g2_tau = np.zeros(self.tau_length_pico)
+		self.last_start = 0
+		self.start_time = -1
+		
+	def get_g2_tau(self):
+		with self.mutex:
+			return self.g2_tau.copy()
+			
+	@staticmethod
+	@numba.jit(nopython=True, nogil=True)
+	def fast_process(tags, g2_tau, trigger_channel, start_channel, stop_channel, start_time_g2, stop_time_g2, record_enabled, last_start, start_time):
+		for tag in tags:
+			if tag['type'] != TimeTagger.TagType.TimeTag:
+				print("ERROR!")
+				continue
+			if tag['channel'] == trigger_channel:
+				record_enabled = (record_enabled != True)
+				start_time = tag['time']
+				continue
+			elif record_enabled:
+				if tag['channel'] = start_channel and tag['time'] > start_time_g2 + start_time and tag['time'] < stop_time_g2 + start_time:
+					last_start = tag['time']
+				elif tag['channel'] = stop_channel and last_start != 0:
+					g2_tau[tag['time'] - last_start] += 1
+					last_start = 0
+		return [record_enabled, last_start, start_time]
+					
+	
+	def process(self, incoming_tags, begin_time, end_time):
+		ret = CustomCount.fast_process(incoming_tags, self.g2_tau, self.trigger_channel, self.start_channel, self.stop_channel, self.start_time_g2, self.stop_time_g2, self.record_enabled, self.last_start, self.start_time)
+		self.record_enabled = ret[0]
+		self.last_start = ret[1]
+		self.start_time = ret[2]
+		
+def save_data(array, trig_count):
+	print("Saving...")
+	if len(array) == 0:
+		print("No data to save!")
+		return
+	file_name = "data_g2_histogram_" + str(trig_count)
+	print("writing...")
+	save_array(file_name, array)
+	print("done")
+	
+
+
+RECORD_COUNT = 4
+RECORD_TIME = int(2E12)
+TRIGGER_CHANNEL = 1
+START_CHANNEL = 2
+STOP_CHANNEL = 3
+START_TIME_G2 = 1_000_000_000
+STOP_TIME_G2 = 4_000_000_000
+
+tagger = TimeTagger.createTimeTagger()
+tagger.setTriggerLevel(channel=TRIGGER_CHANNEL, voltage = 0.5)
+tagger.setTriggerLevel(channel=START_CHANNEL, voltage = 0.5)
+tagger.setTriggerLevel(channel=STOP_CHANNEL, voltage = 0.5)
+
+custom = CustomCount(tagger=tagger, trigger_channel=TRIGGER_CHANNEL, start_channel=START_CHANNEL, stop_channel=STOP_CHANNEL, start_time_g2=START_TIME_G2, stop_time_g2=STOP_TIME_G2)
+print("Start")
+for i in range(RECORD_COUNT):
+	custom.startFor(capture_duration=RECORD_TIME)
+	custom.waitUntilFinished()
+	save_data(custom.get_g2_tau(), i)
+	custom.clear()
+print("End")

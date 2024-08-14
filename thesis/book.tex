@@ -835,8 +835,10 @@ Firstly, we must  numerically determine all the constants of the generated set o
 	\item Detuning $\Delta\omega$: we consider the cavity field in resonance with the atomic transition. Thus, $\Delta\omega$ is null.
 	\item The cavity loss rate $\kappa$ is experimentally set to $2\pi \cdot 780$ kHz.
 	\item The decay rate into free space $\gamma$ is experimentally set to $2\pi \cdot 7.5$ kHz.
-	\item Individual coupling $g_0$:\footnote{The collective coupling is $Ng_0$. In the master equation, $g$ is equivalent to $g_0$: we implicitly used the individual coupling.} it is determine by the formula $g_0=\frac{1}{2}\sqrt{C_0\kappa\gamma}$ where $C_0$ is dependent on the Purcell factor $F$ with $C_0=\frac{6\lambda^2}{\pi^3w_0^2}F$. The wavelength $\lambda$ is $689nm$, $F=1000$ and $w_0=450$µm. This gives us $g_0\simeq5117.82$Hz. Thus, the parameters respect the condition $g_0\ll(\kappa, \gamma)$ for the weak coupling. To respect the strong collective coupling condition $(\kappa, \gamma) \ll Ng_0$ where $N$ is the number of atoms, the cavity must be filled with at least ten thousands atoms in order for $Ng_0$ to be an order of magnitude higher than $\kappa$.
-	\item The repumping rate $\nu$ is numerically determined step by step in order to reach a null atomic inversion at steady state (In the actual experiment, the atomic inversion is kept slightly above zero). For a \textit{long time} $t_\infty$, we are looking for $\left\langle \hat{S}_z(t_\infty) \right\rangle \gtrsim 0$ which corresponds to a state $\ket{j=N/2, m \gtrsim 0}$. As the repumping rate is dependent on the number of atoms inside the cavity, the determination of $\nu$ is done for three set of atom numbers: ten thousand, a hundred thousand and three hundred thousands atoms. The repumping rate is evaluated so that the ratio:
+	\item Individual atom-cavity coupling $g_0$:\footnote{The collective coupling is $Ng_0$. In the master equation, $g$ is equivalent to $g_0$: we implicitly used the individual coupling in previous section.} it is determined by the formula $g_0=\frac{1}{2}\sqrt{C_0\kappa\gamma}$ where $C_0$ is the cavity cooperativity\footnote{The strength of coupling between a single atom in the ensemble and the cavity mode relative
+to free-space modes is described using a metric known as the cavity cooperativity.} dependent on the finesse $F$ with $C_0=\frac{6\lambda^2}{\pi^3w_0^2}F$. The wavelength $\lambda$ used in the experiment is approximately $689nm$. The finesse from the
+measured linewidth of $\kappa / (2\pi) \simeq 800$ kHz is $F \simeq 1000$. The waist radius of the cavity is $w_0=450$ µm. This gives us $g_0\simeq5117.82$ Hz. Thus, the parameters respect the condition $g_0\ll(\kappa, \gamma)$ for the weak coupling. To respect the strong collective coupling\footnote{Involving a large collective cooperativity.} condition $(\kappa, \gamma) \ll Ng_0$ where $N$ is the number of atoms, the cavity must be filled with at least ten thousands atoms in order for $Ng_0$ to be an order of magnitude higher than $\kappa$.
+	\item The repumping rate $\nu$ is numerically determined step by step in order to reach a null atomic inversion at steady state (In the actual experiment, the atomic inversion is kept slightly above zero). For a \textit{long time} $t_\infty$, we are looking for $\left\langle \hat{S}_z(t_\infty) \right\rangle \gtrsim 0$ which corresponds to a state $\ket{j=N/2, m \gtrsim 0}$. As the repumping rate is dependent on the number of atoms inside the cavity, the determination of $\nu$ is done for three sets of atom numbers: ten thousand, a hundred thousand and three hundred thousands atoms. The repumping rate is evaluated so that the ratio:
 \begin{equation}
 \label{special_ratio}
 \frac{\left\langle \hat{S}_z(t_\infty) \right\rangle + \left\langle \hat{S}_z \right\rangle _{max}}{2\left\langle \hat{S}_z \right\rangle _{max}} = \frac{\left\langle \hat{S}_z(t_\infty) \right\rangle}{2\left\langle \hat{S}_z \right\rangle _{max}} + \frac{1}{2} = \frac{\left\langle \hat{S}_z(t_\infty) \right\rangle}{N} + \frac{1}{2}
@@ -1203,7 +1205,7 @@ Firstly, we introduce a basic diagram on the working principle of the detector i
 
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.6\textwidth]{detector-fst}
+\includegraphics[width=0.5\textwidth]{detector-fst}
 \caption{Basic electric circuit showing the working principle of the detector. "Block 1" is composed of two photodiodes whereas "Block 2" is mainly composed of the transimpedance amplifier circuit.}
 \label{fig:detector-fst}
 \end{figure}
@@ -1297,8 +1299,8 @@ In theory (i.e from the data sheets) we have a total capacitance of $9pF$ (pico-
 
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.7\textwidth]{detector-sec}
-\caption{Detetector's circuit design with the additional filters between the photodiodes and the transimpedance amplifier.}
+\includegraphics[width=0.6\textwidth]{detector-sec}
+\caption{Detector's circuit design with the additional filters between the photodiodes and the transimpedance amplifier.}
 \label{fig:detector-sec}
 \end{figure}
 
@@ -1332,7 +1334,7 @@ As we can see, compared to the transimpedance amplifier, this circuit in figure 
 
 \begin{figure}[h!]
 \centering
-\includegraphics[width=\textwidth]{total_gain_original}
+\includegraphics[width=0.7\textwidth]{total_gain_original}
 \caption{Total gain of the circuit with original components. It shows how the output power is increased/reduced compared to the input power of the circuit as function of the frequency of the input signal. The 43 MHz input frequency is not affected by the filters.}
 \label{fig:total_gain_original}
 \end{figure}
@@ -1341,7 +1343,7 @@ However, we stated before that the noise is generated from the non-inverting inp
 
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.5\textwidth]{transimp}
+\includegraphics[width=0.4\textwidth]{transimp}
 \caption{Basic circuit design of a transimpedance amplifier. $V
 _{in}$ is the voltage noise generated by the op-amp at its non-inverting input. $Z_{in}$ and $Z_f$ are two impedance of the associated passive component (it can be a resistor, capacitor, inductor...)}
 \label{fig:transimp}
@@ -1355,8 +1357,8 @@ where $Z_f$ is basically a resistor\footnote{On the real electronic scheme \ref{
 
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.95\textwidth]{elec-scheme}
-\caption{Full electronic scheme of the actual detector. The actual component values may differ from reality as this figure has been produced for several \textit{type} of the same detector. We basically see the circuit of figure \ref{fig:detector-sec} on the left.}
+\includegraphics[width=0.90\textwidth]{elec-scheme}
+\caption{Full electronic scheme of the actual detector. The actual component values may differ from reality as this figure has been produced for several \textit{types} of the same detector. We basically see the circuit of figure \ref{fig:detector-sec} on the left.}
 \label{fig:elec-scheme}
 \end{figure}
 
@@ -1364,7 +1366,7 @@ From simulation of the electronic scheme \ref{fig:elec-scheme}, we get the follo
 
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.8\textwidth]{noise_gain_opamp_original}
+\includegraphics[width=0.75\textwidth]{noise_gain_opamp_original}
 \caption{Simulated noise gain graph with the original components. The notch (left vertical line) and tank filter (right vertical line) are positioned as predicted.}
 \label{fig:noise_gain_opamp_original}
 \end{figure}
@@ -1408,14 +1410,19 @@ f_{tank} = \frac{1}{2\pi\sqrt{0.82 \times 10^{-6} \times 14 \times 10^{-12}}} \s
 which appears to be $3$MHz out of resonance. However, when simulating the full circuit with this new value for the inductor, one obtains the graph \ref{fig:noise_gain_opamp_new}.
 \begin{figure}[h!]
 \centering
-\includegraphics[width=\textwidth]{noise_gain_opamp_new}
+\includegraphics[width=0.9\textwidth]{noise_gain_opamp_new}
 \caption{Simulated noise gain graph with the new inductor. Notch filter marked by the vertical line on the left. Tank filter marked by the vertical line on the right. The associated frequencies correspond approximately to the theory.}
 \label{fig:noise_gain_opamp_new}
-\end{figure} The hollow of $-170$dB clearly corresponds to the $43$MHz resonance. Thus, modifying the inductor to $0.82\mu F$ should move the hollow to the correct position of $43$MHz. Moreover, in the worst case of misunderstanding this misalignment with the theoretical resonances, the inductor would change values from several hundreds of micro-Farads, in order to reach a theoretical maximum of $60$MHz: for example, taking $L=0.5\mu F$ would give approximately $60$MHz of resonance for the hollow and considering a shift to the left, we should attain the targeted hollow of $43$MHz. In that way, we commanded several inductors of values ranging $100nF$ to $2\mu F$ and replace the original inductor by removing and making a new soldered joint.
+\end{figure} 
+The hollow of $-170$dB clearly corresponds to the $43$MHz resonance. Thus, modifying the inductor to $0.82\mu F$ should move the hollow to the correct position of $43$MHz. Moreover, in the worst case of misunderstanding this misalignment with the theoretical resonances, the inductor would change values from several hundreds of micro-Farads, in order to reach a theoretical maximum of $60$MHz: for example, taking $L=0.5\mu F$ would give approximately $60$MHz of resonance for the hollow and considering a shift to the left, we should attain the targeted hollow of $43$MHz. In that way, we commanded several inductors of values ranging $100nF$ to $2\mu F$ and replace the original inductor by removing and making a new soldered joint.
 
-Picture of the detector
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.3\textwidth]{detector_pic}
+\caption{Picture focused on the notch filter of the circuit (beside the finger, on the left). The old inductor has been removed and the new one is not set yet. We can easily notice the tiny size of the components. Note that a previous person dropped solder almost everywhere (which is dangerous as it may create short circuits).}
+\end{figure} 
 
-At the end of the day, we have an inductor of exactly $0.8\mu F$ which allows a nice hollow of the noise gain of roughly $55$ dBm under maximum (i.e 55 dBm under the notch filter's pick.
+At the end of the day, we have an inductor of exactly $0.8\mu F$ which allows a nice hollow of the noise gain of roughly $55$ dBm under maximum (i.e 55 dBm under the notch filter's pick).
 
 \begin{figure}[h!]
 \centering
@@ -1436,17 +1443,17 @@ At the end of the day, we have an inductor of exactly $0.8\mu F$ which allows a 
 \label{fig:exp_spec_m}
 \end{figure}
 
-The graph \ref{fig:mpeak} also shows the peak from the Notch filter which, by virtue of \eqref{rlc_resonance} moved to the right at approximately $900$ kHz where, from simulation, we were expecting it at $700$ kHz. However, the hollow on graph \ref{fig:mdeep} is very well localized around the expected light frequency of $43$MHz.
+The graph \ref{fig:mpeak} also shows the peak from the Notch filter which, by virtue of \eqref{rlc_resonance} moved to the right at approximately $900$ kHz where, from simulation, we were expecting it at $700$ kHz. This filter clearly does not affect the range of frequencies close to 43 MHz, but only increases the noise and the total gain for very low frequencies (i.e below 1 MHz): we can predict that the output signal would need a band-pass filter in order to remove the low frequency noise. However, the hollow on graph \ref{fig:mdeep} is very well localized around the expected light frequency of $43$ MHz.
 
-Moreover, the new total gain graph \ref{fig:total_gain_new} clearly shows that the ouput voltage is not affected by the filters.
+Moreover, the new total gain graph \ref{fig:total_gain_new} clearly shows that the output voltage is not affected by the tank filter.
 
-Finally, we succeeded to modify the detector with our frequency requirements by replacing some components of the filters, in order to reduce as much as possible the electrical noise coming from the active components, namely the op-amp.
+Finally, we succeeded to modify the detector with our frequency requirements by replacing one component of the filter, in order to reduce as much as possible the electrical noise coming from the active component, namely the op-amp.
 
 The next sections will focus on the parametrization/configuration of the detector which involves, among others, saturation test, amplification noise test and technical procedures in order to make sure that the experiment works in the parameter's range of the detector.
 
 \begin{figure}[h!]
 \centering
-\includegraphics[width=\textwidth]{total_gain_new}
+\includegraphics[width=0.7\textwidth]{total_gain_new}
 \caption{Total gain of the circuit with the new inductor. The 43 MHz frequency is not affected by the filters.}
 \label{fig:total_gain_new}
 \end{figure}
@@ -2251,7 +2258,7 @@ Finally, we experimentally determined a time interval of three to four milliseco
 
 Those poor results for the numerical part are a personal deception as I have spent a certain amount of energy writing and optimizing the full algorithm generating the sets of equations as well as the solver. However, this theoretical modeling and simulation allowed me to read tens of related articles from which I have clearly extended my understanding on open quantum systems and their numerical approach. Similarly, the experimentation brought me to the edge of my previous capacities, thus enhanced my skills in experimental setup, signal processing and electronics: I learned that being a researcher, especially an experimentalist, force you to, not only excel in your domain (here, quantum optics), but also be a multidisciplinary specialist for which, I think, I managed to control for this project.
 
-As I write those lines, the results for the second order correlation function have been in preparation for the last month now. Another setup is already built, including fiber coupling, single photon detectors, numerical processing etc. This involve intensity interferometry, thus photon correlation, quantum noise attenuation: this experiment is related to the Hanbury-Brown-Twiss experiment. It requires then a quantum development of the detection to reveal the autocorrelation $g^2(\tau)$ into the final computed data. As the first order correlation function is clearly Gaussian-shaped, we shall use the \textit{Siegert} relation $\vert g^2(\tau) \vert = 1 + \vert g^1(\tau) \vert^2$ in order to confirm the results. In short, very interesting physics are incoming for which, I regret, should have been written in this thesis but as the single photon detectors are borrowed from another team, the whole process took more time than expected\footnote{Those two little detectors cost roughly ten thousands euros! The price of a new car! Therefore, as the quantum metrology group use them only for this project, we prefer to save the money and borrow them from very kind colleagues.} \footnote{The experiment during the first semester (September to October) has also been be slightly delayed as the \textit{master reference laser} of the lab (serving as reference for all the experiments) was in a servicing process in Austria as it has been used during four years without fine verification.}. However, if I succeed to extract the right data and understand the process leading to those results, this work should lead to an article in collaboration with S.A.Schäffer.
+As I write those lines, the results for the second order correlation function have been in preparation for the last month now. Another setup is already built, including fiber coupling, single photon detectors, numerical processing etc. This involve intensity interferometry, thus photon correlation, quantum noise attenuation: this experiment is related to the Hanbury-Brown-Twiss experiment. It requires then a quantum development of the detection to reveal the autocorrelation $g^2(\tau)$ into the final computed data. As the first order correlation function is clearly Gaussian-shaped, we shall use the \textit{Siegert} relation $\vert g^2(\tau) \vert = 1 + \vert g^1(\tau) \vert^2$ in order to confirm the results. In short, very interesting physics are incoming for which, I regret, should have been written in this thesis but as the single photon detectors are borrowed from another team, the whole process took more time than expected\footnote{Those two little detectors cost roughly ten thousands euros! The price of a new car! Therefore, as the quantum metrology group use them only for this project, we prefer to save the money and borrow them from very kind colleagues.} \footnote{The experiment during the first semester (September to October) has also been be slightly delayed as the \textit{master reference laser} of the lab (serving as reference for all the experiments) was in a servicing process in Australia as it has been used during four years without fine verification.}. However, if I succeed to extract the right data and understand the process leading to those results, this work should lead to an article in collaboration with S.A.Schäffer.
 
 \appendix
 \chapter{Mathematical complements}
@@ -2659,7 +2666,7 @@ Finally, the Gaussian filter is normalized: from the previous example, the filte
 \label{appendix_res}
 
 My github repository with ALL the programs, results, data, articles: \href{https://github.com/Gentil-N/quantum-metrologie/}{https://github.com/Gentil-N/quantum-metrologie/}.
-There is absolutely NO description inside the repository as it was not supposed to be used by someone else. But feel free to glance over the folders! If the reader wants to execute the code, remember to create and activate the python environment: please, inspect the file \path{setup-linux.sh} in the root folder (the commands can be easily converted for an other OS). Basically, to execute any python file, the python libraries  \textit{numpy}, \textit{scipy}, \textit{matplotlib}, \textit{h5py} and \textit{qutip} must be available in the current environment\footnote{Note that I may forgot some dependencies...}. The unique C++ file \path{/g1_algo/speedup.cpp} needs a much more complex command to compile. However, the file \path{/g1_algo/speedup} is already compiled for x86-64 systems under linux. If you really want to make the whole stuff working on your computer, please contact me at \textbf{\href{mailto:ngentil77@gmail.com}{ngentil77@gmail.com}}.
+There is absolutely NO description inside the repository as it was not supposed to be used by someone else. But feel free to glance over the folders! If the reader wants to execute the code, remember to create and activate the python environment: please, inspect the file \path{setup-linux.sh} in the root folder (the commands can be easily converted for an other OS). Basically, to execute any python file, the python libraries  \textit{numpy}, \textit{scipy}, \textit{matplotlib}, \textit{h5py} and \textit{qutip} must be available in the current environment\footnote{Note that I may forget some dependencies...}. The unique C++ file \path{/g1_algo/speedup.cpp} needs a much more complex command to compile. However, the file \path{/g1_algo/speedup} is already an executable for x86-64 systems under linux. If the reader really wants to make the whole stuff working on your computer, please contact me at \textbf{\href{mailto:ngentil77@gmail.com}{ngentil77@gmail.com}}.
 
 Some useful articles: \cite{dicke}, \cite{introlindblad}, \cite{cumujulia}, \cite{jcumlarson}, \cite{exprepcumu}, \cite{exprepcumuryogo}, \cite{lindmatrix}.
 
